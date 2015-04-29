@@ -55,15 +55,16 @@ _DUART_INIT: MOVE.L A1,-(A7)			| Save A1
 | The newline character <CR> is expanded into <LF>/<CR>.
 | Define a subroutine DUA_PUTC, which print the character contained in D0
 |
-
-DUA_PUTC:	BTST #2,DUA_SRA+DUA_ADD	| Test Transmit data register empty
-	BEQ.S	DUA_PUTC				| If not keep polling
-	MOVE.B	D0,DUA_TBA+DUA_ADD		| Transmit the character
-	CMP.B	#LINEFEED,D0			| Check for LINEFEED
-	BNE		DUA_PUTCEXT				| if not L/F, exit
-	MOVE.B	#CARR_RETURN,D0			| Load CARR_RETURN into D0
-	BRA		DUA_PUTC				| Output C/R
-DUA_PUTCEXT: RTS
+DUA_PUTC:
+	BTST #2,DUA_SRA+DUA_ADD		| Test Transmit data register empty
+	BEQ.S	DUA_PUTC		| If not keep polling
+	MOVE.B	D0,DUA_TBA+DUA_ADD	| Transmit the character
+	CMP.B	#LINEFEED,D0		| Check for LINEFEED
+	BNE	DUA_PUTCEXT		| if not L/F, exit
+	MOVE.B	#CARR_RETURN,D0		| Load CARR_RETURN into D0
+	BRA	DUA_PUTC		| Output C/R
+DUA_PUTCEXT:
+	RTS
 
 .global _DUART_PUTC
 _DUART_PUTC:	LINK A6,#-2
@@ -75,28 +76,29 @@ _DUART_PUTC:	LINK A6,#-2
 |
 | _DUART_GETC: Get a character from the CONSOLE ACIA and return it in D0
 |
-
 .global _DUART_GETC
-_DUART_GETC:	BTST	#0,DUA_SRA+DUA_ADD	| Test Receive data register full
-	BEQ.S	_DUART_GETC					| If not keep polling
-	MOVE.B	DUA_RBA+DUA_ADD,D0			| Read the character
+_DUART_GETC:
+	BTST	#0,DUA_SRA+DUA_ADD	| Test Receive data register full
+	BEQ.S	_DUART_GETC		| If not keep polling
+	MOVE.B	DUA_RBA+DUA_ADD,D0	| Read the character
 	RTS
 
 |
 | _DUART_PRINT: print a string of charater, until null
 | 
 .global _DUART_PRINT
-_DUART_PRINT:	MOVE.L		D0,-(A7)	| Save register d0 to stack
-DUAPRLOOP:		MOVE.B		(A0)+,D0	| Get a character to print
-		CMP.B	#0x00,D0				| Is it null?
-		BEQ		DUAPRNTEND				| yes: it's over
-		JSR		DUA_PUTC				| no: print it
-		BRA		DUAPRLOOP				| repeat
-DUAPRNTEND:	MOVE.L		(A7)+,D0		| Restore d0
-		RTS
+_DUART_PRINT:
+	MOVE.L		D0,-(A7)	| Save register d0 to stack
+DUAPRLOOP:
+	MOVE.B		(A0)+,D0	| Get a character to print
+	CMP.B		#0x00,D0	| Is it null?
+	BEQ		DUAPRNTEND	| yes: it's over
+	JSR		DUA_PUTC	| no: print it
+	BRA		DUAPRLOOP	| repeat
+DUAPRNTEND:
+	MOVE.L		(A7)+,D0	| Restore d0
+	RTS
 
 | 
 | End of file
 |
-
-

@@ -5,16 +5,16 @@
  *
  *    Function: processFile()
  *		Assembles the input file. For each pass, the function
- *		passes each line of the input file to assemble() to be 
- *		assembled. The routine also makes sure that errors are 
- *		printed on the screen and listed in the listing file 
- *		and keeps track of the error counts and the line 
+ *		passes each line of the input file to assemble() to be
+ *		assembled. The routine also makes sure that errors are
+ *		printed on the screen and listed in the listing file
+ *		and keeps track of the error counts and the line
  *		number.
  *
  *		assemble()
  *		Assembles one line of assembly code. The line argument
- *		points to the line to be assembled, and the errorPtr 
- *		argument is used to return an error code via the 
+ *		points to the line to be assembled, and the errorPtr
+ *		argument is used to return an error code via the
  *		standard mechanism. The routine first determines if the
  *		line contains a label and saves the label for later
  *		use. It then calls instLookup() to look up the
@@ -26,7 +26,7 @@
  *		instruction, calling the proper routine if a match is
  *		found. If parseFlag is FALSE, it passes pointers to the
  *		label and operands to the specified routine for
- *		processing. 
+ *		processing.
  *
  *	 Usage: processFile()
  *
@@ -41,8 +41,6 @@
  *
  *   Copyright 1990-1991 North Carolina State University. All Rights Reserved.
  *
- ******************************************************************************
- * $Id: assemble.c,v 1.1 1996/08/02 14:39:54 bwmott Exp $
  *****************************************************************************/
 
 #include <stdio.h>
@@ -62,12 +60,14 @@ extern FILE *inFile;		/* Input file */
 extern FILE *listFile;		/* Listing file */
 extern char listFlag;
 
+void assemble(char *line, int *errorPtr);
 
-processFile()
+void
+processFile(void)
 {
-char capLine[256];
-int error;
-char pass;
+	char capLine[256];
+	int error;
+	char pass;
 
 	pass2 = FALSE;
 	for (pass = 0; pass < 2; pass++) {
@@ -75,7 +75,7 @@ char pass;
 		lineNum = 1;
 		endFlag = FALSE;
 		errorCount = warningCount = 0;
-		while(!endFlag && fgets(line, 256, inFile)) {
+		while (!endFlag && fgets(line, 256, inFile)) {
 			strcap(capLine, line);
 			error = OK;
 			continuation = FALSE;
@@ -88,35 +88,34 @@ char pass;
 				else if (error > WARNING)
 					warningCount++;
 				if (listFlag) {
-					listLine(line, lineNum);
+					listLine();
 					printError(listFile, error, -1);
-					}
-				printError(stderr, error, lineNum);
 				}
-			lineNum++;
+				printError(stderr, error, lineNum);
 			}
+			lineNum++;
+		}
 		if (!pass2) {
 			pass2 = TRUE;
 /*			puts("************************************************************");
 			puts("********************  STARTING PASS 2  *********************");
 			puts("************************************************************"); */
-			}
-		rewind(inFile);
 		}
+		rewind(inFile);
+	}
 }
 
-
-assemble(line, errorPtr)
-char *line;
-int *errorPtr;
+void
+assemble(char *line, int *errorPtr)
 {
-symbolDef *define();
-instruction *tablePtr;
-flavor *flavorPtr;
-opDescriptor source, dest;
-char *p, *start, label[SIGCHARS+1], size, f, sourceParsed, destParsed;
-char *skipSpace(), *instLookup(), *opParse();
-unsigned short mask, i;
+	symbolDef *define();
+	instruction *tablePtr;
+	flavor *flavorPtr;
+	opDescriptor source, dest;
+	char *p, *start, label[SIGCHARS + 1], size, f, sourceParsed,
+	    destParsed;
+	char *skipSpace(), *instLookup(), *opParse();
+	unsigned short mask, i;
 
 	p = start = skipSpace(line);
 	if (*p && *p != '*') {
@@ -125,7 +124,8 @@ unsigned short mask, i;
 			if (i < SIGCHARS)
 				label[i++] = *p;
 			p++;
-		} while (isalnum(*p) || *p == '.' || *p == '_' || *p == '$');
+		} while (isalnum(*p) || *p == '.' || *p == '_'
+			 || *p == '$');
 		label[i] = '\0';
 		if ((isspace(*p) && start == line) || *p == ':') {
 			if (*p == ':')
@@ -134,12 +134,11 @@ unsigned short mask, i;
 			if (*p == '*' || !*p) {
 				define(label, loc, pass2, errorPtr);
 				return;
-				}
 			}
-		else {
+		} else {
 			p = start;
 			label[0] = '\0';
-			}
+		}
 		p = instLookup(p, &tablePtr, &size, errorPtr);
 		if (*errorPtr > SEVERE)
 			return;
@@ -150,82 +149,89 @@ unsigned short mask, i;
 			if (loc & 1) {
 				loc++;
 				listLoc();
-				}
+			}
 			if (*label)
 				define(label, loc, pass2, errorPtr);
 			if (*errorPtr > SEVERE)
 				return;
 			sourceParsed = destParsed = FALSE;
 			flavorPtr = tablePtr->flavorPtr;
-			for (f = 0; (f < tablePtr->flavorCount); f++, flavorPtr++) {
+			for (f = 0; f < tablePtr->flavorCount;
+			     f++, flavorPtr++) {
 				if (!sourceParsed && flavorPtr->source) {
 					p = opParse(p, &source, errorPtr);
 					if (*errorPtr > SEVERE)
 						return;
-/*					printOp(&source, "source"); */
 					sourceParsed = TRUE;
-					}
+				}
 				if (!destParsed && flavorPtr->dest) {
 					if (*p != ',') {
-						NEWERROR(*errorPtr, SYNTAX);
+						NEWERROR(*errorPtr,
+							 SYNTAX);
 						return;
-						}
-					p = opParse(p+1, &dest, errorPtr);
+					}
+					p = opParse(p + 1, &dest,
+						    errorPtr);
 					if (*errorPtr > SEVERE)
 						return;
 					if (!isspace(*p) && *p) {
-						NEWERROR(*errorPtr, SYNTAX);
+						NEWERROR(*errorPtr,
+							 SYNTAX);
 						return;
-						}
-/*					printOp(&dest, "destination"); */
-					destParsed = TRUE;
 					}
+					destParsed = TRUE;
+				}
 				if (!flavorPtr->source) {
-/*					puts("Zero-operand instruction found"); */
-					mask = pickMask(size, flavorPtr, errorPtr);
+					mask = pickMask(size, flavorPtr,
+						     errorPtr);
 					(*flavorPtr->exec)(mask, errorPtr);
 					return;
-					}
-				else if ((source.mode & flavorPtr->source) && !flavorPtr->dest) {
-/*					puts("One operand instruction found"); */
+				} else
+				    if ((source.mode & flavorPtr->source)
+					&& !flavorPtr->dest) {
 					if (!isspace(*p) && *p) {
-						NEWERROR(*errorPtr, SYNTAX);
+						NEWERROR(*errorPtr,
+							 SYNTAX);
 						return;
-						}
-					mask = pickMask(size, flavorPtr, errorPtr);
-					(*flavorPtr->exec)(mask, size, &source, &dest, errorPtr);
-					return;
 					}
-				else if (source.mode & flavorPtr->source
-					 && dest.mode & flavorPtr->dest) {
-/*					puts("Two operand instruction found"); */
-					mask = pickMask(size, flavorPtr, errorPtr);
-					(*flavorPtr->exec)(mask, size, &source, &dest, errorPtr);
+					mask = pickMask(size, flavorPtr,
+						        errorPtr);
+					(*flavorPtr->exec)(mask, size,
+							   &source, &dest,
+							   errorPtr);
 					return;
-					}
+				} else if (source.mode & flavorPtr->source
+					   && dest.mode & flavorPtr->
+					   dest) {
+					mask =
+					    pickMask(size, flavorPtr,
+						     errorPtr);
+					(*flavorPtr->exec) (mask, size,
+							    &source, &dest,
+							    errorPtr);
+					return;
 				}
+			}
 			NEWERROR(*errorPtr, INV_ADDR_MODE);
-			}
-		else {
-			(*tablePtr->exec)(size, label, p, errorPtr);
+		} else {
+			(*tablePtr->exec) (size, label, p, errorPtr);
 			return;
-			}
 		}
+	}
 }
 
 
-int pickMask(size, flavorPtr, errorPtr)
-int size;
-flavor *flavorPtr;
-int *errorPtr;
+int
+pickMask(int size, flavor * flavorPtr, int *errorPtr)
 {
-	if (!size || size & flavorPtr->sizes)
+	if (!size || size & flavorPtr->sizes) {
 		if (size & (BYTE | SHORT))
 			return flavorPtr->bytemask;
-		else if (!size || size == WORD)
+		if (!size || size == WORD)
 			return flavorPtr->wordmask;
-		else
-			return flavorPtr->longmask;
+		return flavorPtr->longmask;
+	}
 	NEWERROR(*errorPtr, INV_SIZE_CODE);
+
 	return flavorPtr->wordmask;
 }

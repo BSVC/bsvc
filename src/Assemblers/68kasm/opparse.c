@@ -16,7 +16,7 @@
  *
  *		 mode      returns the address mode (symbolic values
  *			   defined in ASM.H)
- *		 reg       returns the address or data register number 
+ *		 reg       returns the address or data register number
  *		 data      returns the displacement or address or
  *			   immediate value
  *		 backRef   TRUE if data is the value of an expression
@@ -28,7 +28,7 @@
  *			   register
  *
  *		The argument errorPtr is used to return an error code
- *		via the standard mechanism. 
+ *		via the standard mechanism.
  *
  *	 Usage:	char *opParse(p, d, errorPtr)
  *		char *p;
@@ -42,13 +42,11 @@
  *
  *    Revision: 10/26/87
  *		Altered the immediate mode case to correctly flag
- *		constructs such as "#$1000(A5)" as syntax errors. 
+ *		constructs such as "#$1000(A5)" as syntax errors.
  *
  *   Copyright 1990-1991 North Carolina State University. All Rights Reserved.
  *
  *
- ******************************************************************************
- * $Id: opparse.c,v 1.1 1996/08/02 14:45:12 bwmott Exp $
  *****************************************************************************/
 
 
@@ -64,12 +62,10 @@ extern unsigned char absLongFlag;
 #define isTerm(c)   (isspace(c) || (c == ',') || c == '\0')
 #define isRegNum(c) ((c >= '0') && (c <= '7'))
 
-char *opParse(p, d, errorPtr)
-char *p;
-opDescriptor *d;
-int *errorPtr;
+char *
+opParse(char *p, opDescriptor * d, int *errorPtr)
 {
-char *eval();
+	char *eval();
 
 	/* Check for immediate mode */
 	if (p[0] == '#') {
@@ -79,53 +75,51 @@ char *eval();
 			if (isTerm(*p)) {
 				d->mode = Immediate;
 				return p;
-				}
-			else {
+			} else {
 				NEWERROR(*errorPtr, SYNTAX);
 				return NULL;
-				}
 			}
-		else
+		} else
 			return NULL;
-		}
+	}
 	/* Check for address or data register direct */
 	if (isRegNum(p[1]) && isTerm(p[2])) {
 		if (p[0] == 'D') {
 			d->mode = DnDirect;
 			d->reg = p[1] - '0';
 			return (p + 2);
-			}
-		else if (p[0] == 'A') {
+		} else if (p[0] == 'A') {
 			d->mode = AnDirect;
 			d->reg = p[1] - '0';
 			return (p + 2);
-			}
 		}
+	}
 	/* Check for Stack Pointer (i.e., A7) direct */
 	if (p[0] == 'S' && p[1] == 'P' && isTerm(p[2])) {
 		d->mode = AnDirect;
 		d->reg = 7;
 		return (p + 2);
-		}
+	}
 	/* Check for address register indirect */
-	if (p[0] == '(' && 
-	    ((p[1] == 'A' && isRegNum(p[2])) || (p[1] == 'S' && p[2] == 'P'))) {
+	if (p[0] == '(' &&
+	    ((p[1] == 'A' && isRegNum(p[2]))
+	     || (p[1] == 'S' && p[2] == 'P'))) {
 		if (p[1] == 'S')
 			d->reg = 7;
-		else 
+		else
 			d->reg = p[2] - '0';
 		if (p[3] == ')') {
 			/* Check for plain address register indirect */
 			if (isTerm(p[4])) {
 				d->mode = AnInd;
-				return p+4;
-				}
+				return p + 4;
+			}
 			/* Check for postincrement */
 			else if (p[4] == '+') {
 				d->mode = AnIndPost;
-				return p+5;
-				}
+				return p + 5;
 			}
+		}
 		/* Check for address register indirect with index */
 		else if (p[3] == ',' && (p[4] == 'A' || p[4] == 'D')
 			 && isRegNum(p[5])) {
@@ -140,37 +134,34 @@ char *eval();
 				/* Determine size of index register */
 				if (p[7] == 'W') {
 					d->size = WORD;
-					return p+9;
-					}
-				else if (p[7] == 'L') {
+					return p + 9;
+				} else if (p[7] == 'L') {
 					d->size = LONG;
-					return p+9;
-					}
-				else {
+					return p + 9;
+				} else {
 					NEWERROR(*errorPtr, SYNTAX);
 					return NULL;
-					}
-			else if (p[6] == ')') {
+			} else if (p[6] == ')') {
 				/* Default index register size is Word */
 				d->size = WORD;
-				return p+7;
-				}
-			else {
+				return p + 7;
+			} else {
 				NEWERROR(*errorPtr, SYNTAX);
 				return NULL;
-				}
 			}
 		}
+	}
 	/* Check for address register indirect with predecrement */
 	if (p[0] == '-' && p[1] == '(' && p[4] == ')' &&
-	    ((p[2] == 'A' && isRegNum(p[3])) || (p[2] == 'S' && p[3] == 'P'))) {
+	    ((p[2] == 'A' && isRegNum(p[3]))
+	     || (p[2] == 'S' && p[3] == 'P'))) {
 		if (p[2] == 'S')
 			d->reg = 7;
-		else 
+		else
 			d->reg = p[3] - '0';
 		d->mode = AnIndPre;
-		return p+5;
-		}
+		return p + 5;
+	}
 	/* Check for PC relative */
 	if (p[0] == '(' && p[1] == 'P' && p[2] == 'C') {
 		/* Displacement is zero */
@@ -179,8 +170,8 @@ char *eval();
 		/* Check for plain PC relative */
 		if (p[3] == ')') {
 			d->mode = PCDisp;
-			return p+4;
-			}
+			return p + 4;
+		}
 		/* Check for PC relative with index */
 		else if (p[3] == ',' && (p[4] == 'A' || p[4] == 'D')
 			 && isRegNum(p[5])) {
@@ -192,58 +183,54 @@ char *eval();
 				/* Determine size of index register */
 				if (p[7] == 'W') {
 					d->size = WORD;
-					return p+9;
-					}
-				else if (p[7] == 'L') {
+					return p + 9;
+				} else if (p[7] == 'L') {
 					d->size = LONG;
-					return p+9;
-					}
-				else {
+					return p + 9;
+				} else {
 					NEWERROR(*errorPtr, SYNTAX);
 					return NULL;
-					}
-			else if (p[6] == ')') {
+			} else if (p[6] == ')') {
 				/* Default size of index register is Word */
 				d->size = WORD;
-				return p+7;
-				}
-			else {
+				return p + 7;
+			} else {
 				NEWERROR(*errorPtr, SYNTAX);
 				return NULL;
-				}
 			}
 		}
+	}
 
 	/* Check for Status Register direct */
 	if (p[0] == 'S' && p[1] == 'R' && isTerm(p[2])) {
 		d->mode = SRDirect;
-		return p+2;
-		}	
+		return p + 2;
+	}
 	/* Check for Condition Code Register direct */
 	if (p[0] == 'C' && p[1] == 'C' && p[2] == 'R' && isTerm(p[3])) {
 		d->mode = CCRDirect;
-		return p+3;
-		}
+		return p + 3;
+	}
 	/* Check for User Stack Pointer direct */
 	if (p[0] == 'U' && p[1] == 'S' && p[2] == 'P' && isTerm(p[3])) {
 		d->mode = USPDirect;
-		return p+3;
-		}	
+		return p + 3;
+	}
 	/* Check for Source Function Code register direct (68010) */
 	if (p[0] == 'S' && p[1] == 'F' && p[2] == 'C' && isTerm(p[3])) {
 		d->mode = SFCDirect;
-		return p+3;
-		}	
+		return p + 3;
+	}
 	/* Check for Destination Function Code register direct (68010) */
 	if (p[0] == 'D' && p[1] == 'F' && p[2] == 'C' && isTerm(p[3])) {
 		d->mode = DFCDirect;
-		return p+3;
-		}	
+		return p + 3;
+	}
 	/* Check for Vector Base Register direct (68010) */
 	if (p[0] == 'V' && p[1] == 'B' && p[2] == 'R' && isTerm(p[3])) {
 		d->mode = VBRDirect;
-		return p+3;
-		}	
+		return p + 3;
+	}
 
 	/* All other addressing modes start with a constant expression */
 	p = eval(p, &(d->data), &(d->backRef), errorPtr);
@@ -252,28 +239,31 @@ char *eval();
 		if (isTerm(p[0])) {
 			/* Determine size of absolute address (must be long if
 			   the symbol isn't defined or if the value is too big */
-			if (!d->backRef || d->data > 32767 || d->data < -32768)
+			if (!d->backRef || d->data > 32767
+			    || d->data < -32768)
 				d->mode = AbsLong;
-			else if ( absLongFlag == TRUE )
+			else if (absLongFlag == TRUE)
 				d->mode = AbsLong;
 			else
 				d->mode = AbsShort;
 			return p;
-			}
+		}
 		/* Check for address register indirect with displacement */
-		if (p[0] == '(' && 
-		    ((p[1] == 'A' && isRegNum(p[2])) || (p[1] == 'S' && p[2] == 'P'))) {
+		if (p[0] == '(' &&
+		    ((p[1] == 'A' && isRegNum(p[2]))
+		     || (p[1] == 'S' && p[2] == 'P'))) {
 			if (p[1] == 'S')
 				d->reg = 7;
-			else 
+			else
 				d->reg = p[2] - '0';
 			/* Check for plain address register indirect with displacement */
 			if (p[3] == ')') {
 				d->mode = AnIndDisp;
-				return p+4;
-				}
+				return p + 4;
+			}
 			/* Check for address register indirect with index */
-			else if (p[3] == ',' && (p[4] == 'A' || p[4] == 'D')
+			else if (p[3] == ','
+				 && (p[4] == 'A' || p[4] == 'D')
 				 && isRegNum(p[5])) {
 				d->mode = AnIndIndex;
 				d->index = p[5] - '0';
@@ -283,37 +273,35 @@ char *eval();
 					/* Determine size of index register */
 					if (p[7] == 'W') {
 						d->size = WORD;
-						return p+9;
-						}
-					else if (p[7] == 'L') {
+						return p + 9;
+					} else if (p[7] == 'L') {
 						d->size = LONG;
-						return p+9;
-						}
-					else {
-						NEWERROR(*errorPtr, SYNTAX);
+						return p + 9;
+					} else {
+						NEWERROR(*errorPtr,
+							 SYNTAX);
 						return NULL;
-						}
-				else if (p[6] == ')') {
+				} else if (p[6] == ')') {
 					/* Default size of index register is Word */
 					d->size = WORD;
-					return p+7;
-					}
-				else {
+					return p + 7;
+				} else {
 					NEWERROR(*errorPtr, SYNTAX);
 					return NULL;
-					}
 				}
 			}
-		
+		}
+
 		/* Check for PC relative */
 		if (p[0] == '(' && p[1] == 'P' && p[2] == 'C') {
 			/* Check for plain PC relative */
 			if (p[3] == ')') {
 				d->mode = PCDisp;
-				return p+4;
-				}
+				return p + 4;
+			}
 			/* Check for PC relative with index */
-			else if (p[3] == ',' && (p[4] == 'A' || p[4] == 'D')
+			else if (p[3] == ','
+				 && (p[4] == 'A' || p[4] == 'D')
 				 && isRegNum(p[5])) {
 				d->mode = PCIndex;
 				d->index = p[5] - '0';
@@ -323,28 +311,25 @@ char *eval();
 					/* Determine size of index register */
 					if (p[7] == 'W') {
 						d->size = WORD;
-						return p+9;
-						}
-					else if (p[7] == 'L') {
+						return p + 9;
+					} else if (p[7] == 'L') {
 						d->size = LONG;
-						return p+9;
-						}
-					else {
-						NEWERROR(*errorPtr, SYNTAX);
+						return p + 9;
+					} else {
+						NEWERROR(*errorPtr,
+							 SYNTAX);
 						return NULL;
-						}
-				else if (p[6] == ')') {
+				} else if (p[6] == ')') {
 					/* Default size of index register is Word */
 					d->size = WORD;
-					return p+7;
-					}
-				else {
+					return p + 7;
+				} else {
 					NEWERROR(*errorPtr, SYNTAX);
 					return NULL;
-					}
 				}
 			}
 		}
+	}
 
 	/* If the operand doesn't match any pattern, return an error status */
 	NEWERROR(*errorPtr, SYNTAX);

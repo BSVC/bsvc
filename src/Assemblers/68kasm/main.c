@@ -6,7 +6,7 @@
  *    Function: main()
  *		Parses the command line, opens the input file and
  *		output files, and calls processFile() to perform the
- *		assembly, then closes all files. 
+ *		assembly, then closes all files.
  *
  *	 Usage: main(argc, argv);
  *		int argc;
@@ -19,22 +19,23 @@
  *
  *   Copyright 1990-1991 North Carolina State University. All Rights Reserved.
  *
- ******************************************************************************
- * $Id: main.c,v 1.1 1996/08/02 14:44:06 bwmott Exp $
  *****************************************************************************/
 
 
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 #include "asm.h"
 
-char* buildCompleteSourceFile(FILE* currentFile, char* currentFileName,
-    FILE* completeFile, int level);
+char *buildCompleteSourceFile(FILE * currentFile, char *currentFileName,
+			      FILE * completeFile, int level);
 
-extern FILE *inFile;	/* Input file */
-extern FILE *listFile;	/* Listing file */
-extern FILE *objFile;	/* Object file */
-extern char line[256];	/* Source line */
+extern FILE *inFile;		/* Input file */
+extern FILE *listFile;		/* Listing file */
+extern FILE *objFile;		/* Object file */
+extern char line[256];		/* Source line */
 int errorCount, warningCount;	/* Number of errors and warnings */
 
 
@@ -45,15 +46,14 @@ extern char cexFlag;		/* True is Constants are to be EXpanded */
 extern char absLongFlag;	/* True if all long absolute addresses */
 
 
-main(argc, argv)
-int argc;
-char *argv[];
+int
+main(int argc, char *argv[])
 {
-char fileName[64], outName[64], *p, *skipSpace(), *strchr(), *strcpy();
-int i;
+	char fileName[64], outName[64], *p;
+	int i;
 
-FILE* srcFile;
-char *error;
+	FILE *srcFile;
+	char *error;
 
 	puts("68000 Assembler by PGM\n");
 	setFlags(argc, argv, &i);
@@ -61,36 +61,35 @@ char *error;
 	if (i >= argc) {
 		fputs("No input file specified\n\n", stderr);
 		help();
-		}
+	}
 	if (!strcmp("?", argv[i]))
 		help();
 
 
 	/* Open a temp file to build the complete source file in */
-	inFile = tmpfile();    
-	if (!inFile)
-	{
- 		fputs("Couldn't create temporary file\n", stderr);
-		exit();
+	inFile = tmpfile();
+	if (!inFile) {
+		fputs("Couldn't create temporary file\n", stderr);
+		exit(1);
 	}
-          
+
 	strcpy(fileName, argv[i]);
 	srcFile = fopen(fileName, "r");
-        
+
 	if (!srcFile) {
 		fputs("Input file not found\n", stderr);
-		exit();
-		}
+		exit(1);
+	}
 
 	error = buildCompleteSourceFile(srcFile, fileName, inFile, 1);
 	if (error) {
 		fputs(error, stderr);
-		exit();
-	} 
-       
-        /* Rewind the in file to the beginning */ 
-        rewind(inFile);
- 
+		exit(1);
+	}
+
+	/* Rewind the in file to the beginning */
+	rewind(inFile);
+
 
 	/****************************************************************
 	 *								*
@@ -125,7 +124,7 @@ char *error;
 		p--;
 	if (p >= outName)
 		strcpy(outName, ++p);
-	
+
 	/* Change extension to .lis */
 	p = strchr(outName, '.');
 	if (!p)
@@ -134,7 +133,7 @@ char *error;
 	if (listFlag) {
 		strcpy(p, ".lis");
 		initList(outName);
-		}
+	}
 
 	if (objFlag) {
 		strcpy(p, ".h68");
@@ -149,17 +148,18 @@ char *error;
 	if (listFlag) {
 		putc('\n', listFile);
 		if (errorCount > 0)
-			fprintf(listFile, "%d error%s detected\n", errorCount,
-				(errorCount > 1) ? "s" : "");
+			fprintf(listFile, "%d error%s detected\n",
+				errorCount, (errorCount > 1) ? "s" : "");
 		else
 			fprintf(listFile, "No errors detected\n");
 		if (warningCount > 0)
-			fprintf(listFile, "%d warning%s generated\n", warningCount,
+			fprintf(listFile, "%d warning%s generated\n",
+				warningCount,
 				(warningCount > 1) ? "s" : "");
 		else
 			fprintf(listFile, "No warnings generated\n");
 		fclose(listFile);
-		}
+	}
 	if (objFlag)
 		finishObj();
 	if (errorCount > 0)
@@ -175,10 +175,10 @@ char *error;
 }
 
 
-strcap(d, s)
-char *d, *s;
+void
+strcap(char *d, char *s)
 {
-char capFlag;
+	char capFlag;
 
 	capFlag = TRUE;
 	while (*s) {
@@ -190,37 +190,45 @@ char capFlag;
 			capFlag = !capFlag;
 		d++;
 		s++;
-		}
+	}
 	*d = '\0';
 }
 
-
-char *skipSpace(p)
-char *p;
+char *
+skipSpace(char *p)
 {
 	while (isspace(*p))
 		p++;
 	return p;
 }
 
-
-setFlags(argc, argv, argi)
-int argc;
-char *argv[];
-int *argi;
+void
+setFlags(int argc, char *argv[], int *argi)
 {
-int option;
+	int option;
 
 	while ((option = getoptions(argc, argv, "clna", argi)) != EOF) {
 		switch (option) {
-			case 'c' : cexFlag = TRUE; break;
-			case 'h' : help(); break;
-			case 'l' : listFlag = TRUE; break;
-			case 'n' : objFlag = FALSE; break;
-			case '?' : help(); break;
-			case 'a' : absLongFlag = TRUE; break;
-			}
+		case 'c':
+			cexFlag = TRUE;
+			break;
+		case 'h':
+			help();
+			break;
+		case 'l':
+			listFlag = TRUE;
+			break;
+		case 'n':
+			objFlag = FALSE;
+			break;
+		case '?':
+			help();
+			break;
+		case 'a':
+			absLongFlag = TRUE;
+			break;
 		}
+	}
 }
 
 
@@ -235,34 +243,31 @@ int option;
  *
  *********************************************************************/
 
-int getoptions(argc, argv, optstring, argi)
-int argc;
-char *argv[];
-char *optstring;
-int *argi;
+int
+getoptions(int argc, char *argv[], char *optstring, int *argi)
 {
-static char *scan = NULL;	/* Scan pointer */
-static int optind = 0;		/* argv index */
+	static char *scan = NULL;	/* Scan pointer */
+	static int optind = 0;	/* argv index */
 
-char c;
-char *place;
-char *strchr();
+	char c;
+	char *place;
 
 	if (scan == NULL || *scan == '\0') {
 		if (optind == 0)
 			optind++;
 
-		if (optind >= argc || argv[optind][0] != '-' || argv[optind][1] == '\0') {
+		if (optind >= argc || argv[optind][0] != '-'
+		    || argv[optind][1] == '\0') {
 			*argi = optind;
-			return(EOF);
-			}
-		if (strcmp(argv[optind], "--")==0) {
+			return (EOF);
+		}
+		if (strcmp(argv[optind], "--") == 0) {
 			optind++;
 			*argi = optind;
-			return(EOF);
+			return (EOF);
 		}
 
-		scan = argv[optind]+1;
+		scan = argv[optind] + 1;
 		optind++;
 	}
 
@@ -272,7 +277,7 @@ char *strchr();
 	if (place == NULL || c == ':') {
 		fprintf(stderr, "Unknown option -%c\n", c);
 		*argi = optind;
-		return('?');
+		return ('?');
 	}
 
 	place++;
@@ -284,7 +289,7 @@ char *strchr();
 	}
 
 	*argi = optind;
-	return(c);
+	return (c);
 }
 
 
@@ -295,13 +300,13 @@ char *strchr();
  *
  *********************************************************************/
 
-help()
+int
+help(void)
 {
 	puts("Usage: asm [-clna] infile.ext\n");
 	puts("Options: -c  Show full constant expansions for DC directives");
 	puts("         -l  Produce listing file (infile.lis)");
 	puts("         -n  Produce NO object file (infile.h68)");
 	puts("         -a  Produce long word absolute addresses only (infile.h68)");
-	exit();
+	exit(1);
 }
-

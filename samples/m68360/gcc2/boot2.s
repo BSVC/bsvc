@@ -3,7 +3,7 @@
 |
 | Set the initial stack and reset vector
 | Install exception routines
-| Jump to '_main'
+| Jump to 'main'
 |
 | DJ (c) 1996
 | 
@@ -33,7 +33,7 @@
 BOO_START:
 	| initialize exception vectors
 	LEA 0x08,A0				| start with vector 2
-	LEA _exceptionTable,A1
+	LEA exceptionTable,A1
 BOO_START_L1:		
 	MOVE.L A1,(A0)+
 	ADD.L #6,A1
@@ -41,7 +41,7 @@ BOO_START_L1:
 	BLT BOO_START_L1
 	| initialize exception table with 'jsr unimplemented-exception'
 	MOVE.W 0,D0
-	LEA _exceptionTable,A0
+	LEA exceptionTable,A0
 BOO_START_L2:
 	MOVE.W #0x4EB9,(A0)+	| 4EB9 is 'jsr'
 	MOVE.L #BOO_UNIMP_EXCPT,(A0)+
@@ -52,8 +52,8 @@ BOO_START_L2:
 | we're ready: unmask interrupt
 	ANDI #0b1111100011111111,SR
 		
-| jump to _main	
-	JMP _main
+| jump to main	
+	JMP main
 
 |
 | Exception: unimplemented
@@ -61,7 +61,7 @@ BOO_START_L2:
 .global BOO_UNIMP_EXCPT
 BOO_UNIMP_EXCPT:	
     MOVE.L (sp)+,d2 		| get return address and 
-	LEA _exceptionTable,a3  | compute exception number
+	LEA exceptionTable,a3  | compute exception number
 	SUB.L a3,d2						 
 	DIVS.W 	#6,d2
 	ADDQ.W 	#1,d2
@@ -86,9 +86,9 @@ zz4:
 	LEA BOO_UNIMP_EXCPT_NUM,A0
 	MOVE.B d3,(A0)+
 	MOVE.B d2,(A0)+
-	JSR _DUART_INIT
+	JSR DUART_INIT
 	LEA BOO_UNIMP_EXCPT_TEXT,A0
-	JSR _DUART_PRINT
+	JSR DUART_PRINT
 
 BOOTL5:	BRA BOOTL5
 
@@ -107,8 +107,8 @@ BOO_UNIMP_EXCPT_NUM:
 | These group are initialized with an simple instruction
 | "jsr unimplemented-exception", but this can be overwritten.
 |
-.global _exceptionTable
-_exceptionTable:
+.global exceptionTable
+exceptionTable:
 .space 1530 || (255*6)
 
 |

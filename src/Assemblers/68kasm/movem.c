@@ -5,12 +5,12 @@
  *
  *    Function: movem()
  *		Builds MOVEM instructions. The size of the instruction
- *		is given by the size argument (assumed to be word if 
- *		not specified). The label argument points to the label 
- *		appearing on the source line containing the MOVEM 
+ *		is given by the size argument (assumed to be word if
+ *		not specified). The label argument points to the label
+ *		appearing on the source line containing the MOVEM
  *		instruction, if any, and the op argument points to the
  *		operands of the MOVEM instruction. The routine returns
- *		an error code in *errorPtr by the standard mechanism. 
+ *		an error code in *errorPtr by the standard mechanism.
  *
  *		reg()
  *		Defines a special register list symbol to be used as an
@@ -21,7 +21,7 @@
  *		directive (which must be specified), and the op
  *		argument points to a register list which is the new
  *		value of the symbol. The routine returns an error code
- *		in *errorPtr by the standard mechanism. 
+ *		in *errorPtr by the standard mechanism.
  *
  *	 Usage:	movem(size, label, op, errorPtr)
  *		int size;
@@ -40,8 +40,6 @@
  *
  *   Copyright 1990-1991 North Carolina State University. All Rights Reserved.
  *
- ******************************************************************************
- * $Id: movem.c,v 1.1 1996/08/02 14:44:31 bwmott Exp $
  *****************************************************************************/
 
 
@@ -62,17 +60,15 @@ extern char pass2;
 char *evalList();
 
 
-movem(size, label, op, errorPtr)
-int size;
-char *label, *op;
-int *errorPtr;
+void
+movem(int size, char *label, char *op, int *errorPtr)
 {
-char *p, *opParse();
-int status;
-unsigned short regList, temp, instMask;
-char i;
-opDescriptor memOp;
-symbolDef *define();
+	char *p, *opParse();
+	int status;
+	unsigned short regList, temp, instMask;
+	char i;
+	opDescriptor memOp;
+	symbolDef *define();
 
 	/* Pick mask according to size code (only .W and .L are valid) */
 	if (size == WORD)
@@ -83,7 +79,7 @@ symbolDef *define();
 		if (size)
 			NEWERROR(*errorPtr, INV_SIZE_CODE);
 		instMask = 0x4880;
-		}
+	}
 	/* Define the label attached to this instruction */
 	if (*label)
 		define(label, loc, pass2, errorPtr);
@@ -101,38 +97,38 @@ symbolDef *define();
 			if (memOp.mode & DestModes) {
 				/* It's good, now generate the instruction */
 				if (pass2) {
-					output(instMask | effAddr(&memOp), WORD);
+					output(instMask | effAddr(&memOp),
+					       WORD);
 					loc += 2;
 					/* If the addressing mode is address
 					   register indirect with predecrement,
-					   reverse the bits in the register 
+					   reverse the bits in the register
 					   list mask */
 					if (memOp.mode == AnIndPre) {
 						temp = regList;
 						regList = 0;
 						for (i = 0; i < 16; i++) {
 							regList <<= 1;
-							regList |= (temp & 1);
+							regList |=
+							    (temp & 1);
 							temp >>= 1;
-							}
 						}
+					}
 					output(regList, WORD);
 					loc += 2;
-					}
-				else
+				} else
 					loc += 4;
-				extWords(&memOp, errorPtr);
+				extWords(&memOp, size, errorPtr);
 				return;
-				}
-			else {
+			} else {
 				NEWERROR(*errorPtr, INV_ADDR_MODE);
 				return;
-				}
 			}
 		}
+	}
 
 	/* See if the instruction is of the form MOVEM <ea>,<reg_list> */
-	status = OK;	
+	status = OK;
 	/* Parse the effective address */
 	p = opParse(op, &memOp, &status);
 	NEWERROR(*errorPtr, status);
@@ -145,57 +141,54 @@ symbolDef *define();
 			if (status == OK) {
 				/* Everything's OK, now build the instruction */
 				if (pass2) {
-					output(instMask | 0x0400 | effAddr(&memOp), WORD);
+					output(instMask | 0x0400 |
+					       effAddr(&memOp), WORD);
 					loc += 2;
 					output(regList, WORD);
 					loc += 2;
-					}
-				else
+				} else
 					loc += 4;
-				extWords(&memOp);
+				extWords(&memOp, 4, errorPtr);
 				return;
-				}
 			}
-		else {
+		} else {
 			NEWERROR(*errorPtr, INV_ADDR_MODE);
 			return;
-			}
 		}
+	}
 
 	/* If the instruction isn't of either form, then return an error */
-	NEWERROR(*errorPtr, status);	
+	NEWERROR(*errorPtr, status);
 }
 
 
-reg(size, label, op, errorPtr)
-int size;
-char *label, *op;
-int *errorPtr;
+void
+reg(int size, char *label, char *op, int *errorPtr)
 {
-int value, backRef, status;
-symbolDef *symbol, *define();
-unsigned short regList;
+	int value, backRef, status;
+	symbolDef *symbol, *define();
+	unsigned short regList;
 
 	if (size)
 		NEWERROR(*errorPtr, INV_SIZE_CODE);
 	if (!*op) {
 		NEWERROR(*errorPtr, SYNTAX);
 		return;
-		}
+	}
 	op = evalList(op, &regList, errorPtr);
-	if (*errorPtr < SEVERE)
+	if (*errorPtr < SEVERE) {
 		if (!*label) {
 			NEWERROR(*errorPtr, LABEL_REQUIRED);
-			}
-		else {
-			status = OK;	
+		} else {
+			status = OK;
 			symbol = define(label, regList, pass2, &status);
 			NEWERROR(*errorPtr, status);
 			if (status < ERROR)
 				symbol->flags |= REG_LIST_SYM;
-			}
+		}
+	}
 }
- 
+
 
 /* Define a couple of useful tests */
 
@@ -203,17 +196,15 @@ unsigned short regList;
 #define isRegNum(c) ((c >= '0') && (c <= '7'))
 
 
-char *evalList(p, listPtr, errorPtr)
-char *p;
-unsigned short *listPtr;
-int *errorPtr;
+char *
+evalList(char *p, unsigned short *listPtr, int *errorPtr)
 {
-char reg1, reg2, r;
-unsigned short regList;
-char symName[SIGCHARS+1];
-char i;
-symbolDef *symbol, *lookup();
-int status;
+	char reg1, reg2, r;
+	unsigned short regList;
+	char symName[SIGCHARS + 1];
+	char i;
+	symbolDef *symbol, *lookup();
+	int status;
 
 	regList = 0;
 	/* Check whether the register list is specified
@@ -230,58 +221,66 @@ int status;
 					/* Set the bit the for a single register */
 					regList |= (1 << reg1);
 					p += 3;
-					}
-				else if (p[2] == '-')
-					if ((p[3] == 'A' || p[3] == 'D') && isRegNum(p[4]) && isTerm(p[5])) {
+				} else if (p[2] == '-')
+					if ((p[3] == 'A' || p[3] == 'D')
+					    && isRegNum(p[4])
+					    && isTerm(p[5])) {
 						if (p[5] == '-') {
-							NEWERROR(*errorPtr, SYNTAX);
+							NEWERROR(*errorPtr,
+								 SYNTAX);
 							return NULL;
-							}
+						}
 						if (p[3] == 'A')
-							reg2 = 8 + p[4] - '0';
+							reg2 =
+							    8 + p[4] - '0';
 						else
 							reg2 = p[4] - '0';
-						/* Set all the bits corresponding to registers 
+						/* Set all the bits corresponding to registers
 						   in the specified range */
 						if (reg1 < reg2)
-							for (r = reg1; r <= reg2; r++)
-								regList |= (1 << r);
+							for (r = reg1;
+							     r <= reg2;
+							     r++)
+								regList |=
+								    (1 <<
+								     r);
 						else
-							for (r = reg2; r <= reg1; r++)
-								regList |= (1 << r);
+							for (r = reg2;
+							     r <= reg1;
+							     r++)
+								regList |=
+								    (1 <<
+								     r);
 						if (p[5] != '/') {
 							/* End of register list found - return its value */
 							*listPtr = regList;
-							return p+5;
-							}
+							return p + 5;
+						}
 						p += 6;
-						}
-					else {
+					} else {
 						/* Invalid character found - return the error */
-						NEWERROR(*errorPtr, SYNTAX);
+						NEWERROR(*errorPtr,
+							 SYNTAX);
 						return NULL;
-						}
-				else {
+				} else {
 					/* Set the bit the for a single register */
 					regList |= (1 << reg1);
 					/* End of register list found - return its value */
 					*listPtr = regList;
-					return p+2;
-					}
+					return p + 2;
 				}
-			else {
+			} else {
 				/* Invalid character found - return the error */
 				NEWERROR(*errorPtr, SYNTAX);
 				return NULL;
-				}
 			}
 		}
-	else {
+	} else {
 		/* Try looking in the symbol table for a register list symbol */
 		if (!isalpha(*p) && *p != '.') {
 			NEWERROR(*errorPtr, SYNTAX);
 			return NULL;
-			}
+		}
 		i = 0;
 		/* Collect characters of the symbol's name
 		   (only SIGCHARS characters are significant) */
@@ -289,12 +288,13 @@ int status;
 			if (i < SIGCHARS)
 				symName[i++] = *p;
 			p++;
-		} while (isalnum(*p) || *p == '.' || *p == '_' || *p == '$');
+		} while (isalnum(*p) || *p == '.' || *p == '_'
+			 || *p == '$');
 		/* Check for invalid syntax */
 		if (!isspace(*p) && *p != ',' && *p) {
 			NEWERROR(*errorPtr, SYNTAX);
 			return NULL;
-			}
+		}
 		symName[i] = '\0';
 		/* Look up the name in the symbol table, resulting
 		   in a pointer to the symbol table entry */
@@ -305,22 +305,19 @@ int status;
 			   previously defined in the program */
 			if (status == UNDEFINED) {
 				NEWERROR(*errorPtr, status);
-				}
-			else if (pass2 && !(symbol->flags & BACKREF)) {
+			} else if (pass2 && !(symbol->flags & BACKREF)) {
 				NEWERROR(*errorPtr, REG_LIST_UNDEF);
-				}
-			else {
+			} else {
 				if (symbol->flags & REG_LIST_SYM)
 					*listPtr = symbol->value;
 				else {
 					NEWERROR(*errorPtr, NOT_REG_LIST);
 					*listPtr = 0x1234;
-					}
 				}
-		else {
+		} else {
 			NEWERROR(*errorPtr, status);
 			*listPtr = 0;
-			}
-		return p;
 		}
+		return p;
+	}
 }

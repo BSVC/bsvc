@@ -1,4 +1,3 @@
-
 *Font: -*-helvetica-bold-r-normal--*-120-*-*-*-*-iso8859-*
 
 *memoryViewer*Background: MistyRose2
@@ -6,7 +5,7 @@
 *memoryViewer*activeForeground: Black
 *memoryViewer.text.width: 55
 *memoryViewer.text.height: 21
-*memoryViewer.text*Font: -*-courier-medium-r-normal-*-120-*-*-*-*-iso8859-*
+*memoryViewer.text*Font: -*-courier-medium-r-normal-*-18-*-*-*-*-iso8859-*
 
 *memoryViewer.dumpDialog*Background: bisque1
 *memoryViewer.dumpDialog*activeBackground: bisque2
@@ -27,13 +26,13 @@
 *memoryViewer.register*activeBackground: bisque2
 *memoryViewer.register*highlightBackground: bisque2
 *memoryViewer.register*activeForeground: black
-*memoryViewer.register.list.list*Font: -*-courier-medium-r-normal-*-120-*-*-*-*-iso8859-*
+*memoryViewer.register.list.list*Font: -*-courier-medium-r-normal-*-18-*-*-*-*-iso8859-*
 
 *programListing.pack.text.width: 80
 *programListing.pack.text.height: 20
 *programListing.pack.text*Font: fixed
 
-*breakpoints.list.list*Font: -*-courier-medium-r-normal-*-140-*-*-*-*-iso8859-*
+*breakpoints.list.list*Font: -*-courier-medium-r-normal-*-20-*-*-*-*-iso8859-*
 *breakpoints.list.list.geometry: 12x10
 *breakpoints.add.entry.width: 12
 *breakpoints*Background: bisque1
@@ -56,7 +55,7 @@
 *writeModeDialog*highlightBackground: bisque2
 *writeModeDialog*activeForeground: black
 
-*about*message1*Font: -*-times-bold-r-normal--*-140-*-*-*-*-iso8859-*
+*about*message1*Font: -*-times-bold-r-normal--*-20-*-*-*-*-iso8859-*
 *about*message2*Font: -*-times-medium-r-normal--*-120-*-*-*-*-iso8859-*
 *about*message3*Font: -*-times-medium-r-normal--*-120-*-*-*-*-iso8859-*
 *about*Background: #d9d9d9
@@ -64,7 +63,7 @@
 *about*activeBackground: #e9e9e9
 *about*activeForeground: Black
 
-*license.text*Font: -*-courier-medium-r-normal-*-120-*-*-*-*-iso8859-*
+*license.text*Font: -*-courier-medium-r-normal-*-18-*-*-*-*-iso8859-*
 *license.pack.text.width: 80
 *license.pack.text.height: 22
 
@@ -73,13 +72,13 @@
 *mainMenu*activeBackground: SlateGray2
 *mainMenu*activeForeground: Black
 
-*systemResources.registers.list*Font: -*-courier-medium-r-normal-*-120-*-*-*-*-iso8859-*
+*systemResources.registers.list*Font: -*-courier-medium-r-normal-*-18-*-*-*-*-iso8859-*
 *systemResources.registers*Background: seashell2
 *systemResources.registers.popup*activeBackground: seashell1
 *systemResources.registers.popup*activeForeground: black
 *systemResources.registers.list.selectForeground: Black
 
-*systemResources.statistics.list*Font: -*-courier-medium-r-normal-*-120-*-*-*-*-iso8859-*
+*systemResources.statistics.list*Font: -*-courier-medium-r-normal-*-18-*-*-*-*-iso8859-*
 *systemResources.statistics*Background: honeydew3
 *systemResources.statistics.popup*activeBackground: honeydew1
 *systemResources.statistics.popup*activeForeground: black
@@ -97,7 +96,6 @@
 *systemOutput*selectBackground: SkyBlue
 *systemOutput.text.width: 56
 *systemOutput.text.height: 22
-*systemOutput.text*Font: -*-courier-medium-r-normal-*-120-*-*-*-*-iso8859-*
+*systemOutput.text*Font: -*-courier-medium-r-normal-*-18-*-*-*-*-iso8859-*
 
-*entry*Font: -*-courier-medium-r-normal-*-140-*-*-*-*-iso8859-*
-
+*entry*Font: -*-courier-medium-r-normal-*-20-*-*-*-*-iso8859-*

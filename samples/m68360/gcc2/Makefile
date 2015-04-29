@@ -9,14 +9,14 @@
 CPU=68020
 #-------------------------------------------------------------------------
 
-CC=vxworks68-gcc
+CC=m68k-none-elf-gcc
 CFLAGS=-g -Wall -m$(CPU) -mnobitfield -I. -U__HAVE_68881__
-AS=vxworks68-as
+AS=m68k-none-elf-as --register-prefix-optional
 ASFLAGS=-m$(CPU)
-LD=vxworks68-ld
+LD=m68k-none-elf-ld
 LDFLAGS=-M 
 RM=/bin/rm -f
-GAL=python $(BSVC20)/etc/gal.py
+GAL=python $(BSVC)/bin/gal.py
 
 #-------------------------------------------------------------------------
 LIBS=-L$(M68K_LIB) -lgcc

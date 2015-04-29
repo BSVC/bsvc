@@ -18,7 +18,7 @@ ASFLAGS=-m$(CPU)
 LD=vxworks68-ld
 LDFLAGS=-M 
 RM=/bin/rm -f
-GAL=python $(BSVC20)/etc/gal.py
+GAL=python $(BSVC)/bin/gal.py
 
 #-------------------------------------------------------------------------
 LIBS=-L$(M68K_LIB) -lgcc

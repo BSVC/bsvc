@@ -17,7 +17,7 @@ device : ORIGIN = 0xeffc00, LENGTH = 0x100
 SECTIONS
 {
 .data 0x0 : { boot2.o (.data) }
-.text 0x1000 : { *(.text) }
+.text 0x1000 : { *(.text) *(.rodata) }
 .text 0xA000 : { *(.data) }
 }
 

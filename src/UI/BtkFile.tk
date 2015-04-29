@@ -1,4 +1,3 @@
-###############################################################################
 #
 # BtkFile.tk - File Selector Widget for Tk
 #
@@ -11,12 +10,6 @@
 #     -filetypes <lst>  Ignored (doesn't cause an error)
 #     -title <message>  Message displayed at the top of the file selector 
 #
-# Copyright (c) 1994 
-# Bradford W. Mott
-# September 1,1994
-###############################################################################
-# $Id: BtkFile.tk,v 1.1 1996/08/02 14:55:46 bwmott Exp $
-###############################################################################
 
 ###############################################################################
 # Called to initialize the BtkFileSelector (when sourced)

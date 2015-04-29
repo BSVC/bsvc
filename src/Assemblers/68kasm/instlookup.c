@@ -1,64 +1,57 @@
-/******************************************************************************
- *
- *		INSTLOOKUP.C
- *		Instruction Table Lookup Routine for 68000 Assembler
- *
- *    Function: instLookup()
- *		Parses an instruction and looks it up in the instruction
- *		table. The input to the function is a pointer to the
- *		instruction on a line of assembly code. The routine 
- *		scans the instruction and notes the size code if 
- *		present. It then (binary) searches the instruction 
- *		table for the specified opcode. If it finds the opcode, 
- *		it returns a pointer to the instruction table entry for 
- *		that instruction (via the instPtrPtr argument) as well 
- *		as the size code or 0 if no size was specified (via the 
- *		sizePtr argument). If the opcode is not in the 
- *		instruction table, then the routine returns INV_OPCODE. 
- *		The routine returns an error value via the standard
- *		mechanism. 
- *
- *	 Usage:	char *instLookup(p, instPtrPtr, sizePtr, errorPtr)
- *		char *p;
- *		instruction *(*instPtrPtr);
- *		char *sizePtr;
- *		int *errorPtr;
- *
- *	Errors: SYNTAX
- *		INV_OPCODE
- *		INV_SIZE_CODE
- *
- *      Author: Paul McKee
- *		ECE492    North Carolina State University
- *
- *        Date:	9/24/86
- *
- *   Copyright 1990-1991 North Carolina State University. All Rights Reserved.
- *
- ******************************************************************************
- * $Id: instlookup.c,v 1.1 1996/08/02 14:43:11 bwmott Exp $
- *****************************************************************************/
+//
+//		INSTLOOKUP.C
+//		Instruction Table Lookup Routine for 68000 Assembler
+//
+//    Function: instLookup()
+//		Parses an instruction and looks it up in the instruction
+//		table. The input to the function is a pointer to the
+//		instruction on a line of assembly code. The routine
+//		scans the instruction and notes the size code if
+//		present. It then (binary) searches the instruction
+//		table for the specified opcode. If it finds the opcode,
+//		it returns a pointer to the instruction table entry for
+//		that instruction (via the instPtrPtr argument) as well
+//		as the size code or 0 if no size was specified (via the
+//		sizePtr argument). If the opcode is not in the
+//		instruction table, then the routine returns INV_OPCODE.
+//		The routine returns an error value via the standard
+//		mechanism.
+//
+//	 Usage:	char *instLookup(p, instPtrPtr, sizePtr, errorPtr)
+//		char *p;
+//		instruction *(*instPtrPtr);
+//		char *sizePtr;
+//		int *errorPtr;
+//
+//	Errors: SYNTAX
+//		INV_OPCODE
+//		INV_SIZE_CODE
+//
+//      Author: Paul McKee
+//		ECE492    North Carolina State University
+//
+//        Date:	9/24/86
+//
+//   Copyright 1990-1991 North Carolina State University. All Rights Reserved.
+//
 
-
-#include <stdio.h>
 #include <ctype.h>
-#include "asm.h"
+#include <stddef.h>
+#include <stdio.h>
+#include <string.h>
 
+#include "asm.h"
 
 extern instruction instTable[];
 extern int tableSize;
 
-
-char *instLookup(p, instPtrPtr, sizePtr, errorPtr)
-char *p;
-instruction *(*instPtrPtr);
-char *sizePtr;
-int *errorPtr;
+char *
+instLookup(char *p, instruction * (*instPtrPtr), char *sizePtr,
+	   int *errorPtr)
 {
-char opcode[8];
-int i, hi, lo, mid, cmp;
+	char opcode[8];
+	int i, hi, lo, mid, cmp;
 
-/*	printf("InstLookup: Input string is \"%s\"\n", p); */
 	i = 0;
 	do {
 		if (i < 7)
@@ -79,25 +72,19 @@ int i, hi, lo, mid, cmp;
 			else {
 				*sizePtr = 0;
 				NEWERROR(*errorPtr, INV_SIZE_CODE);
-				}
-			p += 2;
 			}
-		else {
+			p += 2;
+		} else {
 			NEWERROR(*errorPtr, SYNTAX);
 			return NULL;
-			}
-	else if (!isspace(*p) && *p) {
+	} else if (!isspace(*p) && *p) {
 		NEWERROR(*errorPtr, SYNTAX);
 		return NULL;
-		}
-	else
+	} else
 		*sizePtr = 0;
 
 	lo = 0;
 	hi = tableSize - 1;
-#ifdef TAN_DEBUG
-	printf("hi=%d, tableSize=%d\n", hi, tableSize);
-#endif TAN_DEBUG
 	do {
 		mid = (hi + lo) / 2;
 		cmp = strcmp(opcode, instTable[mid].mnemonic);
@@ -109,9 +96,8 @@ int i, hi, lo, mid, cmp;
 	if (!cmp) {
 		*instPtrPtr = &instTable[mid];
 		return p;
-		}
-	else {
+	} else {
 		NEWERROR(*errorPtr, INV_OPCODE);
 		return NULL;
-		}
+	}
 }

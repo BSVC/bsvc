@@ -5,7 +5,7 @@
  *
  * Description: The functions in this file carry out the functions of
  *		assembler directives. All the functions share the same
- *		calling sequence: 
+ *		calling sequence:
  *
  *		    general_name(size, label, op, errorPtr)
  *		    int size;
@@ -21,7 +21,7 @@
  *		non-blank character after the name of the directive,
  *		i.e., the operand(s) of the directive. The errorPtr
  *		argument is used to return a status via the standard
- *		mechanism. 
+ *		mechanism.
  *
  *      Author: Paul McKee
  *		ECE492    North Carolina State University
@@ -30,8 +30,6 @@
  *
  *   Copyright 1990-1991 North Carolina State University. All Rights Reserved.
  *
- ******************************************************************************
- * $Id: directive.c,v 1.1 1996/08/02 14:41:23 bwmott Exp $
  *****************************************************************************/
 
 
@@ -43,8 +41,8 @@ extern int loc;
 extern char pass2, endFlag, listFlag;
 symbolDef *define();
 
-extern char *listPtr;	/* Pointer to buffer where listing line is assembled
-			   (Used to put =XXXXXXXX in the listing for EQU's and SET's */
+extern char *listPtr;		/* Pointer to buffer where listing line is assembled
+				   (Used to put =XXXXXXXX in the listing for EQU's and SET's */
 
 
 /***********************************************************************
@@ -53,42 +51,38 @@ extern char *listPtr;	/* Pointer to buffer where listing line is assembled
  *
  ***********************************************************************/
 
-org(size, label, op, errorPtr)
-int size;
-char *label, *op;
-int *errorPtr;
+void
+org(int size, char *label, char *op, int *errorPtr)
 {
-int newLoc;
-char backRef;
-char *eval();
+	int newLoc;
+	char backRef;
+	char *eval();
 
 	if (size)
 		NEWERROR(*errorPtr, INV_SIZE_CODE);
 	if (!*op) {
 		NEWERROR(*errorPtr, SYNTAX);
 		return;
-		}
+	}
 	op = eval(op, &newLoc, &backRef, errorPtr);
 	if (*errorPtr < SEVERE && !backRef) {
 		NEWERROR(*errorPtr, INV_FORWARD_REF);
-		}
-	else if (*errorPtr < ERROR) {
+	} else if (*errorPtr < ERROR) {
 		if (isspace(*op) || !*op) {
 			/* Check for an odd value, adjust to one higher */
 			if (newLoc & 1) {
 				NEWERROR(*errorPtr, ODD_ADDRESS);
 				newLoc++;
-				}
+			}
 			loc = newLoc;
 			/* Define the label attached to this directive, if any */
 			if (*label)
 				define(label, loc, pass2, errorPtr);
 			/* Show new location counter on listing */
 			listLoc();
-			}
-		else
+		} else
 			NEWERROR(*errorPtr, SYNTAX);
-		}
+	}
 }
 
 
@@ -98,10 +92,8 @@ char *eval();
  *
  ***********************************************************************/
 
-End(size, label, op, errorPtr)
-int size;
-char *label, *op;
-int *errorPtr;
+void
+End(int size, char *label, char *op, int *errorPtr)
 {
 	if (size)
 		NEWERROR(*errorPtr, INV_SIZE_CODE);
@@ -115,39 +107,35 @@ int *errorPtr;
  *
  ***********************************************************************/
 
-equ(size, label, op, errorPtr)
-int size;
-char *label, *op;
-int *errorPtr;
+void
+equ(int size, char *label, char *op, int *errorPtr)
 {
-int value;
-char backRef;
-char *eval();
+	int value;
+	char backRef;
+	char *eval();
 
 	if (size)
 		NEWERROR(*errorPtr, INV_SIZE_CODE);
 	if (!*op) {
 		NEWERROR(*errorPtr, SYNTAX);
 		return;
-		}
+	}
 	op = eval(op, &value, &backRef, errorPtr);
 	if (*errorPtr < SEVERE && !backRef) {
 		NEWERROR(*errorPtr, INV_FORWARD_REF);
-		}
-	else if (*errorPtr < ERROR)
+	} else if (*errorPtr < ERROR) {
 		if (isspace(*op) || !*op)
 			if (!*label) {
 				NEWERROR(*errorPtr, LABEL_REQUIRED);
-				}
-			else {		
+			} else {
 				define(label, value, pass2, errorPtr);
 				if (pass2 && listFlag && *errorPtr < MINOR) {
 					sprintf(listPtr, "=%08X ", value);
 					listPtr += 10;
-					}
 				}
-		else
+		} else
 			NEWERROR(*errorPtr, SYNTAX);
+	}
 }
 
 
@@ -157,50 +145,50 @@ char *eval();
  *
  ***********************************************************************/
 
-set(size, label, op, errorPtr)
-int size;
-char *label, *op;
-int *errorPtr;
+void
+set(int size, char *label, char *op, int *errorPtr)
 {
-int value, error;
-char backRef;
-symbolDef *symbol;
-char *eval();
+	int value, error;
+	char backRef;
+	symbolDef *symbol;
+	char *eval();
 
 	if (size)
 		NEWERROR(*errorPtr, INV_SIZE_CODE);
 	if (!*op) {
 		NEWERROR(*errorPtr, SYNTAX);
 		return;
-		}
+	}
 	error = OK;
 	op = eval(op, &value, &backRef, errorPtr);
 	if (*errorPtr < SEVERE && !backRef) {
 		NEWERROR(*errorPtr, INV_FORWARD_REF);
-		}
-	if (*errorPtr > ERROR)
+	}
+	if (*errorPtr > ERROR) {
 		if (isspace(*op) || !*op)
 			if (!*label) {
 				NEWERROR(*errorPtr, LABEL_REQUIRED);
-				}
-			else {		
+			} else {
 				error = OK;
-				symbol = define(label, value, pass2, &error);
-				if (error == MULTIPLE_DEFS)
+				symbol =
+				    define(label, value, pass2, &error);
+				if (error == MULTIPLE_DEFS) {
 					if (symbol->flags & REDEFINABLE)
 						symbol->value = value;
 					else {
-						NEWERROR(*errorPtr, MULTIPLE_DEFS);
+						NEWERROR(*errorPtr,
+							 MULTIPLE_DEFS);
 						return;
-						}
+					}
+				}
 				symbol->flags |= REDEFINABLE;
 				if (pass2 & listFlag) {
 					sprintf(listPtr, "=%08X ", value);
 					listPtr += 10;
-					}
 				}
-		else
+		} else
 			NEWERROR(*errorPtr, SYNTAX);
+	}
 }
 
 
@@ -210,27 +198,24 @@ char *eval();
  *
  ***********************************************************************/
 
-dc(size, label, op, errorPtr)
-int size;
-char *label, *op;
-int *errorPtr;
+void
+dc(int size, char *label, char *op, int *errorPtr)
 {
-int outVal;
-char backRef;
-char string[260], *p, *collect(), *eval();
+	int outVal;
+	char backRef;
+	char string[260], *p, *collect(), *eval();
 
 	if (size == SHORT) {
 		NEWERROR(*errorPtr, INV_SIZE_CODE);
 		size = WORD;
-		}
-	else if (!size)
+	} else if (!size)
 		size = WORD;
 	/* Move location counter to a word boundary and fix the listing if doing
 	   DC.W or DC.L (but not if doing DC.B, so DC.B's can be contiguous) */
 	if ((size & (WORD | LONG)) && (loc & 1)) {
 		loc++;
 		listLoc();
-		}
+	}
 	/* Define the label attached to this directive, if any */
 	if (*label)
 		define(label, loc, pass2, errorPtr);
@@ -238,45 +223,46 @@ char string[260], *p, *collect(), *eval();
 	if (!*op) {
 		NEWERROR(*errorPtr, SYNTAX);
 		return;
-		}
+	}
 	do {
 		if (*op == '\'') {
 			op = collect(++op, string);
 			if (!isspace(*op) && *op != ',') {
 				NEWERROR(*errorPtr, SYNTAX);
 				return;
-				}
+			}
 			p = string;
 			while (*p) {
 				outVal = *p++;
 				if (size > BYTE)
 					outVal = (outVal << 8) + *p++;
 				if (size > WORD) {
-					outVal = (outVal << 16) + (*p++ << 8);
+					outVal =
+					    (outVal << 16) + (*p++ << 8);
 					outVal += *p++;
-					}
+				}
 				if (pass2)
 					output(outVal, size);
 				loc += size;
-				}
 			}
-		else {
+		} else {
 			op = eval(op, &outVal, &backRef, errorPtr);
 			if (*errorPtr > SEVERE)
 				return;
 			if (!isspace(*op) && *op != ',') {
 				NEWERROR(*errorPtr, SYNTAX);
 				return;
-				}
+			}
 			if (pass2)
 				output(outVal, size);
 			loc += size;
-			if (size == BYTE && (outVal < -128 || outVal > 255)) {
+			if (size == BYTE
+			    && (outVal < -128 || outVal > 255)) {
 				NEWERROR(*errorPtr, INV_8_BIT_DATA);
-				}
-			else if (size == WORD && (outVal < -32768 || outVal > 65535))
+			} else if (size == WORD
+				   && (outVal < -32768 || outVal > 65535))
 				NEWERROR(*errorPtr, INV_16_BIT_DATA);
-			}
+		}
 	} while (*op++ == ',');
 	--op;
 	if (!isspace(*op) && *op)
@@ -290,28 +276,26 @@ char string[260], *p, *collect(), *eval();
  *
  **********************************************************************/
 
-char *collect(s, d)
-char *s, *d;
+char *
+collect(char *s, char *d)
 {
 	while (*s) {
 		if (*s == '\'')
-			if (*(s+1) == '\'') {
+			if (*(s + 1) == '\'') {
 				*d++ = *s;
 				s += 2;
-				}
-			else {
+			} else {
 				*d++ = '\0';
 				*d++ = '\0';
 				*d++ = '\0';
 				*d++ = '\0';
 				return ++s;
-				}
-		else
+		} else
 			*d++ = *s++;
-		}
+	}
 	return s;
 }
-		
+
 
 /***********************************************************************
  *
@@ -319,27 +303,24 @@ char *s, *d;
  *
  ***********************************************************************/
 
-dcb(size, label, op, errorPtr)
-int size;
-char *label, *op;
-int *errorPtr;
+void
+dcb(int size, char *label, char *op, int *errorPtr)
 {
-int blockSize, blockVal, i;
-char *eval();
-char backRef;
+	int blockSize, blockVal, i;
+	char *eval();
+	char backRef;
 
 	if (size == SHORT) {
 		NEWERROR(*errorPtr, INV_SIZE_CODE);
 		size = WORD;
-		}
-	else if (!size)
+	} else if (!size)
 		size = WORD;
 	/* Move location counter to a word boundary and fix the listing if doing
 	   DCB.W or DCB.L (but not if doing DCB.B, so DCB.B's can be contiguous) */
 	if ((size & (WORD | LONG)) && (loc & 1)) {
 		loc++;
 		listLoc();
-		}
+	}
 	/* Define the label attached to this directive, if any */
 	if (*label)
 		define(label, loc, pass2, errorPtr);
@@ -348,34 +329,33 @@ char backRef;
 	if (*errorPtr < SEVERE && !backRef) {
 		NEWERROR(*errorPtr, INV_FORWARD_REF);
 		return;
-		}
+	}
 	if (*errorPtr > SEVERE)
 		return;
 	if (*op != ',') {
 		NEWERROR(*errorPtr, SYNTAX);
 		return;
-		}
+	}
 	if (blockSize < 0) {
 		NEWERROR(*errorPtr, INV_LENGTH);
 		return;
-		}
+	}
 	/* Evaluate the data to put in block */
 	op = eval(++op, &blockVal, &backRef, errorPtr);
 	if (*errorPtr < SEVERE) {
 		if (!isspace(*op) && *op) {
 			NEWERROR(*errorPtr, SYNTAX);
 			return;
-			}
+		}
 		/* On pass 2, output the block of values directly
 		   to the object file (without putting them in the listing) */
 		if (pass2)
 			for (i = 0; i < blockSize; i++) {
 				outputObj(loc, blockVal, size);
 				loc += size;
-				}
-		else
+		} else
 			loc += blockSize * size;
-		}
+	}
 }
 
 
@@ -385,27 +365,24 @@ char backRef;
  *
  ***********************************************************************/
 
-ds(size, label, op, errorPtr)
-int size;
-char *label, *op;
-int *errorPtr;
+void
+ds(int size, char *label, char *op, int *errorPtr)
 {
-int blockSize;
-char backRef;
-char *eval();
+	int blockSize;
+	char backRef;
+	char *eval();
 
 	if (size == SHORT) {
 		NEWERROR(*errorPtr, INV_SIZE_CODE);
 		size = WORD;
-		}
-	else if (!size)
+	} else if (!size)
 		size = WORD;
 	/* Move location counter to a word boundary and fix the listing if doing
 	   DS.W or DS.L (but not if doing DS.B, so DS.B's can be contiguous) */
 	if ((size & (WORD | LONG)) && (loc & 1)) {
 		loc++;
 		listLoc();
-		}
+	}
 	/* Define the label attached to this directive, if any */
 	if (*label)
 		define(label, loc, pass2, errorPtr);
@@ -414,16 +391,16 @@ char *eval();
 	if (*errorPtr < SEVERE && !backRef) {
 		NEWERROR(*errorPtr, INV_FORWARD_REF);
 		return;
-		}
+	}
 	if (*errorPtr > SEVERE)
 		return;
 	if (!isspace(*op) && *op) {
 		NEWERROR(*errorPtr, SYNTAX);
 		return;
-		}
+	}
 	if (blockSize < 0) {
 		NEWERROR(*errorPtr, INV_LENGTH);
 		return;
-		}
+	}
 	loc += blockSize * size;
 }

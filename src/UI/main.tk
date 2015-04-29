@@ -1,13 +1,6 @@
-###############################################################################
 #
 # main.tk - BSVC user interface
 #
-# Copyright 1993
-# Bradford W. Mott
-# September 18,1993
-###############################################################################
-# $Id: main.tk,v 1.1 1996/08/06 12:58:37 bwmott Exp $
-###############################################################################
 
 ## Include the various sub-systems
 source $Program(LibDir)/BtkFile.tk
@@ -20,7 +13,7 @@ source $Program(LibDir)/breakpt.tk
 
 ## Important globals
 set Program(Name)     "BSVC"
-set Program(Version)  "2.1"
+set Program(Version)  "2.2"
 
 wm title      . "$Program(Name): Version $Program(Version)"
 wm iconname   . "$Program(Name)"
@@ -104,11 +97,7 @@ proc Simulator:Execute {command} {
   }
 
   ## Check to make sure the simulator exists and is executable
-  if {$tcl_version >= 7.5 && $tcl_platform(platform) == "windows"} {
-    set paths [split $env(PATH) ";"]
-  } else {
-    set paths [concat . [split $env(PATH) ":"]]
-  }
+  set paths [concat . [split $env(PATH) ":"]]
 
   ## Add the installation directory to the path
   set paths [concat [list $Program(InstallDir)] $paths]
@@ -527,18 +516,8 @@ proc Run:Start {} {
   global tcl_version
   global tcl_platform
 
-  ## We get around the problem of non-blocking I/O in Tcl for Windows
-  ## by using a file to tell the UI when the Simulator has stopped running
-  if {$tcl_version >= 7.5 && $tcl_platform(platform) == "windows"} {
-    ## Make sure the stop running indicator file is truncated
-    close [open "$Program(StopIndicator)" "w+"]
-  
-    ## Setup event to check to see if the indicator file has been written to
-    after 200 Run:CheckForStop
-  } else {
-    ## If input becomes availiable on the pipe then stop running
-    fileevent $Simulator(Pipe) readable {Run:HandleStop}
-  }
+  ## If input becomes availiable on the pipe then stop running
+  fileevent $Simulator(Pipe) readable {Run:HandleStop}
 
   ## If user presses stop then stop running
   .systemControl.run configure -text "Stop" \
@@ -555,21 +534,7 @@ proc Run:Start {} {
   ## Tell tk to update the display
   update idletasks
 
-  ## Start the program running
-  PutLine "Run {$Program(StopIndicator)}"
-}
-
-###############################################################################
-# Fix for non-blocking I/O problem with Tcl for Windows
-###############################################################################
-proc Run:CheckForStop {} {
-  global Program
-
-  if {[file size $Program(StopIndicator)] > 0} {
-    Run:HandleStop
-  } else {
-    after 200 Run:CheckForStop
-  }
+  PutLine "Run {the-stop-program}"
 }
 
 ###############################################################################
@@ -596,12 +561,8 @@ proc Run:HandleStop {} {
   ## Stop running only if we are running
   if {[GetApplicationMode] == "RunningMode"} {
 
-    if {$tcl_version >= 7.5 && $tcl_platform(platform) == "windows"} {
-      after cancel Run:CheckForStop
-    } else {
-      ## Remove the input callback on the pipe file id
-      fileevent $Simulator(Pipe) readable ""
-    }
+    ## Remove the input callback on the pipe file id
+    fileevent $Simulator(Pipe) readable ""
 
     ## Insert output from the simulator into the output window
     foreach i [GetList] {
@@ -695,7 +656,7 @@ proc About {} {
         -width 4i -justify center
     label .about.bsvc.blogo -relief sunken
     message .about.bsvc.message2 \
-      -text "Copyright (C) 1993 - 1998\nBradford W. Mott" \
+      -text "GNU Public License version 2.0\nBradford W. Mott" \
       -width 4i -justify center
     message .about.bsvc.message3 \
         -text "http://www4.ncsu.edu/~bwmott/www/\nbwmott@acm.org" \
@@ -976,11 +937,6 @@ proc ParseCommandLineArguments {} {
   global tcl_platform
   global env
 
-  ## If we're in windows then exit
-  if {$tcl_version >= 7.5 && $tcl_platform(platform) == "windows"} {
-    return
-  }
-
   ## Get the arguments from the environment variable
   set args $env(ARGS)
 
@@ -1171,14 +1127,6 @@ frame .mainMenu -relief raised -borderwidth 2
       .mainMenu.help.menu add separator
       .mainMenu.help.menu add command -label "License...  " \
           -command {License:Open}
-      .mainMenu.help.menu add command -label "Home Page...  " \
-          -command {exec $Program(WWWBrowser) $Program(WWWHomePage) &}
-
-    if {$Program(WWWBrowser) == ""} {
-      .mainMenu.help.menu entryconfigure "Home Page...  " -state disabled
-    } else {
-      .mainMenu.help.menu entryconfigure "Home Page...  " -state normal
-    }
 
   ## Label used for displaying the "running" animation
   label .mainMenu.running -bitmap "@$Program(BitmapDir)/wait.xbm"
