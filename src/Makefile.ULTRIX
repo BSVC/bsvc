@@ -1,0 +1,47 @@
+###############################################################################
+## Makefile.linux - System Dependent Makefile for Ultrix 4.3
+##
+## Bradford W. Mott
+## July 3,1994
+###############################################################################
+
+## C and C++ compiler to use
+CC = gcc
+CXX = g++
+
+## C and C++ compiler flags
+CCFLAGS = -O
+CXXFLAGS = -O -ansi -D_G_NO_EXTERN_TEMPLATES
+
+## System Includes
+SYS_INCLUDES =
+
+## System Libraries
+SYS_LIBS = -lstdc++
+
+## Archiver
+AR = ar
+
+## Archiver create flags
+AR_CREATE_FLAGS = r
+
+## Library index generator
+RANLIB = ranlib
+
+## Installion programs
+INSTALL = cp -f
+STRIP = strip
+MKDIR = mkdir -p
+
+## Make parameters that need to be passed
+DEPENDENT_PARMS = CC='$(CC)' CXX='$(CXX)' CCFLAGS='$(CCFLAGS)' \
+        CXXFLAGS='$(CXXFLAGS)' \
+        AR='$(AR)' AR_CREATE_FLAGS='$(AR_CREATE_FLAGS)' \
+        RANLIB='$(RANLIB)' \
+        SYS_INCLUDES='$(SYS_INCLUDES)' SYS_LIBS='$(SYS_LIBS)' \
+        INSTALL='$(INSTALL)' STRIP='$(STRIP)' MKDIR='$(MKDIR)'
+
+## Include the system independent makefile
+include Makefile.common
+
+

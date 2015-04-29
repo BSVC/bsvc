@@ -1,0 +1,380 @@
+<HTML>
+<HEAD>
+<TITLE>chap3.htm</TITLE>
+<LINK REL="ToC" HREF="httoc.htm">
+<LINK REL="Next" HREF="appa.htm">
+<LINK REL="Previous" HREF="chap2.htm"></HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<HR WIDTH=100% SIZE=6 ALIGN=CENTER>
+<H1 ALIGN="CENTER">
+<CENTER><A ID="I1" NAME="I1">Chapter 3  Motorola 68000 Simulator and Assembler
+<BR></A></CENTER></H1>
+<HR WIDTH=100% SIZE=6 ALIGN=CENTER>
+<P>This chapter describes the Motorola 68000 simulator (Sim68000) and assembler (68kasm) included in the BSVC distribution.</P><A ID="I2" NAME="I2">
+<BR>
+<FONT SIZE=+2><B>Simulator</B></FONT></A>
+<HR SIZE=2 NOSHADE ALIGN=LEFT>
+<P>The Motorola 68000 simulator included in the BSVC distribution simulates the 68000 at the software level.  This means the simulator does not understand what goes on in the 68000 at the hardware level.  Instead the simulator performs a set of actions for each instruction that gives the same result.</P>
+<FONT SIZE=+1><B>Notes</B></FONT>
+<UL>
+<LI>The simulator has a few areas in which it does not behave exactly like a Motorola 68000</LI>
+<UL>
+<LI>Address and Bus errors do not generate a complete exception stack</LI>
+<LI>Some illegal instructions may be mistaken for real instructions</LI></UL>
+<LI>Double bus errors cause the 68000 to halt and require a system reset</LI></UL><A ID="I3" NAME="I3">
+<BR>
+<FONT SIZE=+2><B>Simulator Devices</B></FONT></A>
+<HR SIZE=2 NOSHADE ALIGN=LEFT>
+<P>The 68000 simulator provides two devices that can be attached to the microprocessor.  These devices are the M68681 Dual UART and RAM (the Windows 95 version does not support the DUART at this time).  Each of these devices is described below. </P>
+<FONT SIZE=+1><B>M68681 Dual UART Device</B></FONT>
+<P>The M68681 Dual Universal Asynchronous Receiver/Transmitter (DUART) device is modeled after the Motorola MC68681 DUART.  The dialog box shown in Figure 3-1 allows you to customize the M68681 device when it is attached to the 68000. </P>
+<P>
+<CENTER><IMG SRC="mg19.gif" WIDTH = 214 HEIGHT = 349 ALT="Undisplayed Graphic"></CENTER></P>
+<P ALIGN="CENTER">
+<CENTER><B>FIGURE 3-1</B> M68681 Device Setup Dialog</CENTER></P>
+<P>Using this dialog you can select the:</P>
+<UL>
+<LI>Base address of the device</LI>
+<LI>Byte offset to the first register of the device</LI>
+<LI>Offset between registers</LI>
+<LI>Interrupt level</LI>
+<LI>Port commands</LI>
+<LI>Port input and output attachments</LI></UL><B>Features</B>
+<P>The M68681 device supports the following features:</P>
+<UL>
+<LI>Two, independent, full-duplex asynchronous Receiver/Transmitter ports</LI>
+<LI>Each port can be connect to a Unix process</LI>
+<LI>Independently programmable baud rate for each Receiver and Transmitter</LI>
+<UL>
+<LI>18 Fixed rates: 50 to 38400 baud</LI></UL>
+<LI>Programmable data format allowing five to eight data bits</LI>
+<LI>Programmable channel modes</LI>
+<UL>
+<LI>Normal (full-duplex)</LI>
+<LI>Automatic echo</LI></UL>
+<LI>Versatile interrupt system</LI>
+<UL>
+<LI>Single interrupt output with four maskable interrupting conditions</LI>
+<LI>Interrupt vector output on interrupt acknowledge</LI></UL></UL><B>Communication Ports A and B</B>
+<P>Each communication port comprises a full-duplex universal asynchronous receiver/transmitter (UART).  The baud rate for each receiver and each transmitter can be independently selected using the built in baud rate generator.</P>
+<P>The transmitter accepts parallel data from the CPU and sends it to the Unix process connected to the port.  The receiver accepts data from the Unix process connected to the port and transfers it to the CPU during read operations.  If no process is connected to the port there will never be any data to read and writes will send data to that giant-bit-bucket-in-the-sky.</P><B>Programming and Register Description</B>
+<P>The operation of the DUART is programmed by writing control words into the appropriate registers.  Operational feedback is provided by the status registers, which can be read by the CPU.  The DUART's register addresses are described in Table 3-1.</P>
+<P><B>TABLE 3-1</B><B> </B>Register Addressing</P>
+<TABLE BORDER>
+<TR>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER><B>RS4</B></CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER><B>RS3</B></CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER><B>RS2</B></CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER><B>RS1</B></CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER><B>Read</B></CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER><B>Write</B></CENTER></NOTE>
+<TR>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>Mode Register A (MR1A, MR2A)
+<TD>Mode Register A (MR1A, MR2A)
+<TR>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>Status Register A (SRA)
+<TD>Clock Select Register A (CSRA)
+<TR>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>Do not access
+<TD>Command Register A (CRA)
+<TR>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>Receiver Buffer A (RBA)
+<TD>Transmitter Buffer A (TBA)
+<TR>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD><I>Not implemented</I>
+<TD>Auxiliary Control Register (ACR)
+<TR>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>Interrupt Status Register (ISR)
+<TD>Interrupt Mask Register (IMR)
+<TR>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD><I>Not implemented</I>
+<TD><I>Not implemented</I>
+<TR>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD><I>Not implemented</I>
+<TD><I>Not implemented</I>
+<TR>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>Mode Register B (MR1B, MR2B)
+<TD>Mode Register B (MR1B, MR2B)
+<TR>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>Status Register B (SRB)
+<TD>Clock Select Register B (CSRB)
+<TR>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>Do not access
+<TD>Command Register B (CRB)
+<TR>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>Receiver Buffer B (RBB)
+<TD>Transmitter Buffer B (TBB)
+<TR>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>Interrupt Vector Register (IVR)
+<TD>Interrupt Vector Register (IVR)
+<TR>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD><I>Not implemented</I>
+<TD><I>Not implemented</I>
+<TR>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>0</CENTER></NOTE>
+<TD><I>Not implemented</I>
+<TD><I>Not implemented</I>
+<TR>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>1</CENTER></NOTE>
+<TD><I>Not implemented</I>
+<TD><I>Not implemented</I></TABLE>
+<P>Mode registers 1 and 2 of each port are accessed through independent pointers.  The pointer is set to registers MR1A and MR1B by a system reset or issuing a &quot;reset pointer&quot; command via the corresponding command register.  Any read or write of the mode register while the pointer is at MR1A or MR1B switches the pointer to MR2A or MR2B.  Subsequent accesses will address MR2A or MR2B unless the pointer is reset to MR1A or MR1B.</P>
+<P>Mode, command, clock select, and status registers are duplicated for each port to provide independent operation and control.  Refer to the register bit formats in Table 3-2.</P>
+<P>For information on programming the M68681 you should consult a programmer's guide to the Motorola MC68681 DUART.</P>
+<P><B>TABLE 3-2</B><B> </B>Register Bit Formats</P>
+<P>
+<CENTER><IMG SRC="mg20.gif" WIDTH = 577 HEIGHT = 193 ALT="Undisplayed Graphic"></CENTER></P>
+<P>
+<CENTER><IMG SRC="mg21.gif" WIDTH = 577 HEIGHT = 229 ALT="Undisplayed Graphic"></CENTER></P>
+<P>
+<CENTER><IMG SRC="mg22.gif" WIDTH = 579 HEIGHT = 486 ALT="Undisplayed Graphic"></CENTER></P>
+<P>
+<CENTER><IMG SRC="mg23.gif" WIDTH = 582 HEIGHT = 265 ALT="Undisplayed Graphic"></CENTER></P>
+<P>
+<CENTER><IMG SRC="mg24.gif" WIDTH = 577 HEIGHT = 157 ALT="Undisplayed Graphic"></CENTER></P>
+<P>
+<CENTER><IMG SRC="mg25.gif" WIDTH = 577 HEIGHT = 157 ALT="Undisplayed Graphic"></CENTER></P>
+<P>
+<CENTER><IMG SRC="mg26.gif" WIDTH = 577 HEIGHT = 157 ALT="Undisplayed Graphic"></CENTER></P>
+<P>
+<CENTER><IMG SRC="mg27.gif" WIDTH = 577 HEIGHT = 157 ALT="Undisplayed Graphic"></CENTER></P>
+<FONT SIZE=+1><B>RAM Device</B></FONT>
+<P>The RAM device allows you to attach a specified amount of memory to the 68000.  When the RAM device is attached to the simulator, using the Edit Setup option, the dialog shown in Figure 3-2 is displayed.  This dialog allows you to enter the base address and size of the RAM module.  Both of these values are in hexadecimal.</P>
+<P>
+<CENTER><IMG SRC="mg28.gif" WIDTH = 161 HEIGHT = 140 ALT="Undisplayed Graphic"></CENTER></P>
+<P ALIGN="CENTER">
+<CENTER><B>FIGURE 3-2</B> RAM Device Setup Dialog</CENTER></P><A ID="I4" NAME="I4">
+<BR>
+<FONT SIZE=+2><B>Assembler</B></FONT></A>
+<HR SIZE=2 NOSHADE ALIGN=LEFT>
+<P>The 68000 assembler is similar to many UNIX system compilers and assemblers.  The assembler accepts files with the following line layout:</P>
+<PRE>      LABEL    OPCODE    OPERANDS    COMMENTS</PRE>
+<P>The LABEL field is optional, but if used it must start in the first column of the line.  Fields are separated by spaces or tabs.  An example assembly language file is shown in Figure 3-3.</P>
+<PRE>           ORG        $2000        Start at location 2000 Hex
+  START    CLR.W      SUM          Clear variable SUM
+           MOVE.W     COUNT,D0     Load COUNT value
+  LOOP     ADD.W      D0,SUM       Add D0 to SUM
+           SUB.W      #1,D0        Decrement counter
+           BNE        LOOP         Loop if counter not zero
+           BREAK                   Tell the simulator to BREAK if running
+  SUM      DS.W       1            Reserve one word for SUM
+  COUNT    DC.W       25           Initial value for COUNT</PRE>
+<P ALIGN="CENTER">
+<CENTER><B>FIGURE 3-3</B> Sample Assembly Language File</CENTER></P>
+<P>Once an assembly language file has been created it can be assembled.  The assembler will indicate if any syntax errors were found.  If no errors were encountered the assembler creates an object file in Motorola S-Record format with a .h68 suffix.  If errors were found, to get a better idea of the errors assemble the file using the &quot;-l&quot; option.  This option tells the assembler to produce a listing file with a .lis suffix in addition to the .h68 file.  The listing file can be used to find syntax errors as-well-as logic errors while executing the program.</P>
+<P>Once the file has been assembled with no errors, the object file can be loaded into the simulator for execution.  The listing file can also be loaded into BSVC's Program Listing window to facilitate debugging.</P><A ID="I5" NAME="I5">
+<BR>
+<FONT SIZE=+2><B>Acknowledgments</B></FONT></A>
+<HR SIZE=2 NOSHADE ALIGN=LEFT>
+<P>The Motorola 68000 simulator was developed by Bradford W. Mott at North Carolina State University.  The simulator is loosely based on the 68000 simulator written by Jay Lloyd at NCSU.</P>
+<P>The Motorola 68000 assembler was developed by Paul McKee at NCSU.</P><A ID="I6" NAME="I6">
+<BR>
+<FONT SIZE=+2><B>Contacts</B></FONT></A>
+<HR SIZE=2 NOSHADE ALIGN=LEFT>
+<P>If you have questions about the Motorola 68000 Simulator contact:</P>
+<P> Bradford W. Mott</P>
+<P> <I>bwmott@eos.ncsu.edu</I></P>
+<P>This document was produced using an evaluation version of <A HREF="http://www.infoaccess.com/products/transit/httoc.htm">HTML Transit</A></P>
+</BODY></HTML>

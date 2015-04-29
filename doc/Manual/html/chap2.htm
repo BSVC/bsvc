@@ -1,0 +1,282 @@
+<HTML>
+<HEAD>
+<TITLE>chap2.htm</TITLE>
+<LINK REL="ToC" HREF="httoc.htm">
+<LINK REL="Next" HREF="chap3.htm">
+<LINK REL="Previous" HREF="chap1.htm"></HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<HR WIDTH=100% SIZE=6 ALIGN=CENTER>
+<H1 ALIGN="CENTER">
+<CENTER><A ID="I1" NAME="I1">Chapter 2  User Interface
+<BR></A></CENTER></H1>
+<HR WIDTH=100% SIZE=6 ALIGN=CENTER>
+<P>The BSVC graphical user interface provides friendly access to the otherwise character-based simulators developed using the BSVC simulation framework. This chapter discusses the various features of the user interface.</P><A ID="I2" NAME="I2">
+<BR>
+<FONT SIZE=+2><B>Invoking BSVC</B></FONT></A>
+<HR SIZE=2 NOSHADE ALIGN=LEFT>
+<P>If you are using Unix the BSVC user interface is invoked by typing the following command:</P>
+<P> <B>bsvc</B></P>
+<P>If you are using Windows then you should select BSVC from the Start menu. Once invoked, the BSVC user interface should appear as shown in Figure 2-1. At this point the only options available are the drop down menus. These menus and other features of the user interface are discussed in the following sections of this chapter.</P>
+<P>
+<CENTER><IMG SRC="mg1.gif" WIDTH = 363 HEIGHT = 194 ALT="Undisplayed Graphic"></CENTER></P>
+<P ALIGN="CENTER">
+<CENTER><B>FIGURE 2-1</B> BSVC User Interface at Start-Up</CENTER></P><A ID="I3" NAME="I3">
+<BR>
+<FONT SIZE=+2><B>File Menu</B></FONT></A>
+<HR SIZE=2 NOSHADE ALIGN=LEFT>
+<P>This menu allows you to create a new setup, open an existing setup, save the current setup, load a program, and quit BSVC.  A simulator setup consists of a simulator and a list of devices attached to the simulator.  Once BSVC is invoked the first step is to load an existing setup or create a new setup.</P>
+<P>
+<CENTER><IMG SRC="mg2.gif" WIDTH = 365 HEIGHT = 122 ALT="Undisplayed Graphic"></CENTER></P>
+<FONT SIZE=+1><B>Creating a New Setup</B></FONT>
+<UL>
+<LI>Choose the &quot;New Setup...&quot; option</LI>
+<LI>Enter the name of the simulator to execute (e.g. Sim68000, etc.)</LI>
+<LI>Use the device setup dialog that appears to attach devices to the simulator (See &quot;Device Management&quot;)</LI></UL>
+<FONT SIZE=+1><B>Opening an Existing Setup</B></FONT>
+<UL>
+<LI>Choose the &quot;Open Setup...&quot; option</LI>
+<LI>Select the setup file to load using the file selector</LI></UL>
+<FONT SIZE=+1><B>Saving a Setup</B></FONT>
+<UL>
+<LI>Choose the &quot;Save Setup...&quot; option</LI>
+<LI>Select or enter a file name using the file selector</LI></UL>
+<FONT SIZE=+1><B>Loading a Program</B></FONT>
+<UL>
+<LI>Choose the &quot;Load Program...&quot; option</LI>
+<LI>Choose the object file to load using the file selector</LI></UL>
+<FONT SIZE=+1><B>Quitting BSVC</B></FONT>
+<UL>
+<LI>Choose the &quot;Quit&quot; option</LI></UL><A ID="I4" NAME="I4">
+<BR>
+<FONT SIZE=+2><B>Edit Menu</B></FONT></A>
+<HR SIZE=2 NOSHADE ALIGN=LEFT>
+<P>This menu allows you to modify the simulator's device setup by attaching or detaching devices.</P>
+<P>
+<CENTER><IMG SRC="mg3.gif" WIDTH = 365 HEIGHT = 55 ALT="Undisplayed Graphic"></CENTER></P>
+<FONT SIZE=+1><B>Editing the Device Setup</B></FONT>
+<UL>
+<LI>Choose the &quot;Device Setup...&quot; option</LI>
+<LI>Use the dialog that appears to edit the device setup (See &quot;Device Management&quot;)</LI></UL><A ID="I5" NAME="I5">
+<BR>
+<FONT SIZE=+2><B>Device Management</B></FONT></A>
+<HR SIZE=2 NOSHADE ALIGN=LEFT>
+<P>Whenever a setup is created or edited the dialog in Figure 2-2 is displayed.  Using this dialog devices can be attached and detached from the simulator.</P>
+<P>
+<CENTER><IMG SRC="mg4.gif" WIDTH = 233 HEIGHT = 191 ALT="Undisplayed Graphic"></CENTER></P>
+<P ALIGN="CENTER">
+<CENTER><B>FIGURE 2-2</B> Device Setup Dialog</CENTER></P>
+<FONT SIZE=+1><B>Attaching a Device</B></FONT>
+<UL>
+<LI>Select the device to attach from the available device list and press the &quot;Attach&quot; button</LI>
+<LI>Setup the device using the device's setup dialog. An example of a device setup dialog is shown in Figure 2-3.</LI></UL>
+<FONT SIZE=+1><B>Detaching a Device</B></FONT>
+<UL>
+<LI>Select the device to remove from the attached device list</LI>
+<LI>Press the &quot;Detach&quot; button</LI></UL>
+<P>
+<CENTER><IMG SRC="mg5.gif" WIDTH = 156 HEIGHT = 136 ALT="Undisplayed Graphic"></CENTER></P>
+<P ALIGN="CENTER">
+<CENTER><B>FIGURE 2-3</B> Ram Setup Dialog</CENTER></P>
+<FONT SIZE=+1><B>Detaching all Devices</B></FONT>
+<UL>
+<LI>Press the &quot;Detach All&quot; button to detach all of the devices from the simulator</LI></UL><A ID="I6" NAME="I6">
+<BR>
+<FONT SIZE=+2><B>Window Menu</B></FONT></A>
+<HR SIZE=2 NOSHADE ALIGN=LEFT>
+<P>In addition to the main BSVC window that appears upon executing BSVC there are two other windows that are very useful.  This menu allows you to open the memory viewer and the program listing windows.</P>
+<P>
+<CENTER><IMG SRC="mg6.gif" WIDTH = 365 HEIGHT = 69 ALT="Undisplayed Graphic"></CENTER></P>
+<FONT SIZE=+1><B>Viewing the Simulator's Memory</B></FONT>
+<UL>
+<LI>Choose the &quot;Memory Viewer&quot; option</LI>
+<LI>Use the memory viewer to view the desired memory locations (See &quot;Memory Viewer&quot;)</LI></UL>
+<FONT SIZE=+1><B>Source Level Debugging</B></FONT>
+<UL>
+<LI>Choose the &quot;Program Listing&quot; option</LI>
+<LI>Use the program listing to help with your debugging (See &quot;Program Listing&quot;)</LI></UL><A ID="I7" NAME="I7">
+<BR>
+<FONT SIZE=+2><B>Memory Viewer</B></FONT></A>
+<HR SIZE=2 NOSHADE ALIGN=LEFT>
+<P>After the &quot;Memory Viewer&quot; option from the &quot;Window&quot; menu has been selected the memory viewer utility will appear as shown in Figure 2-4.  This utility allows the simulator's memory to be dumped to a file, altered, and viewed.</P>
+<P>
+<CENTER><IMG SRC="mg7.gif" WIDTH = 264 HEIGHT = 220 ALT="Undisplayed Graphic"></CENTER></P>
+<P ALIGN="CENTER">
+<CENTER><B>FIGURE 2-4</B> Memory Viewer</CENTER></P>
+<FONT SIZE=+1><B>File Menu</B></FONT>
+<P>This menu allows you to dump memory to a file and close the memory viewer.</P>
+<P>
+<CENTER><IMG SRC="mg8.gif" WIDTH = 258 HEIGHT = 71 ALT="Undisplayed Graphic"></CENTER></P><B>Dumping Memory to a File</B>
+<UL>
+<LI>Choose the &quot;Dump...&quot; option</LI>
+<LI>Enter the starting and ending address of the memory dump in the dialog that appears</LI>
+<LI>Select or enter a file name using the file selector</LI></UL><B>Closing the Memory Viewer</B>
+<UL>
+<LI>Choose the &quot;Close&quot; option</LI></UL>
+<FONT SIZE=+1><B>Edit Menu</B></FONT>
+<P>This menu allows you to modify a single memory location or a block of memory.</P>
+<P>
+<CENTER><IMG SRC="mg9.gif" WIDTH = 258 HEIGHT = 62 ALT="Undisplayed Graphic"></CENTER></P><B>Changing a Memory Location</B>
+<P>There are two ways to change a memory location.  The first way is to:</P>
+<UL>
+<UL>
+<LI>Choose the &quot;Change Memory Location...&quot; option</LI>
+<LI>Enter the memory location and the value to change it to in the dialog that appears</LI></UL></UL>
+<P>The second way is to:</P>
+<UL>
+<UL>
+<LI>Use the left mouse button to select a memory location to change</LI>
+<LI>Enter the value to change the location to in the dialog that appears</LI></UL></UL><B>Filling a Memory Block</B>
+<UL>
+<LI>Choose the &quot;Fill Memory Block...&quot; option</LI>
+<LI>Enter the starting address of the block, the length of the block and the value to fill the block with in the dialog that appears</LI></UL>
+<FONT SIZE=+1><B>View Menu</B></FONT>
+<P>This menu allows you to specify the starting address for the memory display.</P>
+<P>
+<CENTER><IMG SRC="mg10.gif" WIDTH = 258 HEIGHT = 79 ALT="Undisplayed Graphic"></CENTER></P><B>Viewing from a Specified Address</B>
+<UL>
+<LI>Choose the &quot;From Address...&quot; option</LI>
+<LI>Enter the address to start the memory display at in the dialog that appears</LI></UL><B>Viewing from the Start of Memory</B>
+<UL>
+<LI>Choose the &quot;From Start of Memory&quot; option</LI></UL><B>Viewing from the Value of a Register</B>
+<UL>
+<LI>Choose the &quot;From Register...&quot; option</LI>
+<LI>Select the register you want to start the memory display at from the dialog that appears</LI></UL>
+<FONT SIZE=+1><B>Scrolling through Memory</B></FONT>
+<P>The arrow icons in the upper right hand corner of the window can be used to scroll through memory a line or a screen at a time.</P>
+<UL>
+<LI>Press the &quot;Up Arrow&quot; button to scroll up one line</LI>
+<LI>Press the &quot;Down Arrow&quot; button to scroll down one line</LI>
+<LI>Press the &quot;Double-Up Arrow&quot; button to scroll up one screen</LI>
+<LI>Press the &quot;Double-Down Arrow&quot; button to scroll down one screen</LI></UL>
+<P>The up-arrow, down-arrow, page-up and page-down keys can also be used to scroll through memory.</P>
+<FONT SIZE=+1><B>Notes</B></FONT>
+<OL>
+<LI>In general it's a bad idea to view memory mapped I/O devices because some devices do things depending on how many times a register has been read or written. If the Memory Viewer is used to view one of these registers it could interfere with the simulation.</LI>
+<LI>Addresses that do not map to a device will appear as &quot;xx&quot;.</LI>
+<LI>Having the memory viewer open while single-stepping through a program will cause the simulation to run slower.</LI></OL><A ID="I8" NAME="I8">
+<BR>
+<FONT SIZE=+2><B>Program Listing</B></FONT></A>
+<HR SIZE=2 NOSHADE ALIGN=LEFT>
+<P>After you select the &quot;Program Listing&quot; option from the &quot;Window&quot; menu the window in Figure 2-5 should appear. This utility allows assembly listing files generated by an assembler to be loaded and viewed. While you single-step through a program the program listing will be automatically repositioned according to the current value of the program counter. This can be really useful when debugging a program.  You can also set and clear breakpoints by clicking on a source code line with the left mouse button.</P>
+<P>
+<CENTER><IMG SRC="mg11.gif" WIDTH = 342 HEIGHT = 224 ALT="Undisplayed Graphic"></CENTER></P>
+<P ALIGN="CENTER">
+<CENTER><B>FIGURE 2-5</B> Program Listing</CENTER></P>
+<FONT SIZE=+1><B>File Menu</B></FONT>
+<P>This menu allows you to load an assembler listing and to close the program listing.</P>
+<P>
+<CENTER><IMG SRC="mg12.gif" WIDTH = 335 HEIGHT = 71 ALT="Undisplayed Graphic"></CENTER></P><B>Loading a Listing</B>
+<P>Since the program listing is automatically loaded whenever you load a program you should not need to use this option.  However, if you do then:</P>
+<UL>
+<LI>Choose the &quot;Load...&quot; option</LI>
+<LI>Select the listing file to load from the file selector</LI></UL><B>Closing the Program Listing</B>
+<UL>
+<LI>Choose the &quot;Close&quot; option</LI></UL>
+<FONT SIZE=+1><B>Edit Menu</B></FONT>
+<P>This menu allows you to find a string and to clear all the breakpoints that have been set.</P>
+<P>
+<CENTER><IMG SRC="mg13.gif" WIDTH = 335 HEIGHT = 80 ALT="Undisplayed Graphic"></CENTER></P><B>Finding a String</B>
+<UL>
+<LI>Choose the &quot;Find...&quot; option</LI>
+<LI>Enter the string (or regular expression) you wish to find in the dialog that appears</LI></UL><B>Clearing All Breakpoints</B>
+<UL>
+<LI>Choose the &quot;Clear Breakpoints&quot; options</LI></UL>
+<FONT SIZE=+1><B>Notes</B></FONT>
+<OL>
+<LI>Having the Program Listing dialog open while single-stepping through a program will slow down the simulation.</LI>
+<LI>Sometimes an incorrect line will be highlighted.</LI></OL><A ID="I9" NAME="I9">
+<BR>
+<FONT SIZE=+2><B>Register Manipulation</B></FONT></A>
+<HR SIZE=2 NOSHADE ALIGN=LEFT>
+<P>Once a simulator is executing the register list will appear as shown in Figure 2-6.  The values of the registers will be updated as you execute a program.</P>
+<FONT SIZE=+1><B>Modifying a Register's Value</B></FONT>
+<UL>
+<LI>Select a register to modify using the left mouse button</LI>
+<LI>Select the &quot;Alter...&quot; option from the &quot;Registers&quot; menu</LI>
+<LI>Enter the new hexadecimal value for the register</LI></UL>
+<FONT SIZE=+1><B>Clearing all the Registers</B></FONT>
+<UL>
+<LI>Select the &quot;Clear All&quot; option from the &quot;Registers&quot; menu</LI></UL>
+<P>
+<CENTER><IMG SRC="mg14.gif" WIDTH = 90 HEIGHT = 231 ALT="Undisplayed Graphic"></CENTER></P>
+<P ALIGN="CENTER">
+<CENTER><B>FIGURE 2-6</B> Register List</CENTER></P><A ID="I10" NAME="I10">
+<BR>
+<FONT SIZE=+2><B>Simulator Statistics</B></FONT></A>
+<HR SIZE=2 NOSHADE ALIGN=LEFT>
+<P>Some simulators keep simulation statistics. These statistics might include the number of instructions executed, the number of reads and writes to memory, and any other statistics the simulator designer wants. If a simulator keeps statistics they will be displayed in the statistics list as shown in Figure 2-7.</P>
+<FONT SIZE=+1><B>Clearing Statistics</B></FONT>
+<UL>
+<LI>Select the &quot;Clear All&quot; option from the &quot;Statistics&quot; menu</LI></UL>
+<P>
+<CENTER><IMG SRC="mg15.gif" WIDTH = 108 HEIGHT = 231 ALT="Undisplayed Graphic"></CENTER></P>
+<P ALIGN="CENTER">
+<CENTER><B>FIGURE 2-7</B> Hector 1600 Simulator Statistics</CENTER></P><A ID="I11" NAME="I11">
+<BR>
+<FONT SIZE=+2><B>Program Execution and Control</B></FONT></A>
+<HR SIZE=2 NOSHADE ALIGN=LEFT>
+<P>The program execution and control area of the user interface is shown in Figure 2-8. These controls allow setting breakpoints, single stepping, running, and system resetting.</P>
+<P>
+<CENTER><IMG SRC="mg16.gif" WIDTH = 275 HEIGHT = 19 ALT="Undisplayed Graphic"></CENTER></P>
+<P ALIGN="CENTER">
+<CENTER><B>FIGURE 2-8</B> Execution Control Area</CENTER></P>
+<FONT SIZE=+1><B>Breakpoints</B></FONT>
+<P>Breakpoints can be set or cleared using the breakpoint dialog displayed when the &quot;Breakpoints&quot; button is pressed. The breakpoint dialog is shown in Figure 2-9.  In general it's much easier to use the breakpoint facility in the program listing utility than to use this approach.</P><B>Adding Breakpoints</B>
+<UL>
+<LI>Select the &quot;Add&quot; entry field</LI>
+<LI>Enter the breakpoint's address and press return</LI></UL><B>Removing Breakpoints</B>
+<UL>
+<LI>Select the breakpoints to remove using the left mouse button</LI>
+<LI>Press the &quot;Remove&quot; button</LI></UL>
+<P>
+<CENTER><IMG SRC="mg17.gif" WIDTH = 124 HEIGHT = 175 ALT="Undisplayed Graphic"></CENTER></P>
+<P ALIGN="CENTER">
+<CENTER><B>FIGURE 2-9</B> Breakpoint Dialog</CENTER></P>
+<FONT SIZE=+1><B>Single Stepping</B></FONT>
+<UL>
+<LI>Pressing the &quot;Single Step&quot; button will execute the next instruction and display a trace record in the trace window.</LI></UL>
+<FONT SIZE=+1><B>Running</B></FONT>
+<UL>
+<LI>Pressing the &quot;Run&quot; button causes the simulator to execute instructions until a fatal error occurs, a breakpoint is reached, or execution is stopped</LI></UL>
+<FONT SIZE=+1><B>Stopping Execution</B></FONT>
+<UL>
+<LI>After the &quot;Run&quot; button is pressed its label changes to &quot;Stop&quot;</LI>
+<LI>Pressing the &quot;Stop&quot; button tells the simulator to stop executing instructions</LI></UL>
+<FONT SIZE=+1><B>Reset</B></FONT>
+<UL>
+<LI>Pressing the &quot;Reset&quot; button causes the simulator to perform a system reset</LI></UL><A ID="I12" NAME="I12">
+<BR>
+<FONT SIZE=+2><B>Trace Window</B></FONT></A>
+<HR SIZE=2 NOSHADE ALIGN=LEFT>
+<P>Every time an instruction is executed using the single step button a trace record will be displayed in the trace window.  The actual contents of a trace record are simulator specific. The trace window is shown in Figure 2-10.</P>
+<P>
+<CENTER><IMG SRC="mg18.gif" WIDTH = 275 HEIGHT = 211 ALT="Undisplayed Graphic"></CENTER></P>
+<P ALIGN="CENTER">
+<CENTER><B>FIGURE 2-10</B> Trace Window </CENTER></P>
+<FONT SIZE=+1><B>Saving Contents</B></FONT>
+<UL>
+<LI>Select the &quot;Save Contents...&quot; option from the &quot;Trace&quot; menu</LI>
+<LI>Select or enter a file name using the file selector</LI></UL>
+<FONT SIZE=+1><B>Clearing Contents</B></FONT>
+<UL>
+<LI>Select the &quot;Clear Contents&quot; option from the &quot;Trace&quot; menu</LI></UL>
+<FONT SIZE=+1><B>Inserting Registers</B></FONT>
+<UL>
+<LI>Select the &quot;Insert Registers&quot; option from the &quot;Trace&quot; menu to insert the register list into the trace window</LI></UL>
+<FONT SIZE=+1><B>Inserting Statistics</B></FONT>
+<UL>
+<LI>Select the &quot;Insert Statistics&quot; option from the &quot;Trace&quot; menu to insert the statistics into the trace window</LI></UL>
+<FONT SIZE=+1><B>Setting Trace Preferences</B></FONT>
+<UL>
+<LI>Select the &quot;Trace Preferences...&quot; option from the &quot;Trace&quot; menu</LI>
+<LI>Select the trace record entries to display using the dialog that appears</LI></UL><A ID="I13" NAME="I13">
+<BR>
+<FONT SIZE=+2><B>Bugs</B></FONT></A>
+<HR SIZE=2 NOSHADE ALIGN=LEFT>
+<P>Although the user interface has been designed to handle most errors it's not foolproof.</P>
+<OL>
+<LI>If the simulator process dies for some reason the user interface will freeze up.  This will hopefully be fixed in a future release.</LI>
+<LI>If a program that never does any output is ran as a simulator the user interface will lockup (e.g., 'cat' instead of 'Sim68000').</LI>
+<LI>Not all of the Tcl/Tk errors are trapped by the user interface in its current incarnation. Therefore the default Tcl/Tk error dialog will be displayed.</LI></OL>
+<P>This document was produced using an evaluation version of <A HREF="http://www.infoaccess.com/products/transit/httoc.htm">HTML Transit</A></P>
+</BODY></HTML>

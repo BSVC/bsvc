@@ -1,0 +1,7427 @@
+%!PS-Adobe-3.0
+%%Title: Ami Pro - CHAP3.SAM
+%%Creator: PSCRIPT.DRV Version 4.0
+%%CreationDate: 08/02/96 12:07:22
+%%BoundingBox: 19 19 594 774 
+%%Pages: (atend)
+%%PageOrder: Special
+%%Requirements: 
+%%DocumentNeededFonts: (atend)
+%%DocumentSuppliedFonts: (atend)
+%%DocumentData: Clean7Bit
+%%LanguageLevel: 1
+%%EndComments
+
+%%BeginProlog 
+%%BeginProcSet: Pscript_Win_ErrorHandler 1.0 1
+/currentpacking where{pop/oldpack currentpacking def/setpacking where{pop
+false setpacking}if}if/$brkpage 64 dict def $brkpage begin/prnt{dup type
+/stringtype ne{=string cvs}if dup length 6 mul/tx exch def/ty 10 def
+currentpoint/toy exch def/tox exch def 1 setgray newpath tox toy 2 sub moveto
+0 ty rlineto tx 0 rlineto 0 ty neg rlineto closepath fill tox toy moveto 0
+setgray show}bind def/nl{currentpoint exch pop lmargin exch moveto 0 -10
+rmoveto}def/=={/cp 0 def typeprint nl}def/typeprint{dup type exec}readonly def
+/lmargin 72 def/rmargin 72 def/tprint{dup length cp add rmargin gt{nl/cp 0 def
+}if dup length cp add/cp exch def prnt}readonly def/cvsprint{=string cvs
+tprint( )tprint}readonly def/integertype{cvsprint}readonly def/realtype{
+cvsprint}readonly def/booleantype{cvsprint}readonly def/operatortype{(--)
+tprint =string cvs tprint(-- )tprint}readonly def/marktype{pop(-mark- )tprint}
+readonly def/dicttype{pop(-dictionary- )tprint}readonly def/nulltype{pop
+(-null- )tprint}readonly def/filetype{pop(-filestream- )tprint}readonly def
+/savetype{pop(-savelevel- )tprint}readonly def/fonttype{pop(-fontid- )tprint}
+readonly def/nametype{dup xcheck not{(/)tprint}if cvsprint}readonly def
+/stringtype{dup rcheck{(\()tprint tprint(\))tprint}{pop(-string- )tprint}
+ifelse}readonly def/arraytype{dup rcheck{dup xcheck{({)tprint{typeprint}forall
+(})tprint}{([)tprint{typeprint}forall(])tprint}ifelse}{pop(-array- )tprint}
+ifelse}readonly def/packedarraytype{dup rcheck{dup xcheck{({)tprint{typeprint}
+forall(})tprint}{([)tprint{typeprint}forall(])tprint}ifelse}{pop
+(-packedarray- )tprint}ifelse}readonly def/courier/Courier findfont 10
+scalefont def end errordict/handleerror{systemdict begin $error begin $brkpage
+begin newerror{/newerror false store vmstatus pop pop 0 ne{grestoreall}if
+showpage initgraphics courier setfont lmargin 720 moveto(ERROR: )prnt
+errorname prnt nl(OFFENDING COMMAND: )prnt/command load prnt $error/ostack
+known{nl nl(STACK:)prnt nl nl $error/ostack get aload length{==}repeat}if
+systemdict/showpage get exec(%%[ Error: )print errorname =print
+(; OffendingCommand: )print/command load =print( ]%%)= flush}if end end end}
+dup 0 systemdict put dup 4 $brkpage put bind readonly put/currentpacking where
+{pop/setpacking where{pop oldpack setpacking}if}if
+%%EndProcSet
+userdict /Pscript_Win_Driver_Incr 200 dict dup begin put
+%%BeginResource: file Pscript_FatalError 2.0 0
+/FatalErrorIf{{initgraphics findfont exch scalefont setfont counttomark 3 div
+cvi{moveto show}repeat showpage quit}{cleartomark}ifelse}bind def
+%%EndResource
+/VM? {vmstatus exch sub exch pop gt { [
+(This job requires more memory than is available in this printer.) 100 500
+(Try one or more of the following, and then print again:) 100 485
+(In the PostScript dialog box, click Optimize For Portability.) 115 470
+(In the Device Options dialog box, make sure the Available Printer Memory is accurate.) 115 455
+(Reduce the number of fonts in the document.) 115 440
+(Print the document in parts.) 115 425
+12 /Times-Roman showpage
+(%%[ PrinterError: Low Printer VM ]%%) =
+true FatalErrorIf}if} bind def
+30000  VM?
+%%BeginResource: file Pscript_Win_Utils 2.0 0
+/|/def load def/,/load load |/~/exch , |/?/ifelse , |/!/pop , |/`/begin , |/^
+/index , |/@/dup , |/+/translate , |/$/roll , |/U/userdict , |/M/moveto , |/-
+/rlineto , |/&/currentdict , |/:/gsave , |/;/grestore , |/F/false , |/T/true ,
+|/N/newpath , |/E/end , |/Ac/arc , |/An/arcn , |/A/ashow , |/D/awidthshow , |
+/C/closepath , |/V/div , |/O/eofill , |/L/fill , |/I/lineto , |/-C/rcurveto ,
+|/-M/rmoveto , |/+S/scale , |/Ji/setfont , |/Lc/setlinecap , |/Lj/setlinejoin
+, |/Lw/setlinewidth , |/S/show , |/LH/showpage , |/K/stroke , |/W/widthshow ,
+|/R/rotate , |/b{bind |}bind |/bd{bind |}bind |/xd{~ |}bd/ld{, |}bd/lw/Lw ld
+/lc/Lc ld/lj/Lj ld/sg/setgray ld/L2? F/languagelevel where{! languagelevel 2
+ge{! T}if}if |/g{@ not{U/DefIf_save save put}if U/DefIf_bool 2 ^ put}b
+/DefIf_El{if U/DefIf_bool get not @{U/DefIf_save get restore}if}b/e{DefIf_El !
+}b/self & |/reinitialize{[/TextInit/GraphInit/UtilsInit counttomark{@ where{
+self eq}{F}?{cvx exec}{!}?}repeat cleartomark}b/initialize{`{/ADO_mxRot ~ |
+/TextInitialised? F | reinitialize E}{U/Pscript_Win_Data 200 dict @ ` put
+/ADO_mxRot ~ |/TextInitialised? F | reinitialize}?}b/terminate{!{& self eq{
+exit}{E}?}loop E}b/suspend/terminate , |/resume{` Pscript_Win_Data `}b/snap{
+transform 0.25 sub round 0.25 add ~ 0.25 sub round 0.25 add ~ itransform}b
+/dsnap{dtransform round ~ round ~ idtransform}b<04>cvn{}|/setjn{{statusdict
+/jobname known{statusdict/jobname 3 -1 $ put}if}stopped cleartomark}b/solid{[]
+0 setdash}b/setdsh{0 setdash}b/colspRefresh{}b/rp{4 2 $ M 1 ^ 0 - 0 ~ - neg 0
+-}b/rr{1 ^ 0 - 0 ~ - neg 0 - C}b
+%%EndResource
+%%BeginResource: file Pscript_Win_Utils_L1 2.0 0
+L2? not g{/rf{N rp L}b/fx{1 1 dtransform @ 0 ge{1 sub 1}{1 add -0.25}? 3 -1 $
+@ 0 ge{1 sub 1}{1 add -0.25}? 3 1 $ 4 1 $ idtransform 4 -2 $ idtransform}b/BZ{
+4 -2 $ snap + +S fx rf}b/rs{N rp C K}b/rc{N rp clip N}b/sg{setgray}b/sco{
+setrgbcolor}b/sgco{{sg}{sco}?}b}e
+%%EndResource
+%%BeginResource: file Pscript_Win_Utils_L2 2.0 0
+L2? g{/colspA/DeviceGray |/colspABC/DeviceRGB |/setAorABC{{colspA}{colspABC}?
+setcolorspace}b/rf/rectfill , |/fx{1 1 dtransform @ 0 ge{1 sub 0.5}{1 add -0.5
+}? 3 -1 $ @ 0 ge{1 sub 0.5}{1 add -0.5}? 3 1 $ 4 1 $ idtransform 4 -2 $
+idtransform}b/BZ{4 -2 $ snap + +S fx rf}b/rs/rectstroke , |/rc/rectclip , |/sg
+{@ @ setcolor}b/sco{setcolor}b/colspRefresh{colspABC setcolorspace}b/sgco{{sg
+}{sco}?}b/UtilsInit{F setglobal}b/definecolorrendering{/ColorRendering
+defineresource !}b/findcolorrendering{@/ColorRendering resourcestatus{! !
+/ColorRendering findresource T}{! F}?}b/selectcolorrendering{@/ColorRendering
+resourcestatus{! !/ColorRendering}{!/DefaultColorRendering/ColorRendering}?
+findresource setcolorrendering}b}e
+%%EndResource
+end
+%%EndProlog
+
+%%BeginSetup 
+[ 1.000 0 0 1.000 0 0 ] false Pscript_Win_Driver_Incr dup /initialize get exec
+
+[{0 
+/languagelevel where{pop languagelevel}{1}ifelse 2 ge{1 dict dup/JobTimeout  4 -1 roll put setuserparams}{statusdict/setjobtimeout get exec}ifelse 
+} stopped cleartomark
+[{240 
+/languagelevel where{pop languagelevel}{1}ifelse 2 ge{1 dict dup/WaitTimeout 4 -1 roll put setuserparams}{statusdict/waittimeout 3 -1 roll put}ifelse 
+} stopped cleartomark
+[{
+1 dict dup /ManualFeed false put setpagedevice
+} stopped cleartomark
+[{
+%%BeginFeature: *InputSlot AutoSelect Tray
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *PageSize Letter 8 1/2 x 11 in
+
+    3 dict dup /TraySwitch true put
+    dup  /PageSize [612 792] put dup /ImagingBBox null put setpagedevice
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution Enhancement Printer Default
+
+%%EndFeature
+} stopped cleartomark
+1 setlinecap 1 setlinejoin 
+/mysetup [ 0.240 0 0 -0.240 19.000 774.000 ] | 
+%%EndSetup
+
+[{1 
+/languagelevel where{pop languagelevel}{1}ifelse 2 ge{1 dict dup/NumCopies 4
+-1 roll put setpagedevice}{userdict/#copies 3 -1 roll put}ifelse
+
+} stopped cleartomark
+userdict begin /savelevel0 save def end
+%%Page: 1 1
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 151 551 770 75 rc pagesave restore
+Pscript_Win_Driver_Incr begin
+%%BeginResource: file Pscript_Win_Encoding 2.0 0
+/bullets{{/bullet}repeat}b/ANSIEncoding[/grave/acute/circumflex/tilde/macron
+/breve/dotaccent/dieresis/ring/cedilla/hungarumlaut/ogonek/caron/dotlessi 18
+bullets StandardEncoding 32 95 getinterval aload ! 3 bullets/quotesinglbase
+/florin/quotedblbase/ellipsis/dagger/daggerdbl/circumflex/perthousand/Scaron
+/guilsinglleft/OE 4 bullets/quoteleft/quoteright/quotedblleft/quotedblright
+/bullet/endash/emdash/tilde/trademark/scaron/guilsinglright/oe 2 bullets
+/Ydieresis/space/exclamdown/cent/sterling/currency/yen/brokenbar/section
+/dieresis/copyright/ordfeminine/guillemotleft/logicalnot/hyphen/registered
+/macron/degree/plusminus/twosuperior/threesuperior/acute/mu/paragraph
+/periodcentered/cedilla/onesuperior/ordmasculine/guillemotright/onequarter
+/onehalf/threequarters/questiondown/Agrave/Aacute/Acircumflex/Atilde/Adieresis
+/Aring/AE/Ccedilla/Egrave/Eacute/Ecircumflex/Edieresis/Igrave/Iacute
+/Icircumflex/Idieresis/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis
+/multiply/Oslash/Ugrave/Uacute/Ucircumflex/Udieresis/Yacute/Thorn/germandbls
+/agrave/aacute/acircumflex/atilde/adieresis/aring/ae/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave/iacute/icircumflex/idieresis/eth/ntilde/ograve
+/oacute/ocircumflex/otilde/odieresis/divide/oslash/ugrave/uacute/ucircumflex
+/udieresis/yacute/thorn/ydieresis]| ANSIEncoding @ 39/quotesingle put 96/grave
+put/ANSIEncodingOld ANSIEncoding 256 array copy | ANSIEncodingOld @[138 153
+154 169 172 174 177 178 179 181 185 188 189 190 208 215 221 222 240 247 253
+254]{/bullet put @}forall 166/bar put 176/ring put
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Text 2.0 0
+/TextInit{TextInitialised? not{/Pscript_Windows_Font & |/TextInitialised? T |
+/fM[1 0 0 -1 0 0]|/mFM matrix |/iMat[1 0 0.212557 neg 1 0 0]|}if}b/xUP null |
+/yUP null |/uW null |/xSP null |/ySP null |/sW null |/copyfont{1 ^ length add
+dict `{1 ^/FID ne{|}{! !}?}forall & E}b/rF{3 copyfont @ `/Encoding
+ANSIEncoding &/CharStrings known{CharStrings/Eth known not{! ANSIEncodingOld}
+if}if | E}b/mF{findfont ~{@/Encoding get @ StandardEncoding eq{! T}{{
+ISOLatin1Encoding}stopped{! F}{eq}?{T}{@ ` T 32 1 127{Encoding 1 ^ get
+StandardEncoding 3 -1 $ get eq and}for E}?}?}{F}?{rF}{3 copyfont}? `
+/OrigFontType ~ |/OrigFontName ~ | & E 2 ^ ~ definefont fM 5 4 -1 $ put fM 4 0
+put fM makefont Pscript_Windows_Font 3 1 $ put}b/xF{scalefont
+Pscript_Windows_Font 3 1 $ put}b/xMF{mFM astore makefont Pscript_Windows_Font
+3 1 $ put}b/xF2/scalefont , |/xMF2{mFM astore makefont}b/sLT{: Lw -M
+currentpoint snap M 0 - 0 Lc K ;}b/sSU{N/uW ~ |/yUP ~ |/xUP ~ |}b/sU{xUP yUP
+uW sLT}b/sST{N/sW ~ |/ySP ~ |/xSP ~ |}b/sT{xSP ySP sW sLT}b/sR{: + R 0 0 M}b
+/sRxy{: matrix astore concat 0 0 M}b/eR/; , |
+%%EndResource
+
+end reinitialize
+userdict begin /pagesave save def end mysetup concat colspRefresh 
+: 0 0 0 sco 1 Lc 1 Lj solid 151 551 770 75 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F0) cvn
+0.896 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F0_67) cvn
+F0
+67 
+xF 
+F0_67
+Ji 
+221 551 M 
+-0.133 0 (Chapter 3)A 
+; : 444 551 210 75 rc 0 0 0 sco F0_67
+Ji 
+514 551 M 
+0.374 0 ( )A 
+; : 575 528 1821 103 rc 0 0 0 sco (F0_92) cvn
+F0
+92 
+xF 
+F0_92
+Ji 
+671 528 M 
+-0.084 0 (Motorola 68000 Simulator and)A 
+; : 575 634 1056 103 rc 0 0 0 sco F0_92
+Ji 
+671 634 M 
+-0.057 0 (Assembler)A 
+; pagesave restore
+Pscript_Win_Driver_Incr begin
+%%BeginResource: file Pscript_Win_Graphics 2.0 0
+/SavedCTM null |/CTMsave{/SavedCTM SavedCTM currentmatrix |}b/CTMrestore{
+SavedCTM setmatrix}b/mp null |/ADO_mxRot null |/GDIHMatrix null |
+/GDIHPatternDict 22 dict | GDIHPatternDict `/PatternType 1 |/PaintType 2 |
+/Reps L2?{1}{5}? |/XStep 8 Reps mul |/YStep XStep |/BBox[0 0 XStep YStep]|
+/TilingType 1 |/PaintProc{` 1 Lw[]0 setdash PaintData , exec E}b/FGnd null |
+/BGnd null |/HS_Horizontal{horiz}b/HS_Vertical{vert}b/HS_FDiagonal{fdiag}b
+/HS_BDiagonal{biag}b/HS_Cross{horiz vert}b/HS_DiagCross{fdiag biag}b/MaxXYStep
+XStep YStep gt{XStep}{YStep}? |/horiz{Reps{0 4 M XStep 0 - 0 8 +}repeat 0 -8
+Reps mul + K}b/vert{Reps{4 0 M 0 YStep - 8 0 +}repeat 0 -8 Reps mul + K}b/biag
+{Reps{0 0 M MaxXYStep @ - 0 YStep neg M MaxXYStep @ - 0 8 +}repeat 0 -8 Reps
+mul + 0 YStep M 8 8 - K}b/fdiag{Reps{0 0 M MaxXYStep @ neg - 0 YStep M
+MaxXYStep @ neg - 0 8 +}repeat 0 -8 Reps mul + MaxXYStep @ M 8 -8 - K}b E
+/makehatch{GDIHPatternDict/PaintData 3 -1 $ put CTMsave GDIHMatrix setmatrix
+GDIHPatternDict matrix mp CTMrestore ~ U ~ 2 ^ put}b/h0{/h0/HS_Horizontal
+makehatch}b/h1{/h1/HS_Vertical makehatch}b/h2{/h2/HS_FDiagonal makehatch}b/h3{
+/h3/HS_BDiagonal makehatch}b/h4{/h4/HS_Cross makehatch}b/h5{/h5/HS_DiagCross
+makehatch}b/GDIBWPatternDict 17 dict @ `/PatternType 1 |/PaintType L2?{1}{2}?
+|/RepsV L2?{1}{6}? |/RepsH L2?{1}{5}? |/BBox[0 0 RepsH 1]|/TilingType 1 |
+/XStep 1 |/YStep 1 |/Height 8 RepsV mul |/Width 8 |/mx[Width 0 0 Height neg 0
+Height]|/FGnd null |/BGnd null |/SetBGndFGnd L2?{{BGnd null ne{BGnd aload !
+sgco BBox aload ! 2 ^ sub ~ 3 ^ sub ~ rf}if FGnd null ne{FGnd aload ! sgco}if}
+}{{}}? b/PaintProc{` SetBGndFGnd RepsH{Width Height F mx PaintData imagemask
+Width 0 +}repeat E}b E |/GDIBWPatternMx null |/pfprep{save 4 1 $
+/PatternOfTheDay 4 1 $ GDIBWPatternDict `/PaintData ~ |/BGnd ~ |/FGnd ~ | E
+CTMsave GDIBWPatternMx setmatrix GDIBWPatternDict matrix mp CTMrestore ~ !}b
+/hrf null |/prf{pfprep ~ 6 1 $ 5 hrf restore}b/GraphInit{GDIHMatrix null eq{
+/SavedCTM matrix | : ADO_mxRot concat 0 0 snap + : 0.48 @ GDIHPatternDict `
+YStep mul ~ XStep mul ~ dsnap YStep V ~ XStep V ~ E +S/GDIHMatrix matrix
+currentmatrix readonly | ; : 0.24 -0.24 +S GDIBWPatternDict ` Width Height E
+dsnap +S/GDIBWPatternMx matrix currentmatrix readonly | ; ;}if}b/cirp{360 0 An
+C}b/ellp{CTMsave + +S 0.5 0 M 0 0 0.5 360 0 An C CTMrestore}b/rrp{/rad ~ |/y2
+~ |/x2 ~ |/y1 ~ |/x1 ~ | x2 x1 add 2 V y1 M x1 y1 x1 y2 rad arct x1 y2 x2 y2
+rad arct x2 y2 x2 y1 rad arct x2 y1 x1 y1 rad arct C}b/RRp{CTMsave + +S/dyS ~
+|/dxS ~ | dxS 2 V 0 M 0 0 0 dyS 0.5 arct 0 dyS dxS dyS 0.5 arct dxS dyS dxS 0
+0.5 arct dxS 0 0 0 0.5 arct C CTMrestore}b
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Graphics_L1 2.0 0
+L2? not g{/arct{arcto ! ! ! !}b/GDIpattfill{@ ` BGnd null ne PaintType 2 eq
+and{: BGnd aload ! sgco fEOFill{O}{L}? ; FGnd aload ! U/fGray 2 ^ put{2}{4}?
+-1 $}if E @ patterncalc : 4 ^/PaintType get 2 eq{fGray{6 -1 $ sg}{8 -3 $ sco}?
+}if fEOFill{eoclip}{clip}? N patternfill ; N}b/hrf{/fGray 1 ^ 6 eq | -4 $ N rp
+C/fEOFill F | GDIpattfill}b/hfMain{/fEOFill ~ |/fGray ~ | GDIpattfill}b/hf{T
+hfMain}b/hfW{F hfMain}b/hs{currentpoint strokepath M hfW}b/pfMain{/fEOFill ~ |
+pfprep GDIpattfill restore N}b/pf{T pfMain}b/pfW{F pfMain}b/ps{currentpoint
+strokepath M pfW}b/mpstr 1 string |/mp{~ @ length 12 add dict copy `
+/PatternCTM matrix currentmatrix |/PatternMatrix ~ |/PatWidth XStep mpstr
+length mul |/PatHeight YStep |/FontType 3 |/Encoding 256 array | 3 string 0 1
+255{Encoding ~ @ 3 ^ cvs cvn put}for !/FontMatrix matrix |/FontBBox BBox |
+/BuildChar{! @ ` XStep 0 FontBBox aload ! setcachedevice/PaintProc , E : exec
+;}b & E ~ @ 3 -1 $ definefont}b/patterncalc{` : PatternCTM setmatrix
+PatternMatrix concat BBox aload ! ! ! + pathbbox ; PatHeight V ceiling 4 1 $
+PatWidth V ceiling 4 1 $ PatHeight V floor 4 1 $ PatWidth V floor 4 1 $ 2 ^
+sub cvi abs ~ 3 ^ sub cvi abs ~ 4 2 $ PatHeight mul ~ PatWidth mul ~ E}b
+/patternfill{5 -1 $ @ ` Ji PatternCTM setmatrix PatternMatrix concat 0 2 ^ 2 ^
+M 0 1 mpstr length 1 sub{1 ^ mpstr 3 1 $ put}for ! 2 ^{currentpoint 5 ^{mpstr
+S}repeat YStep add M}repeat ! ! ! ! E}b}e
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Graphics_L2 2.0 0
+L2? g{/mp/makepattern , |/hrf{6 eq setAorABC setpattern rectfill}b/hf{
+setAorABC setpattern O}b/hfW{setAorABC setpattern L}b/hs{setAorABC setpattern
+K}b/pf{pfprep setpattern O restore N}b/pfW{pfprep setpattern L restore N}b/ps{
+pfprep setpattern K restore N}b}e
+%%EndResource
+
+end reinitialize
+userdict begin /pagesave save def end mysetup concat colspRefresh 
+
+221 1487 N M 1950 8 rr : 0 0 0 sco O ; : 617 1571 1779 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F0) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F0_50) cvn
+F0
+50 
+xF 
+F0_50
+Ji 
+671 1571 M 
+-0.101 0 (This chapter describes the Motorola 68000 simulator \()A 
+; : 1720 1577 330 53 rc 0 0 0 sco %%IncludeFont: Courier
+(F2) cvn
+0.780 
+ (Courier) cvn /Type1 
+T 
+(Courier) cvn
+mF 
+(F2_50) cvn
+F2
+50 
+xF 
+F2_50
+Ji 
+1753 1577 M 
+(Sim68000)S 
+; : 1939 1571 378 57 rc 0 0 0 sco F0_50
+Ji 
+1993 1571 M 
+-0.070 0 (\) and)A 
+; : 617 1632 702 57 rc 0 0 0 sco F0_50
+Ji 
+671 1632 M 
+-0.464 0 (assembler \()A 
+; : 862 1638 264 53 rc 0 0 0 sco F2_50
+Ji 
+895 1638 M 
+(68kasm)S 
+; : 1021 1632 1375 57 rc 0 0 0 sco F0_50
+Ji 
+1075 1632 M 
+-0.279 0 (\) included in the BSVC distribution.)A 
+; : 601 1783 770 78 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F4) cvn
+0.925 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F4_67) cvn
+F4
+67 
+xF 
+F4_67
+Ji 
+671 1783 M 
+0.111 0 (Simulator)A 
+; 
+671 1861 N M 1500 2 rr : 0 0 0 sco O ; : 617 1910 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 1910 M 
+-0.244 0 (The Motorola 68000 simulator included in the BSVC distribution simulates)A 
+; : 617 1970 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 1970 M 
+-0.110 0 (the 68000 at the software level.  This means the simulator does not)A 
+; : 617 2029 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2029 M 
+-0.044 0 (understand what goes on in the 68000 at the hardware level.  Instead the)A 
+; : 617 2088 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2088 M 
+-0.166 0 (simulator performs a set of actions for each instruction that gives the same)A 
+; : 617 2147 486 57 rc 0 0 0 sco F0_50
+Ji 
+671 2147 M 
+-0.086 0 (result.)A 
+; : 610 2281 427 67 rc 0 0 0 sco (F4_58) cvn
+F4
+58 
+xF 
+F4_58
+Ji 
+671 2281 M 
+-0.225 0 (Notes)A 
+; 
+N 690 2405 9.000 360 0 An C : 0 0 0 sco O ; 1 Lw 1 Lc 1 Lj solid 0 0 0 sco K : 662 2380 1734 57 rc 0 0 0 sco F0_50
+Ji 
+716 2380 M 
+-0.289 0 (The simulator has a few areas in which it does not behave exactly like a)A 
+; : 662 2440 864 57 rc 0 0 0 sco F0_50
+Ji 
+716 2440 M 
+0.171 0 (Motorola 68000)A 
+; 
+756 2515 N M 19 19 rr : 0 0 0 sco O ; 2 Lw 0 Lc 0 Lj solid 0 0 0 sco K : 737 2499 1659 57 rc 0 0 0 sco F0_50
+Ji 
+791 2499 M 
+-0.005 0 (Address and Bus errors do not generate a complete exception stack)A 
+; 
+756 2574 N M 19 19 rr : 0 0 0 sco O ; 0 0 0 sco K : 737 2558 1659 57 rc 0 0 0 sco F0_50
+Ji 
+791 2558 M 
+-0.376 0 (Some illegal instructions may be mistaken for real instructions)A 
+; 
+N 690 2643 9.000 360 0 An C : 0 0 0 sco O ; 1 Lw 1 Lc 1 Lj solid 0 0 0 sco K : 662 2617 1734 57 rc 0 0 0 sco F0_50
+Ji 
+716 2617 M 
+-0.053 0 (Double bus errors cause the 68000 to halt and require a system reset)A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco F0_50
+Ji 
+2121 2942 M 
+(17)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 1 ]%%)  =
+%%PageTrailer
+
+%%Page: 2 2
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 601 227 1330 78 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F0) cvn
+0.925 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F0_67) cvn
+F0
+67 
+xF 
+F0_67
+Ji 
+671 227 M 
+0.006 0 (Simulator Devices)A 
+; 
+671 305 N M 1500 2 rr : 0 0 0 sco O ; : 617 354 1779 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F2) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F2_50) cvn
+F2
+50 
+xF 
+F2_50
+Ji 
+671 354 M 
+-0.037 0 (The 68000 simulator provides two devices that can be attached to the)A 
+; : 617 413 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 413 M 
+-0.129 0 (microprocessor.  These devices are the M68681 Dual UART and RAM)A 
+; : 617 473 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 473 M 
+-0.032 0 (\(the Windows 95 version does not support the DUART at this time\).  Each)A 
+; : 617 532 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 532 M 
+-0.270 0 (of these devices is described below. )A 
+; : 610 666 1525 67 rc 0 0 0 sco (F0_58) cvn
+F0
+58 
+xF 
+F0_58
+Ji 
+671 666 M 
+-0.203 0 (M68681 Dual UART Device)A 
+; : 617 765 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 765 M 
+-0.306 0 (The M68681 Dual Universal Asynchronous Receiver/Transmitter)A 
+; : 617 824 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 824 M 
+-0.088 0 (\(DUART\) device is modeled after the Motorola MC68681 DUART.  The)A 
+; : 617 883 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 883 M 
+-0.168 0 (dialog box shown in Figure 3-1 allows you to customize the M68681)A 
+; : 617 943 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 943 M 
+-0.050 0 (device when it is attached to the 68000. )A 
+; pagesave restore
+Pscript_Win_Driver_Incr begin
+%%BeginResource: file Pscript_Win_BW_Images 2.0 0
+/iw 0 |/ih 0 |/im_save 0 |/s 0 |/polarity 0 |/smoothflag 0 |/mystring 0 |/bpc
+0 |/setup1asciiproc{[currentfile mystring/readhexstring cvx/! cvx]cvx bind}b
+/setup1binaryproc{[currentfile mystring/readstring cvx/! cvx]cvx bind}b
+/setup2asciiproc{currentfile/ASCII85Decode filter/RunLengthDecode filter}b
+/setup2binaryproc{currentfile/RunLengthDecode filter}b/mycolorspace{colspABC}|
+/myimagedict{/myimagedict 10 dict | myimagedict @ `/ImageType 1 |
+/MultipleDataSource F | E}b/imageprocarray[/setup1binaryproc/setup1asciiproc
+/setup2binaryproc/setup2asciiproc/setup1binarydecodeproc/setup1asciidecodeproc
+]|/L2Polarity{{[1 0]}{[0 1]}?}b/Q{/im_save save | imageprocarray ~ get/s ~ , |
+L2Polarity/polarity ~ |/smoothflag ~ | snap +/dx 2 ^ |/dy 1 ^ | +S/mystring ~
+string |/bpc ~ |/ih ~ |/iw ~ |}b/X{/im_save save | imageprocarray ~ get/s ~ ,
+| L2Polarity/polarity ~ |/smoothflag ~ | snap +/dx 2 ^ |/dy 1 ^ | +S/mystring
+~ string |/bpc ~ |/ih ~ |/iw ~ |}b/Z{im_save restore}b/Y{sgco myimagedict @ `
+/Width iw |/Height ih |/Decode polarity |/ImageMatrix[iw 0 0 ih 0 0]|
+/DataSource s |/BitsPerComponent 1 |/Interpolate smoothflag | E imagemask}b
+%%EndResource
+
+%%BeginResource: file Pscript_Win_BW_Images_L1 2.0 0
+L2? not g{/setup2asciiproc{[/Level2ImagesError , aload ! T FatalErrorIf}b
+/setup2binaryproc/setup2asciiproc , |/L2Polarity{}|/Y{sgco iw ih polarity[iw 0
+0 ih 0 0]s imagemask}b}e
+%%EndResource
+
+userdict /Level2ImagesError [
+(This job contains a bitmapped image that can be printed only on) 100 500
+(PostScript(R) Level 2 printers.  Please send this file to a PostScript) 100 485
+(Level 2 printer, or print your document again with the correct printer) 100 470
+(selected.) 100 455
+12 /Times-Roman
+] put
+
+end reinitialize
+userdict begin /pagesave save def end mysetup concat colspRefresh 
+pagesave restore
+Pscript_Win_Driver_Incr begin
+/pp 1 string |/ss 1 string |/rledecodebinary{/DC 0 |/BC 0 |{DC mystring length
+ge{exit}if currentfile ss readstring ! 0 get/BC ~ | BC 127 le{/BC BC 1 add |
+DC 1 DC BC add 1 sub{mystring ~ currentfile ss readstring ! 0 get put}for}{/BC
+257 BC sub | currentfile ss readstring ! 0 get/pp ~ | DC 1 DC BC add 1 sub{
+mystring ~ pp put}for}?/DC DC BC add |}loop mystring}b/rledecodeascii{/DC 0 |
+/BC 0 |{DC mystring length ge{exit}if currentfile ss readhexstring ! 0 get/BC
+~ | BC 127 le{/BC BC 1 add | DC 1 DC BC add 1 sub{mystring ~ currentfile ss
+readhexstring ! 0 get put}for}{/BC 257 BC sub | currentfile ss readhexstring !
+0 get/pp ~ | DC 1 DC BC add 1 sub{mystring ~ pp put}for}?/DC DC BC add |}loop
+mystring}b/setup1asciidecodeproc{[/rledecodeascii cvx]cvx bind}b
+/setup1binarydecodeproc{[/rledecodebinary cvx]cvx bind}b
+
+end reinitialize
+userdict begin /pagesave save def end mysetup concat colspRefresh 
+866 1409 1 109 866 1409 673 1061 F F 5 
+X
+0 0 0 F 
+Y
+96FF01FE00
+96FF01FE00
+96FF01FE00
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+01FFF899000207F800
+01FFF899000207F800
+01FFF899000207F800
+01FFF899000207F800
+01FFF899000207F800
+01FFF899000207F800
+01FFF8AA00003FFDFF00C7FDFF01F807FDFF03F807F800
+01FFF8AA00003FFDFF00C7FDFF01F807FDFF03F807F800
+01FFF8AA00003FFEFF01FE07FDFF01C007FDFF03C007F800
+01FFF8AA00003FFEFF01FE07FDFF01C007FDFF03C007F800
+01FFF8AA00003FFEFF01FE07FDFF01C007FDFF03C007F800
+01FFF8FA000E1F0007E0FFE01FF807FF00FFE007E0FF00011FFFFE00003FC800
+003FFEFF02FE07F8FF000207C007FDFF03C007F800
+01FFF8FA000E1F0007E0FFE01FF807FF00FFE007E0FF00011FFFFE00003FC800
+003FFEFF02FE07F8FF000207C007FDFF03C007F800
+01FFF8FA000E1F0007E0FFE01FF807FF00FFE007E0FF00011FFFFE00003FC800
+003FFEFF02FE07F8FF000207C007FDFF03C007F809
+01FFF8FA00041F0007E7E0FFF8FF1F0507E7E0F8FFE0FF0002F807C0FF00003F
+C800003FFEFF02FE07F8FF000A07C007FE07FE07C007F809
+01FFF8FA00041F0007E7E0FFF8FF1F0507E7E0F8FFE0FF0002F807C0FF00003F
+C800003FFEFF02FE07F8FF000A07C007FE07FE07C007F809
+01FFF8FA00061FE01FE7E000F8FF1F050007E0F807E0FF0007F807C0FFC0FFC7
+C0FEF8CD00003FFEFF02FE07F9FFFF0AC7C007FFC1F83FC007F809
+01FFF8FA00061FE01FE7E000F8FF1F050007E0F807E0FF0007F807C0FFC0FFC7
+C0FEF8CD00003FFEFF02FE07F9FFFF0AC7C007FFC1F83FC007F809
+01FFF8FA00061FE01FE7E000F8FF1F050007E0F807E0FF0007F807C0FFC0FFC7
+C0FEF8CD00003FFEFF02FE07F9FFFF0AC7C007FFC1F83FC007F800
+01FFF8FA00081FE01FE7E0001FF81FFF0003FFE007E0FF000A1FE007C0F83F07
+C0F8FF3FCD00003FFEFF02FE07F9FFFF0AC7C007FFF801FFC007F809
+01FFF8FA00081FE01FE7E0001FF81FFF0003FFE007E0FF000A1FE007C0F83F07
+C0F8FF3FCD00003FFEFF02FE07F9FFFF0AC7C007FFF801FFC007F809
+01FFF8FA00081FE01FE7E0001FF81FFF0003FFE007E0FF000A1FE007C0F83F07
+C0F8FF3FCD00003FFEFF02FE07F9FFFF0AC7C007FFF801FFC007F809
+01FFF8FA00061FF8FFE7FFE0F8FF1F05FF07E0F807E0FE0006FF07C0F83F07C0
+FFF8003FCD00003FFEFF02FE07F9FFFF0AC7C007FFFE07FFC007F809
+01FFF8FA00061FF8FFE7FFE0F8FF1F05FF07E0F807E0FE0006FF07C0F83F07C0
+FFF8003FCD00003FFEFF02FE07F9FFFF0AC7C007FFFE07FFC007F800
+01FFF8FA00011F18FFE700E0FFF8FF1F0507E7E0F807E0FE00061FC7FFF83F07
+C0FFF8003FCD00003FFEFF02FE07F9FFFF0AC7C007FFF801FFC007F809
+01FFF8FA00011F18FFE700E0FFF8FF1F0507E7E0F807E0FE00061FC7FFF83F07
+C0FFF8003FCD00003FFEFF02FE07F9FFFF0AC7C007FFF801FFC007F809
+01FFF8FA00011F18FFE700E0FFF8FF1F0507E7E0F807E0FE00061FC7FFF83F07
+C0FFF8003FCD00003FFEFF02FE07F9FFFF0AC7C007FFF801FFC007F809
+01FFF8FA00FF1FFFE700E0FFF8FF1F0507E7E0F807E0FF0007F807C7C0003F07
+C0FFF8003FCD00003FFEFF02FE07F9FFFF0AC7C007FFC1F83FC007F800
+01FFF8FA00FF1FFFE700E0FFF8FF1F0507E7E0F807E0FF0007F807C7C0003F07
+C0FFF8003FCD00003FFEFF02FE07F9FFFF0AC7C007FFC1F83FC007F809
+01FFF8FA00FF1FFFE700E0FFF8FF1F0507E7E0F807E0FF0007F807C7C0003F07
+C0FFF8003FCD00003FFEFF02FE07F9FFFF0AC7C007FFC1F83FC007F809
+01FFF8FA00001FFF0701E7E0FFF8FF1F0507E7E0F807E0FF0004F807C7C0F8FF
+3F03C7F8FF3FCD00063FF80007FE07F9FFFF0AC7C007FE07FE07C007F809
+01FFF8FA00001FFF0701E7E0FFF8FF1F0507E7E0F807E0FF0004F807C7C0F8FF
+3F03C7F8FF3FCD00063FF80007FE07F9FFFF0AC7C007FE07FE07C007F809
+01FFF8FA00001FFF070BE0FFE01FF807FF00FFE007E0FF00061FFF00FFC007C0
+FDF8CD00063FF80007FE07F8FF000207C007FDFF03C007F809
+01FFF8FA00001FFF070BE0FFE01FF807FF00FFE007E0FF00061FFF00FFC007C0
+FDF8CD00063FF80007FE07F8FF000207C007FDFF03C007F801
+01FFF8FA00001FFF070BE0FFE01FF807FF00FFE007E0FF00061FFF00FFC007C0
+FDF8CD00063FF80007FE07F8FF000207C007FDFF03C007F809
+01FFF8E00000F8CC00003FFEFF01FE07FDFF01C007FDFF03C007F809
+01FFF8E00000F8CC00003FFEFF01FE07FDFF01C007FDFF03C007F809
+01FFF8E00000F8CC00003FFEFF01FE07FDFF01C007FDFF03C007F801
+01FFF8E00000F8CC000038FD000006FC000006FC000207F800
+01FFF8E00000F8CC000038FD000006FC000006FC000207F809
+01FFF8E00000F8BB000207F809
+01FFF8E00000F8BB000207F800
+01FFF8E00000F8BB000207F800
+01FFF899000207F809
+01FFF899000207F809
+01FFF899000207F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F808
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+FCFF01F800FF07F2FF01F81FEDFF00C0FEFF0007F8FF0007F8FF0000FCFF02F8
+3F07FCFF10C1FFF83E003FC007F801FE003FF83FF83FFBFF01F800
+FCFF01F800FF07F2FF01F81FEDFF00C0FEFF0007F8FF0007F8FF0000FCFF02F8
+3F07FCFF10C1FFF83E003FC007F801FE003FF83FF83FFBFF01F800
+FCFF03F81FE007F2FF01F81FE9FF0007F8FF0007F9FF01F83FFCFF02F83F07FC
+FF06C1FFF8383E0607FFC107F8383E06003FFE3FFBFF01F800
+FCFF03F81FE007F2FF01F81FE9FF0007F8FF0007F9FF01F83FFCFF02F83F07FC
+FF06C1FFF8383E0607FFC107F8383E06003FFE3FFBFF01F800
+FCFF03F81FE007F2FF01F81FE9FF0007F8FF0007F9FF01F83FFCFF02F83F07FC
+FF06C1FFF8383E0607FFC107F8383E06003FFE3FFBFF01F800
+FCFF0CF81FE007E007F800FF001FE007FFFF01001FFF0703E007E007FFC005FF
+F800F8383FFF07FEC00007FFC008F83800F800F800F800FFFF0407F83F003FFF
+070AC0F800FF003FFFC007C007FFC001FFC0FE0701F801FFFF06C03FC0383FFE
+07FFC109FFF83E07F83FF9FE003FFDFF01F800
+FCFF0CF81FE007E007F800FF001FE007FFFF01001FFF0703E007E007FFC005FF
+F800F8383FFF07FEC00007FFC008F83800F800F800F800FFFF0407F83F003FFF
+070AC0F800FF003FFFC007C007FFC001FFC0FE0701F801FFFF06C03FC0383FFE
+07FFC109FFF83E07F83FF9FE003FFDFF01F800
+FCFF0CF81FE007E007F800FF001FE007FFFF01001FFF0703E007E007FFC005FF
+F800F8383FFF07FEC00007FFC008F83800F800F800F800FFFF0407F83F003FFF
+070AC0F800FF003FFFC007C007FFC001FFC0FE0701F801FFFF06C03FC0383FFE
+07FFC109FFF83E07F83FF9FE003FFDFF01F800
+FCFF02F81FE0FF07FFE002F8181FFF0710E0FFF81F0700E0F81F07E0C000FFC0
+F838FF070000FFC0010007FFC0FF38FF000BC0F83F07C0F83FFF07F8383FFE07
+FFC007F8383F07FFF83F07FFC00400FFF83F00FFC015F83FFFC03FC0383FFFC0
+07C1FFFE003FF83FFFF83E07FDFF01F800
+FCFF02F81FE0FF07FFE002F8181FFF0710E0FFF81F0700E0F81F07E0C000FFC0
+F838FF070000FFC0010007FFC0FF38FF000BC0F83F07C0F83FFF07F8383FFE07
+FFC007F8383F07FFF83F07FFC00400FFF83F00FFC015F83FFFC03FC0383FFFC0
+07C1FFFE003FF83FFFF83E07FDFF01F800
+FCFF01F800FE070AE0FFF81807FF07E0FFF81FFF0706E0F81F07E0C03FFFFF02
+F8383FFF07FFC0013F07FFC00BF83807C0FFF83F07C0F83FFFFFC0FFFFFE07FF
+C002F83807FFFF02F83F07FFC0043FFFF83F07FFC014F83FFFC0060038003E07
+C1C001F83E07F83FFFF807FCFF01F800
+FCFF01F800FE070AE0FFF81807FF07E0FFF81FFF0706E0F81F07E0C03FFFFF02
+F8383FFF07FFC0013F07FFC00BF83807C0FFF83F07C0F83FFFFFC0FFFFFE07FF
+C002F83807FFFF02F83F07FFC0043FFFF83F07FFC014F83FFFC0060038003E07
+C1C001F83E07F83FFFF807FCFF01F800
+FCFF01F800FE070AE0FFF81807FF07E0FFF81FFF0706E0F81F07E0C03FFFFF02
+F8383FFF07FFC0013F07FFC00BF83807C0FFF83F07C0F83FFFFFC0FFFFFE07FF
+C002F83807FFFF02F83F07FFC0043FFFF83F07FFC014F83FFFC0060038003E07
+C1C001F83E07F83FFFF807FCFF01F800
+FCFF03F81FFF07FF0004F8001FE01FFF0002FFF800FF0702E0F81FFF0000C0FF
+FF03F800383FFF07FFC001FF07FFC00BF8383FC0F8003F07C0003FFFFFC001FF
+00FE07FFC007003FC03FFFF83F07FFC0FFFF02F83F07FFC004003FFFC1C6FF38
+023E0607FFC105F8383E07F83FFFFF01C03FFDFF01F800
+FCFF03F81FFF07FF0004F8001FE01FFF0002FFF800FF0702E0F81FFF0000C0FF
+FF03F800383FFF07FFC001FF07FFC00BF8383FC0F8003F07C0003FFFFFC001FF
+00FE07FFC007003FC03FFFF83F07FFC0FFFF02F83F07FFC004003FFFC1C6FF38
+023E0607FFC105F8383E07F83FFFFF01C03FFDFF01F800
+FCFF03F81FFF07FF0004F8001FE01FFF0002FFF800FF0702E0F81FFF0000C0FF
+FF03F800383FFF07FFC001FF07FFC00BF8383FC0F8003F07C0003FFFFFC001FF
+00FE07FFC007003FC03FFFF83F07FFC0FFFF02F83F07FFC004003FFFC1C6FF38
+023E0607FFC105F8383E07F83FFFFF01C03FFDFF01F800
+FCFF02F81FFFFF0704FFE0F81FF8FF07FFFF09F81FFF07E0F81F07FFC0FFFF03
+C0F8383FFF07FFC001FF07FFC002F8383FFFC003F83F07C0FEFF03F807F83FFE
+07FFC0FFFF05F807FFF83F07FFC0FFFF02F83F07FFC0FEFF01C1C0FF38023E06
+07FFC105F8383E07F83FFFFF01F807FDFF01F800
+FCFF02F81FFFFF0704FFE0F81FF8FF07FFFF09F81FFF07E0F81F07FFC0FFFF03
+C0F8383FFF07FFC001FF07FFC002F8383FFFC003F83F07C0FEFF03F807F83FFE
+07FFC0FFFF05F807FFF83F07FFC0FFFF02F83F07FFC0FEFF01C1C0FF38023E06
+07FFC105F8383E07F83FFFFF01F807FDFF01F800
+FCFF02F81FFFFF07FFE002F8181FFF0703E0FFF81FFF0705E0F81807E0C0FFFF
+02C0F838FF070000FFC001FF07FFC0FF38003FFFC00AF83F0700F83FFFF807F8
+3FFE070900C0F8383F07FFF83F07FFC0FFFF02F83807FFC009F83FFFC1F9F838
+3E0607FFC109F8383E07F83FFFF83E07FDFF01F800
+FCFF02F81FFFFF07FFE002F8181FFF0703E0FFF81FFF0705E0F81807E0C0FFFF
+02C0F838FF070000FFC001FF07FFC0FF38003FFFC00AF83F0700F83FFFF807F8
+3FFE070900C0F8383F07FFF83F07FFC0FFFF02F83807FFC009F83FFFC1F9F838
+3E0607FFC109F8383E07F83FFFF83E07FDFF01F800
+FCFF02F81FFFFF07FFE002F8181FFF0703E0FFF81FFF0705E0F81807E0C0FFFF
+02C0F838FF070000FFC001FF07FFC0FF38003FFFC00AF83F0700F83FFFF807F8
+3FFE070900C0F8383F07FFF83F07FFC0FFFF02F83807FFC009F83FFFC1F9F838
+3E0607FFC109F8383E07F83FFFF83E07FDFF01F800
+FCFF06F81FFF07E007F8FF0703001FE007FFFF08001F07E0FF07E007C0FFFF04
+F80700383FFF0703C0FFC007FFC003F83FC0F8FF0702C0F800FEFF043FFF00C0
+07FFC00AF800FF003FFFF83FC007C0FEFFFF0702C0F801FFFF12C1F9F83E003F
+C007F801FE003FF83FFFFE003FFDFF01F800
+FCFF06F81FFF07E007F8FF0703001FE007FFFF08001F07E0FF07E007C0FFFF04
+F80700383FFF0703C0FFC007FFC003F83FC0F8FF0702C0F800FEFF043FFF00C0
+07FFC00AF800FF003FFFF83FC007C0FEFFFF0702C0F801FFFF12C1F9F83E003F
+C007F801FE003FF83FFFFE003FFDFF01F800
+FCFF06F81FFF07E007F8FF0703001FE007FFFF08001F07E0FF07E007C0FFFF04
+F80700383FFF0703C0FFC007FFC003F83FC0F8FF0702C0F800FEFF043FFF00C0
+07FFC00AF800FF003FFFF83FC007C0FEFFFF0702C0F801FFFF12C1F9F83E003F
+C007F801FE003FF83FFFFE003FFDFF01F800
+E0FF03F83FFF07FCFF00C0C1FF01F800
+E0FF03F83FFF07FCFF00C0C1FF01F800
+E0FF03F83FFF07FCFF00C0C1FF01F809
+E0FF03F83FFF07FCFF00C0C1FF01F809
+E0FF03F83FFF07FCFF00C0C1FF01F809
+E0FF03F83FFF07FCFF00C0C1FF01F809
+E0FF03F83FFF07FCFF00C0C1FF01F809
+E0FF03F83FFF07FCFF00C0C1FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+F7FF02E0F81FA3FF01F809
+F7FF02E0F81FA3FF01F809
+F7FF02E0F81FA3FF01F809
+F7FF00E0A1FF01F800
+F7FF00E0A1FF01F809
+FCFF09F800F8181F00181F001FFF0701F800A9FF01F809
+FCFF09F800F8181F00181F001FFF0701F800A9FF01F809
+FCFF09F800F8181F00181F001FFF0701F800A9FF01F809
+FCFF02E0F818FF0705E0F8181F0700FFE001F81FAAFF01F809
+FCFF02E0F818FF0705E0F8181F0700FFE001F81FAAFF01F801
+FCFF02E0F818FF0705E0F8181F0700FFE001F81FAAFF01F809
+FCFF08E0F8181F07E0F8181FFF07FFE0001FA9FF01F809
+FCFF08E0F8181F07E0F8181FFF07FFE0001FA9FF01F809
+FCFF08E0F8181F07E0F8181FFF0702E0FF00A9FF01F801
+FCFF08E0F8181F07E0F8181FFF0702E0FF00A9FF01F800
+FCFF08E0F8181F07E0F8181FFF0702E0FF00A9FF01F809
+FCFF08E0F8181F07E0F8181FFF0703E0FFE01FAAFF01F809
+FCFF08E0F8181F07E0F8181FFF0703E0FFE01FAAFF01F800
+FCFF02E0F818FF07FFE001181FFF07FFE001F81FAAFF01F800
+FCFF02E0F818FF07FFE001181FFF07FFE001F81FAAFF01F809
+FCFF02E0F818FF07FFE001181FFF07FFE001F81FAAFF01F809
+FCFF0DF800F8181FF8181F001F07E0F800A9FF01F809
+FCFF0DF800F8181FF8181F001F07E0F800A9FF01F809
+FCFF0DF800F8181FF8181F001F07E0F800A9FF01F809
+FAFF01F81F9FFF01F809
+FAFF01F81F9FFF01F809
+FAFF01F81F9FFF01F809
+FAFF01F81F9FFF01F800
+FAFF01F81F9FFF01F809
+FAFF01F81F9FFF01F809
+FAFF01F81F9FFF01F800
+FAFF01F81F9FFF01F809
+96FF01F809
+96FF01F809
+96FF01F808
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F809
+DEFFBD000001FEFF01F809
+DEFFBD000001FEFF01F809
+DEFFBD000001FEFF01F809
+DEFFBD000001FEFF01F809
+DEFFBD000001FEFF01F800
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F800
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F800
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+FCFFFF00F7FF0007FFFF0207FFE0F5FF0007BEFF00C1FEFF01F809
+FCFFFF00F7FF0007FFFF0207FFE0F5FF0007BEFF00C1FEFF01F801
+FCFFFF00F7FF0007FFFF0207FFE0F5FF0007BEFF00C1FEFF01F809
+FCFF0207F81FF9FF01F800FFFF0207FFE0F5FF0007BEFF00C1FEFF01F809
+FCFF0207F81FF9FF01F800FFFF0207FFE0F5FF0007BEFF00C1FEFF01F809
+FCFF0207F81FF9FF01F800FFFF0207FFE0F5FF0007BEFF00C1FEFF01F801
+FCFF0807F81F001FE007F800FFFFFFF800FFFF07FCE00607F800FF003FC0FFFF
+0007BEFF00C1FEFF01F800
+FCFF0807F81F001FE007F800FFFFFFF800FFFF07FCE00607F800FF003FC0FFFF
+0007BEFF00C1FEFF01F809
+FCFF0307F8181FFF07FFE004F81FFFE0F8FF18FF070300E00007FFE004F8383F
+07C0FFFF0007BEFF00C1FEFF01F809
+FCFF0307F8181FFF07FFE004F81FFFE0F8FF18FF070300E00007FFE004F8383F
+07C0FFFF0007BEFF00C1FEFF01F800
+FCFF0307F8181FFF07FFE004F81FFFE0F8FF18FF070300E00007FFE004F8383F
+07C0FFFF0007BEFF00C1FEFF01F800
+FCFFFF00FFFF0A0700FFE0F81FFFE0F8181FFF07FFE0011F07FFE0023FF807FD
+FF0007BEFF00C1FEFF01F809
+FCFFFF00FFFF0A0700FFE0F81FFFE0F8181FFF07FFE0011F07FFE0023FF807FD
+FF0007BEFF00C1FEFF01F809
+FCFFFF00FFFF0A0700FFE0F81FFFE0F8181FFF07FFE0011F07FFE0023FF807FD
+FF0007BEFF00C1FEFF01F809
+FCFF0E07F81F0007F807E0001FFFE000181FFF07FFE000FFFF0004FF00FFC03F
+FEFF0007BEFF00C1FEFF01F809
+FCFF0E07F81F0007F807E0001FFFE000181FFF07FFE000FFFF0004FF00FFC03F
+FEFF0007BEFF00C1FEFF01F809
+FCFF0707F8181F07FF00E0FEFF0307FF001FFF07FFE001FF07FFFF03C03FF807
+FEFF0007BEFF00C1FEFF01F809
+FCFF0707F8181F07FF00E0FEFF0307FF001FFF07FFE001FF07FFFF03C03FF807
+FEFF0007BEFF00C1FEFF01F809
+FCFF0707F8181F07FF00E0FEFF0307FF001FFF07FFE001FF07FFFF03C03FF807
+FEFF0007BEFF00C1FEFF01F809
+FCFF0307F8181FFF07FFE006F81FFF07FF0018FF070300E0FF07FFE004F8383F
+07C0FFFF0007BEFF00C1FEFF01F800
+FCFF0307F8181FFF07FFE006F81FFF07FF0018FF070300E0FF07FFE004F8383F
+07C0FFFF0007BEFF00C1FEFF01F809
+FCFF0307F8181FFF07FFE006F81FFF07FF0018FF070300E0FF07FFE004F8383F
+07C0FFFF0007BEFF00C1FEFF01F809
+FCFFFF0001FF00FFE00207F800FFFF0107FFFE07FEE008FFE007F800FF003FC0
+FFFF0007BEFF00C1FEFF01F800
+FCFFFF0001FF00FFE00207F800FFFF0107FFFE07FEE008FFE007F800FF003FC0
+FFFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F808
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFF0007BEFF00C1FEFF01F809
+DEFFBD000001FEFF01F809
+DEFFBD000001FEFF01F809
+DEFFBD000001FEFF01F809
+DEFFBD000001FEFF01F800
+DEFFBD000001FEFF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F801
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F801
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F800
+FAFF05001FFF00F807FDFF04F81FFFF81FFDFF01E000FDFF01F83FFAFF01F83F
+FFFF00C0FAFF0407C0FFF83FFF00FDFF0207FF07D9FF01F809
+FAFF05001FFF00F807FDFF04F81FFFF81FFDFF01E000FDFF01F83FFAFF01F83F
+FFFF00C0FAFF0407C0FFF83FFF00FDFF0207FF07D9FF01F809
+FBFF05F81F07F81FE0FCFF04F81FFFF81FFDFF0007FCFF01F83FF6FF00C0FBFF
+08F83FC0FFF83F07F83FFFFF03F800FFC0D9FF01F809
+FBFF05F81F07F81FE0FCFF04F81FFFF81FFDFF0007FCFF01F83FF6FF00C0FBFF
+08F83FC0FFF83F07F83FFFFF03F800FFC0D9FF01F809
+FBFF05F81F07F81FE0FCFF04F81FFFF81FFDFF0007FCFF01F83FF6FF00C0FBFF
+08F83FC0FFF83F07F83FFFFF03F800FFC0D9FF01F809
+FBFF01E0FFFFE01107001F001FE007E007FFE007E007FFF800E0FEC00307C007
+FFFEC00107F8FF38063F003F003F003FFF070BFFF83FC03FC03F07F8383F07FF
+F803FFC0FF07DBFF01F809
+FBFF01E0FFFFE01107001F001FE007E007FFE007E007FFF800E0FEC00307C007
+FFFEC00107F8FF38063F003F003F003FFF070BFFF83FC03FC03F07F8383F07FF
+F803FFC0FF07DBFF01F809
+FBFF01E0FFFFE01107001F001FE007E007FFE007E007FFF800E0FEC00307C007
+FFFEC00107F8FF38063F003F003F003FFF070BFFF83FC03FC03F07F8383F07FF
+F803FFC0FF07DBFF01F809
+FBFF07E0FFE0F81FE0F81FFF0707E0F81FFFF81F07E0FFFF0B07E0C00007C0F8
+3FFFC00007FEC0FF38193F07C0F83F070007FFC0FFC03FC03F07F8383F07C0F8
+3FF83F07DBFF01F800
+FBFF07E0FFE0F81FE0F81FFF0707E0F81FFFF81F07E0FFFF0B07E0C00007C0F8
+3FFFC00007FEC0FF38193F07C0F83F070007FFC0FFC03FC03F07F8383F07C0F8
+3FF83F07DBFF01F809
+FBFF11E0FFE0F81FE0F807FF07E0F81FFFF81F07E0FFFF0B07E0C03F00FFF83F
+FFC03F07FFC000F8FF380607FFC0F83F0700FFFF05C0FFC007003FFF0007FF00
+3FC0F83FF83FDAFF01F809
+FBFF11E0FFE0F81FE0F807FF07E0F81FFFF81F07E0FFFF0B07E0C03F00FFF83F
+FFC03F07FFC000F8FF380607FFC0F83F0700FFFF05C0FFC007003FFF0007FF00
+3FC0F83FF83FDAFF01F800
+FBFF11E0FFE0F81FE0F807FF07E0F81FFFF81F07E0FFFF0B07E0C03F00FFF83F
+FFC03F07FFC000F8FF380607FFC0F83F0700FFFF05C0FFC007003FFF0007FF00
+3FC0F83FF83FDAFF01F809
+FBFF08E0FFE0F81FE0FFE01FFF0006F81FFFF81F07E0FFFF0A07E0C0FFF807F8
+3FFFC0FFFF0008C0F8383FC03FC0F800FF07FFFF0FC0FFC0C7383F07C0FFC0FF
+C0003FF83FDAFF01F809
+FBFF08E0FFE0F81FE0FFE01FFF0006F81FFFF81F07E0FFFF0A07E0C0FFF807F8
+3FFFC0FFFF0008C0F8383FC03FC0F800FF07FFFF0FC0FFC0C7383F07C0FFC0FF
+C0003FF83FDAFF01F809
+FBFF08E0FFE0F81FE0FFE01FFF0006F81FFFF81F07E0FFFF0A07E0C0FFF807F8
+3FFFC0FFFF0008C0F8383FC03FC0F800FF07FFFF0FC0FFC0C7383F07C0FFC0FF
+C0003FF83FDAFF01F808
+FBFF07E0FFE0F81FE0FFF8FF0707FFF81FFFF81F07E0FFFF0207E0C0FFFF1200
+F83FFFC0FF07FFC0F8383FF807C0F83FFF07FFFF01C0FFFFC00B383F07F83F00
+3F07FF07F83FDAFF01F809
+FBFF07E0FFE0F81FE0FFF8FF0707FFF81FFFF81F07E0FFFF0207E0C0FFFF1200
+F83FFFC0FF07FFC0F8383FF807C0F83FFF07FFFF01C0FFFFC00B383F07F83F00
+3F07FF07F83FDAFF01F809
+FBFF07F81F07F81FE0F81FFF0707E0F818FFF81807E0FFFF0B07E0C0FF07C0F8
+38FFC0FF07FEC0FF38013F07FFC0003FFF07FFFF02C0FFC0FFF8043F07F8383F
+FF0704FF07F83F07DBFF01F809
+FBFF07F81F07F81FE0F81FFF0707E0F818FFF81807E0FFFF0B07E0C0FF07C0F8
+38FFC0FF07FEC0FF38013F07FFC0003FFF07FFFF02C0FFC0FFF8043F07F8383F
+FF0704FF07F83F07DBFF01F809
+FBFF07F81F07F81FE0F81FFF0707E0F818FFF81807E0FFFF0B07E0C0FF07C0F8
+38FFC0FF07FEC0FF38013F07FFC0003FFF07FFFF02C0FFC0FFF8043F07F8383F
+FF0704FF07F83F07DBFF01F809
+FAFF0B001FF81FE0FF001FE007FF07FFFF0207E007FFFF0D07E0C0FFC007FF07
+FFC0FFC007F8FF38073F003FF83F003F07FFFF02C0FFC0FFF8043F07F8383FFF
+0704FF07F83F07DBFF01F809
+FAFF0B001FF81FE0FF001FE007FF07FFFF0207E007FFFF0D07E0C0FFC007FF07
+FFC0FFC007F8FF38073F003FF83F003F07FFFF02C0FFC0FFF8043F07F8383FFF
+0704FF07F83F07DBFF01F809
+FAFF0B001FF81FE0FF001FE007FF07FFFF0207E007FFFF0D07E0C0FFC007FF07
+FFC0FFC007F8FF38073F003FF83F003F07FFFF02C0FFC0FFF8043F07F8383FFF
+0704FF07F83F07DBFF01F809
+D9FF01F83FF7FF01F83FF5FF00C0D9FF01F809
+D9FF01F83FF7FF01F83FF5FF00C0D9FF01F809
+DAFF02C0F83FF7FF01F83FF5FF00C0D9FF01F809
+DAFF02C0F83FF7FF01F83FF5FF00C0D9FF01F809
+DAFF02C0F83FF7FF01F83FF5FF00C0D9FF01F809
+DAFF01F800F5FF0007F5FF0007D9FF01F809
+DAFF01F800F5FF0007F5FF0007D9FF01F809
+DAFF01F800F5FF0007F5FF0007D9FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F801
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F801
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+F8FF01E007F7FF0007F8FF01C007F8FF01C007F7FF01F83FF9FF02F8003FF9FF
+01F800F8FF02C0003FF9FF01F801F9FF01F800
+F8FF01E007F7FF0007F8FF01C007F8FF01C007F7FF01F83FF9FF02F8003FF9FF
+01F800F8FF02C0003FF9FF01F801F9FF01F809
+F8FF01E007F7FF0007F8FF01C007F8FF01C007F7FF01F83FF9FF02F8003FF9FF
+01F800F8FF02C0003FF9FF01F801F9FF01F809
+F8FF0107E0F8FF01E007F8FF0107C0F8FF0107C0F7FF01C03FF9FF01F83FF8FF
+02C0F83FF8FF01F83FF9FF02C1F83FFAFF01F800
+F8FF0107E0F8FF01E007F8FF0107C0F8FF0107C0F7FF01C03FF9FF01F83FF8FF
+02C0F83FF8FF01F83FF9FF02C1F83FFAFF01F809
+F8FF0107E0F7FF0007F7FF00C0F7FF00C0F7FF01383FF9FF00C0F7FF00C0F6FF
+00C1F8FF02C1F83FFAFF01F809
+F8FF0107E0F7FF0007F7FF00C0F7FF00C0F7FF01383FF9FF00C0F7FF00C0F6FF
+00C1F8FF02C1F83FFAFF01F809
+F8FF0107E0F7FF0007F7FF00C0F7FF00C0F7FF01383FF9FF00C0F7FF00C0F6FF
+00C1F8FF02C1F83FFAFF01F808
+F8FF0107E0F7FF0007F7FF0007F8FF01F807F7FF01383FF9FF01C000F8FF00C0
+F6FF00C1F8FF01F801F9FF01F809
+F8FF0107E0F7FF0007F7FF0007F8FF01F807F7FF01383FF9FF01C000F8FF00C0
+F6FF00C1F8FF01F801F9FF01F809
+F8FF0107E0F7FF0007F7FF0007F8FF01F807F7FF01383FF9FF01C000F8FF00C0
+F6FF00C1F8FF01F801F9FF01F809
+F8FF0107E0F7FF0007F8FF01F83FF7FF00C0F8FFFFF8003FF8FF01F83FF9FF01
+C000F8FF01FE07F8FF02C1F83FFAFF01F809
+F8FF0107E0F7FF0007F8FF01F83FF7FF00C0F8FFFFF8003FF8FF01F83FF9FF01
+C000F8FF01FE07F8FF02C1F83FFAFF01F809
+F8FF0107E0F7FF0007F8FF00C0F6FF00C0F8FF02C7F83FF8FF01F83FF9FF02C0
+F83FF9FF01FE07F8FF02C1F83FFAFF01F809
+F8FF0107E0F7FF0007F8FF00C0F6FF00C0F8FF02C7F83FF8FF01F83FF9FF02C0
+F83FF9FF01FE07F8FF02C1F83FFAFF01F809
+F8FF0107E0F7FF0007F8FF00C0F6FF00C0F8FF02C7F83FF8FF01F83FF9FF02C0
+F83FF9FF01FE07F8FF02C1F83FFAFF01F809
+F8FF0107E0F7FF0007F8FF0007F6FF00C0F8FF02C00007F9FF02C0F83FF9FF02
+C0F83FF9FF01FE07F8FF02C1F83FFAFF01F809
+F8FF0107E0F7FF0007F8FF0007F6FF00C0F8FF02C00007F9FF02C0F83FF9FF02
+C0F83FF9FF01FE07F8FF02C1F83FFAFF01F809
+F8FF0107E0F7FF0007F8FF0007F6FF00C0F8FF02C00007F9FF02C0F83FF9FF02
+C0F83FF9FF01FE07F8FF02C1F83FFAFF01F809
+F8FF0107E0F7FF0007F8FF0007F7FF0107C0F7FF01F83FF9FF02C0F83FF9FF02
+C0F83FF9FF01F83FF8FF02C1F83FFAFF01F809
+F8FF0107E0F7FF0007F8FF0007F7FF0107C0F7FF01F83FF9FF02C0F83FF9FF02
+C0F83FF9FF01F83FF8FF02C1F83FFAFF01F809
+F8FF01E007F7FF0007F8FFFF00F8FF01C007F7FF01F83FF9FF01F800F8FF01F8
+00F8FF01F83FF8FF01F801F9FF01F809
+F8FF01E007F7FF0007F8FFFF00F8FF01C007F7FF01F83FF9FF01F800F8FF01F8
+00F8FF01F83FF8FF01F801F9FF01F809
+F8FF01E007F7FF0007F8FFFF00F8FF01C007F7FF01F83FF9FF01F800F8FF01F8
+00F8FF01F83FF8FF01F801F9FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F801
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F801
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F808
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+FAFF05001FFF00F807FDFF03F81FFFE0FDFF00E0EEFF0007FFFF01F83FC8FF01
+F809
+FAFF05001FFF00F807FDFF03F81FFFE0FDFF00E0EEFF0007FFFF01F83FC8FF01
+F809
+FAFF05001FFF00F807FDFF03F81FFFE0FDFF00E0EEFF0007FFFF01F83FC8FF01
+F809
+FBFF05F81F07F81FE0FCFF03F81FFFE0FDFF00E0EBFF01F83FC8FF01F809
+FBFF05F81F07F81FE0FCFF03F81FFFE0FDFF00E0EBFF01F83FC8FF01F809
+FBFF01E0FFFFE00907001F001FE007E007FFFFE00CFF001F00181F07C0F800FF
+003FFF0701FFF8FF380100FFFE0705C007C007C007FEC00207F83FD0FF01F800
+FBFF01E0FFFFE00907001F001FE007E007FFFFE00CFF001F00181F07C0F800FF
+003FFF0701FFF8FF380100FFFE0705C007C007C007FEC00207F83FD0FF01F800
+FBFF01E0FFFFE00907001F001FE007E007FFFFE00CFF001F00181F07C0F800FF
+003FFF0701FFF8FF380100FFFE0705C007C007C007FEC00207F83FD0FF01F800
+FBFF07E0FFE0F81FE0F81FFF0704E0F81FFFE0FF18051F07E0F81F07FFC007F8
+383F0700C0FFF8FF0000F8FF38FE0703C0F83F07FFC0040007C0F83FD0FF01F8
+00
+FBFF07E0FFE0F81FE0F81FFF0704E0F81FFFE0FF18051F07E0F81F07FFC007F8
+383F0700C0FFF8FF0000F8FF38FE0703C0F83F07FFC0040007C0F83FD0FF01F8
+00
+FBFF07E0FFE0F81FE0F81FFF0704E0F81FFFE0FF18051F07E0F81F07FFC007F8
+383F0700C0FFF8FF0000F8FF38FE0703C0F83F07FFC0040007C0F83FD0FF01F8
+00
+FBFF14E0FFE0F81FE0F807FF07E0F81FFFE0F8181F07E0FFFE0703C0F8383FFF
+0707C0FFF807C0F8383FFF070400FFF83F07FFC0013F00CDFF01F800
+FBFF14E0FFE0F81FE0F807FF07E0F81FFFE0F8181F07E0FFFE0703C0F8383FFF
+0707C0FFF807C0F8383FFF070400FFF83F07FFC0013F00CDFF01F800
+FBFF08E0FFE0F81FE0FFE01FFF0009F81FFFE0F8180007E0FFFE0703C0003800
+FF0707C0FFF83FC000383FFF0703F807F83FFF0003C0FFF807CEFF01F800
+FBFF08E0FFE0F81FE0FFE01FFF0009F81FFFE0F8180007E0FFFE0703C0003800
+FF0707C0FFF83FC000383FFF0703F807F83FFF0003C0FFF807CEFF01F800
+FBFF08E0FFE0F81FE0FFE01FFF0009F81FFFE0F8180007E0FFFE0703C0003800
+FF0707C0FFF83FC000383FFF0703F807F83FFF0003C0FFF807CEFF01F800
+FBFF07E0FFE0F81FE0FFF8FF070AFFF81FFFE0F8181FFFE0FFFE070DC0FFF83F
+FF07C0FFF83FC0FFF83FFF0706FF00F83F07FFC0FFFF0000CEFF01F800
+FBFF07E0FFE0F81FE0FFF8FF070AFFF81FFFE0F8181FFFE0FFFE070DC0FFF83F
+FF07C0FFF83FC0FFF83FFF0706FF00F83F07FFC0FFFF0000CEFF01F800
+FBFF07E0FFE0F81FE0FFF8FF070AFFF81FFFE0F8181FFFE0FFFE070DC0FFF83F
+FF07C0FFF83FC0FFF83FFF0706FF00F83F07FFC0FFFF0000CEFF01F800
+FBFF07F81F07F81FE0F81FFF0704E0F818FFE0FF180A1F07E0E7E0F83FC0F838
+3FFF0705C0FFF83FC0F8FF38FE0703C0F83807FFC004FF07C0F83FD0FF01F800
+FBFF07F81F07F81FE0F81FFF0704E0F818FFE0FF180A1F07E0E7E0F83FC0F838
+3FFF0705C0FFF83FC0F8FF38FE0703C0F83807FFC004FF07C0F83FD0FF01F800
+FAFF0C001FF81FE0FF001FE007FF07FFFFE014FF001FF81FE0F83FF800FF003F
+07C0FFF83FF800FFFE070BC007FF07C007C0FFC007F83FD0FF01F800
+FAFF0C001FF81FE0FF001FE007FF07FFFFE014FF001FF81FE0F83FF800FF003F
+07C0FFF83FF800FFFE070BC007FF07C007C0FFC007F83FD0FF01F800
+FAFF0C001FF81FE0FF001FE007FF07FFFFE014FF001FF81FE0F83FF800FF003F
+07C0FFF83FF800FFFE070BC007FF07C007C0FFC007F83FD0FF01F800
+D5FF0007C3FF01F800
+D5FF0007C3FF01F800
+D5FF0007C3FF01F800
+D7FF02F83F07C3FF01F800
+D7FF02F83F07C3FF01F800
+D6FF01003FC3FF01F800
+D6FF01003FC3FF01F800
+D6FF01003FC3FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F801
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F801
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F808
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F800
+96FF01F800
+F7FF0007F6FF01001FF7FF01F800F5FF00C0F7FF02F8003FF7FF01C007F7FF02
+F80007F7FF01F801F9FF01F800
+F7FF0007F6FF01001FF7FF01F800F5FF00C0F7FF02F8003FF7FF01C007F7FF02
+F80007F7FF01F801F9FF01F800
+F8FF01E007F7FF02F81F07F7FF02C0F83FF6FF0000F7FF01F83FF6FF0107C0F6
+FF01FE07F7FF02C1F83FFAFF01F800
+F8FF01E007F7FF02F81F07F7FF02C0F83FF6FF0000F7FF01F83FF6FF0107C0F6
+FF01FE07F7FF02C1F83FFAFF01F800
+F8FF01E007F7FF02F81F07F7FF02C0F83FF6FF0000F7FF01F83FF6FF0107C0F6
+FF01FE07F7FF02C1F83FFAFF01F800
+F7FF0007F5FF0007F6FF01F83FF7FF01F8C0F7FF00C0F5FF0007F5FF01F83FF7
+FF02C1F83FFAFF01F800
+F7FF0007F5FF0007F6FF01F83FF7FF01F8C0F7FF00C0F5FF0007F5FF01F83FF7
+FF02C1F83FFAFF01F800
+F7FF0007F5FF0007F6FF01F83FF7FF01F8C0F7FF00C0F5FF0007F5FF01F83FF7
+FF02C1F83FFAFF01F800
+F7FF0007F6FF01F81FF6FF0000F6FF01F8C0F7FF01C000F6FF0007F5FF01F83F
+F7FF01F801F9FF01F800
+F7FF0007F6FF01F81FF6FF0000F6FF01F8C0F7FF01C000F6FF0007F5FF01F83F
+F7FF01F801F9FF01F800
+F7FF0007F6FF00E0F5FF01F83FF7FF01C7C0F6FF01F83FF7FF010007F6FF00C1
+F6FF02C1F83FFAFF01F800
+F7FF0007F6FF00E0F5FF01F83FF7FF01C7C0F6FF01F83FF7FF010007F6FF00C1
+F6FF02C1F83FFAFF01F800
+F7FF0007F6FF00E0F5FF01F83FF7FF01C7C0F6FF01F83FF7FF010007F6FF00C1
+F6FF02C1F83FFAFF01F800
+F7FF0007F6FF0007F5FF01F83FF7FF013FC0F6FF01F83FF7FF0107C0F6FF00C1
+F6FF02C1F83FFAFF01F800
+F7FF0007F6FF0007F5FF01F83FF7FF013FC0F6FF01F83FF7FF0107C0F6FF00C1
+F6FF02C1F83FFAFF01F800
+F7FF0007F6FF0007F5FF01F83FF7FF013FC0F6FF01F83FF7FF0107C0F6FF00C1
+F6FF02C1F83FFAFF01F800
+F7FF0007F7FF01F81FF5FF01F83FF7FFFF00003FF8FF02C0F83FF7FF0107C0F6
+FF00C1F6FF02C1F83FFAFF01F800
+F7FF0007F7FF01F81FF5FF01F83FF7FFFF00003FF8FF02C0F83FF7FF0107C0F6
+FF00C1F6FF02C1F83FFAFF01F800
+F7FF0007F7FF01F81FF6FF02C0F83FF6FF00C0F7FF02C0F83FF7FF0107C0F7FF
+01FE07F6FF02C1F83FFAFF01F800
+F7FF0007F7FF01F81FF6FF02C0F83FF6FF00C0F7FF02C0F83FF7FF0107C0F7FF
+01FE07F6FF02C1F83FFAFF01F800
+F7FF0007F7FF01F81FF6FF02C0F83FF6FF00C0F7FF02C0F83FF7FF0107C0F7FF
+01FE07F6FF02C1F83FFAFF01F800
+F7FF0007F7FF02F80007F7FF01F800F5FF00C0F7FF01F800F6FF01C007F7FF01
+FE07F6FF01F801F9FF01F800
+F7FF0007F7FF02F80007F7FF01F800F5FF00C0F7FF01F800F6FF01C007F7FF01
+FE07F6FF01F801F9FF01F800
+F7FF0007F7FF02F80007F7FF01F800F5FF00C0F7FF01F800F6FF01C007F7FF01
+FE07F6FF01F801F9FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F801
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F801
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F808
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+FBFF00E0FEFF0007F6FF0307FFF81FFAFF0007B8FF01F800
+FBFF00E0FEFF0007F6FF0307FFF81FFAFF0007B8FF01F800
+FBFF00E0FEFF0007F6FF0307FFF81FFAFF0007B8FF01F809
+FBFF00E0FEFF0007F6FF0307FFF81FFAFF0007B8FF01F809
+FBFF00E0FEFF0007F6FF0307FFF81FFAFF0007B8FF01F809
+FBFF00E0FEFF0007F6FF0307FFF81FFAFF0007B8FF01F809
+FBFFFEE008F800F800F81800E007FEE00DF800FFF81F001F07F83F003F07C0B9
+FF01F809
+FBFFFEE008F800F800F81800E007FEE00DF800FFF81F001F07F83F003F07C0B9
+FF01F800
+FBFFFFE005181F07E0F818FE000007FFE006181F07FFF8181FFF0702F8383FFF
+0700C0B9FF01F809
+FBFFFFE005181F07E0F818FE000007FFE006181F07FFF8181FFF0702F8383FFF
+0700C0B9FF01F809
+FBFFFFE005181F07E0F818FE000007FFE006181F07FFF8181FFF0702F8383FFF
+0700C0B9FF01F809
+FBFFFFE009F81F07E0F81807E01F07FFE007F81F07FFF8181F07FFC001F83FFF
+07B8FF01F809
+FBFFFFE009F81F07E0F81807E01F07FFE007F81F07FFF8181F07FFC001F83FFF
+07B8FF01F800
+FBFFFFE009F81F07E0F81807E01F07FFE007F81F07FFF8181F07FFC001F83FFF
+07B8FF01F809
+FBFFFFE009F81F07E000181FE0FF07FFE007F81F07FFF8180007FFC001F800FF
+07B8FF01F809
+FBFFFFE009F81F07E000181FE0FF07FFE007F81F07FFF8180007FFC001F800FF
+07B8FF01F809
+FBFFFFE009F81F07E0FFF81FE0FF07FFE00DF81F07FFF8181FFFF807F83FFF07
+B8FF01F800
+FBFFFFE009F81F07E0FFF81FE0FF07FFE00DF81F07FFF8181FFFF807F83FFF07
+B8FF01F809
+FBFFFFE009F81F07E0FFF81FE0FF07FFE00DF81F07FFF8181FFFF807F83FFF07
+B8FF01F809
+FBFFFFE017F81F0700F8181FE0FF0700E0181F071FF8181F07F807F83FFF0700
+C0B9FF01F809
+FBFFFFE017F81F0700F8181FE0FF0700E0181F071FF8181F07F807F83FFF0700
+C0B9FF01F809
+FBFFFFE017F81F0700F8181FE0FF0700E0181F071FF8181F07F807F83FFF0700
+C0B9FF01F809
+FBFFFFE008F81FE0F800F81FE0FFFDE00DFFE0FFF81F001FFF3FFF003F07C0B9
+FF01F801
+FBFFFFE008F81FE0F800F81FE0FFFDE00DFFE0FFF81F001FFF3FFF003F07C0B9
+FF01F809
+EEFF00E0AAFF01F809
+EEFF00E0AAFF01F809
+EEFF00E0AAFF01F801
+EEFF00E0AAFF01F800
+EEFF00E0AAFF01F809
+EEFF00E0AAFF01F809
+EEFF00E0AAFF01F800
+EEFF00E0AAFF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F808
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+F7FF0007F4FF01001FF5FF01F800F3FF01F83FF5FF01C000F5FF02FE003FF5FF
+02C0003FFAFF01F809
+F7FF0007F4FF01001FF5FF01F800F3FF01F83FF5FF01C000F5FF02FE003FF5FF
+02C0003FFAFF01F809
+F7FF0007F4FF01001FF5FF01F800F3FF01F83FF5FF01C000F5FF02FE003FF5FF
+02C0003FFAFF01F809
+F8FF01E007F5FF02F81F07F5FF02C0F83FF4FF01C03FF5FF00C0F4FF02F83E07
+F4FF01F83FFAFF01F809
+F8FF01E007F5FF02F81F07F5FF02C0F83FF4FF01C03FF5FF00C0F4FF02F83E07
+F4FF01F83FFAFF01F800
+F7FF0007F3FF0007F4FF01F83FF4FF01383FF5FF0007F4FF01F83FF3FF00C1F9
+FF01F809
+F7FF0007F3FF0007F4FF01F83FF4FF01383FF5FF0007F4FF01F83FF3FF00C1F9
+FF01F809
+F7FF0007F3FF0007F4FF01F83FF4FF01383FF5FF0007F4FF01F83FF3FF00C1F9
+FF01F809
+F7FF0007F4FF01F81FF4FF0000F3FF01383FF5FF010007F5FF01F83FF3FF00C1
+F9FF01F800
+F7FF0007F4FF01F81FF4FF0000F3FF01383FF5FF010007F5FF01F83FF3FF00C1
+F9FF01F809
+F7FF0007F4FF01F81FF4FF0000F3FF01383FF5FF010007F5FF01F83FF3FF00C1
+F9FF01F809
+F7FF0007F4FF00E0F3FF01F83FF5FFFFF8003FF4FF00C0F5FF02F8003FF5FF01
+FE07F9FF01F809
+F7FF0007F4FF00E0F3FF01F83FF5FFFFF8003FF4FF00C0F5FF02F8003FF5FF01
+FE07F9FF01F809
+F7FF0007F4FF0007F3FF01F83FF5FF02C7F83FF4FF00C0F5FF02F83E07F5FF01
+FE07F9FF01F809
+F7FF0007F4FF0007F3FF01F83FF5FF02C7F83FF4FF00C0F5FF02F83E07F5FF01
+FE07F9FF01F801
+F7FF0007F4FF0007F3FF01F83FF5FF02C7F83FF4FF00C0F5FF02F83E07F5FF01
+FE07F9FF01F809
+F7FF0007F5FF01F81FF3FF01F83FF5FF02C00007F5FF0107C0F5FF02F83E07F5
+FF01FE07F9FF01F809
+F7FF0007F5FF01F81FF3FF01F83FF5FF02C00007F5FF0107C0F5FF02F83E07F5
+FF01FE07F9FF01F809
+F7FF0007F5FF01F81FF3FF01F83FF5FF02C00007F5FF0107C0F5FF02F83E07F5
+FF01FE07F9FF01F801
+F7FF0007F5FF01F81FF4FF02C0F83FF4FF01F83FF5FF0107C0F5FF02F83E07F5
+FF01F83FF9FF01F800
+F7FF0007F5FF01F81FF4FF02C0F83FF4FF01F83FF5FF0107C0F5FF02F83E07F5
+FF01F83FF9FF01F809
+F7FF0007F5FF02F80007F5FF01F800F3FF01F83FF5FF01C007F5FF02FE003FF5
+FF01F83FF9FF01F809
+F7FF0007F5FF02F80007F5FF01F800F3FF01F83FF5FF01C007F5FF02FE003FF5
+FF01F83FF9FF01F800
+F7FF0007F5FF02F80007F5FF01F800F3FF01F83FF5FF01C007F5FF02FE003FF5
+FF01F83FF9FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F808
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F801
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F801
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+FCFFFF00FDFF01F81FFFFF00E0FEFF01E007F2FF01F83FBCFF01F809
+FCFFFF00FDFF01F81FFFFF00E0FEFF01E007F2FF01F83FBCFF01F800
+FCFFFF00FDFF01F81FFFFF00E0FEFF01E007F2FF01F83FBCFF01F809
+FCFF0207F81FFEFF01F81FFFFF01001FFFFF0107E0F2FF01F83FBCFF01F809
+FCFF0207F81FFEFF01F81FFFFF01001FFFFF0107E0F2FF01F83FBCFF01F809
+FCFF0207F81FFEFF01F81FFFFF01001FFFFF0107E0F2FF01F83FBCFF01F808
+FCFF0707F81800F8180007FFFFFF1F0FFFF81FFFE007E700E01F180700FF003F
+FF0703F8383F07BDFF01F809
+FCFF0707F81800F8180007FFFFFF1F0FFFF81FFFE007E700E01F180700FF003F
+FF0703F8383F07BDFF01F809
+FCFF1007F800F81800181FFFF81F07FFF81FFF07FFE001F81FFF0705C0F8383F
+0700FEC0013F07BDFF01F809
+FCFF1007F800F81800181FFFF81F07FFF81FFF07FFE001F81FFF0705C0F8383F
+0700FEC0013F07BDFF01F809
+FCFF1007F800F81800181FFFF81F07FFF81FFF07FFE001F81FFF0705C0F8383F
+0700FEC0013F07BDFF01F809
+FCFFFF000EE0F81807F81FFFF81F07FFF81FFF07FFE001F81FFF0703C0F83FFF
+FF07FFC001F83FBCFF01F809
+FCFFFF000EE0F81807F81FFFF81F07FFF81FFF07FFE001F81FFF0703C0F83FFF
+FF07FFC001F83FBCFF01F809
+FCFFFF000EE0F81807F81FFFF81F07FFF81FFF07FFE001F81FFF0703C0F83FFF
+FF07FFC001F83FBCFF01F809
+FCFF1007FFE0F8181FF81FFFF80007FFF81FFF07FFE001F81FFF0703C0F83F00
+FF07FFC001F83FBCFF01F809
+FCFF1007FFE0F8181FF81FFFF80007FFF81FFF07FFE001F81FFF0703C0F83F00
+FF07FFC001F83FBCFF01F809
+FCFF1007FFE0F8181FF81FFFE0FFE0FFF81FFF07FFE001F81FFF0703C0F8383F
+FF07FFC001F83FBCFF01F809
+FCFF1007FFE0F8181FF81FFFE0FFE0FFF81FFF07FFE001F81FFF0703C0F8383F
+FF07FFC001F83FBCFF01F809
+FCFF1007FFE0F8181FF81FFFE0FFE0FFF81FFF07FFE001F81FFF0703C0F8383F
+FF07FFC001F83FBCFF01F809
+FCFF0B07FFE0F8181FF818FFE0FFE0FFFF0207E007FFE001F81FFF0703C0F838
+3FFF07FEC0013F07BDFF01F809
+FCFF0B07FFE0F8181FF818FFE0FFE0FFFF0207E007FFE001F81FFF0703C0F838
+3FFF07FEC0013F07BDFF01F809
+FCFF0B07FFF800F81FFF07FFE0FFE0FFFF06E007E007E0F81FFF070AC0F83F00
+C007C0F8383F07BDFF01F809
+FCFF0B07FFF800F81FFF07FFE0FFE0FFFF06E007E007E0F81FFF070AC0F83F00
+C007C0F8383F07BDFF01F809
+FCFF0B07FFF800F81FFF07FFE0FFE0FFFF06E007E007E0F81FFF070AC0F83F00
+C007C0F8383F07BDFF01F809
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F801
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F801
+96FF01F800
+96FF01F809
+F3FF04E0FFE0FF07FCFF0007F8FF00C0FFFF00C0EBFF02C0F83FFDFF020007C0
+FF000BC000FFC0F83FC0FF07C001F8FF000938003FFFC007FE07F838FF00023E
+003FFBFF01F809
+F3FF04E0FFE0FF07FCFF0007F8FF00C0FFFF00C0EBFF02C0F83FFDFF020007C0
+FF000BC000FFC0F83FC0FF07C001F8FF000938003FFFC007FE07F838FF00023E
+003FFBFF01F800
+F3FF04E0FFE0FF07FCFF0007F8FF00C0FFFF00C0EBFF02C0F83FFDFF020007C0
+FF000BC000FFC0F83FC0FF07C001F8FF000938003FFFC007FE07F838FF00023E
+003FFBFF01F800
+F3FF04001FE0FF07FCFF0007F8FF00C0FFFF00C0EBFF02C0FF3FFEFF0DF83FC0
+FFC0FFC0F83FC0F807C0FFFF0712F83FF83FF83E07FE07C1FE07F83FF83FF83E
+07FBFF01F809
+F3FF04001FE0FF07FCFF0007F8FF00C0FFFF00C0EBFF02C0FF3FFEFF0DF83FC0
+FFC0FFC0F83FC0F807C0FFFF0712F83FF83FF83E07FE07C1FE07F83FF83FF83E
+07FBFF01F809
+F3FF04001FE0FF07FCFF0007F8FF00C0FFFF00C0EBFF02C0FF3FFEFF0DF83FC0
+FFC0FFC0F83FC0F807C0FFFF0712F83FF83FF83E07FE07C1FE07F83FF83FF83E
+07FBFF01F809
+F3FFFF1F07001800F800FF001FFF0705FFF8383FC007FFC018003FFF003F003F
+FFF800FF003F380700F8C03807F800F8383FFFC027F8FF003FFFF83FC0FFC0FF
+C0FF07C0F807C0FF3F07F83FF83FF83FC1F83FF83E07F83FF83FF83E07FBFF01
+F809
+F3FFFF1F07001800F800FF001FFF0705FFF8383FC007FFC018003FFF003F003F
+FFF800FF003F380700F8C03807F800F8383FFFC027F8FF003FFFF83FC0FFC0FF
+C0FF07C0F807C0FF3F07F83FF83FF83FC1F83FF83E07F83FF83FF83E07FBFF01
+F809
+F4FF0EF81F07E0FF07E0F8181F0700E0FFF8FE07FFC00100C0FFFF08C0F83F07
+FFC0F8383FFF0704C0F8383F07FFC001F838FE070400FFF83F07FFFF0000FFFF
+1EC0FFC0FF07C0F838C0F83FC03FFFF83FF83FC1F83FF83E07F83FF83FFFF83F
+FBFF01F809
+F4FF0EF81F07E0FF07E0F8181F0700E0FFF8FE07FFC00100C0FFFF08C0F83F07
+FFC0F8383FFF0704C0F8383F07FFC001F838FE070400FFF83F07FFFF0000FFFF
+1EC0FFC0FF07C0F838C0F83FC03FFFF83FF83FC1F83FF83E07F83FF83FFFF83F
+FBFF01F809
+F4FF0EF81F07E0FF07E0F8181F0700E0FFF8FE07FFC00100C0FFFF08C0F83F07
+FFC0F8383FFF0704C0F8383F07FFC001F838FE070400FFF83F07FFFF0000FFFF
+1EC0FFC0FF07C0F838C0F83FC03FFFF83FF83FC1F83FF83E07F83FF83FFFF83F
+FBFF01F809
+F4FF0FF81F07E0FF07FFF8181FFF07E0FFF83FFF07FFC0013FC0FFFF08C0F83F
+07FFC0FFF83FFF0709C0F8383F07C0FFF8383FFF0703C0FFF807FEFF20F807FF
+C0FFC0FF07C0F838C0F83FFE01FFF83FF83FC1F83FF83E07F83FF83FFFC1FAFF
+01F800
+F4FF0FF81F07E0FF07FFF8181FFF07E0FFF83FFF07FFC0013FC0FFFF08C0F83F
+07FFC0FFF83FFF0709C0F8383F07C0FFF8383FFF0703C0FFF807FEFF20F807FF
+C0FFC0FF07C0F838C0F83FFE01FFF83FF83FC1F83FF83E07F83FF83FFFC1FAFF
+01F809
+F4FF0FF81F07E0FF07FFF8181FFF07E0FFF83FFF07FFC0013FC0FFFF08C0F83F
+07FFC0FFF83FFF0709C0F8383F07C0FFF8383FFF0703C0FFF807FEFF20F807FF
+C0FFC0FF07C0F838C0F83FFE01FFF83FF83FC1F83FF83E07F83FF83FFFC1FAFF
+01F809
+F4FF0FF80007E0FF07F800181FFF07E0FFF83FFF07FFC001FFC0FFFF08C0F83F
+07FFC0FFF83FFF0709C0F8383F07C0F800383FFF0700C0FFFF01C03FFEFF0B00
+FFC0FFC0FF07C0F83F00F8FFFF11C03FF83FF83FC1F83FF83E07F83FF83FFFC1
+FAFF01F800
+F4FF0FF80007E0FF07F800181FFF07E0FFF83FFF07FFC001FFC0FFFF08C0F83F
+07FFC0FFF83FFF0709C0F8383F07C0F800383FFF0700C0FFFF01C03FFEFF0B00
+FFC0FFC0FF07C0F83F00F8FFFF11C03FF83FF83FC1F83FF83E07F83FF83FFFC1
+FAFF01F809
+F4FF01E0FFFFE00BFF07E0F8181FFF07E0FFF83FFF07FFC001FFC0FFFF08C0F8
+3F07FFC0FFF83FFF0704C0F8383F07FFC002F8383FFF0700C0FFFF22F807FFF8
+3FC0FFC0FFC0FF07C0F83F00F8FF07F83FF83FF83FC1F83FF83E07F83FF83FF8
+FF01F809
+F4FF01E0FFFFE00BFF07E0F8181FFF07E0FFF83FFF07FFC001FFC0FFFF08C0F8
+3F07FFC0FFF83FFF0704C0F8383F07FFC002F8383FFF0700C0FFFF22F807FFF8
+3FC0FFC0FFC0FF07C0F83F00F8FF07F83FF83FF83FC1F83FF83E07F83FF83FF8
+FF01F809
+F4FF01E0FFFFE00BFF07E0F8181FFF07E0FFF83FFF07FFC001FFC0FFFF08C0F8
+3F07FFC0FFF83FFF0704C0F8383F07FFC002F8383FFF0700C0FFFF22F807FFF8
+3FC0FFC0FFC0FF07C0F83F00F8FF07F83FF83FF83FC1F83FF83E07F83FF83FF8
+FF01F808
+F4FF01E0FFFFE005E70700F8181FFF0702E0FFF8FE07FFC003FFC0C7FFFFC006
+3F07FFC0F8383FFF0704C0F8383F07FFC002F8383FFF071100FFF83F07FFF83F
+C0FFC0FFC0F83FC0F83FFFC00CFF07F83FF83FF83E07FE07C1FFFFC104FFF83F
+FFC1FAFF01F809
+F4FF01E0FFFFE005E70700F8181FFF0702E0FFF8FE07FFC003FFC0C7FFFFC006
+3F07FFC0F8383FFF0704C0F8383F07FFC002F8383FFF071100FFF83F07FFF83F
+C0FFC0FFC0F83FC0F83FFFC00CFF07F83FF83FF83E07FE07C1FFFFC104FFF83F
+FFC1FAFF01F809
+F4FF01E0FFFFE005E70700F8181FFF0702E0FFF8FE07FFC003FFC0C7FFFFC006
+3F07FFC0F8383FFF0704C0F8383F07FFC002F8383FFF071100FFF83F07FFF83F
+C0FFC0FFC0F83FC0F83FFFC00CFF07F83FF83FF83E07FE07C1FFFFC104FFF83F
+FFC1FAFF01F809
+F4FF06E0FFE0F81FE0F8FF0724001F07E0FFF8383FC007C0FFF83FFFF83F003F
+FFF800FF003F07C0F8383F07C0F807003F07FFC0FFFF01003FFFFF0A0007FFC0
+FFC000FFC0F83FFFC013FFC001FFF83FF8003FFFC007FFC001FFF83FFFC1FAFF
+01F809
+F4FF06E0FFE0F81FE0F8FF0724001F07E0FFF8383FC007C0FFF83FFFF83F003F
+FFF800FF003F07C0F8383F07C0F807003F07FFC0FFFF01003FFFFF0A0007FFC0
+FFC000FFC0F83FFFC013FFC001FFF83FF8003FFFC007FFC001FFF83FFFC1FAFF
+01F809
+E6FF01F83FB3FF01F809
+E6FF01F83FB3FF01F809
+E6FF01F83FB3FF01F809
+E6FF01F83FB3FF01F809
+E6FF01F83FB3FF01F809
+E6FF01F83FB3FF01F809
+E6FF01F83FB3FF01F809
+E6FF01F83FB3FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F801
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F801
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+FCFFFF00FDFF05F81FFFF80007FFFF01F800F1FF0007BCFF01F809
+FCFFFF00FDFF05F81FFFF80007FFFF01F800F1FF0007BCFF01F809
+FCFFFF00FDFF05F81FFFF80007FFFF01F800F1FF0007BCFF01F808
+FCFF0207F81FFEFF05F81FFFF81FE0FFFF02E0F81FF2FF0007BCFF01F809
+FCFF0207F81FFEFF05F81FFFF81FE0FFFF02E0F81FF2FF0007BCFF01F809
+FCFF0B07F81800F8180007FFF81FE0FFFF0D07FFF800F8E01807E700C03FC007
+FFC000FFFF0700C0BDFF01F809
+FCFF0B07F81800F8180007FFF81FE0FFFF0D07FFF800F8E01807E700C03FC007
+FFC000FFFF0700C0BDFF01F809
+FCFF0B07F81800F8180007FFF81FE0FFFF0D07FFF800F8E01807E700C03FC007
+FFC000FFFF0700C0BDFF01F809
+FCFF0B07F800F81800181FFFF81FE0FFFF0607FFE0F8181F07FFE001F83FFF07
+FFC0FE380107C0BDFF01F809
+FCFF0B07F800F81800181FFFF81FE0FFFF0607FFE0F8181F07FFE001F83FFF07
+FFC0FE380107C0BDFF01F809
+FCFF0B07F800F81800181FFFF81FE0FFFF0607FFE0F8181F07FFE001F83FFF07
+FFC0FE380107C0BDFF01F809
+FCFFFF0009E0F81807F81FFFF80007FFFF0607FFE0F8181F07FFE003F83F07FF
+FFC003F8383F07BCFF01F809
+FCFFFF0009E0F81807F81FFFF80007FFFF0607FFE0F8181F07FFE003F83F07FF
+FFC003F8383F07BCFF01F809
+FCFF0B07FFE0F8181FF81FFFF81FE0FFFF0607FFE0F8181F07FFE009F83F07C0
+00C0F8383F07BCFF01F809
+FCFF0B07FFE0F8181FF81FFFF81FE0FFFF0607FFE0F8181F07FFE009F83F07C0
+00C0F8383F07BCFF01F809
+FCFF0B07FFE0F8181FF81FFFF81FE0FFFF0607FFE0F8181F07FFE009F83F07C0
+00C0F8383F07BCFF01F809
+FCFF0B07FFE0F8181FF81FFFF81FE0FFFF0607FFE0F8181F07FFE001F83FFF07
+FFC003F8383F07BCFF01F809
+FCFF0B07FFE0F8181FF81FFFF81FE0FFFF0607FFE0F8181F07FFE001F83FFF07
+FFC003F8383F07BCFF01F809
+FCFF0B07FFE0F8181FF81FFFF81FE0FFFF0607FFE0F8181F07FFE001F83FFF07
+FFC003F8383F07BCFF01F809
+FCFF0B07FFE0F8181FF818FFF81FE0FFFF06E0F800F8181F07FFE001F83FFF07
+FFC000F8FF380107C0BDFF01F809
+FCFF0B07FFE0F8181FF818FFF81FE0FFFF06E0F800F8181F07FFE001F83FFF07
+FFC000F8FF380107C0BDFF01F809
+FCFF0B07FFF800F81FFF07FFF80007FFFF06F800F800F81F07FFE007F83F07C0
+3800F83FFF0700C0BDFF01F800
+FCFF0B07FFF800F81FFF07FFF80007FFFF06F800F800F81F07FFE007F83F07C0
+3800F83FFF0700C0BDFF01F800
+FCFF0B07FFF800F81FFF07FFF80007FFFF06F800F800F81F07FFE007F83F07C0
+3800F83FFF0700C0BDFF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F801
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F801
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F800
+F3FF04E0FFE0FF07FCFF0007F8FF00C0FFFF00C0EBFF02C0F83FFDFF020007C0
+FF000BC000FFC0F83FC0FF07C001F8FF000938003FFFC007FE07F838FF00023E
+003FFBFF01F809
+F3FF04E0FFE0FF07FCFF0007F8FF00C0FFFF00C0EBFF02C0F83FFDFF020007C0
+FF000BC000FFC0F83FC0FF07C001F8FF000938003FFFC007FE07F838FF00023E
+003FFBFF01F809
+F3FF04E0FFE0FF07FCFF0007F8FF00C0FFFF00C0EBFF02C0F83FFDFF020007C0
+FF000BC000FFC0F83FC0FF07C001F8FF000938003FFFC007FE07F838FF00023E
+003FFBFF01F809
+F3FF04001FE0FF07FCFF0007F8FF00C0FFFF00C0EBFF02C0FF3FFEFF0DF83FC0
+FFC0FFC0F83FC0F807C0FFFF0712F83FF83FF83E07FE07C1FE07F83FF83FF83E
+07FBFF01F809
+F3FF04001FE0FF07FCFF0007F8FF00C0FFFF00C0EBFF02C0FF3FFEFF0DF83FC0
+FFC0FFC0F83FC0F807C0FFFF0712F83FF83FF83E07FE07C1FE07F83FF83FF83E
+07FBFF01F809
+F3FF04001FE0FF07FCFF0007F8FF00C0FFFF00C0EBFF02C0FF3FFEFF0DF83FC0
+FFC0FFC0F83FC0F807C0FFFF0712F83FF83FF83E07FE07C1FE07F83FF83FF83E
+07FBFF01F809
+F3FFFF1F07001800F800FF001FFF0705FFF8383FC007FFC018003FFF003F003F
+FFF800FF003F380700F8C03807F800F8383FFFC027F8FF003FFFF83FC0FFC0FF
+C0FF07C0F807C0FF3F07F83FF83FF83FC1F83FF83E07F83FF83FF83E07FBFF01
+F809
+F3FFFF1F07001800F800FF001FFF0705FFF8383FC007FFC018003FFF003F003F
+FFF800FF003F380700F8C03807F800F8383FFFC027F8FF003FFFF83FC0FFC0FF
+C0FF07C0F807C0FF3F07F83FF83FF83FC1F83FF83E07F83FF83FF83E07FBFF01
+F809
+F4FF0EF81F07E0FF07E0F8181F0700E0FFF8FE07FFC00100C0FFFF08C0F83F07
+FFC0F8383FFF0704C0F8383F07FFC001F838FE070400FFF83F07FFFF0000FFFF
+1EC0FFC0FF07C0F838C0F83FC03FFFF83FF83FC1F83FF83E07F83FF83FFFF83F
+FBFF01F800
+F4FF0EF81F07E0FF07E0F8181F0700E0FFF8FE07FFC00100C0FFFF08C0F83F07
+FFC0F8383FFF0704C0F8383F07FFC001F838FE070400FFF83F07FFFF0000FFFF
+1EC0FFC0FF07C0F838C0F83FC03FFFF83FF83FC1F83FF83E07F83FF83FFFF83F
+FBFF01F809
+F4FF0EF81F07E0FF07E0F8181F0700E0FFF8FE07FFC00100C0FFFF08C0F83F07
+FFC0F8383FFF0704C0F8383F07FFC001F838FE070400FFF83F07FFFF0000FFFF
+1EC0FFC0FF07C0F838C0F83FC03FFFF83FF83FC1F83FF83E07F83FF83FFFF83F
+FBFF01F809
+F4FF0FF81F07E0FF07FFF8181FFF07E0FFF83FFF07FFC0013FC0FFFF08C0F83F
+07FFC0FFF83FFF0709C0F8383F07C0FFF8383FFF0703C0FFF807FEFF20F807FF
+C0FFC0FF07C0F838C0F83FFE01FFF83FF83FC1F83FF83E07F83FF83FFFC1FAFF
+01F800
+F4FF0FF81F07E0FF07FFF8181FFF07E0FFF83FFF07FFC0013FC0FFFF08C0F83F
+07FFC0FFF83FFF0709C0F8383F07C0FFF8383FFF0703C0FFF807FEFF20F807FF
+C0FFC0FF07C0F838C0F83FFE01FFF83FF83FC1F83FF83E07F83FF83FFFC1FAFF
+01F809
+F4FF0FF81F07E0FF07FFF8181FFF07E0FFF83FFF07FFC0013FC0FFFF08C0F83F
+07FFC0FFF83FFF0709C0F8383F07C0FFF8383FFF0703C0FFF807FEFF20F807FF
+C0FFC0FF07C0F838C0F83FFE01FFF83FF83FC1F83FF83E07F83FF83FFFC1FAFF
+01F809
+F4FF0FF80007E0FF07F800181FFF07E0FFF83FFF07FFC001FFC0FFFF08C0F83F
+07FFC0FFF83FFF0709C0F8383F07C0F800383FFF0700C0FFFF01C03FFEFF0B00
+FFC0FFC0FF07C0F83F00F8FFFF11C03FF83FF83FC1F83FF83E07F83FF83FFFC1
+FAFF01F809
+F4FF0FF80007E0FF07F800181FFF07E0FFF83FFF07FFC001FFC0FFFF08C0F83F
+07FFC0FFF83FFF0709C0F8383F07C0F800383FFF0700C0FFFF01C03FFEFF0B00
+FFC0FFC0FF07C0F83F00F8FFFF11C03FF83FF83FC1F83FF83E07F83FF83FFFC1
+FAFF01F808
+F4FF01E0FFFFE00BFF07E0F8181FFF07E0FFF83FFF07FFC001FFC0FFFF08C0F8
+3F07FFC0FFF83FFF0704C0F8383F07FFC002F8383FFF0700C0FFFF22F807FFF8
+3FC0FFC0FFC0FF07C0F83F00F8FF07F83FF83FF83FC1F83FF83E07F83FF83FF8
+FF01F809
+F4FF01E0FFFFE00BFF07E0F8181FFF07E0FFF83FFF07FFC001FFC0FFFF08C0F8
+3F07FFC0FFF83FFF0704C0F8383F07FFC002F8383FFF0700C0FFFF22F807FFF8
+3FC0FFC0FFC0FF07C0F83F00F8FF07F83FF83FF83FC1F83FF83E07F83FF83FF8
+FF01F809
+F4FF01E0FFFFE00BFF07E0F8181FFF07E0FFF83FFF07FFC001FFC0FFFF08C0F8
+3F07FFC0FFF83FFF0704C0F8383F07FFC002F8383FFF0700C0FFFF22F807FFF8
+3FC0FFC0FFC0FF07C0F83F00F8FF07F83FF83FF83FC1F83FF83E07F83FF83FF8
+FF01F809
+F4FF01E0FFFFE005E70700F8181FFF0702E0FFF8FE07FFC003FFC0C7FFFFC006
+3F07FFC0F8383FFF0704C0F8383F07FFC002F8383FFF071100FFF83F07FFF83F
+C0FFC0FFC0F83FC0F83FFFC00CFF07F83FF83FF83E07FE07C1FFFFC104FFF83F
+FFC1FAFF01F809
+F4FF01E0FFFFE005E70700F8181FFF0702E0FFF8FE07FFC003FFC0C7FFFFC006
+3F07FFC0F8383FFF0704C0F8383F07FFC002F8383FFF071100FFF83F07FFF83F
+C0FFC0FFC0F83FC0F83FFFC00CFF07F83FF83FF83E07FE07C1FFFFC104FFF83F
+FFC1FAFF01F809
+F4FF01E0FFFFE005E70700F8181FFF0702E0FFF8FE07FFC003FFC0C7FFFFC006
+3F07FFC0F8383FFF0704C0F8383F07FFC002F8383FFF071100FFF83F07FFF83F
+C0FFC0FFC0F83FC0F83FFFC00CFF07F83FF83FF83E07FE07C1FFFFC104FFF83F
+FFC1FAFF01F809
+F4FF06E0FFE0F81FE0F8FF0724001F07E0FFF8383FC007C0FFF83FFFF83F003F
+FFF800FF003F07C0F8383F07C0F807003F07FFC0FFFF01003FFFFF0A0007FFC0
+FFC000FFC0F83FFFC013FFC001FFF83FF8003FFFC007FFC001FFF83FFFC1FAFF
+01F809
+F4FF06E0FFE0F81FE0F8FF0724001F07E0FFF8383FC007C0FFF83FFFF83F003F
+FFF800FF003F07C0F8383F07C0F807003F07FFC0FFFF01003FFFFF0A0007FFC0
+FFC000FFC0F83FFFC013FFC001FFF83FF8003FFFC007FFC001FFF83FFFC1FAFF
+01F809
+E6FF01F83FB3FF01F809
+E6FF01F83FB3FF01F809
+E6FF01F83FB3FF01F809
+E6FF01F83FB3FF01F809
+E6FF01F83FB3FF01F809
+E6FF01F83FB3FF01F809
+E6FF01F83FB3FF01F809
+E6FF01F83FB3FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F801
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F801
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+EBFF03F800FF07D1FF01003FF9FF01FE07ECFF01F809
+EBFF03F800FF07D1FF01003FF9FF01FE07ECFF01F809
+EBFF03F800FF07D1FF01003FF9FF01FE07ECFF01F809
+EBFF03E0F81F07D2FF02F83F07F9FF01FE07ECFF01F800
+EBFF03E0F81F07D2FF02F83F07F9FF01FE07ECFF01F809
+EBFF0107FFFF0705E0F800F83FC0D8FF00C0FFFF01003FFF0705F801FE003E07
+ECFF01F809
+EBFF0107FFFF0705E0F800F83FC0D8FF00C0FFFF01003FFF0705F801FE003E07
+ECFF01F800
+EBFF0107FFFF0705E0F800F83FC0D8FF00C0FFFF01003FFF0705F801FE003E07
+ECFF01F809
+EBFF0107FFFE0704E0F8383FC0D8FF05C0FFF83F0700FFC004F8383E0607ECFF
+01F809
+EBFF0107FFFE0704E0F8383FC0D8FF05C0FFF83F0700FFC004F8383E0607ECFF
+01F809
+EBFF0107FFFE0704E0F8383FC0D8FF05C0FFF83F0700FFC004F8383E0607ECFF
+01F808
+EBFF0707FF07001FFFF83FFF07D8FF00C0FEFFFF07FFC004FFF83E0607ECFF01
+F809
+EBFF0707FF07001FFFF83FFF07D8FF00C0FEFFFF07FFC004FFF83E0607ECFF01
+F809
+EBFF0707FF07001FF8003FFF07D8FF00C0FFFF0000FF07FFC004FFF8000607EC
+FF01F809
+EBFF0707FF07001FF8003FFF07D8FF00C0FFFF0000FF07FFC004FFF8000607EC
+FF01F809
+EBFF0707FF07001FF8003FFF07D8FF00C0FFFF0000FF07FFC004FFF8000607EC
+FF01F809
+EBFF0107FFFE0704E0F83FC03FD8FF03C0FFF83FFF07FFC004FFF83FFE07ECFF
+01F809
+EBFF0107FFFE0704E0F83FC03FD8FF03C0FFF83FFF07FFC004FFF83FFE07ECFF
+01F809
+EBFF0107FFFE0704E0F83FC03FD8FF03C0FFF83FFF07FFC004FFF83FFE07ECFF
+01F809
+EBFF03E0F81F07FFE003F83FC03FD8FF03F83F003FFF07FFC004F8383E0607EC
+FF01F809
+EBFF03E0F81F07FFE003F83FC03FD8FF03F83F003FFF07FFC004F8383E0607EC
+FF01F809
+EBFF05F800FF07F818FF0701F83FD7FF0B003F00C007C0F801FE003E07ECFF01
+F809
+EBFF05F800FF07F818FF0701F83FD7FF0B003F00C007C0F801FE003E07ECFF01
+F809
+EBFF05F800FF07F818FF0701F83FD7FF0B003F00C007C0F801FE003E07ECFF01
+F809
+E3FF00F8B5FF01F809
+E3FF00F8B5FF01F809
+E3FF00F8B5FF01F809
+E3FF00C0B5FF01F809
+E3FF00C0B5FF01F809
+E3FF0007B5FF01F800
+E3FF0007B5FF01F800
+E3FF0007B5FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F800
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+96FF01F809
+00E096000001
+00E096000009
+95000009
+95000009
+95000001
+
+Z
+: 160 2527 732 67 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F0) cvn
+0.914 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F0_58) cvn
+F0
+58 
+xF 
+F0_58
+Ji 
+221 2527 M 
+-0.106 0 (FIGURE 3-1)A 
+; : 610 2527 1708 66 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F2) cvn
+0.914 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F2_58) cvn
+F2
+58 
+xF 
+F2_58
+Ji 
+671 2527 M 
+-0.158 0 (M68681 Device Setup Dialog)A 
+; 
+221 2523 N M 1950 2 rr : 0 0 0 sco O ; : 617 2686 1779 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F4) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F4_50) cvn
+F4
+50 
+xF 
+F4_50
+Ji 
+671 2686 M 
+-0.269 0 (Using this dialog you can select the:)A 
+; 
+N 690 2829 9.000 360 0 An C : 0 0 0 sco O ; 1 Lw 1 Lc 1 Lj solid 0 0 0 sco K : 662 2804 1512 57 rc 0 0 0 sco F4_50
+Ji 
+716 2804 M 
+-0.169 0 (Base address of the device)A 
+; 
+N 690 2888 9.000 360 0 An C : 0 0 0 sco O ; 0 0 0 sco K : 662 2863 1734 57 rc 0 0 0 sco F4_50
+Ji 
+716 2863 M 
+-0.107 0 (Byte offset to the first register of the device)A 
+; : 1552 2861 93 33 rc 0 0 0 sco (F4_29) cvn
+F4
+29 
+xF 
+F4_29
+Ji 
+1583 2861 M 
+-0.500 0 (5)A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco F4_50
+Ji 
+2121 2942 M 
+(18)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 2 ]%%)  =
+%%PageTrailer
+
+%%Page: 3 3
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+
+N 690 253 9.000 360 0 An C : 0 0 0 sco O ; 1 Lw 1 Lc 1 Lj solid 0 0 0 sco K : 662 227 1404 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F0) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F0_50) cvn
+F0
+50 
+xF 
+F0_50
+Ji 
+716 227 M 
+-0.206 0 (Offset between registers)A 
+; 
+N 18 17 690 311 ellp : 0 0 0 sco O ; 0 0 0 sco K : 662 286 918 57 rc 0 0 0 sco F0_50
+Ji 
+716 286 M 
+-0.177 0 (Interrupt level)A 
+; 
+N 690 370 9.000 360 0 An C : 0 0 0 sco O ; 0 0 0 sco K : 662 345 810 57 rc 0 0 0 sco F0_50
+Ji 
+716 345 M 
+-0.115 0 (Port commands)A 
+; : 996 343 93 33 rc 0 0 0 sco (F0_29) cvn
+F0
+29 
+xF 
+F0_29
+Ji 
+1027 343 M 
+-0.500 0 (6)A 
+; 
+N 690 430 9.000 360 0 An C : 0 0 0 sco O ; 0 0 0 sco K : 662 405 1734 57 rc 0 0 0 sco F0_50
+Ji 
+716 405 M 
+0.091 0 (Port input and output attachments)A 
+; : 1363 403 93 33 rc 0 0 0 sco F0_29
+Ji 
+1394 403 M 
+-0.500 0 (7)A 
+; : 619 583 520 59 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F3) cvn
+0.940 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F3_50) cvn
+F3
+50 
+xF 
+F3_50
+Ji 
+671 583 M 
+0.075 0 (Features)A 
+; : 617 659 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 659 M 
+-0.157 0 (The M68681 device supports the following features:)A 
+; 
+N 690 803 9.000 360 0 An C : 0 0 0 sco O ; 0 0 0 sco K : 662 777 1734 57 rc 0 0 0 sco F0_50
+Ji 
+716 777 M 
+-0.226 0 (Two, independent, full-duplex asynchronous Receiver/Transmitter ports)A 
+; 
+N 18 17 690 861 ellp : 0 0 0 sco O ; 0 0 0 sco K : 662 836 1734 57 rc 0 0 0 sco F0_50
+Ji 
+716 836 M 
+0.008 0 (Each port can be connect to a Unix process)A 
+; 
+N 18 17 690 921 ellp : 0 0 0 sco O ; 0 0 0 sco K : 662 896 1734 57 rc 0 0 0 sco F0_50
+Ji 
+716 896 M 
+-0.260 0 (Independently programmable baud rate for each Receiver and)A 
+; : 662 955 702 57 rc 0 0 0 sco F0_50
+Ji 
+716 955 M 
+-0.209 0 (Transmitter)A 
+; 
+756 1030 N M 19 19 rr : 0 0 0 sco O ; 2 Lw 0 Lc 0 Lj solid 0 0 0 sco K : 737 1014 1659 57 rc 0 0 0 sco F0_50
+Ji 
+791 1014 M 
+0.022 0 (18 Fixed rates: 50 to 38400 baud)A 
+; 
+N 690 1098 9.000 360 0 An C : 0 0 0 sco O ; 1 Lw 1 Lc 1 Lj solid 0 0 0 sco K : 662 1073 1734 57 rc 0 0 0 sco F0_50
+Ji 
+716 1073 M 
+-0.249 0 (Programmable data format allowing five to eight data bits)A 
+; 
+N 690 1158 9.000 360 0 An C : 0 0 0 sco O ; 0 0 0 sco K : 662 1132 1512 57 rc 0 0 0 sco F0_50
+Ji 
+716 1132 M 
+-0.440 0 (Programmable channel modes)A 
+; 
+756 1208 N M 19 18 rr : 0 0 0 sco O ; 2 Lw 0 Lc 0 Lj solid 0 0 0 sco K : 737 1191 1188 57 rc 0 0 0 sco F0_50
+Ji 
+791 1191 M 
+-0.488 0 (Normal \(full-duplex\))A 
+; 
+756 1268 N M 19 18 rr : 0 0 0 sco O ; 0 0 0 sco K : 737 1251 864 57 rc 0 0 0 sco F0_50
+Ji 
+791 1251 M 
+-0.143 0 (Automatic echo)A 
+; 
+N 690 1335 9.000 360 0 An C : 0 0 0 sco O ; 1 Lw 1 Lc 1 Lj solid 0 0 0 sco K : 662 1310 1512 57 rc 0 0 0 sco F0_50
+Ji 
+716 1310 M 
+-0.254 0 (Versatile interrupt system)A 
+; 
+756 1385 N M 19 19 rr : 0 0 0 sco O ; 2 Lw 0 Lc 0 Lj solid 0 0 0 sco K : 737 1369 1659 57 rc 0 0 0 sco F0_50
+Ji 
+791 1369 M 
+-0.194 0 (Single interrupt output with four maskable interrupting conditions)A 
+; 
+756 1444 N M 19 19 rr : 0 0 0 sco O ; 0 0 0 sco K : 737 1428 1659 57 rc 0 0 0 sco F0_50
+Ji 
+791 1428 M 
+0.121 0 (Interrupt vector output on interrupt acknowledge)A 
+; : 619 1547 1508 59 rc 0 0 0 sco F3_50
+Ji 
+671 1547 M 
+-0.048 0 (Communication Ports A and B)A 
+; : 617 1623 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 1623 M 
+-0.350 0 (Each communication port comprises a full-duplex universal asynchronous)A 
+; : 617 1683 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 1683 M 
+-0.115 0 (receiver/transmitter \(UART\).  The baud rate for each receiver and each)A 
+; : 617 1742 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 1742 M 
+-0.283 0 (transmitter can be independently selected using the built in baud rate)A 
+; : 617 1801 648 57 rc 0 0 0 sco F0_50
+Ji 
+671 1801 M 
+0.170 0 (generator.)A 
+; : 617 1919 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 1919 M 
+-0.133 0 (The transmitter accepts parallel data from the CPU and sends it to the Unix)A 
+; : 617 1978 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 1978 M 
+0.011 0 (process connected to the port.  The receiver accepts data from the Unix)A 
+; : 617 2038 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2038 M 
+0.070 0 (process connected to the port and transfers it to the CPU during read)A 
+; : 617 2097 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2097 M 
+-0.065 0 (operations.  If no process is connected to the port there will never be any)A 
+; : 617 2156 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2156 M 
+-0.075 0 (data to read and writes will send data to that giant-bit-bucket-in-the-sky.)A 
+; : 619 2275 1777 59 rc 0 0 0 sco F3_50
+Ji 
+671 2275 M 
+0.035 0 (Programming and Register Description)A 
+; : 617 2351 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2351 M 
+-0.114 0 (The operation of the DUART is programmed by writing control words into)A 
+; : 617 2410 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2410 M 
+-0.112 0 (the appropriate registers.  Operational feedback is provided by the status)A 
+; : 617 2469 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2469 M 
+-0.147 0 (registers, which can be read by the CPU.  The DUART's register addresses)A 
+; : 617 2529 1566 57 rc 0 0 0 sco F0_50
+Ji 
+671 2529 M 
+-0.243 0 (are described in Table 3-1.)A 
+; : 0 0 2396 3145 rc 
+221 2608 N M 1950 0 - 1 Lw 1 Lc 1 Lj solid 0 0 0 sco K ; : 610 2629 93 33 rc 0 0 0 sco F0_29
+Ji 
+641 2629 M 
+-0.500 0 (5)A 
+; : 617 2631 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2631 M 
+0.078 0 (Allows you to connect the port to the upper or lower 8 bits of the data bus.)A 
+; : 610 2688 93 33 rc 0 0 0 sco F0_29
+Ji 
+641 2688 M 
+-0.500 0 (6)A 
+; : 617 2690 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2690 M 
+-0.156 0 (This is the Unix command to connect the port's I/O to \(usually an xterm)A 
+; : 617 2750 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2750 M 
+-0.251 0 (running xtermpipe\).  If the process buffers its I/O there will be problems.)A 
+; : 610 2807 93 33 rc 0 0 0 sco F0_29
+Ji 
+641 2807 M 
+-0.500 0 (7)A 
+; : 617 2809 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2809 M 
+-0.014 0 (The port's I/O can be attached to the command's standard I/O or to file)A 
+; : 617 2868 1188 57 rc 0 0 0 sco F0_50
+Ji 
+671 2868 M 
+0.020 0 (descriptors 3 and 4.)A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco F0_50
+Ji 
+2121 2942 M 
+(19)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 3 ]%%)  =
+%%PageTrailer
+
+%%Page: 4 4
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 160 229 671 67 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F0) cvn
+0.914 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F0_58) cvn
+F0
+58 
+xF 
+F0_58
+Ji 
+221 229 M 
+-0.250 0 (TABLE 3-1)A 
+; : 610 229 1281 66 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F2) cvn
+0.914 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F2_58) cvn
+F2
+58 
+xF 
+F2_58
+Ji 
+671 229 M 
+-0.114 0 (Register Addressing)A 
+; 
+221 225 N M 1950 2 rr : 0 0 0 sco O ; : 189 352 220 48 rc 0 0 0 sco %%IncludeFont: Times-Bold
+(F4) cvn
+0.929 
+ (Times-Bold) cvn /Type1 
+T 
+(Times-Bold) cvn
+mF 
+(F4_42) cvn
+F4
+42 
+xF 
+F4_42
+Ji 
+233 352 M 
+-0.225 0 (RS4)A 
+; : 283 352 220 48 rc 0 0 0 sco F4_42
+Ji 
+327 352 M 
+-0.225 0 (RS3)A 
+; : 380 352 220 48 rc 0 0 0 sco F4_42
+Ji 
+424 352 M 
+-0.225 0 (RS2)A 
+; : 476 352 220 48 rc 0 0 0 sco F4_42
+Ji 
+520 352 M 
+-0.225 0 (RS1)A 
+; : 895 352 264 48 rc 0 0 0 sco F4_42
+Ji 
+939 352 M 
+-0.081 0 (Read)A 
+; : 1666 352 308 48 rc 0 0 0 sco F4_42
+Ji 
+1710 352 M 
+0.208 0 (Write)A 
+; : 213 420 138 48 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F6) cvn
+0.905 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F6_42) cvn
+F6
+42 
+xF 
+F6_42
+Ji 
+259 420 M 
+(0)S 
+; : 308 420 138 48 rc 0 0 0 sco F6_42
+Ji 
+354 420 M 
+(0)S 
+; : 404 420 138 48 rc 0 0 0 sco F6_42
+Ji 
+450 420 M 
+(0)S 
+; : 500 420 138 48 rc 0 0 0 sco F6_42
+Ji 
+546 420 M 
+(0)S 
+; : 566 420 1380 48 rc 0 0 0 sco F6_42
+Ji 
+612 420 M 
+-0.147 0 (Mode Register A \(MR1A, MR2A\))A 
+; : 1331 420 836 48 rc 0 0 0 sco F6_42
+Ji 
+1377 420 M 
+-0.147 0 (Mode Register A \(MR1A, MR2A\))A 
+; : 213 488 138 48 rc 0 0 0 sco F6_42
+Ji 
+259 488 M 
+(0)S 
+; : 308 488 138 48 rc 0 0 0 sco F6_42
+Ji 
+354 488 M 
+(0)S 
+; : 404 488 138 48 rc 0 0 0 sco F6_42
+Ji 
+450 488 M 
+(0)S 
+; : 500 488 138 48 rc 0 0 0 sco F6_42
+Ji 
+546 488 M 
+(1)S 
+; : 566 488 1150 48 rc 0 0 0 sco F6_42
+Ji 
+612 488 M 
+-0.051 0 (Status Register A \(SRA\))A 
+; : 1331 488 836 48 rc 0 0 0 sco F6_42
+Ji 
+1377 488 M 
+-0.132 0 (Clock Select Register A \(CSRA\))A 
+; : 213 556 138 48 rc 0 0 0 sco F6_42
+Ji 
+259 556 M 
+(0)S 
+; : 308 556 138 48 rc 0 0 0 sco F6_42
+Ji 
+354 556 M 
+(0)S 
+; : 404 556 138 48 rc 0 0 0 sco F6_42
+Ji 
+450 556 M 
+(1)S 
+; : 500 556 138 48 rc 0 0 0 sco F6_42
+Ji 
+546 556 M 
+(0)S 
+; : 566 556 690 48 rc 0 0 0 sco F6_42
+Ji 
+612 556 M 
+-0.174 0 (Do not access)A 
+; : 1331 556 836 48 rc 0 0 0 sco F6_42
+Ji 
+1377 556 M 
+-0.006 0 (Command Register A \(CRA\))A 
+; : 213 624 138 48 rc 0 0 0 sco F6_42
+Ji 
+259 624 M 
+(0)S 
+; : 308 624 138 48 rc 0 0 0 sco F6_42
+Ji 
+354 624 M 
+(0)S 
+; : 404 624 138 48 rc 0 0 0 sco F6_42
+Ji 
+450 624 M 
+(1)S 
+; : 500 624 138 48 rc 0 0 0 sco F6_42
+Ji 
+546 624 M 
+(1)S 
+; : 566 624 1150 48 rc 0 0 0 sco F6_42
+Ji 
+612 624 M 
+-0.306 0 (Receiver Buffer A \(RBA\))A 
+; : 1331 624 836 48 rc 0 0 0 sco F6_42
+Ji 
+1377 624 M 
+0.062 0 (Transmitter Buffer A \(TBA\))A 
+; : 213 692 138 48 rc 0 0 0 sco F6_42
+Ji 
+259 692 M 
+(0)S 
+; : 308 692 138 48 rc 0 0 0 sco F6_42
+Ji 
+354 692 M 
+(1)S 
+; : 404 692 138 48 rc 0 0 0 sco F6_42
+Ji 
+450 692 M 
+(0)S 
+; : 500 692 138 48 rc 0 0 0 sco F6_42
+Ji 
+546 692 M 
+(0)S 
+; : 563 692 833 48 rc 0 0 0 sco %%IncludeFont: Times-Italic
+(F8) cvn
+0.905 
+ (Times-Italic) cvn /Type1 
+T 
+(Times-Italic) cvn
+mF 
+(F8_42) cvn
+F8
+42 
+xF 
+F8_42
+Ji 
+612 692 M 
+0.146 0 (Not implemented)A 
+; : 1331 692 836 48 rc 0 0 0 sco F6_42
+Ji 
+1377 692 M 
+-0.005 0 (Auxiliary Control Register \(ACR\))A 
+; : 213 760 138 48 rc 0 0 0 sco F6_42
+Ji 
+259 760 M 
+(0)S 
+; : 308 760 138 48 rc 0 0 0 sco F6_42
+Ji 
+354 760 M 
+(1)S 
+; : 404 760 138 48 rc 0 0 0 sco F6_42
+Ji 
+450 760 M 
+(0)S 
+; : 500 760 138 48 rc 0 0 0 sco F6_42
+Ji 
+546 760 M 
+(1)S 
+; : 566 760 1518 48 rc 0 0 0 sco F6_42
+Ji 
+612 760 M 
+0.082 0 (Interrupt Status Register \(ISR\))A 
+; : 1331 760 836 48 rc 0 0 0 sco F6_42
+Ji 
+1377 760 M 
+0.066 0 (Interrupt Mask Register \(IMR\))A 
+; : 213 828 138 48 rc 0 0 0 sco F6_42
+Ji 
+259 828 M 
+(0)S 
+; : 308 828 138 48 rc 0 0 0 sco F6_42
+Ji 
+354 828 M 
+(1)S 
+; : 404 828 138 48 rc 0 0 0 sco F6_42
+Ji 
+450 828 M 
+(1)S 
+; : 500 828 138 48 rc 0 0 0 sco F6_42
+Ji 
+546 828 M 
+(0)S 
+; : 563 828 833 48 rc 0 0 0 sco F8_42
+Ji 
+612 828 M 
+0.146 0 (Not implemented)A 
+; : 1328 828 833 48 rc 0 0 0 sco F8_42
+Ji 
+1377 828 M 
+0.146 0 (Not implemented)A 
+; : 213 896 138 48 rc 0 0 0 sco F6_42
+Ji 
+259 896 M 
+(0)S 
+; : 308 896 138 48 rc 0 0 0 sco F6_42
+Ji 
+354 896 M 
+(1)S 
+; : 404 896 138 48 rc 0 0 0 sco F6_42
+Ji 
+450 896 M 
+(1)S 
+; : 500 896 138 48 rc 0 0 0 sco F6_42
+Ji 
+546 896 M 
+(1)S 
+; : 563 896 833 48 rc 0 0 0 sco F8_42
+Ji 
+612 896 M 
+0.146 0 (Not implemented)A 
+; : 1328 896 833 48 rc 0 0 0 sco F8_42
+Ji 
+1377 896 M 
+0.146 0 (Not implemented)A 
+; : 213 963 138 48 rc 0 0 0 sco F6_42
+Ji 
+259 963 M 
+(1)S 
+; : 308 963 138 48 rc 0 0 0 sco F6_42
+Ji 
+354 963 M 
+(0)S 
+; : 404 963 138 48 rc 0 0 0 sco F6_42
+Ji 
+450 963 M 
+(0)S 
+; : 500 963 138 48 rc 0 0 0 sco F6_42
+Ji 
+546 963 M 
+(0)S 
+; : 566 963 1380 48 rc 0 0 0 sco F6_42
+Ji 
+612 963 M 
+-0.221 0 (Mode Register B \(MR1B, MR2B\))A 
+; : 1331 963 836 48 rc 0 0 0 sco F6_42
+Ji 
+1377 963 M 
+-0.221 0 (Mode Register B \(MR1B, MR2B\))A 
+; : 213 1031 138 48 rc 0 0 0 sco F6_42
+Ji 
+259 1031 M 
+(1)S 
+; : 308 1031 138 48 rc 0 0 0 sco F6_42
+Ji 
+354 1031 M 
+(0)S 
+; : 404 1031 138 48 rc 0 0 0 sco F6_42
+Ji 
+450 1031 M 
+(0)S 
+; : 500 1031 138 48 rc 0 0 0 sco F6_42
+Ji 
+546 1031 M 
+(1)S 
+; : 566 1031 1150 48 rc 0 0 0 sco F6_42
+Ji 
+612 1031 M 
+-0.111 0 (Status Register B \(SRB\))A 
+; : 1331 1031 836 48 rc 0 0 0 sco F6_42
+Ji 
+1377 1031 M 
+-0.178 0 (Clock Select Register B \(CSRB\))A 
+; : 213 1099 138 48 rc 0 0 0 sco F6_42
+Ji 
+259 1099 M 
+(1)S 
+; : 308 1099 138 48 rc 0 0 0 sco F6_42
+Ji 
+354 1099 M 
+(0)S 
+; : 404 1099 138 48 rc 0 0 0 sco F6_42
+Ji 
+450 1099 M 
+(1)S 
+; : 500 1099 138 48 rc 0 0 0 sco F6_42
+Ji 
+546 1099 M 
+(0)S 
+; : 566 1099 690 48 rc 0 0 0 sco F6_42
+Ji 
+612 1099 M 
+-0.174 0 (Do not access)A 
+; : 1331 1099 836 48 rc 0 0 0 sco F6_42
+Ji 
+1377 1099 M 
+-0.064 0 (Command Register B \(CRB\))A 
+; : 213 1167 138 48 rc 0 0 0 sco F6_42
+Ji 
+259 1167 M 
+(1)S 
+; : 308 1167 138 48 rc 0 0 0 sco F6_42
+Ji 
+354 1167 M 
+(0)S 
+; : 404 1167 138 48 rc 0 0 0 sco F6_42
+Ji 
+450 1167 M 
+(1)S 
+; : 500 1167 138 48 rc 0 0 0 sco F6_42
+Ji 
+546 1167 M 
+(1)S 
+; : 566 1167 1150 48 rc 0 0 0 sco F6_42
+Ji 
+612 1167 M 
+-0.366 0 (Receiver Buffer B \(RBB\))A 
+; : 1331 1167 836 48 rc 0 0 0 sco F6_42
+Ji 
+1377 1167 M 
+0.009 0 (Transmitter Buffer B \(TBB\))A 
+; : 213 1235 138 48 rc 0 0 0 sco F6_42
+Ji 
+259 1235 M 
+(1)S 
+; : 308 1235 138 48 rc 0 0 0 sco F6_42
+Ji 
+354 1235 M 
+(1)S 
+; : 404 1235 138 48 rc 0 0 0 sco F6_42
+Ji 
+450 1235 M 
+(0)S 
+; : 500 1235 138 48 rc 0 0 0 sco F6_42
+Ji 
+546 1235 M 
+(0)S 
+; : 566 1235 1518 48 rc 0 0 0 sco F6_42
+Ji 
+612 1235 M 
+0.032 0 (Interrupt Vector Register \(IVR\))A 
+; : 1331 1235 836 48 rc 0 0 0 sco F6_42
+Ji 
+1377 1235 M 
+0.032 0 (Interrupt Vector Register \(IVR\))A 
+; : 213 1303 138 48 rc 0 0 0 sco F6_42
+Ji 
+259 1303 M 
+(1)S 
+; : 308 1303 138 48 rc 0 0 0 sco F6_42
+Ji 
+354 1303 M 
+(1)S 
+; : 404 1303 138 48 rc 0 0 0 sco F6_42
+Ji 
+450 1303 M 
+(0)S 
+; : 500 1303 138 48 rc 0 0 0 sco F6_42
+Ji 
+546 1303 M 
+(1)S 
+; : 563 1303 833 48 rc 0 0 0 sco F8_42
+Ji 
+612 1303 M 
+0.146 0 (Not implemented)A 
+; : 1328 1303 833 48 rc 0 0 0 sco F8_42
+Ji 
+1377 1303 M 
+0.146 0 (Not implemented)A 
+; : 213 1371 138 48 rc 0 0 0 sco F6_42
+Ji 
+259 1371 M 
+(1)S 
+; : 308 1371 138 48 rc 0 0 0 sco F6_42
+Ji 
+354 1371 M 
+(1)S 
+; : 404 1371 138 48 rc 0 0 0 sco F6_42
+Ji 
+450 1371 M 
+(1)S 
+; : 500 1371 138 48 rc 0 0 0 sco F6_42
+Ji 
+546 1371 M 
+(0)S 
+; : 563 1371 833 48 rc 0 0 0 sco F8_42
+Ji 
+612 1371 M 
+0.146 0 (Not implemented)A 
+; : 1328 1371 833 48 rc 0 0 0 sco F8_42
+Ji 
+1377 1371 M 
+0.146 0 (Not implemented)A 
+; : 213 1439 138 48 rc 0 0 0 sco F6_42
+Ji 
+259 1439 M 
+(1)S 
+; : 308 1439 138 48 rc 0 0 0 sco F6_42
+Ji 
+354 1439 M 
+(1)S 
+; : 404 1439 138 48 rc 0 0 0 sco F6_42
+Ji 
+450 1439 M 
+(1)S 
+; : 500 1439 138 48 rc 0 0 0 sco F6_42
+Ji 
+546 1439 M 
+(1)S 
+; : 563 1439 833 48 rc 0 0 0 sco F8_42
+Ji 
+612 1439 M 
+0.146 0 (Not implemented)A 
+; : 1328 1439 833 48 rc 0 0 0 sco F8_42
+Ji 
+1377 1439 M 
+0.146 0 (Not implemented)A 
+; 
+225 345 N M 1934 2 rr : 0 0 0 sco O ; 
+225 405 N M 1934 8 rr : 0 0 0 sco O ; 
+225 408 N M 1934 2 rr : 0 0 0 sco O ; 
+225 476 N M 1934 2 rr : 0 0 0 sco O ; 
+225 476 N M 1934 2 rr : 0 0 0 sco O ; 
+225 544 N M 1934 2 rr : 0 0 0 sco O ; 
+225 544 N M 1934 2 rr : 0 0 0 sco O ; 
+225 612 N M 1934 2 rr : 0 0 0 sco O ; 
+225 612 N M 1934 2 rr : 0 0 0 sco O ; 
+225 680 N M 1934 2 rr : 0 0 0 sco O ; 
+225 680 N M 1934 2 rr : 0 0 0 sco O ; 
+225 748 N M 1934 2 rr : 0 0 0 sco O ; 
+225 748 N M 1934 2 rr : 0 0 0 sco O ; 
+225 816 N M 1934 2 rr : 0 0 0 sco O ; 
+225 816 N M 1934 2 rr : 0 0 0 sco O ; 
+225 884 N M 1934 2 rr : 0 0 0 sco O ; 
+225 884 N M 1934 2 rr : 0 0 0 sco O ; 
+225 951 N M 1934 2 rr : 0 0 0 sco O ; 
+225 951 N M 1934 2 rr : 0 0 0 sco O ; 
+225 1019 N M 1934 2 rr : 0 0 0 sco O ; 
+225 1019 N M 1934 2 rr : 0 0 0 sco O ; 
+225 1087 N M 1934 2 rr : 0 0 0 sco O ; 
+225 1087 N M 1934 2 rr : 0 0 0 sco O ; 
+225 1155 N M 1934 2 rr : 0 0 0 sco O ; 
+225 1155 N M 1934 2 rr : 0 0 0 sco O ; 
+225 1223 N M 1934 2 rr : 0 0 0 sco O ; 
+225 1223 N M 1934 2 rr : 0 0 0 sco O ; 
+225 1291 N M 1934 2 rr : 0 0 0 sco O ; 
+225 1291 N M 1934 2 rr : 0 0 0 sco O ; 
+225 1359 N M 1934 2 rr : 0 0 0 sco O ; 
+225 1359 N M 1934 2 rr : 0 0 0 sco O ; 
+225 1427 N M 1934 2 rr : 0 0 0 sco O ; 
+225 1427 N M 1934 2 rr : 0 0 0 sco O ; 
+225 1495 N M 1934 2 rr : 0 0 0 sco O ; 
+225 345 N M 2 1152 rr : 0 0 0 sco O ; 
+317 345 N M 2 1152 rr : 0 0 0 sco O ; 
+317 345 N M 2 1152 rr : 0 0 0 sco O ; 
+410 345 N M 2 1152 rr : 0 0 0 sco O ; 
+410 345 N M 2 1152 rr : 0 0 0 sco O ; 
+510 345 N M 2 1152 rr : 0 0 0 sco O ; 
+510 345 N M 2 1152 rr : 0 0 0 sco O ; 
+602 345 N M 2 1152 rr : 0 0 0 sco O ; 
+602 345 N M 2 1152 rr : 0 0 0 sco O ; 
+1367 345 N M 2 1152 rr : 0 0 0 sco O ; 
+1367 345 N M 2 1152 rr : 0 0 0 sco O ; 
+2157 345 N M 2 1152 rr : 0 0 0 sco O ; : 617 1566 1779 57 rc 0 0 0 sco (F6_50) cvn
+F6
+50 
+xF 
+F6_50
+Ji 
+671 1566 M 
+-0.036 0 (Mode registers 1 and 2 of each port are accessed through independent)A 
+; : 617 1625 1779 57 rc 0 0 0 sco F6_50
+Ji 
+671 1625 M 
+-0.118 0 (pointers.  The pointer is set to registers MR1A and MR1B by a system)A 
+; : 617 1684 1779 57 rc 0 0 0 sco F6_50
+Ji 
+671 1684 M 
+-0.187 0 (reset or issuing a "reset pointer" command via the corresponding command)A 
+; : 617 1744 1779 57 rc 0 0 0 sco F6_50
+Ji 
+671 1744 M 
+-0.097 0 (register.  Any read or write of the mode register while the pointer is at)A 
+; : 617 1803 1779 57 rc 0 0 0 sco F6_50
+Ji 
+671 1803 M 
+-0.013 0 (MR1A or MR1B switches the pointer to MR2A or MR2B.  Subsequent)A 
+; : 617 1862 1779 57 rc 0 0 0 sco F6_50
+Ji 
+671 1862 M 
+-0.159 0 (accesses will address MR2A or MR2B unless the pointer is reset to MR1A)A 
+; : 617 1921 540 57 rc 0 0 0 sco F6_50
+Ji 
+671 1921 M 
+0.150 0 (or MR1B.)A 
+; : 617 2039 1779 57 rc 0 0 0 sco F6_50
+Ji 
+671 2039 M 
+-0.099 0 (Mode, command, clock select, and status registers are duplicated for each)A 
+; : 617 2099 1779 57 rc 0 0 0 sco F6_50
+Ji 
+671 2099 M 
+0.018 0 (port to provide independent operation and control.  Refer to the register bit)A 
+; : 617 2158 1242 57 rc 0 0 0 sco F6_50
+Ji 
+671 2158 M 
+-0.245 0 (formats in Table 3-2.)A 
+; : 617 2276 1779 57 rc 0 0 0 sco F6_50
+Ji 
+671 2276 M 
+-0.190 0 (For information on programming the M68681 you should consult a)A 
+; : 617 2335 1779 57 rc 0 0 0 sco F6_50
+Ji 
+671 2335 M 
+-0.006 0 (programmer's guide to the Motorola MC68681 DUART.)A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco F6_50
+Ji 
+2121 2942 M 
+(20)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 4 ]%%)  =
+%%PageTrailer
+
+%%Page: 5 5
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 160 229 671 67 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F0) cvn
+0.914 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F0_58) cvn
+F0
+58 
+xF 
+F0_58
+Ji 
+221 229 M 
+-0.250 0 (TABLE 3-2)A 
+; : 610 229 1342 66 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F2) cvn
+0.914 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F2_58) cvn
+F2
+58 
+xF 
+F2_58
+Ji 
+671 229 M 
+-0.078 0 (Register Bit Formats)A 
+; 
+221 225 N M 1950 2 rr : 0 0 0 sco O ; 
+671 341 N M 1473 498 rr : 1.000 1.000 1.000 sco O ; 
+1663 403 N M 450 420 rr 
+1663 403 N M 450 420 rr 4 Lw 0 Lc 0 Lj solid 0 0 0 sco K 
+673 403 N M 1440 117 rr : 0.937 0.937 0.937 sco O ; 
+673 403 N M 1440 117 rr 0 0 0 sco K 
+1513 403 N M 150 420 rr 
+1513 403 N M 150 420 rr 0 0 0 sco K 
+823 403 N M 240 420 rr 
+823 403 N M 240 420 rr 0 0 0 sco K 
+673 403 N M 150 420 rr 
+673 403 N M 150 420 rr 0 0 0 sco K 
+1213 403 N M 300 420 rr 
+1213 403 N M 300 420 rr 0 0 0 sco K 
+1063 403 N M 150 420 rr 
+1063 403 N M 150 420 rr 0 0 0 sco K : 673 468 1469 49 rc 0 0 0 sco (F0_42) cvn
+F0
+42 
+xF 
+F0_42
+Ji 
+716 468 M 
+0.676 0 (N)A 
+0.324 0 (/)A 
+-0.324 0 (A)A 
+; : 843 408 1299 49 rc 0 0 0 sco F0_42
+Ji 
+887 408 M 
+-0.324 0 (R)A 
+-0.324 0 32 0.648 0 (x )D 
+1.324 0 (I)A 
+-0.324 0 (R)A 
+1.324 0 (Q)A 
+; : 843 468 1299 49 rc 0 0 0 sco F0_42
+Ji 
+887 468 M 
+-0.014 0 (S)A 
+0.648 0 (e)A 
+0.324 0 (l)A 
+0.648 0 (e)A 
+-0.352 0 (c)A 
+0.014 0 (t)A 
+; : 1660 466 482 49 rc 0 0 0 sco F0_42
+Ji 
+1704 466 M 
+-0.324 0 (B)A 
+1.324 0 (i)A 
+0.014 0 (t)A 
+0.648 0 (s)A 
+0.014 0 (-)A 
+0.338 0 (p)A 
+0.648 0 (e)A 
+-0.338 0 (r)A 
+1.014 0 (-)A 
+-0.352 0 (c)A 
+1.338 0 (h)A 
+-0.352 0 (a)A 
+-0.338 0 (r)A 
+0.648 0 (a)A 
+-0.352 0 (c)A 
+1.014 0 (t)A 
+-0.352 0 (e)A 
+-0.338 0 (r)A 
+; : 1068 468 1074 49 rc 0 0 0 sco F0_42
+Ji 
+1112 468 M 
+0.676 0 (N)A 
+0.324 0 (/)A 
+-0.324 0 (A)A 
+; : 1280 468 862 49 rc 0 0 0 sco F0_42
+Ji 
+1324 468 M 
+0.676 0 (N)A 
+1.324 0 (/)A 
+-0.324 0 (A)A 
+; : 1497 471 645 49 rc 0 0 0 sco F0_42
+Ji 
+1541 471 M 
+0.676 0 (N)A 
+0.324 0 (/)A 
+-0.324 0 (A)A 
+; : 1706 551 436 47 rc 0 0 0 sco (F2_42) cvn
+F2
+42 
+xF 
+F2_42
+Ji 
+0 42 2 sSU 
+1750 551 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (1)A 
+-87 sU 
+; : 1890 551 252 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1934 551 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (0)A 
+-87 sU 
+; 
+1781 611 N M 0 30 - 1 Lc 1 Lj 0 0 0 sco K 
+1781 641 N M 31 0 - 0 0 0 sco K 
+1812 641 N M 0 30 - 0 0 0 sco K 
+1965 611 N M 0 30 - 0 0 0 sco K 
+1963 643 N M -120 0 - 0 0 0 sco K 
+1843 643 N M 0 30 - 0 0 0 sco K : 1492 551 650 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1536 551 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (2)A 
+-87 sU 
+; : 1339 551 803 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1383 551 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (3)A 
+-87 sU 
+; : 1216 551 926 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1260 551 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (4)A 
+-87 sU 
+; : 848 551 1294 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+892 551 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (6)A 
+-87 sU 
+; : 673 551 1469 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+709 551 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (7)A 
+-87 sU 
+; : 1063 551 1079 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1107 551 M 
+-2.014 0 (B)A 
+-0.324 0 (i)A 
+-1.676 0 (t )A 
+-1.352 0 (5)A 
+-77 sU 
+; : 673 343 1469 50 rc 0 0 0 sco (F2_45) cvn
+F2
+45 
+xF 
+F2_45
+Ji 
+673 343 M 
+-0.015 0 (P)A 
+0.980 0 (o)A 
+0.015 0 (r)A 
+-1.000 0 32 1.490 0 (t )D 
+-0.495 0 32 0.985 0 (A )D 
+-0.485 0 (M)A 
+0.980 0 (o)A 
+-0.020 0 (d)A 
+-0.490 0 32 0.980 0 (e )D 
+-0.490 0 (R)A 
+0.980 0 (e)A 
+-0.020 0 (g)A 
+1.010 0 (i)A 
+0.500 0 (s)A 
+1.490 0 (t)A 
+-0.020 0 (e)A 
+1.475 0 32 0.015 0 (r )D 
+1.510 0 32 -0.020 0 (1 )D 
+0.015 0 (\()A 
+-0.485 0 (M)A 
+0.510 0 (R)A 
+-0.020 0 (1)A 
+0.985 0 (A)A 
+1.475 0 32 0.015 0 (\) )D 
+-0.020 0 (an)A 
+-0.490 0 32 0.980 0 (d )D 
+0.985 0 (P)A 
+-0.020 0 (o)A 
+0.015 0 (r)A 
+-1.000 0 32 1.490 0 (t )D 
+-0.495 0 32 0.985 0 (B )D 
+-0.485 0 (M)A 
+0.980 0 (o)A 
+-0.020 0 (d)A 
+-0.490 0 32 0.980 0 (e )D 
+0.510 0 (R)A 
+-0.020 0 (eg)A 
+1.010 0 (i)A 
+0.500 0 (s)A 
+1.490 0 (t)A 
+-0.020 0 (e)A 
+-0.525 0 32 1.015 0 (r )D 
+1.510 0 32 -0.020 0 (1 )D 
+0.015 0 (\()A 
+0.515 0 (M)A 
+-0.490 0 (R)A 
+-0.020 0 (1)A 
+0.985 0 (B)A 
+0.015 0 (\))A 
+; : 857 643 1285 28 rc 0 0 0 sco (F2_25) cvn
+F2
+25 
+xF 
+F2_25
+Ji 
+883 643 M 
+-0.050 0 32 0.100 0 (0 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (R)A 
+-1.500 0 (x)A 
+-0.050 0 (RD)A 
+-0.675 0 (Y)A 
+; : 857 673 1285 28 rc 0 0 0 sco F2_25
+Ji 
+883 673 M 
+-0.050 0 32 0.100 0 (1 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.275 0 (FF)A 
+-0.050 0 (U)A 
+0.100 0 (LL)A 
+; : 1787 673 355 28 rc 0 0 0 sco F2_25
+Ji 
+1813 673 M 
+-0.050 0 32 0.100 0 (0 0 )D 
+-0.350 0 32 0.400 0 (= )D 
+0.100 0 (5)A 
+; : 1787 705 355 28 rc 0 0 0 sco F2_25
+Ji 
+1813 705 M 
+-0.050 0 32 0.100 0 (0 1 )D 
+-0.350 0 32 0.400 0 (= )D 
+0.100 0 (6)A 
+; : 1787 737 355 28 rc 0 0 0 sco F2_25
+Ji 
+1813 737 M 
+-0.050 0 32 0.100 0 (1 0 )D 
+-0.350 0 32 0.400 0 (= )D 
+0.100 0 (7)A 
+; : 1787 769 355 28 rc 0 0 0 sco F2_25
+Ji 
+1813 769 M 
+-0.050 0 32 0.100 0 (1 1 )D 
+-0.350 0 32 0.400 0 (= )D 
+0.100 0 (8)A 
+; 
+671 898 N M 1477 596 rr : 1.000 1.000 1.000 sco O ; 
+673 960 N M 270 510 rr 
+673 960 N M 270 510 rr 0 Lc 0 Lj 0 0 0 sco K 
+1243 960 N M 870 510 rr 
+1243 960 N M 870 510 rr 0 0 0 sco K 
+673 960 N M 1440 120 rr : 0.937 0.937 0.937 sco O ; 
+673 960 N M 1440 120 rr 0 0 0 sco K 
+1093 960 N M 150 510 rr 
+1093 960 N M 150 510 rr 0 0 0 sco K 
+943 960 N M 150 510 rr 
+943 960 N M 150 510 rr 0 0 0 sco K : 673 1020 1473 49 rc 0 0 0 sco F0_42
+Ji 
+703 1020 M 
+-0.014 0 (P)A 
+0.338 0 (o)A 
+-0.338 0 (r)A 
+0.310 0 32 0.014 0 (t M)D 
+0.338 0 (od)A 
+-0.352 0 (e)A 
+; : 929 1020 1217 49 rc 0 0 0 sco F0_42
+Ji 
+973 1020 M 
+0.676 0 (N)A 
+0.324 0 (/)A 
+-0.324 0 (A)A 
+; : 1079 1020 1067 49 rc 0 0 0 sco F0_42
+Ji 
+1123 1020 M 
+0.676 0 (N)A 
+1.324 0 (/)A 
+-0.324 0 (A)A 
+; : 1589 1020 557 49 rc 0 0 0 sco F0_42
+Ji 
+1633 1020 M 
+0.676 0 (N)A 
+0.324 0 (/)A 
+-0.324 0 (A)A 
+; : 1709 1110 437 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1753 1110 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (1)A 
+-87 sU 
+; : 1889 1110 257 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1933 1110 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (0)A 
+-87 sU 
+; : 1469 1110 677 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1513 1110 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (2)A 
+-87 sU 
+; : 1289 1110 857 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1333 1110 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (3)A 
+-87 sU 
+; : 1079 1110 1067 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1123 1110 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (4)A 
+-87 sU 
+; : 779 1110 1367 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+823 1110 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (6)A 
+-87 sU 
+; : 673 1110 1473 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+703 1110 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (7)A 
+-87 sU 
+; : 929 1110 1217 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+973 1110 M 
+-2.014 0 (B)A 
+-0.324 0 (i)A 
+-1.676 0 (t )A 
+-1.352 0 (5)A 
+-77 sU 
+; : 673 900 1473 50 rc 0 0 0 sco F2_45
+Ji 
+673 900 M 
+-0.015 0 (P)A 
+0.980 0 (o)A 
+0.015 0 (r)A 
+-1.000 0 32 1.490 0 (t )D 
+-0.495 0 32 0.985 0 (A )D 
+-0.485 0 (M)A 
+0.980 0 (o)A 
+-0.020 0 (d)A 
+-0.490 0 32 0.980 0 (e )D 
+-0.490 0 (R)A 
+0.980 0 (e)A 
+-0.020 0 (g)A 
+1.010 0 (i)A 
+0.500 0 (s)A 
+1.490 0 (t)A 
+-0.020 0 (e)A 
+1.475 0 32 0.015 0 (r )D 
+1.510 0 32 -0.020 0 (2 )D 
+0.015 0 (\()A 
+-0.485 0 (M)A 
+0.510 0 (R)A 
+-0.020 0 (2)A 
+0.985 0 (A)A 
+1.475 0 32 0.015 0 (\) )D 
+-0.020 0 (an)A 
+-0.490 0 32 0.980 0 (d )D 
+0.985 0 (P)A 
+-0.020 0 (o)A 
+0.015 0 (r)A 
+-1.000 0 32 1.490 0 (t )D 
+-0.495 0 32 0.985 0 (B )D 
+-0.485 0 (M)A 
+0.980 0 (o)A 
+-0.020 0 (d)A 
+-0.490 0 32 0.980 0 (e )D 
+0.510 0 (R)A 
+-0.020 0 (eg)A 
+1.010 0 (i)A 
+0.500 0 (s)A 
+1.490 0 (t)A 
+-0.020 0 (e)A 
+-0.525 0 32 1.015 0 (r )D 
+1.510 0 32 -0.020 0 (2 )D 
+0.015 0 (\()A 
+0.515 0 (M)A 
+-0.490 0 (R)A 
+-0.020 0 (2)A 
+0.985 0 (B)A 
+0.015 0 (\))A 
+; : 677 1260 1469 28 rc 0 0 0 sco F2_25
+Ji 
+703 1260 M 
+-0.050 0 32 0.100 0 (0 0 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (N)A 
+0.100 0 (o)A 
+-0.325 0 (r)A 
+1.175 0 (m)A 
+0.100 0 (a)A 
+0.450 0 (l)A 
+; : 677 1290 1469 28 rc 0 0 0 sco F2_25
+Ji 
+703 1290 M 
+-0.050 0 32 0.100 0 (0 1 )D 
+-0.350 0 32 0.400 0 (= )D 
+0.325 0 (A)A 
+0.100 0 (u)A 
+0.050 0 (t)A 
+-0.050 0 32 0.100 0 (o )D 
+0.325 0 (E)A 
+0.500 0 (c)A 
+0.100 0 (ho)A 
+; : 677 1320 1469 28 rc 0 0 0 sco F2_25
+Ji 
+703 1320 M 
+-0.050 0 32 0.100 0 (1 0 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (N)A 
+0.050 0 (/)A 
+0.325 0 (A)A 
+; : 677 1350 1469 28 rc 0 0 0 sco F2_25
+Ji 
+703 1350 M 
+-0.050 0 32 0.100 0 (1 1 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (N)A 
+0.050 0 (/)A 
+0.325 0 (A)A 
+; 
+733 1170 N M 0 30 - 1 Lc 1 Lj 0 0 0 sco K 
+733 1200 N M -30 0 - 0 0 0 sco K 
+703 1200 N M 0 60 - 0 0 0 sco K 
+853 1170 N M 0 60 - 0 0 0 sco K 
+853 1230 N M -120 0 - 0 0 0 sco K 
+733 1230 N M 0 30 - 0 0 0 sco K 
+671 1553 N M 1492 1224 rr : 1.000 1.000 1.000 sco O ; 
+1398 1688 N M 720 1080 rr 
+1398 1688 N M 720 1080 rr 0 Lc 0 Lj 0 0 0 sco K 
+678 1688 N M 720 1080 rr 
+678 1688 N M 720 1080 rr 0 0 0 sco K : 673 1565 1488 50 rc 0 0 0 sco F2_45
+Ji 
+673 1565 M 
+-0.490 0 (C)A 
+0.010 0 (l)A 
+-0.020 0 (o)A 
+0.500 0 (c)A 
+-0.500 0 (k)A 
+0.015 0 (-)A 
+-0.015 0 (S)A 
+-0.020 0 (e)A 
+0.010 0 (l)A 
+-0.020 0 (e)A 
+0.500 0 (c)A 
+0.490 0 (t )A 
+-0.490 0 (R)A 
+-0.020 0 (eg)A 
+0.010 0 (i)A 
+0.500 0 (s)A 
+0.490 0 (t)A 
+-0.020 0 (e)A 
+0.475 0 32 0.015 0 (r )D 
+0.505 0 32 -0.015 0 (A )D 
+0.015 0 (\()A 
+-0.490 0 (C)A 
+-0.015 0 (S)A 
+-0.490 0 (R)A 
+-0.015 0 (A)A 
+0.475 0 32 0.015 0 (\) )D 
+0.510 0 32 -0.020 0 (and )D 
+-0.490 0 (C)A 
+0.010 0 (l)A 
+-0.020 0 (o)A 
+0.500 0 (c)A 
+-0.500 0 (k)A 
+0.015 0 (-)A 
+-0.015 0 (S)A 
+-0.020 0 (e)A 
+0.010 0 (l)A 
+-0.020 0 (e)A 
+0.500 0 (c)A 
+0.490 0 (t )A 
+-0.490 0 (R)A 
+-0.020 0 (eg)A 
+0.010 0 (i)A 
+0.500 0 (s)A 
+0.490 0 (t)A 
+-0.020 0 (e)A 
+0.475 0 32 0.015 0 (r )D 
+0.505 0 32 -0.015 0 (B )D 
+0.015 0 (\()A 
+-0.490 0 (C)A 
+-0.015 0 (S)A 
+-0.490 0 (R)A 
+-0.015 0 (B)A 
+0.015 0 (\))A 
+; 
+1398 1628 N M 720 60 rr : 0.937 0.937 0.937 sco O ; 
+1398 1628 N M 720 60 rr 0 0 0 sco K 
+678 1628 N M 720 60 rr : 0.937 0.937 0.937 sco O ; 
+678 1628 N M 720 60 rr 0 0 0 sco K : 682 1999 1479 28 rc 0 0 0 sco F2_25
+Ji 
+708 1999 M 
+-1.050 0 32 1.100 0 (0 0)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (0 0)D 
+; : 682 2046 1479 28 rc 0 0 0 sco F2_25
+Ji 
+708 2046 M 
+-1.050 0 32 1.100 0 (0 0)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (0 1)D 
+; : 682 2093 1479 28 rc 0 0 0 sco F2_25
+Ji 
+708 2093 M 
+-1.050 0 32 1.100 0 (0 0)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (1 0)D 
+; : 682 2140 1479 28 rc 0 0 0 sco F2_25
+Ji 
+708 2140 M 
+-1.050 0 32 1.100 0 (0 0)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (1 1)D 
+; : 682 2187 1479 28 rc 0 0 0 sco F2_25
+Ji 
+708 2187 M 
+-1.050 0 32 1.100 0 (0 1)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (0 0)D 
+; : 682 2234 1479 28 rc 0 0 0 sco F2_25
+Ji 
+708 2234 M 
+-1.050 0 32 1.100 0 (0 1)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (0 1)D 
+; : 682 2281 1479 28 rc 0 0 0 sco F2_25
+Ji 
+708 2281 M 
+-1.050 0 32 1.100 0 (0 1)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (1 0)D 
+; : 682 2328 1479 28 rc 0 0 0 sco F2_25
+Ji 
+708 2328 M 
+-1.050 0 32 1.100 0 (0 1)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (1 1)D 
+; : 682 2374 1479 28 rc 0 0 0 sco F2_25
+Ji 
+708 2374 M 
+-1.050 0 32 1.100 0 (1 0)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (0 0)D 
+; : 682 2421 1479 28 rc 0 0 0 sco F2_25
+Ji 
+708 2421 M 
+-1.050 0 32 1.100 0 (1 0)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (0 1)D 
+; : 682 2468 1479 28 rc 0 0 0 sco F2_25
+Ji 
+708 2468 M 
+-1.050 0 32 1.100 0 (1 0)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (1 0)D 
+; : 682 2515 1479 28 rc 0 0 0 sco F2_25
+Ji 
+708 2515 M 
+-1.050 0 32 1.100 0 (1 0)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (1 1)D 
+; : 682 2562 1479 28 rc 0 0 0 sco F2_25
+Ji 
+708 2562 M 
+-1.050 0 32 1.100 0 (1 1)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (0 0)D 
+; : 682 2609 1479 28 rc 0 0 0 sco F2_25
+Ji 
+708 2609 M 
+-1.050 0 32 1.100 0 (1 1)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (0 1)D 
+; : 682 2656 1479 28 rc 0 0 0 sco F2_25
+Ji 
+708 2656 M 
+-1.050 0 32 1.100 0 (1 1)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (1 0)D 
+; : 682 2703 1479 28 rc 0 0 0 sco F2_25
+Ji 
+708 2703 M 
+-0.050 0 32 0.100 0 (1 1 1 1)D 
+; : 1243 1998 918 32 rc 0 0 0 sco (F2_27) cvn
+F2
+27 
+xF 
+F2_27
+Ji 
+1271 1998 M 
+1.988 0 (75)A 
+; : 1243 2044 918 32 rc 0 0 0 sco F2_27
+Ji 
+1271 2044 M 
+0.988 0 (1)A 
+1.988 0 (1)A 
+0.988 0 (0)A 
+; : 1243 2091 918 32 rc 0 0 0 sco F2_27
+Ji 
+1271 2091 M 
+0.988 0 (134)A 
+1.494 0 (.)A 
+0.988 0 (5)A 
+; : 1243 2138 918 32 rc 0 0 0 sco F2_27
+Ji 
+1271 2138 M 
+0.988 0 (1)A 
+1.988 0 (5)A 
+0.988 0 (0)A 
+; : 1243 2185 918 32 rc 0 0 0 sco F2_27
+Ji 
+1271 2185 M 
+0.988 0 (3)A 
+1.988 0 (0)A 
+0.988 0 (0)A 
+; : 1243 2232 918 32 rc 0 0 0 sco F2_27
+Ji 
+1271 2232 M 
+0.988 0 (6)A 
+1.988 0 (0)A 
+0.988 0 (0)A 
+; : 1243 2279 918 32 rc 0 0 0 sco F2_27
+Ji 
+1271 2279 M 
+0.988 0 (1)A 
+1.988 0 (2)A 
+0.988 0 (0)A 
+1.988 0 (0)A 
+; : 1243 2326 918 32 rc 0 0 0 sco F2_27
+Ji 
+1271 2326 M 
+0.988 0 (2)A 
+1.988 0 (0)A 
+0.988 0 (0)A 
+1.988 0 (0)A 
+; : 1243 2373 918 32 rc 0 0 0 sco F2_27
+Ji 
+1271 2373 M 
+0.988 0 (2)A 
+1.988 0 (4)A 
+0.988 0 (0)A 
+1.988 0 (0)A 
+; : 1243 2419 918 32 rc 0 0 0 sco F2_27
+Ji 
+1271 2419 M 
+0.988 0 (4)A 
+1.988 0 (8)A 
+0.988 0 (0)A 
+1.988 0 (0)A 
+; : 1243 2466 918 32 rc 0 0 0 sco F2_27
+Ji 
+1271 2466 M 
+0.988 0 (1)A 
+1.988 0 (8)A 
+0.988 0 (0)A 
+1.988 0 (0)A 
+; : 1243 2513 918 32 rc 0 0 0 sco F2_27
+Ji 
+1271 2513 M 
+0.988 0 (9)A 
+1.988 0 (6)A 
+0.988 0 (0)A 
+1.988 0 (0)A 
+; : 1243 2560 918 32 rc 0 0 0 sco F2_27
+Ji 
+1271 2560 M 
+0.988 0 (1)A 
+1.988 0 (9)A 
+0.988 0 (200)A 
+; : 1243 2607 918 32 rc 0 0 0 sco F2_27
+Ji 
+1271 2607 M 
+1.506 0 (N)A 
+2.494 0 (/)A 
+1.991 0 (A)A 
+; : 1243 2654 918 32 rc 0 0 0 sco F2_27
+Ji 
+1271 2654 M 
+1.506 0 (N)A 
+2.494 0 (/)A 
+1.991 0 (A)A 
+; : 1243 2701 918 32 rc 0 0 0 sco F2_27
+Ji 
+1271 2701 M 
+-0.494 0 (N)A 
+1.494 0 (/)A 
+-0.009 0 (A)A 
+; : 1243 1898 918 32 rc 0 0 0 sco F2_27
+Ji 
+1271 1898 M 
+0.991 0 (S)A 
+-0.012 0 (e)A 
+-1.000 0 32 1.494 0 (t )D 
+0.988 0 (2)A 
+; : 1180 1943 981 32 rc 0 0 0 sco F2_27
+Ji 
+1208 1943 M 
+-0.009 0 (A)A 
+-0.012 0 32 0.506 0 (CR )D 
+-0.009 0 (B)A 
+0.006 0 (i)A 
+0.494 0 (t )A 
+0.506 0 32 -0.012 0 (7 )D 
+0.262 0 32 0.232 0 (= )D 
+-0.012 0 (1)A 
+; : 948 1998 1213 32 rc 0 0 0 sco F2_27
+Ji 
+976 1998 M 
+1.988 0 (50)A 
+; : 948 2044 1213 32 rc 0 0 0 sco F2_27
+Ji 
+976 2044 M 
+0.988 0 (1)A 
+1.988 0 (1)A 
+0.988 0 (0)A 
+; : 948 2091 1213 32 rc 0 0 0 sco F2_27
+Ji 
+976 2091 M 
+0.988 0 (134)A 
+1.494 0 (.)A 
+0.988 0 (5)A 
+; : 948 2138 1213 32 rc 0 0 0 sco F2_27
+Ji 
+976 2138 M 
+0.988 0 (2)A 
+1.988 0 (0)A 
+0.988 0 (0)A 
+; : 948 2185 1213 32 rc 0 0 0 sco F2_27
+Ji 
+976 2185 M 
+0.988 0 (3)A 
+1.988 0 (0)A 
+0.988 0 (0)A 
+; : 948 2232 1213 32 rc 0 0 0 sco F2_27
+Ji 
+976 2232 M 
+0.988 0 (6)A 
+1.988 0 (0)A 
+0.988 0 (0)A 
+; : 948 2279 1213 32 rc 0 0 0 sco F2_27
+Ji 
+976 2279 M 
+0.988 0 (1)A 
+1.988 0 (2)A 
+0.988 0 (0)A 
+1.988 0 (0)A 
+; : 948 2326 1213 32 rc 0 0 0 sco F2_27
+Ji 
+976 2326 M 
+0.988 0 (1)A 
+1.988 0 (0)A 
+0.988 0 (5)A 
+1.988 0 (0)A 
+; : 948 2373 1213 32 rc 0 0 0 sco F2_27
+Ji 
+976 2373 M 
+0.988 0 (2)A 
+1.988 0 (4)A 
+0.988 0 (0)A 
+1.988 0 (0)A 
+; : 948 2419 1213 32 rc 0 0 0 sco F2_27
+Ji 
+976 2419 M 
+0.988 0 (4)A 
+1.988 0 (8)A 
+0.988 0 (0)A 
+1.988 0 (0)A 
+; : 948 2466 1213 32 rc 0 0 0 sco F2_27
+Ji 
+976 2466 M 
+0.988 0 (7)A 
+1.988 0 (2)A 
+0.988 0 (0)A 
+1.988 0 (0)A 
+; : 948 2513 1213 32 rc 0 0 0 sco F2_27
+Ji 
+976 2513 M 
+0.988 0 (9)A 
+1.988 0 (6)A 
+0.988 0 (0)A 
+1.988 0 (0)A 
+; : 948 2560 1213 32 rc 0 0 0 sco F2_27
+Ji 
+976 2560 M 
+0.988 0 (3)A 
+1.988 0 (8)A 
+0.988 0 (400)A 
+; : 948 2607 1213 32 rc 0 0 0 sco F2_27
+Ji 
+976 2607 M 
+1.506 0 (N)A 
+2.494 0 (/)A 
+1.991 0 (A)A 
+; : 948 2654 1213 32 rc 0 0 0 sco F2_27
+Ji 
+976 2654 M 
+1.506 0 (N)A 
+2.494 0 (/)A 
+1.991 0 (A)A 
+; : 948 2701 1213 32 rc 0 0 0 sco F2_27
+Ji 
+976 2701 M 
+-0.494 0 (N)A 
+1.494 0 (/)A 
+-0.009 0 (A)A 
+; : 948 1898 1213 32 rc 0 0 0 sco F2_27
+Ji 
+976 1898 M 
+0.991 0 (S)A 
+-0.012 0 (e)A 
+-1.000 0 32 1.494 0 (t )D 
+0.988 0 (1)A 
+; : 883 1946 1278 32 rc 0 0 0 sco F2_27
+Ji 
+911 1946 M 
+0.991 0 (A)A 
+0.506 0 (C)A 
+-0.012 0 32 1.506 0 (R )D 
+-0.009 0 (B)A 
+1.006 0 (i)A 
+1.000 0 32 0.494 0 (t )D 
+-0.494 0 32 0.988 0 (7 )D 
+-0.738 0 32 1.232 0 (= )D 
+0.988 0 (0)A 
+; : 694 1718 1467 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+738 1718 M 
+-0.014 0 (B)A 
+0.676 0 (i)A 
+0.324 0 (t )A 
+-0.352 0 (7)A 
+-85 sU 
+; : 874 1718 1287 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+918 1718 M 
+-0.014 0 (B)A 
+0.676 0 (i)A 
+0.324 0 (t )A 
+-0.352 0 (6)A 
+-85 sU 
+; : 1054 1718 1107 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1098 1718 M 
+-0.014 0 (B)A 
+0.676 0 (i)A 
+0.324 0 (t )A 
+-0.352 0 (5)A 
+-85 sU 
+; : 1234 1718 927 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1278 1718 M 
+-0.014 0 (B)A 
+0.676 0 (i)A 
+0.324 0 (t )A 
+-0.352 0 (4)A 
+-85 sU 
+; 
+768 1778 N M 0 90 - 1 Lc 1 Lj 0 0 0 sco K 
+768 1868 N M -60 0 - 0 0 0 sco K 
+708 1868 N M 0 120 - 0 0 0 sco K 
+948 1778 N M 0 30 - 0 0 0 sco K 
+948 1808 N M -150 0 - 0 0 0 sco K 
+798 1808 N M 0 90 - 0 0 0 sco K 
+798 1898 N M -60 0 - 0 0 0 sco K 
+738 1898 N M 0 90 - 0 0 0 sco K 
+1128 1778 N M 0 60 - 0 0 0 sco K 
+1128 1838 N M -300 0 - 0 0 0 sco K 
+828 1838 N M 0 90 - 0 0 0 sco K 
+828 1928 N M -60 0 - 0 0 0 sco K 
+768 1928 N M 0 60 - 0 0 0 sco K 
+1308 1778 N M 0 90 - 0 0 0 sco K 
+1308 1868 N M -450 0 - 0 0 0 sco K 
+858 1868 N M 0 90 - 0 0 0 sco K 
+858 1958 N M -60 0 - 0 0 0 sco K 
+798 1958 N M 0 30 - 0 0 0 sco K : 1400 2002 761 28 rc 0 0 0 sco F2_25
+Ji 
+1426 2002 M 
+-1.050 0 32 1.100 0 (0 0)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (0 0)D 
+; : 1400 2049 761 28 rc 0 0 0 sco F2_25
+Ji 
+1426 2049 M 
+-1.050 0 32 1.100 0 (0 0)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (0 1)D 
+; : 1400 2096 761 28 rc 0 0 0 sco F2_25
+Ji 
+1426 2096 M 
+-1.050 0 32 1.100 0 (0 0)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (1 0)D 
+; : 1400 2143 761 28 rc 0 0 0 sco F2_25
+Ji 
+1426 2143 M 
+-1.050 0 32 1.100 0 (0 0)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (1 1)D 
+; : 1400 2189 761 28 rc 0 0 0 sco F2_25
+Ji 
+1426 2189 M 
+-1.050 0 32 1.100 0 (0 1)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (0 0)D 
+; : 1400 2236 761 28 rc 0 0 0 sco F2_25
+Ji 
+1426 2236 M 
+-1.050 0 32 1.100 0 (0 1)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (0 1)D 
+; : 1400 2283 761 28 rc 0 0 0 sco F2_25
+Ji 
+1426 2283 M 
+-1.050 0 32 1.100 0 (0 1)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (1 0)D 
+; : 1400 2330 761 28 rc 0 0 0 sco F2_25
+Ji 
+1426 2330 M 
+-1.050 0 32 1.100 0 (0 1)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (1 1)D 
+; : 1400 2377 761 28 rc 0 0 0 sco F2_25
+Ji 
+1426 2377 M 
+-1.050 0 32 1.100 0 (1 0)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (0 0)D 
+; : 1400 2424 761 28 rc 0 0 0 sco F2_25
+Ji 
+1426 2424 M 
+-1.050 0 32 1.100 0 (1 0)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (0 1)D 
+; : 1400 2471 761 28 rc 0 0 0 sco F2_25
+Ji 
+1426 2471 M 
+-1.050 0 32 1.100 0 (1 0)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (1 0)D 
+; : 1400 2518 761 28 rc 0 0 0 sco F2_25
+Ji 
+1426 2518 M 
+-1.050 0 32 1.100 0 (1 0)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (1 1)D 
+; : 1400 2564 761 28 rc 0 0 0 sco F2_25
+Ji 
+1426 2564 M 
+-1.050 0 32 1.100 0 (1 1)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (0 0)D 
+; : 1400 2611 761 28 rc 0 0 0 sco F2_25
+Ji 
+1426 2611 M 
+-1.050 0 32 1.100 0 (1 1)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (0 1)D 
+; : 1400 2658 761 28 rc 0 0 0 sco F2_25
+Ji 
+1426 2658 M 
+-1.050 0 32 1.100 0 (1 1)D 
+1.050 0 32 ( )W 
+0.950 0 32 0.100 0 (1 0)D 
+; : 1400 2705 761 28 rc 0 0 0 sco F2_25
+Ji 
+1426 2705 M 
+-0.050 0 32 0.100 0 (1 1 1 1)D 
+; : 1965 1998 196 28 rc 0 0 0 sco F2_25
+Ji 
+1991 1998 M 
+2.100 0 (75)A 
+; : 1965 2044 196 28 rc 0 0 0 sco F2_25
+Ji 
+1991 2044 M 
+1.100 0 (1)A 
+2.100 0 (1)A 
+1.100 0 (0)A 
+; : 1965 2091 196 28 rc 0 0 0 sco F2_25
+Ji 
+1991 2091 M 
+1.100 0 (134)A 
+0.050 0 (.)A 
+1.100 0 (5)A 
+; : 1965 2138 196 28 rc 0 0 0 sco F2_25
+Ji 
+1991 2138 M 
+1.100 0 (1)A 
+2.100 0 (5)A 
+1.100 0 (0)A 
+; : 1965 2185 196 28 rc 0 0 0 sco F2_25
+Ji 
+1991 2185 M 
+1.100 0 (3)A 
+2.100 0 (0)A 
+1.100 0 (0)A 
+; : 1965 2232 196 28 rc 0 0 0 sco F2_25
+Ji 
+1991 2232 M 
+1.100 0 (6)A 
+2.100 0 (0)A 
+1.100 0 (0)A 
+; : 1965 2279 196 28 rc 0 0 0 sco F2_25
+Ji 
+1991 2279 M 
+1.100 0 (12)A 
+2.100 0 (0)A 
+1.100 0 (0)A 
+; : 1965 2326 196 28 rc 0 0 0 sco F2_25
+Ji 
+1991 2326 M 
+1.100 0 (20)A 
+2.100 0 (0)A 
+1.100 0 (0)A 
+; : 1965 2373 196 28 rc 0 0 0 sco F2_25
+Ji 
+1991 2373 M 
+1.100 0 (24)A 
+2.100 0 (0)A 
+1.100 0 (0)A 
+; : 1965 2419 196 28 rc 0 0 0 sco F2_25
+Ji 
+1991 2419 M 
+1.100 0 (48)A 
+2.100 0 (0)A 
+1.100 0 (0)A 
+; : 1965 2466 196 28 rc 0 0 0 sco F2_25
+Ji 
+1991 2466 M 
+1.100 0 (18)A 
+2.100 0 (0)A 
+1.100 0 (0)A 
+; : 1965 2513 196 28 rc 0 0 0 sco F2_25
+Ji 
+1991 2513 M 
+1.100 0 (96)A 
+2.100 0 (0)A 
+1.100 0 (0)A 
+; : 1965 2560 196 28 rc 0 0 0 sco F2_25
+Ji 
+1991 2560 M 
+1.100 0 (19)A 
+2.100 0 (2)A 
+1.100 0 (00)A 
+; : 1965 2607 196 28 rc 0 0 0 sco F2_25
+Ji 
+1991 2607 M 
+1.950 0 (N)A 
+1.050 0 (/)A 
+2.325 0 (A)A 
+; : 1965 2654 196 28 rc 0 0 0 sco F2_25
+Ji 
+1991 2654 M 
+1.950 0 (N)A 
+1.050 0 (/)A 
+2.325 0 (A)A 
+; : 1965 2701 196 28 rc 0 0 0 sco F2_25
+Ji 
+1991 2701 M 
+-0.050 0 (N)A 
+1.050 0 (/)A 
+0.325 0 (A)A 
+; : 1965 1898 196 28 rc 0 0 0 sco F2_25
+Ji 
+1991 1898 M 
+1.325 0 (S)A 
+0.100 0 (e)A 
+1.050 0 (t )A 
+0.100 0 (2)A 
+; : 1902 1943 259 28 rc 0 0 0 sco F2_25
+Ji 
+1928 1943 M 
+0.325 0 (A)A 
+0.100 0 32 -0.050 0 (CR )D 
+0.325 0 (B)A 
+0.450 0 (i)A 
+0.050 0 (t )A 
+-0.050 0 32 0.100 0 (7 )D 
+-0.350 0 32 0.400 0 (= )D 
+0.100 0 (1)A 
+; : 1670 1998 491 28 rc 0 0 0 sco F2_25
+Ji 
+1696 1998 M 
+2.100 0 (50)A 
+; : 1670 2044 491 28 rc 0 0 0 sco F2_25
+Ji 
+1696 2044 M 
+1.100 0 (1)A 
+2.100 0 (1)A 
+1.100 0 (0)A 
+; : 1670 2091 491 28 rc 0 0 0 sco F2_25
+Ji 
+1696 2091 M 
+1.100 0 (134)A 
+0.050 0 (.)A 
+1.100 0 (5)A 
+; : 1670 2138 491 28 rc 0 0 0 sco F2_25
+Ji 
+1696 2138 M 
+1.100 0 (2)A 
+2.100 0 (0)A 
+1.100 0 (0)A 
+; : 1670 2185 491 28 rc 0 0 0 sco F2_25
+Ji 
+1696 2185 M 
+1.100 0 (3)A 
+2.100 0 (0)A 
+1.100 0 (0)A 
+; : 1670 2232 491 28 rc 0 0 0 sco F2_25
+Ji 
+1696 2232 M 
+1.100 0 (6)A 
+2.100 0 (0)A 
+1.100 0 (0)A 
+; : 1670 2279 491 28 rc 0 0 0 sco F2_25
+Ji 
+1696 2279 M 
+1.100 0 (12)A 
+2.100 0 (0)A 
+1.100 0 (0)A 
+; : 1670 2326 491 28 rc 0 0 0 sco F2_25
+Ji 
+1696 2326 M 
+1.100 0 (10)A 
+2.100 0 (5)A 
+1.100 0 (0)A 
+; : 1670 2373 491 28 rc 0 0 0 sco F2_25
+Ji 
+1696 2373 M 
+1.100 0 (24)A 
+2.100 0 (0)A 
+1.100 0 (0)A 
+; : 1670 2419 491 28 rc 0 0 0 sco F2_25
+Ji 
+1696 2419 M 
+1.100 0 (48)A 
+2.100 0 (0)A 
+1.100 0 (0)A 
+; : 1670 2466 491 28 rc 0 0 0 sco F2_25
+Ji 
+1696 2466 M 
+1.100 0 (72)A 
+2.100 0 (0)A 
+1.100 0 (0)A 
+; : 1670 2513 491 28 rc 0 0 0 sco F2_25
+Ji 
+1696 2513 M 
+1.100 0 (96)A 
+2.100 0 (0)A 
+1.100 0 (0)A 
+; : 1670 2560 491 28 rc 0 0 0 sco F2_25
+Ji 
+1696 2560 M 
+1.100 0 (38)A 
+2.100 0 (4)A 
+1.100 0 (00)A 
+; : 1670 2607 491 28 rc 0 0 0 sco F2_25
+Ji 
+1696 2607 M 
+1.950 0 (N)A 
+1.050 0 (/)A 
+2.325 0 (A)A 
+; : 1670 2654 491 28 rc 0 0 0 sco F2_25
+Ji 
+1696 2654 M 
+1.950 0 (N)A 
+1.050 0 (/)A 
+2.325 0 (A)A 
+; : 1670 2701 491 28 rc 0 0 0 sco F2_25
+Ji 
+1696 2701 M 
+-0.050 0 (N)A 
+1.050 0 (/)A 
+0.325 0 (A)A 
+; : 1670 1898 491 28 rc 0 0 0 sco F2_25
+Ji 
+1696 1898 M 
+1.325 0 (S)A 
+0.100 0 (e)A 
+1.050 0 (t )A 
+0.100 0 (1)A 
+; : 1605 1946 556 28 rc 0 0 0 sco F2_25
+Ji 
+1631 1946 M 
+1.325 0 (A)A 
+-0.050 0 (C)A 
+0.100 0 32 0.950 0 (R )D 
+0.325 0 (B)A 
+1.450 0 (i)A 
+1.000 0 32 0.050 0 (t )D 
+-1.050 0 32 1.100 0 (7 )D 
+-0.350 0 32 1.400 0 (= )D 
+0.100 0 (0)A 
+; : 1414 1718 747 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1458 1718 M 
+-0.014 0 (B)A 
+0.676 0 (i)A 
+0.324 0 (t )A 
+-0.352 0 (3)A 
+-85 sU 
+; : 1594 1718 567 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1638 1718 M 
+-0.014 0 (B)A 
+0.676 0 (i)A 
+0.324 0 (t )A 
+-0.352 0 (2)A 
+-85 sU 
+; : 1774 1718 387 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1818 1718 M 
+-0.014 0 (B)A 
+0.676 0 (i)A 
+0.324 0 (t )A 
+-0.352 0 (1)A 
+-85 sU 
+; : 1954 1718 207 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1998 1718 M 
+-0.014 0 (B)A 
+0.676 0 (i)A 
+0.324 0 (t )A 
+-0.352 0 (0)A 
+-85 sU 
+; 
+1488 1778 N M 0 90 - 0 0 0 sco K 
+1488 1868 N M -60 0 - 0 0 0 sco K 
+1428 1868 N M 0 120 - 0 0 0 sco K 
+1668 1778 N M 0 30 - 0 0 0 sco K 
+1668 1808 N M -150 0 - 0 0 0 sco K 
+1518 1808 N M 0 90 - 0 0 0 sco K 
+1518 1898 N M -60 0 - 0 0 0 sco K 
+1458 1898 N M 0 90 - 0 0 0 sco K 
+1848 1778 N M 0 60 - 0 0 0 sco K 
+1848 1838 N M -300 0 - 0 0 0 sco K 
+1548 1838 N M 0 90 - 0 0 0 sco K 
+1548 1928 N M -60 0 - 0 0 0 sco K 
+1488 1928 N M 0 60 - 0 0 0 sco K 
+2028 1778 N M 0 90 - 0 0 0 sco K 
+2028 1868 N M -450 0 - 0 0 0 sco K 
+1578 1868 N M 0 90 - 0 0 0 sco K 
+1578 1958 N M -60 0 - 0 0 0 sco K 
+1518 1958 N M 0 30 - 0 0 0 sco K : 753 1633 1408 51 rc 0 0 0 sco (F0_43) cvn
+F0
+43 
+xF 
+F0_43
+Ji 
+798 1633 M 
+-0.046 0 (R)A 
+0.092 0 (ece)A 
+0.046 0 (i)A 
+-0.908 0 (v)A 
+0.092 0 (e)A 
+0.273 0 (r)A 
+-0.319 0 (-)A 
+-0.046 0 (C)A 
+0.046 0 (l)A 
+-0.273 0 (o)A 
+-0.046 0 32 0.092 0 (ck )D 
+0.319 0 (S)A 
+0.092 0 (e)A 
+0.046 0 (l)A 
+0.092 0 (ec)A 
+-0.319 0 (t)A 
+; : 1473 1633 688 51 rc 0 0 0 sco F0_43
+Ji 
+1518 1633 M 
+0.727 0 (T)A 
+0.273 0 (r)A 
+0.092 0 (a)A 
+-0.273 0 (n)A 
+0.092 0 (s)A 
+-0.227 0 (m)A 
+0.046 0 (i)A 
+-0.319 0 (tt)A 
+0.092 0 (e)A 
+0.273 0 (r)A 
+-0.319 0 (-)A 
+-0.046 0 (C)A 
+0.046 0 (l)A 
+-0.273 0 (o)A 
+-0.046 0 32 0.092 0 (ck )D 
+0.319 0 (S)A 
+0.092 0 (e)A 
+0.046 0 (l)A 
+0.092 0 (ec)A 
+-0.319 0 (t)A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F10) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F10_50) cvn
+F10
+50 
+xF 
+F10_50
+Ji 
+2121 2942 M 
+(21)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 5 ]%%)  =
+%%PageTrailer
+
+%%Page: 6 6
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+
+671 225 N M 1476 673 rr : 1.000 1.000 1.000 sco O ; 
+1633 287 N M 480 600 rr 
+1633 287 N M 480 600 rr 4 Lw 0 Lc 0 Lj solid 0 0 0 sco K 
+673 287 N M 1440 120 rr : 0.937 0.937 0.937 sco O ; 
+673 287 N M 1440 120 rr 0 0 0 sco K 
+1213 287 N M 420 600 rr 
+1213 287 N M 420 600 rr 0 0 0 sco K 
+673 287 N M 150 600 rr 
+673 287 N M 150 600 rr 0 0 0 sco K : 673 347 1472 49 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F0) cvn
+0.929 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F0_42) cvn
+F0
+42 
+xF 
+F0_42
+Ji 
+703 347 M 
+0.676 0 (N)A 
+0.324 0 (/)A 
+-0.324 0 (A)A 
+; : 1259 347 886 49 rc 0 0 0 sco F0_42
+Ji 
+1303 347 M 
+1.338 0 (T)A 
+-0.338 0 (r)A 
+-0.352 0 (a)A 
+0.338 0 (n)A 
+-0.352 0 (s)A 
+-0.338 0 (m)A 
+0.324 0 (i)A 
+0.014 0 (tt)A 
+-0.352 0 (e)A 
+-0.338 0 (r)A 
+; : 1679 437 466 47 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F2) cvn
+0.905 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F2_42) cvn
+F2
+42 
+xF 
+F2_42
+Ji 
+0 42 2 sSU 
+1723 437 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (1)A 
+-87 sU 
+; : 1889 437 256 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1933 437 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (0)A 
+-87 sU 
+; : 1409 437 736 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1453 437 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (2)A 
+-87 sU 
+; : 1229 437 916 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1273 437 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (3)A 
+-87 sU 
+; : 1049 437 1096 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1093 437 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (4)A 
+-87 sU 
+; : 809 437 1336 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+853 437 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (6)A 
+-87 sU 
+; : 673 437 1472 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+703 437 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (7)A 
+-87 sU 
+; : 929 437 1216 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+973 437 M 
+-2.014 0 (B)A 
+-0.324 0 (i)A 
+-1.676 0 (t )A 
+-1.352 0 (5)A 
+-77 sU 
+; : 673 227 1472 50 rc 0 0 0 sco (F2_45) cvn
+F2
+45 
+xF 
+F2_45
+Ji 
+673 227 M 
+-0.015 0 (P)A 
+-0.020 0 (o)A 
+1.015 0 (r)A 
+0.490 0 (t )A 
+0.505 0 32 -0.015 0 (A )D 
+0.510 0 (C)A 
+-0.020 0 (o)A 
+0.515 0 (mm)A 
+0.980 0 (a)A 
+0.510 0 32 -0.020 0 (nd )D 
+-0.490 0 (R)A 
+0.980 0 (e)A 
+-0.020 0 (g)A 
+0.010 0 (i)A 
+0.500 0 (s)A 
+0.490 0 (t)A 
+0.980 0 (e)A 
+0.475 0 32 0.015 0 (r \()D 
+-0.490 0 (C)A 
+0.510 0 (R)A 
+-0.015 0 (A)A 
+0.475 0 32 0.015 0 (\) )D 
+-0.020 0 (a)A 
+0.980 0 (n)A 
+0.510 0 32 -0.020 0 (d )D 
+-0.015 0 (P)A 
+0.980 0 (o)A 
+0.015 0 (r)A 
+0.490 0 (t )A 
+1.505 0 32 -0.015 0 (B )D 
+-0.490 0 (C)A 
+-0.020 0 (o)A 
+0.515 0 (mm)A 
+0.980 0 (a)A 
+0.510 0 32 -0.020 0 (nd )D 
+-0.490 0 (R)A 
+0.980 0 (e)A 
+-0.020 0 (g)A 
+0.010 0 (i)A 
+0.500 0 (s)A 
+0.490 0 (t)A 
+0.980 0 (e)A 
+0.475 0 32 0.015 0 (r \()D 
+-0.490 0 (C)A 
+0.510 0 (R)A 
+-0.015 0 (B)A 
+0.015 0 (\))A 
+; : 809 347 1336 49 rc 0 0 0 sco F0_42
+Ji 
+853 347 M 
+0.014 0 (M)A 
+0.324 0 (i)A 
+0.676 0 32 -0.352 0 (sc )D 
+-0.324 0 (C)A 
+0.338 0 (o)A 
+-0.338 0 (mm)A 
+-0.352 0 (a)A 
+0.338 0 (nd)A 
+-0.352 0 (s)A 
+; 
+823 287 N M 390 600 rr 
+823 287 N M 390 600 rr 0 0 0 sco K : 829 617 1316 28 rc 0 0 0 sco (F2_25) cvn
+F2
+25 
+xF 
+F2_25
+Ji 
+855 617 M 
+-0.050 0 32 0.100 0 (0 0 0 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (N)A 
+-0.050 0 32 0.100 0 (o )D 
+-0.050 0 (C)A 
+0.100 0 (o)A 
+1.175 0 (mm)A 
+0.100 0 (and)A 
+; : 829 649 1316 28 rc 0 0 0 sco F2_25
+Ji 
+855 649 M 
+-0.050 0 32 0.100 0 (0 0 1 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (R)A 
+0.100 0 (e)A 
+0.500 0 (s)A 
+0.100 0 (e)A 
+0.050 0 (t )A 
+0.175 0 (M)A 
+0.100 0 32 -0.050 0 (R )D 
+0.325 0 (P)A 
+0.100 0 (o)A 
+0.450 0 (i)A 
+0.100 0 (n)A 
+0.050 0 (t)A 
+0.100 0 (e)A 
+-0.325 0 (r)A 
+; : 829 681 1316 28 rc 0 0 0 sco F2_25
+Ji 
+855 681 M 
+-0.050 0 32 0.100 0 (0 1 0 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (R)A 
+0.100 0 (e)A 
+0.500 0 (s)A 
+0.100 0 (e)A 
+0.050 0 (t )A 
+-0.050 0 (R)A 
+0.100 0 (e)A 
+0.500 0 (c)A 
+0.100 0 (e)A 
+0.450 0 (i)A 
+-1.500 0 (v)A 
+0.100 0 (e)A 
+-0.325 0 (r)A 
+; : 829 713 1316 28 rc 0 0 0 sco F2_25
+Ji 
+855 713 M 
+-0.050 0 32 0.100 0 (0 1 1 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (R)A 
+0.100 0 (e)A 
+0.500 0 (s)A 
+0.100 0 (e)A 
+0.050 0 (t )A 
+-1.275 0 (T)A 
+-0.325 0 (r)A 
+0.100 0 (an)A 
+0.500 0 (s)A 
+1.175 0 (m)A 
+0.450 0 (i)A 
+0.050 0 (tt)A 
+0.100 0 (e)A 
+-0.325 0 (r)A 
+; : 829 745 1316 28 rc 0 0 0 sco F2_25
+Ji 
+855 745 M 
+-0.050 0 32 0.100 0 (1 0 0 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (R)A 
+0.100 0 (e)A 
+0.500 0 (s)A 
+0.100 0 (e)A 
+0.050 0 (t )A 
+0.325 0 (E)A 
+-0.325 0 (rr)A 
+0.100 0 (o)A 
+0.375 0 32 -0.325 0 (r )D 
+0.325 0 (S)A 
+0.050 0 (t)A 
+0.100 0 (a)A 
+0.050 0 (t)A 
+0.100 0 (u)A 
+0.500 0 (s)A 
+; : 829 776 1316 28 rc 0 0 0 sco F2_25
+Ji 
+855 776 M 
+-0.050 0 32 0.100 0 (1 0 1 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (N)A 
+0.050 0 (/)A 
+0.325 0 (A)A 
+; : 829 808 1316 28 rc 0 0 0 sco F2_25
+Ji 
+855 808 M 
+-0.050 0 32 0.100 0 (1 1 0 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (N)A 
+0.050 0 (/)A 
+0.325 0 (A)A 
+; : 829 840 1316 28 rc 0 0 0 sco F2_25
+Ji 
+855 840 M 
+-0.050 0 32 0.100 0 (1 1 1 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (N)A 
+0.050 0 (/)A 
+0.325 0 (A)A 
+; 
+883 497 N M 0 30 - 1 Lc 1 Lj 0 0 0 sco K 
+883 527 N M -30 0 - 0 0 0 sco K 
+853 527 N M 0 90 - 0 0 0 sco K 
+1003 497 N M 0 60 - 0 0 0 sco K 
+1003 557 N M -120 0 - 0 0 0 sco K 
+883 557 N M 0 60 - 0 0 0 sco K 
+1123 497 N M 0 90 - 0 0 0 sco K 
+1123 587 N M -210 0 - 0 0 0 sco K 
+913 587 N M 0 30 - 0 0 0 sco K : 1247 617 898 28 rc 0 0 0 sco F2_25
+Ji 
+1273 617 M 
+-0.050 0 32 0.100 0 (0 0 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (N)A 
+-0.050 0 32 0.100 0 (o )D 
+0.325 0 (A)A 
+0.500 0 (c)A 
+0.050 0 (t)A 
+0.450 0 (i)A 
+0.100 0 (on)A 
+; : 1247 649 898 28 rc 0 0 0 sco F2_25
+Ji 
+1273 649 M 
+-0.050 0 32 0.100 0 (0 1 )D 
+-0.350 0 32 0.400 0 (= )D 
+-1.275 0 (T)A 
+-0.325 0 (r)A 
+0.100 0 (an)A 
+0.500 0 (s)A 
+1.175 0 (m)A 
+0.450 0 (i)A 
+0.050 0 (tt)A 
+0.100 0 (e)A 
+0.375 0 32 -0.325 0 (r )D 
+0.325 0 (E)A 
+0.100 0 (nab)A 
+0.450 0 (l)A 
+0.100 0 (ed)A 
+; : 1247 681 898 28 rc 0 0 0 sco F2_25
+Ji 
+1273 681 M 
+-0.050 0 32 0.100 0 (1 0 )D 
+-0.350 0 32 0.400 0 (= )D 
+-1.275 0 (T)A 
+-0.325 0 (r)A 
+0.100 0 (an)A 
+0.500 0 (s)A 
+1.175 0 (m)A 
+0.450 0 (i)A 
+0.050 0 (tt)A 
+0.100 0 (e)A 
+0.375 0 32 -0.325 0 (r )D 
+-0.050 0 (D)A 
+0.450 0 (i)A 
+0.500 0 (s)A 
+0.100 0 (ab)A 
+0.450 0 (l)A 
+0.100 0 (ed)A 
+; : 1247 713 898 28 rc 0 0 0 sco F2_25
+Ji 
+1273 713 M 
+-0.050 0 32 0.100 0 (1 1 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (N)A 
+0.050 0 (/)A 
+0.325 0 (A)A 
+; 
+1303 497 N M 0 30 - 0 0 0 sco K 
+1303 527 N M -30 0 - 0 0 0 sco K 
+1273 527 N M 0 90 - 0 0 0 sco K 
+1483 497 N M 0 60 - 0 0 0 sco K 
+1483 557 N M -180 0 - 0 0 0 sco K 
+1303 557 N M 0 60 - 0 0 0 sco K : 1739 347 406 49 rc 0 0 0 sco F0_42
+Ji 
+1783 347 M 
+-0.324 0 (R)A 
+-0.352 0 (ece)A 
+0.324 0 (i)A 
+-0.352 0 (ve)A 
+-0.338 0 (r)A 
+; : 1697 617 448 28 rc 0 0 0 sco F2_25
+Ji 
+1723 617 M 
+-0.050 0 32 0.100 0 (0 0 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (N)A 
+-0.050 0 32 0.100 0 (o )D 
+0.325 0 (A)A 
+0.500 0 (c)A 
+0.050 0 (t)A 
+0.450 0 (i)A 
+0.100 0 (on)A 
+; : 1697 649 448 28 rc 0 0 0 sco F2_25
+Ji 
+1723 649 M 
+-0.050 0 32 0.100 0 (0 1 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (R)A 
+0.100 0 (e)A 
+0.500 0 (c)A 
+0.100 0 (e)A 
+0.450 0 (i)A 
+-1.500 0 (v)A 
+0.100 0 (e)A 
+0.375 0 32 -0.325 0 (r )D 
+0.325 0 (E)A 
+0.100 0 (nab)A 
+0.450 0 (l)A 
+0.100 0 (ed)A 
+; : 1697 681 448 28 rc 0 0 0 sco F2_25
+Ji 
+1723 681 M 
+-0.050 0 32 0.100 0 (1 0 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (R)A 
+0.100 0 (e)A 
+0.500 0 (c)A 
+0.100 0 (e)A 
+0.450 0 (i)A 
+-1.500 0 (v)A 
+0.100 0 (e)A 
+0.375 0 32 -0.325 0 (r )D 
+-0.050 0 (D)A 
+0.450 0 (i)A 
+0.500 0 (s)A 
+0.100 0 (ab)A 
+0.450 0 (l)A 
+0.100 0 (ed)A 
+; : 1697 713 448 28 rc 0 0 0 sco F2_25
+Ji 
+1723 713 M 
+-0.050 0 32 0.100 0 (1 1 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (N)A 
+0.050 0 (/)A 
+0.325 0 (A)A 
+; 
+1753 497 N M 0 30 - 0 0 0 sco K 
+1753 527 N M -30 0 - 0 0 0 sco K 
+1723 527 N M 0 90 - 0 0 0 sco K 
+1963 497 N M 0 60 - 0 0 0 sco K 
+1963 557 N M -210 0 - 0 0 0 sco K 
+1753 557 N M 0 60 - 0 0 0 sco K 
+671 957 N M 1466 402 rr : 1.000 1.000 1.000 sco O ; 
+673 1019 N M 1440 120 rr : 0.937 0.937 0.937 sco O ; 
+673 1019 N M 1440 120 rr 0 Lc 0 Lj 0 0 0 sco K 
+673 1019 N M 150 330 rr 
+673 1019 N M 150 330 rr 0 0 0 sco K : 673 1079 1462 49 rc 0 0 0 sco F0_42
+Ji 
+703 1079 M 
+-0.324 0 (N)A 
+0.324 0 (/)A 
+-1.324 0 (A)A 
+; : 1709 1169 426 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1753 1169 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (1)A 
+-87 sU 
+; : 1919 1169 216 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1963 1169 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (0)A 
+-87 sU 
+; : 1499 1169 636 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1543 1169 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (2)A 
+-87 sU 
+; : 1289 1169 846 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1333 1169 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (3)A 
+-87 sU 
+; : 1109 1169 1026 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1153 1169 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (4)A 
+-87 sU 
+; : 809 1169 1326 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+853 1169 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (6)A 
+-87 sU 
+; : 673 1169 1462 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+703 1169 M 
+1.986 0 (B)A 
+1.676 0 (i)A 
+2.324 0 (t )A 
+0.648 0 (7)A 
+-93 sU 
+; : 959 1169 1176 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1003 1169 M 
+-2.014 0 (B)A 
+-0.324 0 (i)A 
+-1.676 0 (t )A 
+-1.352 0 (5)A 
+-77 sU 
+; : 673 959 1462 50 rc 0 0 0 sco F2_45
+Ji 
+673 959 M 
+-0.015 0 (P)A 
+-0.020 0 (o)A 
+1.015 0 (r)A 
+0.490 0 (t )A 
+0.505 0 32 -0.015 0 (A )D 
+0.985 0 (S)A 
+0.490 0 (t)A 
+-0.020 0 (a)A 
+0.490 0 (t)A 
+0.980 0 (u)A 
+-0.010 0 32 0.500 0 (s )D 
+-0.490 0 (R)A 
+-0.020 0 (eg)A 
+1.010 0 (i)A 
+0.500 0 (s)A 
+0.490 0 (t)A 
+-0.020 0 (e)A 
+-0.525 0 32 1.015 0 (r )D 
+0.015 0 (\()A 
+-0.015 0 (S)A 
+-0.490 0 (R)A 
+0.985 0 (A)A 
+0.475 0 32 0.015 0 (\) )D 
+-0.020 0 (a)A 
+0.980 0 (n)A 
+0.510 0 32 -0.020 0 (d )D 
+-0.015 0 (P)A 
+-0.020 0 (o)A 
+1.015 0 (r)A 
+0.490 0 (t )A 
+0.505 0 32 -0.015 0 (B )D 
+0.985 0 (S)A 
+0.490 0 (t)A 
+-0.020 0 (a)A 
+0.490 0 (t)A 
+-0.020 0 (u)A 
+-1.010 0 32 1.500 0 (s )D 
+-0.490 0 (R)A 
+-0.020 0 (eg)A 
+1.010 0 (i)A 
+0.500 0 (s)A 
+0.490 0 (t)A 
+-0.020 0 (e)A 
+1.475 0 32 0.015 0 (r \()D 
+-0.015 0 (S)A 
+-0.490 0 (R)A 
+-0.015 0 (B)A 
+1.015 0 (\))A 
+; : 1259 1079 876 49 rc 0 0 0 sco F0_42
+Ji 
+1303 1079 M 
+1.338 0 (T)A 
+-0.352 0 (x)A 
+-0.014 0 (E)A 
+0.014 0 (M)A 
+1.338 0 (T)A 
+; : 1109 1079 1026 49 rc 0 0 0 sco F0_42
+Ji 
+1153 1079 M 
+-0.324 0 (N)A 
+0.324 0 (/)A 
+-1.324 0 (A)A 
+; : 959 1079 1176 49 rc 0 0 0 sco F0_42
+Ji 
+1003 1079 M 
+-0.324 0 (N)A 
+0.324 0 (/)A 
+-1.324 0 (A)A 
+; : 809 1079 1326 49 rc 0 0 0 sco F0_42
+Ji 
+853 1079 M 
+3.676 0 (N)A 
+4.324 0 (/)A 
+2.676 0 (A)A 
+; 
+823 1019 N M 150 330 rr 
+823 1019 N M 150 330 rr 0 0 0 sco K : 1307 1259 828 28 rc 0 0 0 sco F2_25
+Ji 
+1333 1259 M 
+-0.050 0 32 0.100 0 (0 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (N)A 
+0.100 0 (o)A 
+; : 1307 1291 828 28 rc 0 0 0 sco F2_25
+Ji 
+1333 1291 M 
+-0.050 0 32 0.100 0 (1 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.675 0 (Y)A 
+0.100 0 (e)A 
+0.500 0 (s)A 
+; 
+1483 1019 N M 210 330 rr 
+1483 1019 N M 210 330 rr 0 0 0 sco K : 1517 1259 618 28 rc 0 0 0 sco F2_25
+Ji 
+1543 1259 M 
+-0.050 0 32 0.100 0 (0 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (N)A 
+0.100 0 (o)A 
+; : 1517 1291 618 28 rc 0 0 0 sco F2_25
+Ji 
+1543 1291 M 
+-0.050 0 32 0.100 0 (1 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.675 0 (Y)A 
+0.100 0 (e)A 
+0.500 0 (s)A 
+; : 1727 1259 408 28 rc 0 0 0 sco F2_25
+Ji 
+1753 1259 M 
+-0.050 0 32 0.100 0 (0 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (N)A 
+0.100 0 (o)A 
+; : 1727 1291 408 28 rc 0 0 0 sco F2_25
+Ji 
+1753 1291 M 
+-0.050 0 32 0.100 0 (1 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.675 0 (Y)A 
+0.100 0 (e)A 
+0.500 0 (s)A 
+; : 1937 1259 198 28 rc 0 0 0 sco F2_25
+Ji 
+1963 1259 M 
+-0.050 0 32 0.100 0 (0 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (N)A 
+0.100 0 (o)A 
+; : 1937 1291 198 28 rc 0 0 0 sco F2_25
+Ji 
+1963 1291 M 
+-0.050 0 32 0.100 0 (1 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.675 0 (Y)A 
+0.100 0 (e)A 
+0.500 0 (s)A 
+; 
+1693 1019 N M 210 330 rr 
+1693 1019 N M 210 330 rr 0 0 0 sco K 
+1903 1019 N M 210 330 rr 
+1903 1019 N M 210 330 rr 0 0 0 sco K : 1469 1079 666 49 rc 0 0 0 sco F0_42
+Ji 
+1513 1079 M 
+1.338 0 (T)A 
+-0.352 0 (x)A 
+-0.324 0 (RD)A 
+-0.014 0 (Y)A 
+; : 1679 1079 456 49 rc 0 0 0 sco F0_42
+Ji 
+1723 1079 M 
+0.338 0 (FF)A 
+-0.324 0 (U)A 
+0.338 0 (LL)A 
+; : 1889 1079 246 49 rc 0 0 0 sco F0_42
+Ji 
+1933 1079 M 
+-0.324 0 (R)A 
+-0.352 0 (x)A 
+-0.324 0 (RD)A 
+-0.014 0 (Y)A 
+; 
+1273 1019 N M 210 330 rr 
+1273 1019 N M 210 330 rr 0 0 0 sco K 
+1123 1019 N M 150 330 rr 
+1123 1019 N M 150 330 rr 0 0 0 sco K 
+973 1019 N M 150 330 rr 
+973 1019 N M 150 330 rr 0 0 0 sco K 
+671 1418 N M 1460 403 rr : 1.000 1.000 1.000 sco O ; 
+943 1480 N M 570 330 rr 
+943 1480 N M 570 330 rr 0 0 0 sco K 
+673 1480 N M 1440 120 rr : 0.937 0.937 0.937 sco O ; 
+673 1480 N M 1440 120 rr 0 0 0 sco K 
+1963 1480 N M 150 330 rr 
+1963 1480 N M 150 330 rr 0 0 0 sco K : 1139 1540 990 49 rc 0 0 0 sco F0_42
+Ji 
+1183 1540 M 
+-0.324 0 (N)A 
+0.324 0 (/)A 
+-1.324 0 (A)A 
+; : 1799 1630 330 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1843 1630 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (1)A 
+-87 sU 
+; : 1949 1630 180 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1993 1630 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (0)A 
+-87 sU 
+; : 1649 1630 480 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1693 1630 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (2)A 
+-87 sU 
+; : 1499 1630 630 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1543 1630 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (3)A 
+-87 sU 
+; : 1319 1630 810 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1363 1630 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (4)A 
+-87 sU 
+; : 959 1630 1170 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1003 1630 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (6)A 
+-87 sU 
+; : 719 1630 1410 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+763 1630 M 
+1.986 0 (B)A 
+1.676 0 (i)A 
+2.324 0 (t )A 
+0.648 0 (7)A 
+-93 sU 
+; : 1139 1630 990 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1183 1630 M 
+-2.014 0 (B)A 
+-0.324 0 (i)A 
+-1.676 0 (t )A 
+-1.352 0 (5)A 
+-77 sU 
+; : 673 1420 1456 50 rc 0 0 0 sco F2_45
+Ji 
+673 1420 M 
+-0.015 0 (A)A 
+-0.020 0 (u)A 
+-0.500 0 (x)A 
+0.010 0 (ili)A 
+-0.020 0 (a)A 
+0.015 0 (r)A 
+1.990 0 32 -1.500 0 (y )D 
+-0.490 0 (C)A 
+-0.020 0 (on)A 
+0.490 0 (t)A 
+0.015 0 (r)A 
+-0.020 0 (o)A 
+0.480 0 32 0.010 0 (l )D 
+-0.490 0 (R)A 
+-0.020 0 (eg)A 
+0.010 0 (i)A 
+0.500 0 (s)A 
+0.490 0 (t)A 
+-0.020 0 (e)A 
+0.475 0 32 0.015 0 (r \()D 
+-0.015 0 (A)A 
+-0.490 0 (CR)A 
+0.015 0 (\))A 
+; : 1799 1540 330 49 rc 0 0 0 sco F0_42
+Ji 
+1843 1540 M 
+-0.324 0 (N)A 
+0.324 0 (/)A 
+-1.324 0 (A)A 
+; : 1649 1540 480 49 rc 0 0 0 sco F0_42
+Ji 
+1693 1540 M 
+3.676 0 (N)A 
+4.324 0 (/)A 
+2.676 0 (A)A 
+; 
+1813 1480 N M 150 330 rr 
+1813 1480 N M 150 330 rr 0 0 0 sco K 
+1663 1480 N M 150 330 rr 
+1663 1480 N M 150 330 rr 0 0 0 sco K 
+1513 1480 N M 150 330 rr 
+1513 1480 N M 150 330 rr 0 0 0 sco K : 1499 1540 630 49 rc 0 0 0 sco F0_42
+Ji 
+1543 1540 M 
+-0.324 0 (N)A 
+0.324 0 (/)A 
+-1.324 0 (A)A 
+; : 1949 1540 180 49 rc 0 0 0 sco F0_42
+Ji 
+1993 1540 M 
+-0.324 0 (N)A 
+0.324 0 (/)A 
+-1.324 0 (A)A 
+; : 673 1501 1456 49 rc 0 0 0 sco F0_42
+Ji 
+703 1501 M 
+-0.324 0 (B)A 
+-0.352 0 (a)A 
+-0.014 0 32 0.338 0 (ud )D 
+-0.324 0 (R)A 
+-0.352 0 (a)A 
+0.014 0 (t)A 
+-0.352 0 (e)A 
+; : 720 1540 1409 47 rc 0 0 0 sco (F0_41) cvn
+F0
+41 
+xF 
+F0_41
+Ji 
+763 1540 M 
+-0.347 0 (S)A 
+0.204 0 (e)A 
+0.347 0 (t)A 
+; : 718 1720 1411 28 rc 0 0 0 sco F2_25
+Ji 
+744 1720 M 
+-0.050 0 32 0.100 0 (0 )D 
+-0.350 0 32 0.400 0 (= )D 
+0.325 0 (S)A 
+0.100 0 (e)A 
+0.050 0 (t )A 
+-0.450 0 (O)A 
+0.100 0 (ne)A 
+; : 718 1750 1411 28 rc 0 0 0 sco F2_25
+Ji 
+744 1750 M 
+-0.050 0 32 0.100 0 (1 )D 
+-0.350 0 32 0.400 0 (= )D 
+0.325 0 (S)A 
+0.100 0 (e)A 
+0.050 0 (t )A 
+-1.275 0 (T)A 
+0.950 0 (w)A 
+0.100 0 (o)A 
+; 
+673 1480 N M 270 330 rr 
+673 1480 N M 270 330 rr 0 0 0 sco K 
+671 1880 N M 1455 403 rr : 1.000 1.000 1.000 sco O ; 
+1693 1942 N M 210 330 rr 
+1693 1942 N M 210 330 rr 0 0 0 sco K 
+973 1942 N M 210 330 rr 
+973 1942 N M 210 330 rr 0 0 0 sco K 
+673 1942 N M 1440 120 rr : 0.937 0.937 0.937 sco O ; 
+673 1942 N M 1440 120 rr 0 0 0 sco K 
+1543 1942 N M 150 330 rr 
+1543 1942 N M 150 330 rr 0 0 0 sco K : 809 2002 1315 49 rc 0 0 0 sco F0_42
+Ji 
+853 2002 M 
+-0.324 0 (N)A 
+0.324 0 (/)A 
+-1.324 0 (A)A 
+; : 1709 2092 415 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1753 2092 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (1)A 
+-87 sU 
+; : 1919 2092 205 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1963 2092 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (0)A 
+-87 sU 
+; : 1529 2092 595 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1573 2092 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (2)A 
+-87 sU 
+; : 1379 2092 745 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1423 2092 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (3)A 
+-87 sU 
+; : 1199 2092 925 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1243 2092 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (4)A 
+-87 sU 
+; : 809 2092 1315 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+853 2092 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (6)A 
+-87 sU 
+; : 673 2092 1451 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+703 2092 M 
+1.986 0 (B)A 
+1.676 0 (i)A 
+2.324 0 (t )A 
+0.648 0 (7)A 
+-93 sU 
+; : 989 2092 1135 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1033 2092 M 
+-2.014 0 (B)A 
+-0.324 0 (i)A 
+-1.676 0 (t )A 
+-1.352 0 (5)A 
+-77 sU 
+; : 673 1882 1451 50 rc 0 0 0 sco F2_45
+Ji 
+673 1882 M 
+-0.510 0 (I)A 
+-0.020 0 (n)A 
+0.490 0 (t)A 
+-0.020 0 (e)A 
+0.015 0 (rr)A 
+-0.020 0 (up)A 
+0.490 0 (t )A 
+-0.015 0 (S)A 
+0.490 0 (t)A 
+-0.020 0 (a)A 
+0.490 0 (t)A 
+-0.020 0 (u)A 
+-0.010 0 32 0.500 0 (s )D 
+-0.490 0 (R)A 
+-0.020 0 (eg)A 
+0.010 0 (i)A 
+0.500 0 (s)A 
+0.490 0 (t)A 
+-0.020 0 (e)A 
+0.475 0 32 0.015 0 (r \()D 
+-0.510 0 (I)A 
+-0.015 0 (S)A 
+-0.490 0 (R)A 
+0.015 0 (\))A 
+; : 1379 2002 745 49 rc 0 0 0 sco F0_42
+Ji 
+1423 2002 M 
+-0.324 0 (N)A 
+0.324 0 (/)A 
+-1.324 0 (A)A 
+; : 952 1953 1172 49 rc 0 0 0 sco F0_42
+Ji 
+996 1953 M 
+-0.324 0 (R)A 
+-0.352 0 (x)A 
+-0.324 0 (RD)A 
+-0.014 0 (Y)A 
+-0.324 0 (B)A 
+; 
+1393 1942 N M 150 330 rr 
+1393 1942 N M 150 330 rr 0 0 0 sco K 
+823 1942 N M 150 330 rr 
+823 1942 N M 150 330 rr 0 0 0 sco K 
+673 1942 N M 150 330 rr 
+673 1942 N M 150 330 rr 0 0 0 sco K : 673 2002 1451 49 rc 0 0 0 sco F0_42
+Ji 
+703 2002 M 
+-0.324 0 (N)A 
+0.324 0 (/)A 
+-1.324 0 (A)A 
+; : 1529 2002 595 49 rc 0 0 0 sco F0_42
+Ji 
+1573 2002 M 
+-0.324 0 (N)A 
+0.324 0 (/)A 
+-1.324 0 (A)A 
+; : 960 2002 1164 47 rc 0 0 0 sco F0_41
+Ji 
+1003 2002 M 
+-0.051 0 (FF)A 
+0.398 0 (U)A 
+-0.051 0 (LL)A 
+0.398 0 (B)A 
+; : 1007 2182 1117 28 rc 0 0 0 sco F2_25
+Ji 
+1033 2182 M 
+-0.050 0 32 0.100 0 (0 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (N)A 
+0.100 0 (o)A 
+; : 1007 2214 1117 28 rc 0 0 0 sco F2_25
+Ji 
+1033 2214 M 
+-0.050 0 32 0.100 0 (1 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.675 0 (Y)A 
+0.100 0 (e)A 
+0.500 0 (s)A 
+; : 1217 2182 907 28 rc 0 0 0 sco F2_25
+Ji 
+1243 2182 M 
+-0.050 0 32 0.100 0 (0 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (N)A 
+0.100 0 (o)A 
+; : 1217 2214 907 28 rc 0 0 0 sco F2_25
+Ji 
+1243 2214 M 
+-0.050 0 32 0.100 0 (1 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.675 0 (Y)A 
+0.100 0 (e)A 
+0.500 0 (s)A 
+; : 1727 2182 397 28 rc 0 0 0 sco F2_25
+Ji 
+1753 2182 M 
+-0.050 0 32 0.100 0 (0 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (N)A 
+0.100 0 (o)A 
+; : 1727 2214 397 28 rc 0 0 0 sco F2_25
+Ji 
+1753 2214 M 
+-0.050 0 32 0.100 0 (1 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.675 0 (Y)A 
+0.100 0 (e)A 
+0.500 0 (s)A 
+; : 1937 2182 187 28 rc 0 0 0 sco F2_25
+Ji 
+1963 2182 M 
+-0.050 0 32 0.100 0 (0 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.050 0 (N)A 
+0.100 0 (o)A 
+; : 1937 2214 187 28 rc 0 0 0 sco F2_25
+Ji 
+1963 2214 M 
+-0.050 0 32 0.100 0 (1 )D 
+-0.350 0 32 0.400 0 (= )D 
+-0.675 0 (Y)A 
+0.100 0 (e)A 
+0.500 0 (s)A 
+; : 1680 2002 444 47 rc 0 0 0 sco F0_41
+Ji 
+1723 2002 M 
+-0.051 0 (FF)A 
+0.398 0 (U)A 
+-0.051 0 (LL)A 
+-2.602 0 (A)A 
+; : 1169 2002 955 49 rc 0 0 0 sco F0_42
+Ji 
+1213 2002 M 
+1.338 0 (T)A 
+-0.352 0 (x)A 
+-0.324 0 (RD)A 
+-0.014 0 (Y)A 
+-0.324 0 (B)A 
+; : 1889 2002 235 49 rc 0 0 0 sco F0_42
+Ji 
+1933 2002 M 
+1.338 0 (T)A 
+-0.352 0 (x)A 
+-0.324 0 (RD)A 
+-0.014 0 (Y)A 
+-1.324 0 (A)A 
+; : 1674 1953 450 49 rc 0 0 0 sco F0_42
+Ji 
+1718 1953 M 
+-0.324 0 (R)A 
+-0.352 0 (x)A 
+-0.324 0 (RD)A 
+-0.014 0 (Y)A 
+-1.324 0 (A)A 
+; 
+1183 1942 N M 210 330 rr 
+1183 1942 N M 210 330 rr 0 0 0 sco K 
+1903 1942 N M 210 330 rr 
+1903 1942 N M 210 330 rr 0 0 0 sco K 
+671 2342 N M 1458 402 rr : 1.000 1.000 1.000 sco O ; 
+1693 2404 N M 210 330 rr 
+1693 2404 N M 210 330 rr 0 0 0 sco K 
+973 2404 N M 210 330 rr 
+973 2404 N M 210 330 rr 0 0 0 sco K 
+673 2404 N M 1440 120 rr : 0.937 0.937 0.937 sco O ; 
+673 2404 N M 1440 120 rr 0 0 0 sco K 
+1543 2404 N M 150 330 rr 
+1543 2404 N M 150 330 rr 0 0 0 sco K : 809 2464 1317 49 rc 0 0 0 sco F0_42
+Ji 
+853 2464 M 
+-0.324 0 (N)A 
+0.324 0 (/)A 
+-1.324 0 (A)A 
+; : 1709 2554 417 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1753 2554 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (1)A 
+-87 sU 
+; : 1919 2554 207 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1963 2554 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (0)A 
+-87 sU 
+; : 1529 2554 597 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1573 2554 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (2)A 
+-87 sU 
+; : 1379 2554 747 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1423 2554 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (3)A 
+-87 sU 
+; : 1199 2554 927 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1243 2554 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (4)A 
+-87 sU 
+; : 809 2554 1317 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+853 2554 M 
+-0.014 0 (B)A 
+1.676 0 (i)A 
+1.000 0 32 0.324 0 (t )D 
+-0.352 0 (6)A 
+-87 sU 
+; : 673 2554 1453 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+703 2554 M 
+1.986 0 (B)A 
+1.676 0 (i)A 
+2.324 0 (t )A 
+0.648 0 (7)A 
+-93 sU 
+; : 989 2554 1137 47 rc 0 0 0 sco F2_42
+Ji 
+0 42 2 sSU 
+1033 2554 M 
+-2.014 0 (B)A 
+-0.324 0 (i)A 
+-1.676 0 (t )A 
+-1.352 0 (5)A 
+-77 sU 
+; : 673 2344 1453 50 rc 0 0 0 sco F2_45
+Ji 
+673 2344 M 
+-0.510 0 (I)A 
+-0.020 0 (n)A 
+0.490 0 (t)A 
+-0.020 0 (e)A 
+0.015 0 (rr)A 
+-0.020 0 (up)A 
+0.490 0 (t )A 
+-0.485 0 (M)A 
+-0.020 0 (a)A 
+0.500 0 (s)A 
+0.990 0 32 -0.500 0 (k )D 
+-0.490 0 (R)A 
+-0.020 0 (eg)A 
+0.010 0 (i)A 
+0.500 0 (s)A 
+0.490 0 (t)A 
+-0.020 0 (e)A 
+0.475 0 32 0.015 0 (r \()D 
+-0.510 0 (I)A 
+-0.485 0 (M)A 
+-0.490 0 (R)A 
+0.015 0 (\))A 
+; : 1379 2464 747 49 rc 0 0 0 sco F0_42
+Ji 
+1423 2464 M 
+-0.324 0 (N)A 
+0.324 0 (/)A 
+-1.324 0 (A)A 
+; : 952 2415 1174 49 rc 0 0 0 sco F0_42
+Ji 
+996 2415 M 
+-0.324 0 (R)A 
+-0.352 0 (x)A 
+-0.324 0 (RD)A 
+-0.014 0 (Y)A 
+-0.324 0 (B)A 
+; 
+1393 2404 N M 150 330 rr 
+1393 2404 N M 150 330 rr 0 0 0 sco K 
+823 2404 N M 150 330 rr 
+823 2404 N M 150 330 rr 0 0 0 sco K 
+673 2404 N M 150 330 rr 
+673 2404 N M 150 330 rr 0 0 0 sco K : 673 2464 1453 49 rc 0 0 0 sco F0_42
+Ji 
+703 2464 M 
+-0.324 0 (N)A 
+0.324 0 (/)A 
+-1.324 0 (A)A 
+; : 1529 2464 597 49 rc 0 0 0 sco F0_42
+Ji 
+1573 2464 M 
+-0.324 0 (N)A 
+0.324 0 (/)A 
+-1.324 0 (A)A 
+; : 960 2464 1166 47 rc 0 0 0 sco F0_41
+Ji 
+1003 2464 M 
+-0.051 0 (FF)A 
+0.398 0 (U)A 
+-0.051 0 (LL)A 
+0.398 0 (B)A 
+; : 977 2644 1149 28 rc 0 0 0 sco F2_25
+Ji 
+1003 2644 M 
+-0.050 0 32 0.100 0 (0 )D 
+-0.350 0 32 0.400 0 (= )D 
+0.175 0 (M)A 
+0.100 0 (a)A 
+0.500 0 (sk)A 
+0.100 0 (ed)A 
+; : 977 2676 1149 28 rc 0 0 0 sco F2_25
+Ji 
+1003 2676 M 
+-0.050 0 32 0.100 0 (1 )D 
+-0.350 0 32 0.400 0 (= )D 
+0.325 0 (P)A 
+0.100 0 (a)A 
+0.500 0 (ss)A 
+; : 1680 2464 446 47 rc 0 0 0 sco F0_41
+Ji 
+1723 2464 M 
+-0.051 0 (FF)A 
+0.398 0 (U)A 
+-0.051 0 (LL)A 
+-2.602 0 (A)A 
+; : 1169 2464 957 49 rc 0 0 0 sco F0_42
+Ji 
+1213 2464 M 
+1.338 0 (T)A 
+-0.352 0 (x)A 
+-0.324 0 (RD)A 
+-0.014 0 (Y)A 
+-0.324 0 (B)A 
+; : 1889 2464 237 49 rc 0 0 0 sco F0_42
+Ji 
+1933 2464 M 
+1.338 0 (T)A 
+-0.352 0 (x)A 
+-0.324 0 (RD)A 
+-0.014 0 (Y)A 
+-1.324 0 (A)A 
+; : 1674 2415 452 49 rc 0 0 0 sco F0_42
+Ji 
+1718 2415 M 
+-0.324 0 (R)A 
+-0.352 0 (x)A 
+-0.324 0 (RD)A 
+-0.014 0 (Y)A 
+-1.324 0 (A)A 
+; : 1187 2644 939 28 rc 0 0 0 sco F2_25
+Ji 
+1213 2644 M 
+-0.050 0 32 0.100 0 (0 )D 
+-0.350 0 32 0.400 0 (= )D 
+0.175 0 (M)A 
+0.100 0 (a)A 
+0.500 0 (sk)A 
+0.100 0 (ed)A 
+; : 1187 2676 939 28 rc 0 0 0 sco F2_25
+Ji 
+1213 2676 M 
+-0.050 0 32 0.100 0 (1 )D 
+-0.350 0 32 0.400 0 (= )D 
+0.325 0 (P)A 
+0.100 0 (a)A 
+0.500 0 (ss)A 
+; : 1697 2644 429 28 rc 0 0 0 sco F2_25
+Ji 
+1723 2644 M 
+-0.050 0 32 0.100 0 (0 )D 
+-0.350 0 32 0.400 0 (= )D 
+0.175 0 (M)A 
+0.100 0 (a)A 
+0.500 0 (sk)A 
+0.100 0 (ed)A 
+; : 1697 2676 429 28 rc 0 0 0 sco F2_25
+Ji 
+1723 2676 M 
+-0.050 0 32 0.100 0 (1 )D 
+-0.350 0 32 0.400 0 (= )D 
+0.325 0 (P)A 
+0.100 0 (a)A 
+0.500 0 (ss)A 
+; : 1907 2644 219 28 rc 0 0 0 sco F2_25
+Ji 
+1933 2644 M 
+-0.050 0 32 0.100 0 (0 )D 
+-0.350 0 32 0.400 0 (= )D 
+0.175 0 (M)A 
+0.100 0 (a)A 
+0.500 0 (sk)A 
+0.100 0 (ed)A 
+; : 1907 2676 219 28 rc 0 0 0 sco F2_25
+Ji 
+1933 2676 M 
+-0.050 0 32 0.100 0 (1 )D 
+-0.350 0 32 0.400 0 (= )D 
+0.325 0 (P)A 
+0.100 0 (a)A 
+0.500 0 (ss)A 
+; 
+1183 2404 N M 210 330 rr 
+1183 2404 N M 210 330 rr 0 0 0 sco K 
+1903 2404 N M 210 330 rr 
+1903 2404 N M 210 330 rr 0 0 0 sco K : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F7) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F7_50) cvn
+F7
+50 
+xF 
+F7_50
+Ji 
+2121 2942 M 
+(22)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 6 ]%%)  =
+%%PageTrailer
+
+%%Page: 7 7
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 610 227 732 67 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F0) cvn
+0.914 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F0_58) cvn
+F0
+58 
+xF 
+F0_58
+Ji 
+671 227 M 
+-0.218 0 (RAM Device)A 
+; : 617 326 1779 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F2) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F2_50) cvn
+F2
+50 
+xF 
+F2_50
+Ji 
+671 326 M 
+-0.176 0 (The RAM device allows you to attach a specified amount of memory to the)A 
+; : 617 385 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 385 M 
+-0.126 0 (68000.  When the RAM device is attached to the simulator, using the Edit)A 
+; : 617 445 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 445 M 
+-0.230 0 (Setup option, the dialog shown in Figure 3-2 is displayed.  This dialog)A 
+; : 617 504 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 504 M 
+-0.093 0 (allows you to enter the base address and size of the RAM module.  Both of)A 
+; : 617 563 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 563 M 
+-0.427 0 (these values are in hexadecimal.)A 
+; 651 568 1 82 651 568 673 681 F F 5 
+X
+0 0 0 F 
+Y
+B0FF0018
+B0FF0016
+B0FF0004
+B1FF01FC04
+B1FF01FC0C
+B1FF01FC0A
+B1FF01FC11
+B1FF01FC0E
+B1FF01FC1F
+B1FF01FC05
+B1FF01FC00
+B1FF01FC12
+B1FF01FC1F
+B1FF01FC19
+01FFFCB4000207FC1F
+01FFFCB4000207FC00
+01FFFCB4000207FC00
+01FFFCB4000207FC00
+01FFFCB4000207FC00
+01FFFCC6000003FCFF003FFDFF01F00FFDFF03F807FC00
+01FFFCC6000003FCFF003FFDFF01F00FFDFF03F807FC00
+01FFFCC6000003FCFF003FFDFF01F00FFDFF03F807FC00
+01FFFCC6000003FDFF01F83FFDFF01800FFDFF03C007FC1F
+01FFFCC6000003FDFF01F83FFDFF01800FFDFF03C007FC1F
+01FFFCC6000003FDFF01F83FFDFF01800FFDFF03C007FC1F
+01FFFCFA000907FFF8001F800F8001F0FF0001FFF8FE00007CDF000003FDFF02
+F83FE0FF00021F800FFDFF03C007FC1F
+01FFFCFA000907FFF8001F800F8001F0FF0001FFF8FE00007CDF000003FDFF02
+F83FE0FF00021F800FFDFF03C007FC1F
+01FFFCFA000D07C01F00FFE00F8001F00007C01FFE00007CDF000003FDFF02F8
+3FE0FF000A1F800FFE0FFE07C007FC1F
+01FFFCFA000D07C01F00FFE00F8001F00007C01FFE00007CDF000003FDFF02F8
+3FE0FF000A1F800FFE0FFE07C007FC1F
+01FFFCFA000D07C01F00FFE00F8001F00007C01FFE00007CDF000003FDFF02F8
+3FE0FF000A1F800FFE0FFE07C007FC1F
+01FFFCFA001307C01F00E0600FF00FF00007C01F03FF83FF8F81FFF100F8E400
+0003FDFF02F83FE7FFFF0A9F800FFFC1F83FC007FC1F
+01FFFCFA001307C01F00E0600FF00FF00007C01F03FF83FF8F81FFF100F8E400
+0003FDFF02F83FE7FFFF0A9F800FFFC1F83FC007FC1F
+01FFFCFA001307C01F00E0600FF00FF00007C01F03FF83FF8F81FFF100F8E400
+0003FDFF02F83FE7FFFF0A9F800FFFC1F83FC007FC1F
+01FFFCFA000907C01F03E07C0FF00FF0FF000AFF001F03E07C0F81F1FE3EE400
+0003FDFF02F83FE7FFFF0A9F800FFFF001FFC007FC1F
+01FFFCFA000907C01F03E07C0FF00FF0FF000AFF001F03E07C0F81F1FE3EE400
+0003FDFF02F83FE7FFFF0A9F800FFFF001FFC007FC1F
+01FFFCFA000907C01F03E07C0FF00FF0FF000AFF001F03E07C0F81F1FE3EE400
+0003FDFF02F83FE7FFFF0A9F800FFFF001FFC007FC1F
+01FFFCFA000907FFF803E07C0FFE7FF0FF000A07F81F03E07C0F81F1F03EE400
+0003FDFF02F83FE7FFFF0A9F800FFFFE07FFC007FC1F
+01FFFCFA000907FFF803E07C0FFE7FF0FF000A07F81F03E07C0F81F1F03EE400
+0003FDFF02F83FE7FFFF0A9F800FFFFE07FFC007FC1F
+01FFFCFA000907C0F803FFFC0F8E71F0FE0009FF1FFFE07C0F81F1F03EE40000
+03FDFF02F83FE7FFFF0A9F800FFFF001FFC007FC1F
+01FFFCFA000907C0F803FFFC0F8E71F0FE0009FF1FFFE07C0F81F1F03EE40000
+03FDFF02F83FE7FFFF0A9F800FFFF001FFC007FC1F
+01FFFCFA000907C0F803FFFC0F8E71F0FE0009FF1FFFE07C0F81F1F03EE40000
+03FDFF02F83FE7FFFF0A9F800FFFF001FFC007FC1F
+01FFFCFA000107C0FF1F01001FFF8F04F1F00007C0FF1FFF00057C0F81F1F03E
+E4000003FDFF02F83FE7FFFF0A9F800FFFC1F83FC007FC1F
+01FFFCFA000107C0FF1F01001FFF8F04F1F00007C0FF1FFF00057C0F81F1F03E
+E4000003FDFF02F83FE7FFFF0A9F800FFFC1F83FC007FC1F
+01FFFCFA000107C0FF1F01001FFF8F04F1F00007C0FF1FFF00057C0F81F1F03E
+E4000003FDFF02F83FE7FFFF0A9F800FFFC1F83FC007FC1F
+01FFFCFA000107C0FF1F02001F8FFF8103F00007C0FF1F0703E07C7F8FF1FE3E
+E4000703FF80003FF83FE7FFFF0A9F800FFE0FFE07C007FC1F
+01FFFCFA000107C0FF1F02001F8FFF8103F00007C0FF1F0703E07C7F8FF1FE3E
+E4000703FF80003FF83FE7FFFF0A9F800FFE0FFE07C007FC1F
+01FFFCFA000107C0FF1F02001F8FFF8103F00007C0FF1F0703E07C7F8FF1FE3E
+E4000703FF80003FF83FE7FFFF0A9F800FFE0FFE07C007FC1F
+01FFFCFA000107C0FF1F02001F8FFF8100F0FF0006FFF803FF800F83FEF100F8
+E4000703FF80003FF83FE0FF00021F800FFDFF03C007FC1F
+01FFFCFA000107C0FF1F02001F8FFF8100F0FF0006FFF803FF800F83FEF100F8
+E4000703FF80003FF83FE0FF00021F800FFDFF03C007FC1F
+01FFFCE6000101F0E3000003FDFF01F83FFDFF01800FFDFF03C007FC1F
+01FFFCE6000101F0E3000003FDFF01F83FFDFF01800FFDFF03C007FC1F
+01FFFCE6000101F0E3000003FDFF01F83FFDFF01800FFDFF03C007FC1F
+01FFFCE6000101F0E300010380FD000038FC00000EFC000207FC1F
+01FFFCE6000101F0E300010380FD000038FC00000EFC000207FC1F
+01FFFCE6000101F0E300010380FD000038FC00000EFC000207FC1F
+01FFFCE6000101F0D1000207FC1F
+01FFFCE6000101F0D1000207FC1F
+01FFFCE6000101F0D1000207FC1F
+01FFFCB4000207FC1F
+01FFFCB4000207FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC09
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC18
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC18
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC07
+B1FF01FC1F
+B1FF01FC00
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+FCFF03FE0001C1F1FF01E07FFCFF02F83F07FCFF0081F4FF03FE07FFE0F1FF01
+FE0FFDFF01FC1F
+FCFF03FE0001C1F1FF01E07FFCFF02F83F07FCFF0081F4FF03FE07FFE0F1FF01
+FE0FFDFF01FC1F
+FCFF03FE0001C1F1FF01E07FFCFF02F83F07FCFF0081F4FF03FE07FFE0F1FF01
+FE0FFDFF01FC1F
+FCFF03FE0FF001F1FF01E07FFCFF02F83F07FCFF0081F4FF03FE07FFE0F1FF01
+FE0FFDFF01FC1F
+FCFF03FE0FF001F1FF01E07FFCFF02F83F07FCFF0081F4FF03FE07FFE0F1FF01
+FE0FFDFF01FC1F
+FCFF1BFE0FF001F800FF001FE003FE003FFFF800F81C1F800F800F81C1FFC0FF
+071503FC007FFF81C1FE003FE003FC007FFFF001FE0607C0FEE0066003FE003F
+C007FFFF01001FFF8302FE0E0FFDFF01FC00
+FCFF1BFE0FF001F800FF001FE003FE003FFFF800F81C1F800F800F81C1FFC0FF
+071503FC007FFF81C1FE003FE003FC007FFFF001FE0607C0FEE0066003FE003F
+C007FFFF01001FFF8302FE0E0FFDFF01FC1F
+FCFF1BFE0FF001F800FF001FE003FE003FFFF800F81C1F800F800F81C1FFC0FF
+071503FC007FFF81C1FE003FE003FC007FFFF001FE0607C0FEE0066003FE003F
+C007FFFF01001FFF8302FE0E0FFDFF01FC01
+FCFF11FE0FF001C0F8181F0383F0707E0FFFC0F818FF0309E07C0F818001FFF8
+3F00FFE0067C0FFF8030383FFF07FFE0047C0FFF81F0FF38FF070E00E00003F0
+707E0E07C0FFF81F0380FE70000FFDFF01FC1F
+FCFF11FE0FF001C0F8181F0383F0707E0FFFC0F818FF0309E07C0F818001FFF8
+3F00FFE0067C0FFF8030383FFF07FFE0047C0FFF81F0FF38FF070E00E00003F0
+707E0E07C0FFF81F0380FE70000FFDFF01FC1F
+FCFF11FE0FF001C0F8181F0383F0707E0FFFC0F818FF0309E07C0F818001FFF8
+3F00FFE0067C0FFF8030383FFF07FFE0047C0FFF81F0FF38FF070E00E00003F0
+707E0E07C0FFF81F0380FE70000FFDFF01FC1F
+FCFF1DFE0001C1C0F81FFF03807FF07E0FFFC0F8181F03E07C0F81803FFFF83F
+07FFE00C7C0FFF81F03FFF0700FFE07C0FFFFF02F0383EFF07FFE0061F83F070
+0FFE01FDFF050383F0707E0FFDFF01FC1F
+FCFF1DFE0001C1C0F81FFF03807FF07E0FFFC0F8181F03E07C0F81803FFFF83F
+07FFE00C7C0FFF81F03FFF0700FFE07C0FFFFF02F0383EFF07FFE0061F83F070
+0FFE01FDFF050383F0707E0FFDFF01FC1F
+FCFF1DFE0001C1C0F81FFF03807FF07E0FFFC0F8181F03E07C0F81803FFFF83F
+07FFE00C7C0FFF81F03FFF0700FFE07C0FFFFF02F0383EFF07FFE0061F83F070
+0FFE01FDFF050383F0707E0FFDFF01FC1F
+FCFF18FE0FFFC1C0001F0003FC03F0000FFFC000181F03E07C000181FFFF02F8
+3F07FFE011000FFF81F03E0007F803E0000FFFF000383EFF07FFE007FF80007F
+803FF807FFFF06000383F0707E0FFDFF01FC1F
+FCFF18FE0FFFC1C0001F0003FC03F0000FFFC000181F03E07C000181FFFF02F8
+3F07FFE011000FFF81F03E0007F803E0000FFFF000383EFF07FFE007FF80007F
+803FF807FFFF06000383F0707E0FFDFF01FC1F
+FCFF0CFE0FFFC1C0FFF81F03FF80707FFFFF09C0FFF81F03E07C0FFF81FFFF02
+F83F07FFE0007FFFFF0881F0383F07FF00E07FFFFF0381F0383EFF07FFE001FF
+83FFFF0CF00FFE00FFF81F0383F0707E0FFDFF01FC00
+FCFF0CFE0FFFC1C0FFF81F03FF80707FFFFF09C0FFF81F03E07C0FFF81FFFF02
+F83F07FFE0007FFFFF0881F0383F07FF00E07FFFFF0381F0383EFF07FFE001FF
+83FFFF0CF00FFE00FFF81F0383F0707E0FFDFF01FC1F
+FCFF0CFE0FFFC1C0FFF81F03FF80707FFFFF09C0FFF81F03E07C0FFF81FFFF02
+F83F07FFE0007FFFFF0881F0383F07FF00E07FFFFF0381F0383EFF07FFE001FF
+83FFFF0CF00FFE00FFF81F0383F0707E0FFDFF01FC1F
+FCFF16FE0FFFC1C0F8181F0383F0707E0FFFC0F8181F03E0700FFF81FFFF02F8
+3807FFE0067C0FFF8030383FFF07FFE0047C0FFF81F0FF38FF070F00E0FF83F0
+707E0E07C0FFF81F0383F0FF70000FFDFF01FC1F
+FCFF16FE0FFFC1C0F8181F0383F0707E0FFFC0F8181F03E0700FFF81FFFF02F8
+3807FFE0067C0FFF8030383FFF07FFE0047C0FFF81F0FF38FF070F00E0FF83F0
+707E0E07C0FFF81F0383F0FF70000FFDFF01FC1F
+FCFF16FE0FFFC1C0F8181F0383F0707E0FFFC0F8181F03E0700FFF81FFFF02F8
+3807FFE0067C0FFF8030383FFF07FFE0047C0FFF81F0FF38FF070F00E0FF83F0
+707E0E07C0FFF81F0383F0FF70000FFDFF01FC1F
+FCFF18FE0FFFC1F800FF00E06003FE003FFFF800F81F03FC0F800F81FEFFFF07
+11E0FC007FFF81C1FE00C0E003FC007FFFF00EFF060107C0FFE007FFE003FE00
+3FC007FFFF0600E003F07E0E0FFDFF01FC1F
+FCFF18FE0FFFC1F800FF00E06003FE003FFFF800F81F03FC0F800F81FEFFFF07
+11E0FC007FFF81C1FE00C0E003FC007FFFF00EFF060107C0FFE007FFE003FE00
+3FC007FFFF0600E003F07E0E0FFDFF01FC1F
+FCFF18FE0FFFC1F800FF00E06003FE003FFFF800F81F03FC0F800F81FEFFFF07
+11E0FC007FFF81C1FE00C0E003FC007FFFF00EFF060107C0FFE007FFE003FE00
+3FC007FFFF0600E003F07E0E0FFDFF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+FAFF01FE07F9FF05FE01FFF83F07FCFF09F0000FFFC0FFE0FFFC1FD7FF01FC1F
+FAFF01FE07F9FF05FE01FFF83F07FCFF09F0000FFFC0FFE0FFFC1FD7FF01FC1F
+FAFF01FE07F9FF05FE01FFF83F07FCFF09F0000FFFC0FFE0FFFC1FD7FF01FC1F
+F0FF05F03FFFF83F07FCFF09F07FC1FE003FE0FFFC1FD7FF01FC1F
+F0FF05F03FFFF83F07FCFF09F07FC1FE003FE0FFFC1FD7FF01FC1F
+F0FF05F03FFFF83F07FCFF09F07FC1FE003FE0FFFC1FD7FF01FC1F
+FCFF07FE003E060007E003FFFF05800F800FFFC0FF070803FC007FFFF07FC1FE
+FF3F03E01FE01FD7FF01FC1F
+FCFF07FE003E060007E003FFFF05800F800FFFC0FF070803FC007FFFF07FC1FE
+FF3F03E01FE01FD7FF01FC1F
+FCFF04F07E0E07FFFF070AE0FFFC0F81F03FFFF83F00FFE00C7C0FFFF07FC1F8
+3F07E01FE01FD7FF01FC1F
+FCFF04F07E0E07FFFF070AE0FFFC0F81F03FFFF83F00FFE00C7C0FFFF07FC1F8
+3F07E01FE01FD7FF01FC1F
+FCFF04F07E0E07FFFF070AE0FFFC0F81F03FFFF83F00FFE00C7C0FFFF07FC1F8
+3F07E01FE01FD7FF01FC1F
+FCFF11F00FFE07F83F07E0FFFC0F81F03FFFF83F07FFE00C7C0FFFF0000FF83F
+07E003001FD7FF01FC1F
+FCFF11F00FFE07F83F07E0FFFC0F81F03FFFF83F07FFE00C7C0FFFF0000FF83F
+07E003001FD7FF01FC1F
+FCFF11F00FFE07F83F07E0FFFC0F81F03FFFF83F07FFE00C7C0FFFF0000FF83F
+07E003001FD7FF01FC1F
+FBFF04803E07F8FFFF0009FFFC0F81F03FFFF83F07FFE00C000FFFF07E0FF800
+07E0E31C1FD7FF01FC1F
+FBFF04803E07F8FFFF0009FFFC0F81F03FFFF83F07FFE00C000FFFF07E0FF800
+07E0E31C1FD7FF01FC1F
+FBFF04803E07F8FFFF0009FFFC0F81F03FFFF83F07FFE00C000FFFF07E0FF800
+07E0E31C1FD7FF01FC1F
+FBFF05F00E07C0FF07FFFF08FC0F81F03FFFF83F07FFE0007FFFFF01F07FFFC1
+01FFC0FFE0011C1FD7FF01FC18
+FBFF05F00E07C0FF07FFFF08FC0F81F03FFFF83F07FFE0007FFFFF01F07FFFC1
+01FFC0FFE0011C1FD7FF01FC16
+FCFF11F07E0E0607FF07E0FFFC0F81F03FFFF83807FFE0047C0FFFF07FFFC102
+FFC0E0FFFC011F83D8FF01FC04
+FCFF11F07E0E0607FF07E0FFFC0F81F03FFFF83807FFE0047C0FFFF07FFFC102
+FFC0E0FFFC011F83D8FF01FC04
+FCFF11F07E0E0607FF07E0FFFC0F81F03FFFF83807FFE0047C0FFFF07FFFC102
+FFC0E0FFFC011F83D8FF01FC0C
+FCFF07FE003E060007E003FFFF03800FF03FFFFFFF0706E0FC007FFFF07FFFC1
+02FFC0E0FFFC011F83D8FF01FC0A
+FCFF07FE003E060007E003FFFF03800FF03FFFFFFF0706E0FC007FFFF07FFFC1
+02FFC0E0FFFC011F83D8FF01FC11
+FCFF07FE003E060007E003FFFF03800FF03FFFFFFF0706E0FC007FFFF07FFFC1
+02FFC0E0FFFC011F83D8FF01FC0E
+B1FF01FC1F
+B1FF01FC05
+B1FF01FC00
+B1FF01FC12
+B1FF01FC1F
+B1FF01FC19
+B1FF01FC1F
+B1FF01FC00
+B1FF01FC00
+B1FF01FC00
+B1FF01FC00
+B1FF01FC00
+B1FF01FC00
+B1FF01FC00
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+FBFF03F03FC1C0FBFF01FE0FF1FF00E0FDFF0081F7FF0081FCFF0007FBFF0281
+F03FF3FF01FC1F
+FBFF03F03FC1C0FBFF01FE0FF1FF00E0FDFF0081F7FF0081FCFF0007FBFF0281
+F03FF3FF01FC1F
+FBFF03F03FC1C0FBFF01FE0FF1FF00E0FDFF0081F7FF0081FCFF0007FBFF0281
+F03FF3FF01FC1F
+FBFF03800FC1C0FBFF01FE0FECFF0081F7FF0081F5FF0281F03FF3FF01FC1F
+FBFF03800FC1C0FBFF01FE0FECFF0081F7FF0081F5FF0281F03FF3FF01FC1F
+FBFF03800FC1C0FBFF01FE0FECFF0081F7FF0081F5FF0281F03FF3FF01FC09
+FBFF168FCFC1C0FFF81FE07C007E0E0FC1F800FF001FFFFC007EFF0E02003FFF
+FEE0017FFFFF8118FE003F07E0FC007F8381F001FE003F071803007F800F81F0
+3FF3FF01FC1F
+FBFF168FCFC1C0FFF81FE07C007E0E0FC1F800FF001FFFFC007EFF0E02003FFF
+FEE0017FFFFF8118FE003F07E0FC007F8381F001FE003F071803007F800F81F0
+3FF3FF01FC1F
+FCFF01FE0FFFC106C0FFF81FE0607CFF0E0A0FC1C0F8181F03FFF07C0EFF0002
+3E07FFFFE0061C1FFF8070303EFF07FFE007FC1C0C0181F0383EFE0703E0FC1C
+0FFF8101F03FF3FF01FC1F
+FCFF01FE0FFFC106C0FFF81FE0607CFF0E0A0FC1C0F8181F03FFF07C0EFF0002
+3E07FFFFE0061C1FFF8070303EFF07FFE007FC1C0C0181F0383EFE0703E0FC1C
+0FFF8101F03FF3FF01FC18
+FCFF01FE0FFFC106C0FFF81FE0607CFF0E0A0FC1C0F8181F03FFF07C0EFF0002
+3E07FFFFE0061C1FFF8070303EFF07FFE007FC1C0C0181F0383EFE0703E0FC1C
+0FFF8101F03FF3FF01FC1F
+FCFF01FE0FFFC100C0FFFFFF0301FFFCFF0E050FC1C0F81803FEFF06FC0E01F0
+3E07FFFFE00DFC1FFF81F0303E07C007FFFC1C0FFF8103F0383FFFFF0703E0FC
+1FFFFF8101F03FF3FF01FC1F
+FCFF01FE0FFFC100C0FFFFFF0301FFFCFF0E050FC1C0F81803FEFF06FC0E01F0
+3E07FFFFE00DFC1FFF81F0303E07C007FFFC1C0FFF8103F0383FFFFF0703E0FC
+1FFFFF8101F03FF3FF01FC1F
+FCFF01FE0FFFC100C0FFFFFF0301FFFCFF0E050FC1C0F81803FEFF06FC0E01F0
+3E07FFFFE00DFC1FFF81F0303E07C007FFFC1C0FFF8103F0383FFFFF0703E0FC
+1FFFFF8101F03FF3FF01FC1F
+FCFF04FE0001C1C0FFFFFF0301FC00FF0E0F0FC1C0001FE01FFFFC000E0FF000
+07FFFFE013FC1FFF81F0300007F81FFC001C0F818000383FFFFF0706E0FC1F80
+0181F1F2FF01FC1F
+FCFF04FE0001C1C0FFFFFF0301FC00FF0E0F0FC1C0001FE01FFFFC000E0FF000
+07FFFFE013FC1FFF81F0300007F81FFC001C0F818000383FFFFF0706E0FC1F80
+0181F1F2FF01FC18
+FCFF04FE0001C1C0FFFFFF0301FC00FF0E0F0FC1C0001FE01FFFFC000E0FF000
+07FFFFE013FC1FFF81F0300007F81FFC001C0F818000383FFFFF0706E0FC1F80
+0181F1F2FF01FC1F
+FCFF04F07FF001C0FFFF03E01FE07CFF0E020FC1C0FFFF08FC03FFF07C0E0FF0
+3FFFFFFFE00DFC1FFF81F0303FFFC007E0FC1C0FFF8103FFF83FFFFF0703E0FC
+1C0FFF81F1FF01FC1F
+FCFF04F07FF001C0FFFF03E01FE07CFF0E020FC1C0FFFF08FC03FFF07C0E0FF0
+3FFFFFFFE00DFC1FFF81F0303FFFC007E0FC1C0FFF8103FFF83FFFFF0703E0FC
+1C0FFF81F1FF01FC1F
+FCFF04F07FF001C0FFFF03E01FE07CFE0E0E01C0F8181F03FFF07C0E0FF03E07
+FFFFE006FC1FFF81F0303EFF07FFE007FC1C0C0181F0383EFE0703E0FC1C0FFF
+8101F03FF3FF01FC1F
+FCFF04F07FF001C0FFFF03E01FE07CFE0E0E01C0F8181F03FFF07C0E0FF03E07
+FFFFE006FC1FFF81F0303EFF07FFE007FC1C0C0181F0383EFE0703E0FC1C0FFF
+8101F03FF3FF01FC1F
+FCFF04F07FF001C0FFFF03E01FE07CFE0E0E01C0F8181F03FFF07C0E0FF03E07
+FFFFE006FC1FFF81F0303EFF07FFE007FC1C0C0181F0383EFE0703E0FC1C0FFF
+8101F03FF3FF01FC1F
+FCFF04F07FF001C0FFFF05FCFFFC03800FFFC10DF800FF001FFFFC03800FFE00
+3FFFFFE00BFC1FFF81F03E003F07E0FC03FF830581F001FE003FFF0707E0FC1F
+807001F03FF3FF01FC07
+FCFF04F07FF001C0FFFF05FCFFFC03800FFFC10DF800FF001FFFFC03800FFE00
+3FFFFFE00BFC1FFF81F03E003F07E0FC03FF830581F001FE003FFF0707E0FC1F
+807001F03FF3FF01FC1F
+FCFF04F07FF001C0FFFF05FCFFFC03800FFFC10DF800FF001FFFFC03800FFE00
+3FFFFFE00BFC1FFF81F03E003F07E0FC03FF830581F001FE003FFF0707E0FC1F
+807001F03FF3FF01FC00
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC00
+B1FF01FC1F
+B1FF01FC01
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC00
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+DDFFD9000001FEFF01FC1F
+DDFFD9000001FEFF01FC1F
+DDFFD9000001FEFF01FC1F
+DDFFD9000001FEFF01FC1F
+DDFFD9000001FEFF01FC1F
+DDFF0003DAFF00C1FEFF01FC18
+DDFF0003DAFF00C1FEFF01FC16
+DDFF0003DAFF00C1FEFF01FC04
+DDFF0003DAFF00C1FEFF01FC04
+DDFF0003DAFF00C1FEFF01FC0C
+DDFF0003DAFF00C1FEFF01FC0A
+DDFF0003DAFF00C1FEFF01FC11
+DDFF0003DAFF00C1FEFF01FC0E
+DDFF0003DAFF00C1FEFF01FC1F
+DDFF0003DAFF00C1FEFF01FC05
+DDFF0003DAFF00C1FEFF01FC00
+DDFF0003DAFF00C1FEFF01FC12
+DDFF0003DAFF00C1FEFF01FC1F
+DDFF0003DAFF00C1FEFF01FC19
+DDFF0003DAFF00C1FEFF01FC1F
+DDFF0003DAFF00C1FEFF01FC00
+DDFF0003DAFF00C1FEFF01FC00
+DDFF0003DAFF00C1FEFF01FC00
+DDFF0003DAFF00C1FEFF01FC00
+DDFF0003DAFF00C1FEFF01FC00
+DDFF0003DAFF00C1FEFF01FC00
+DDFF0003DAFF00C1FEFF01FC00
+DDFF0003DAFF00C1FEFF01FC1F
+DDFF0003DAFF00C1FEFF01FC1F
+DDFF0003DAFF00C1FEFF01FC1F
+DDFF0003DAFF00C1FEFF01FC1F
+DDFF0003DAFF00C1FEFF01FC1F
+DDFF0003DAFF00C1FEFF01FC1F
+FCFF0280003FF8FF06F03FFFF83FFF03F5FF0003DAFF00C1FEFF01FC1F
+FCFF0280003FF8FF06F03FFFF83FFF03F5FF0003DAFF00C1FEFF01FC1F
+FCFF0280003FF8FF06F03FFFF83FFF03F5FF0003DAFF00C1FEFF01FC1F
+FCFF0281FE0FF8FF06800FFFF83FFF03F5FF0003DAFF00C1FEFF01FC1F
+FCFF0281FE0FF8FF06800FFFF83FFF03F5FF0003DAFF00C1FEFF01FC1F
+FCFF0981FE0FC007F800FF001FFFFF058FCFF8383F07FF030883800FF001FE00
+3FC0FFFF0003DAFF00C1FEFF01FC1F
+FCFF0981FE0FC007F800FF001FFFFF058FCFF8383F07FF030883800FF001FE00
+3FC0FFFF0003DAFF00C1FEFF01FC1F
+FCFF0981FE0FC007F800FF001FFFFF058FCFF8383F07FF030883800FF001FE00
+3FC0FFFF0003DAFF00C1FEFF01FC1F
+FCFF0381FE0E07FFC006F81C1F83FFFE0FFFC103C0381803FF00070F8381F030
+3E07C0FFFF0003DAFF00C1FEFF01FC1F
+FCFF0381FE0E07FFC006F81C1F83FFFE0FFFC103C0381803FF00070F8381F030
+3E07C0FFFF0003DAFF00C1FEFF01FC1F
+FCFF0381FE0E07FFC006F81C1F83FFFE0FFFC103C0381803FF00070F8381F030
+3E07C0FFFF0003DAFF00C1FEFF01FC1F
+FCFF0380003FFFFFC0061FFC1F83FFFE0FFFC10BF8381F03007C0F83807FF007
+FDFF0003DAFF00C1FEFF01FC1F
+FCFF0380003FFFFFC0061FFC1F83FFFE0FFFC10BF8381F03007C0F83807FF007
+FDFF0003DAFF00C1FEFF01FC1F
+FCFF0380003FFFFFC0061FFC1F83FFFE0FFFC10BF8381F03007C0F83807FF007
+FDFF0003DAFF00C1FEFF01FC1F
+FCFF1181FE0FC000FF00FC0003FFFE0001C1F8381FFF0307FC0003FE01FFC03F
+FEFF0003DAFF00C1FEFF01FC1F
+FCFF1181FE0FC000FF00FC0003FFFE0001C1F8381FFF0307FC0003FE01FFC03F
+FEFF0003DAFF00C1FEFF01FC1F
+FCFF0881FE0E07C0FFE01C1FFFFF06F07FF001F8381FFF0301FC0FFFFF03803F
+F807FEFF0003DAFF00C1FEFF01FC1F
+FCFF0881FE0E07C0FFE01C1FFFFF06F07FF001F8381FFF0301FC0FFFFF03803F
+F807FEFF0003DAFF00C1FEFF01FC1F
+FCFF0881FE0E07C0FFE01C1FFFFF06F07FF001F8381FFF0301FC0FFFFF03803F
+F807FEFF0003DAFF00C1FEFF01FC1F
+FCFF0381FE0E07FFC00BF81C1F83FFF07FF001C03818FF0308FC0F8381F0303E
+07C0FFFF0003DAFF00C1FEFF01FC1F
+FCFF0381FE0E07FFC00BF81C1F83FFF07FF001C03818FF0308FC0F8381F0303E
+07C0FFFF0003DAFF00C1FEFF01FC1F
+FCFF0381FE0E07FFC00BF81C1F83FFF07FF001C03818FF0308FC0F8381F0303E
+07C0FFFF0003DAFF00C1FEFF01FC1F
+FCFF0380003FC0FF380700FF001FFFF07FF0FF38013F07FF0308FF800FF001FE
+003FC0FFFF0003DAFF00C1FEFF01FC1F
+FCFF0380003FC0FF380700FF001FFFF07FF0FF38013F07FF0308FF800FF001FE
+003FC0FFFF0003DAFF00C1FEFF01FC1F
+FCFF0380003FC0FF380700FF001FFFF07FF0FF38013F07FF0308FF800FF001FE
+003FC0FFFF0003DAFF00C1FEFF01FC1F
+DDFF0003DAFF00C1FEFF01FC1F
+DDFF0003DAFF00C1FEFF01FC1F
+DDFF0003DAFF00C1FEFF01FC1F
+DDFF0003DAFF00C1FEFF01FC1F
+DDFF0003DAFF00C1FEFF01FC1F
+DDFFD9000001FEFF01FC1F
+DDFFD9000001FEFF01FC1F
+DDFFD9000001FEFF01FC1F
+DDFFD9000001FEFF01FC1F
+DDFFD9000001FEFF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC09
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC18
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC18
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC07
+E8FF038003F07FCEFF01FC1F
+E8FF038003F07FCEFF01FC00
+E9FF03FC1FF07FCDFF01FC1F
+E9FF03FC1FF07FCDFF01FC1F
+E9FF03FC1FF07FCDFF01FC1F
+E9FF02FC1FF0FF7004003E003FC0D3FF01FC1F
+E9FF02FC1FF0FF7004003E003FC0D3FF01FC1F
+E9FF02FC1FF0FF7004003E003FC0D3FF01FC1F
+E8FF08807FF07FF0303E07C0D3FF01FC1F
+E8FF08807FF07FF0303E07C0D3FF01FC1F
+E8FF08807FF07FF0303E07C0D3FF01FC00
+E8FF07FC03F07F81F03E07D2FF01FC1F
+E8FF07FC03F07F81F03E07D2FF01FC01
+E7FF0680707F8FF00007D2FF01FC1F
+E7FF0680707F8FF00007D2FF01FC1F
+E7FF0680707F8FF00007D2FF01FC1F
+E9FF07FC1FF0707E0FF03FD1FF01FC1F
+E9FF07FC1FF0707E0FF03FD1FF01FC1F
+E9FF07FC1FF0707E0FF03FD1FF01FC1F
+E9FF02FC1FF0FF70047FF03E07C0D3FF01FC1F
+E9FF02FC1FF0FF70047FF03E07C0D3FF01FC1F
+E9FF02FC1FF0FF70047FF03E07C0D3FF01FC00
+E8FF088003F070003E003FC0D3FF01FC1F
+E8FF088003F070003E003FC0D3FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC18
+B1FF01FC16
+B1FF01FC04
+B1FF01FC04
+B1FF01FC0C
+B1FF01FC0A
+B1FF01FC11
+B1FF01FC0E
+B1FF01FC1F
+B1FF01FC05
+B1FF01FC00
+B1FF01FC12
+B1FF01FC1F
+B1FF01FC19
+B1FF01FC1F
+B1FF01FC00
+B1FF01FC00
+B1FF01FC00
+B1FF01FC00
+B1FF01FC00
+B1FF01FC00
+B1FF01FC00
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+F2FF03FC007FC1DFFF01F801F8FF01FE07F3FF01FC1F
+F2FF03FC007FC1DFFF01F801F8FF01FE07F3FF01FC1F
+F2FF03F07E0FC1DFFF02C1F83FF9FF01FE07F3FF01FC1F
+F2FF03F07E0FC1DFFF02C1F83FF9FF01FE07F3FF01FC1F
+F2FF03F07E0FC1DFFF02C1F83FF9FF01FE07F3FF01FC1F
+F2FF0A83FF81C1F83F001F03FC1FE7FF0DFE07FFF800F81C1FE003FE003E07F3
+FF01FC1F
+F2FF0A83FF81C1F83F001F03FC1FE7FF0DFE07FFF800F81C1FE003FE003E07F3
+FF01FC1F
+F2FF0A83FF81C1F83F001F03FC1FE7FF0DFE07FFF800F81C1FE003FE003E07F3
+FF01FC09
+F2FF0283FF81FFC105F83F0703FC1FE7FF05FE07FFC0F818FF030583F0707E0E
+07F3FF01FC1F
+F2FF0283FF81FFC105F83F0703FC1FE7FF05FE07FFC0F818FF030583F0707E0E
+07F3FF01FC1F
+F2FF0283FF81FFC105F83F0703FC1FE7FF05FE07FFC0F818FF030583F0707E0E
+07F3FF01FC1F
+F2FF0483FF81C007FFFF0007FFE0007FE7FF01FE07FFFF09F8181F0383FFF07E
+0E07F3FF01FC18
+F2FF0483FF81C007FFFF0007FFE0007FE7FF01FE07FFFF09F8181F0383FFF07E
+0E07F3FF01FC1F
+F2FF0783FF81C007FF0007FFE0007FE7FF0DFE07FFF800181F0383FFF0000E07
+F3FF01FC1F
+F2FF0783FF81C007FF0007FFE0007FE7FF0DFE07FFF800181F0383FFF0000E07
+F3FF01FC1F
+F2FF0783FF81C007FF0007FFE0007FE7FF0DFE07FFF800181F0383FFF0000E07
+F3FF01FC1F
+F2FF0283FF81FFC104F83F07FC03E6FF0DFE07FFC0F8181F0383FFF07FFE07F3
+FF01FC1F
+F2FF0283FF81FFC104F83F07FC03E6FF0DFE07FFC0F8181F0383FFF07FFE07F3
+FF01FC18
+F2FF0283FF81FFC104F83F07FC03E6FF0DFE07FFC0F8181F0383FFF07FFE07F3
+FF01FC1F
+F2FF09F07E0FC1F8383F07FC03E5FF0CC1F800F8181F0383F0707E0E07F3FF01
+FC1F
+F2FF09F07E0FC1F8383F07FC03E5FF0CC1F800F8181F0383F0707E0E07F3FF01
+FC1F
+F2FF09F07E0FC1F8383F07FC03E5FF0CC1F800F8181F0383F0707E0E07F3FF01
+FC1F
+F2FF09FC007FC1FE0700E0FF03E5FF0CF801F807001F03E003FE003E07F3FF01
+FC1F
+F2FF09FC007FC1FE0700E0FF03E5FF0CF801F807001F03E003FE003E07F3FF01
+FC1F
+E9FF001FCAFF01FC07
+E9FF001FCAFF01FC1F
+E9FF001FCAFF01FC00
+EAFF01FC1FCAFF01FC1F
+EAFF01FC1FCAFF01FC1F
+EAFF01FC1FCAFF01FC1F
+EAFF00E0C9FF01FC1F
+EAFF00E0C9FF01FC1F
+EAFF00E0C9FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC00
+B1FF01FC1F
+B1FF01FC01
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC00
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+B1FF01FC1F
+00E0B100001F
+00E0B100001F
+B000001F
+B000001F
+B000001F
+
+Z
+: 160 1306 732 67 rc 0 0 0 sco F0_58
+Ji 
+221 1306 M 
+-0.106 0 (FIGURE 3-2)A 
+; : 610 1306 1525 66 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F4) cvn
+0.914 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F4_58) cvn
+F4
+58 
+xF 
+F4_58
+Ji 
+671 1306 M 
+-0.105 0 (RAM Device Setup Dialog)A 
+; 
+221 1302 N M 1950 2 rr : 0 0 0 sco O ; : 601 1555 770 78 rc 0 0 0 sco (F0_67) cvn
+F0
+67 
+xF 
+F0_67
+Ji 
+671 1555 M 
+-0.397 0 (Assembler)A 
+; 
+671 1633 N M 1500 2 rr : 0 0 0 sco O ; : 617 1682 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 1682 M 
+-0.394 0 (The 68000 assembler is similar to many UNIX system compilers and)A 
+; : 617 1741 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 1741 M 
+-0.406 0 (assemblers.  The assembler accepts files with the following line layout:)A 
+; : 600 1858 80 33 rc 0 0 0 sco %%IncludeFont: Courier-Bold
+(F7) cvn
+0.828 
+ (Courier-Bold) cvn /Type1 
+T 
+(Courier-Bold) cvn
+mF 
+(F7_29) cvn
+F7
+29 
+xF 
+F7_29
+Ji 
+620 1858 M 
+-0.400 0 (  )A 
+; : 652 1858 855 32 rc 0 0 0 sco %%IncludeFont: Courier
+(F9) cvn
+0.828 
+ (Courier) cvn /Type1 
+T 
+(Courier) cvn
+mF 
+(F9_29) cvn
+F9
+29 
+xF 
+F9_29
+Ji 
+671 1858 M 
+-0.400 0 (    LABEL    OPCODE    OPERANDS    COMMENTS)A 
+; : 617 1951 324 57 rc 0 0 0 sco F2_50
+Ji 
+671 1951 M 
+-0.063 0 (The )A 
+; : 728 1957 231 53 rc 0 0 0 sco (F9_50) cvn
+F9
+50 
+xF 
+F9_50
+Ji 
+761 1957 M 
+(LABEL)S 
+; : 857 1951 1539 57 rc 0 0 0 sco F2_50
+Ji 
+911 1951 M 
+-0.313 0 ( field is optional, but if used )A 
+; : 1422 1951 974 57 rc 0 0 0 sco F2_50
+Ji 
+1476 1951 M 
+-0.190 0 (it must start in the first column of)A 
+; : 617 2012 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 2012 M 
+-0.232 0 (the line.  Fields are separated by spaces or tabs.  An example)A 
+; : 1819 2012 577 57 rc 0 0 0 sco F2_50
+Ji 
+1873 2012 M 
+-0.844 0 ( assembly)A 
+; : 617 2071 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 2071 M 
+-0.396 0 (language file is shown in Figure 3-3.)A 
+; : 600 2187 80 33 rc 0 0 0 sco F7_29
+Ji 
+620 2187 M 
+-0.400 0 (  )A 
+; : 652 2187 1159 32 rc 0 0 0 sco F9_29
+Ji 
+671 2187 M 
+-0.400 0 (         ORG        $2000        Start at location 2000 Hex)A 
+; : 600 2220 80 33 rc 0 0 0 sco F7_29
+Ji 
+620 2220 M 
+-0.400 0 (  )A 
+; : 652 2220 1007 32 rc 0 0 0 sco F9_29
+Ji 
+671 2220 M 
+-0.400 0 (START    CLR.W      SUM          Clear variable SUM)A 
+; : 600 2252 80 33 rc 0 0 0 sco F7_29
+Ji 
+620 2252 M 
+-0.400 0 (  )A 
+; : 652 2252 969 32 rc 0 0 0 sco F9_29
+Ji 
+671 2252 M 
+-0.400 0 (         MOVE.W     COUNT,D0     Load COUNT value)A 
+; : 600 2284 80 33 rc 0 0 0 sco F7_29
+Ji 
+620 2284 M 
+-0.400 0 (  )A 
+; : 652 2284 912 32 rc 0 0 0 sco F9_29
+Ji 
+671 2284 M 
+-0.400 0 (LOOP     ADD.W      D0,SUM       Add D0 to SUM)A 
+; : 600 2316 80 33 rc 0 0 0 sco F7_29
+Ji 
+620 2316 M 
+-0.400 0 (  )A 
+; : 652 2316 988 32 rc 0 0 0 sco F9_29
+Ji 
+671 2316 M 
+-0.400 0 (         SUB.W      #1,D0        Decrement counter)A 
+; : 600 2348 80 33 rc 0 0 0 sco F7_29
+Ji 
+620 2348 M 
+-0.400 0 (  )A 
+; : 652 2348 1121 32 rc 0 0 0 sco F9_29
+Ji 
+671 2348 M 
+-0.400 0 (         BNE        LOOP         Loop if counter not zero)A 
+; : 600 2380 80 33 rc 0 0 0 sco F7_29
+Ji 
+620 2380 M 
+-0.400 0 (  )A 
+; : 652 2380 1387 32 rc 0 0 0 sco F9_29
+Ji 
+671 2380 M 
+-0.400 0 (         BREAK                   Tell the simulator to BREAK if running)A 
+; : 600 2412 80 33 rc 0 0 0 sco F7_29
+Ji 
+620 2412 M 
+-0.400 0 (  )A 
+; : 600 2444 80 33 rc 0 0 0 sco F7_29
+Ji 
+620 2444 M 
+-0.400 0 (  )A 
+; : 652 2444 1121 32 rc 0 0 0 sco F9_29
+Ji 
+671 2444 M 
+-0.400 0 (SUM      DS.W       1            Reserve one word for SUM)A 
+; : 600 2476 80 33 rc 0 0 0 sco F7_29
+Ji 
+620 2476 M 
+-0.400 0 (  )A 
+; : 652 2476 1102 32 rc 0 0 0 sco F9_29
+Ji 
+671 2476 M 
+-0.400 0 (COUNT    DC.W       25           Initial value for COUNT)A 
+; : 160 2557 732 67 rc 0 0 0 sco F0_58
+Ji 
+221 2557 M 
+-0.106 0 (FIGURE 3-3)A 
+; : 610 2557 1786 66 rc 0 0 0 sco F4_58
+Ji 
+671 2557 M 
+-0.131 0 (Sample Assembly Language File)A 
+; 
+221 2553 N M 1950 2 rr : 0 0 0 sco O ; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco F2_50
+Ji 
+2121 2942 M 
+(23)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 7 ]%%)  =
+%%PageTrailer
+
+%%Page: 8 8
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 600 225 80 33 rc 0 0 0 sco %%IncludeFont: Courier-Bold
+(F0) cvn
+0.828 
+ (Courier-Bold) cvn /Type1 
+T 
+(Courier-Bold) cvn
+mF 
+(F0_29) cvn
+F0
+29 
+xF 
+F0_29
+Ji 
+620 225 M 
+-0.400 0 (  )A 
+; : 617 259 1779 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F2) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F2_50) cvn
+F2
+50 
+xF 
+F2_50
+Ji 
+671 259 M 
+-0.367 0 (Once an assembly language file has been created it can be assembled.  The)A 
+; : 617 318 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 318 M 
+-0.264 0 (assembler will indicate if any syntax errors were found.  If no errors were)A 
+; : 617 378 702 57 rc 0 0 0 sco F2_50
+Ji 
+671 378 M 
+-0.032 0 (encountered)A 
+; : 861 378 1535 57 rc 0 0 0 sco F2_50
+Ji 
+915 378 M 
+-0.159 0 ( the assembler creates an object file in Motorola S-Record)A 
+; : 617 437 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 437 M 
+-0.031 0 (format with a .h68 suffix.  If errors were found, to get a better idea of the)A 
+; : 617 496 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 496 M 
+-0.319 0 (errors assemble the file using the ")A 
+; : 1319 502 132 53 rc 0 0 0 sco %%IncludeFont: Courier
+(F4) cvn
+0.780 
+ (Courier) cvn /Type1 
+T 
+(Courier) cvn
+mF 
+(F4_50) cvn
+F4
+50 
+xF 
+F4_50
+Ji 
+1352 502 M 
+(-l)S 
+; : 1358 496 1038 57 rc 0 0 0 sco F2_50
+Ji 
+1412 496 M 
+-0.089 0 (" option.  This option tells the)A 
+; : 617 557 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 557 M 
+-0.315 0 (assembler to produce a listing file with a .lis suffix in addition to the .h68)A 
+; : 617 616 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 616 M 
+-0.306 0 (file.  The listing file can be used to find syntax errors as-well-as logic errors)A 
+; : 617 675 1620 57 rc 0 0 0 sco F2_50
+Ji 
+671 675 M 
+-0.250 0 (while executing the program.)A 
+; : 617 794 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 794 M 
+-0.291 0 (Once the file has been assembled with no errors, the object file can be)A 
+; : 617 853 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 853 M 
+-0.256 0 (loaded into the simulator for execution.  The listing file can also be loaded)A 
+; : 617 912 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 912 M 
+-0.223 0 (into BSVC's Program Listing window to facilitate)A 
+; : 1607 912 702 57 rc 0 0 0 sco F2_50
+Ji 
+1661 912 M 
+-0.282 0 ( debugging.)A 
+; : 601 1061 1190 78 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F6) cvn
+0.925 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F6_67) cvn
+F6
+67 
+xF 
+F6_67
+Ji 
+671 1061 M 
+-0.196 0 (Acknowledgments)A 
+; 
+671 1139 N M 1500 2 rr : 0 0 0 sco O ; : 617 1188 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 1188 M 
+-0.024 0 (The Motorola 68000 simulator was developed by Bradford W. Mott at)A 
+; : 617 1247 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 1247 M 
+-0.216 0 (North Carolina State University.  The simulator is loosely based on the)A 
+; : 617 1306 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 1306 M 
+-0.202 0 (68000 simulator written by Jay Lloyd at NCSU.)A 
+; : 617 1425 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 1425 M 
+-0.139 0 (The Motorola 68000 assembler was developed by Paul McKee at NCSU.)A 
+; : 601 1574 700 78 rc 0 0 0 sco F6_67
+Ji 
+671 1574 M 
+-0.203 0 (Contacts)A 
+; 
+671 1652 N M 1500 2 rr : 0 0 0 sco O ; : 617 1701 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 1701 M 
+-0.015 0 (If you have questions about the Motorola 68000 Simulator contact:)A 
+; : 767 1819 972 57 rc 0 0 0 sco F2_50
+Ji 
+821 1819 M 
+0.159 0 (Bradford W. Mott)A 
+; : 763 1879 1218 57 rc 0 0 0 sco %%IncludeFont: Times-Italic
+(F8) cvn
+0.900 
+ (Times-Italic) cvn /Type1 
+T 
+(Times-Italic) cvn
+mF 
+(F8_50) cvn
+F8
+50 
+xF 
+F8_50
+Ji 
+821 1879 M 
+-0.197 0 (bwmott@eos.ncsu.edu)A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco F2_50
+Ji 
+2121 2942 M 
+(24)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 8 ]%%)  =
+%%PageTrailer
+
+%%Trailer
+%%DocumentNeededFonts: Helvetica
+%%+ Times-Roman
+%%+ Courier
+%%+ Helvetica-Bold
+%%+ Times-Bold
+%%+ Times-Italic
+%%+ Courier-Bold
+%%DocumentSuppliedFonts: 
+Pscript_Win_Driver_Incr dup /terminate get exec
+savelevel0 restore 
+%%Pages: 8
+(%%[ LastPage ]%%)  =
+%%EOF
+

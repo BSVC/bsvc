@@ -1,0 +1,100 @@
+###############################################################################
+#
+# breakpt.tk - Breakpoints
+#
+# Copyright (c) 1996
+# Bradford W. Mott
+# Feburary 7,1993
+###############################################################################
+# $Id: breakpt.tk,v 1.1 1996/08/02 14:55:56 bwmott Exp $
+###############################################################################
+
+###############################################################################
+# Refresh the list of breakpoints in the breakpoint dialog
+###############################################################################
+proc Breakpoints:Refresh {} {
+
+  PutLine "ListBreakpoints"
+  .breakpoints.list.list delete 0 end
+
+  foreach i [lsort -ascii [GetList]] {
+    .breakpoints.list.list insert end "$i"
+  }
+}
+
+###############################################################################
+# Break Point manipulation
+###############################################################################
+proc Breakpoints:Open {} {
+
+  ## Put the application in modal mode
+  set mode [GetApplicationMode]
+  SetApplicationMode "ModalMode"
+
+  ## Make sure the window is destroyed
+  catch {destroy .breakpoints}
+
+  ## Create frame for breakpoint dialog
+  frame .breakpoints -relief ridge -borderwidth 4
+
+  ## Create the list of break points
+  frame .breakpoints.list
+    scrollbar .breakpoints.list.scroll -relief raised \
+        -command ".breakpoints.list.list yview" -takefocus 0
+    listbox .breakpoints.list.list -relief raised \
+        -yscroll ".breakpoints.list.scroll set" \
+        -selectmode extended -width 16
+    pack .breakpoints.list.scroll -side left -fill y
+    pack .breakpoints.list.list -side left -fill both -expand 1
+
+  ## Create the add entry box
+  frame .breakpoints.add -relief raised -borderwidth 2
+    entry .breakpoints.add.entry -relief sunken
+    bind .breakpoints.add.entry <Return> {
+        if {[regexp {^[0-9a-fA-F]*$} [.breakpoints.add.entry get]]} {
+          PutLine "AddBreakpoint [.breakpoints.add.entry get]"
+          .breakpoints.add.entry delete 0 end
+          GetList
+          Breakpoints:Refresh
+          ProgramListing:RefreshBreakpoints
+        }
+      }
+    label .breakpoints.add.label -text "Add:"
+    pack .breakpoints.add.label -side left
+    pack .breakpoints.add.entry -side left -fill x -expand 1
+
+  button .breakpoints.remove -text "Remove" \
+      -command {
+        if {[llength [.breakpoints.list.list curselection]] != 0} {
+          foreach i [.breakpoints.list.list curselection] {
+            PutLine "DeleteBreakpoint [.breakpoints.list.list get $i]"
+            GetList
+          }
+          Breakpoints:Refresh
+          ProgramListing:RefreshBreakpoints
+        }
+      }
+
+  button .breakpoints.dismiss -text "Dismiss" -command {destroy .breakpoints}
+
+  pack .breakpoints.list -side top -expand 1 -fill both -padx 2 -pady 2
+  pack .breakpoints.add -side top -fill x -expand 1 -padx 2 -pady 2
+  pack .breakpoints.remove -side left -fill x -expand 1 -padx 2 -pady 2
+  pack .breakpoints.dismiss -side left -fill x -expand 1 -padx 2 -pady 2
+
+  update idletasks
+  place .breakpoints -relx 0.5 -rely 0.5 -anchor center
+
+  ## Set keyboard focus to the entry widget
+  focus .breakpoints.add.entry
+
+  ## Update breakpoint list
+  Breakpoints:Refresh
+
+  ## Wait for the dismiss to be pressed
+  tkwait window .breakpoints
+
+  ## Reset application mode
+  SetApplicationMode $mode
+}
+

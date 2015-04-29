@@ -1,0 +1,59 @@
+###############################################################################
+#
+# license.tk - BSVC copyright information
+#
+# Copyright 1993
+# Bradford W. Mott
+# January 7,1996
+###############################################################################
+# $Id: license.tk,v 1.1 1996/08/02 14:56:49 bwmott Exp $
+###############################################################################
+
+###############################################################################
+# Create and display the license information dialog
+###############################################################################
+proc License:Open {} {
+  global Program
+
+  # Return if the dialog already exists
+  if {[winfo exists .license] == 1} {
+    wm deiconify .license
+    return
+  }
+
+  ## Create the top level window
+  toplevel .license
+  wm title .license "License"
+  wm iconname .license "License"
+  wm minsize .license 80 20
+
+  text .license.text -relief sunken -borderwidth 2 \
+      -yscrollcommand ".license.scroll set" \
+      -setgrid 1 -wrap word \
+      -takefocus 0 -highlightthickness 0
+  scrollbar .license.scroll -command ".license.text yview" \
+      -takefocus 0 -highlightthickness 0
+  button .license.dismiss -text "Dismiss" \
+      -command "destroy .license"
+ 
+  pack .license.dismiss -side bottom -fill x
+  pack .license.scroll -side left -fill y
+  pack .license.text -side left -fill both -expand 1
+
+  ## Create a highlight tag
+  .license.text tag configure Highlight \
+      -font -*-helvetica-bold-r-normal--*-140-*-*-*-*-iso8859-* \
+      -underline 1  -borderwidth 2 -foreground Red
+
+  .license.text insert 0.0 "\nLicense Information and Copyright Notice\n"
+  .license.text tag add Highlight "2.0" "2.0 lineend"
+
+  ## Read in the copyright information
+  set file [open $Program(HelpDir)/license {r}]
+  set info [read $file]
+  close $file
+
+  .license.text insert end $info
+  .license.text configure -state disabled 
+}
+

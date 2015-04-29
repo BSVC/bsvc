@@ -1,0 +1,7 @@
+
+1. October 93: Assembler does not support absolute short addressing modes:
+
+   i.e. LEA	A.w,A6
+        SUB.W	A.w,D3
+
+

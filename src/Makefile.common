@@ -1,0 +1,94 @@
+###############################################################################
+# $Header:$
+###############################################################################
+#
+# Makefile.common - System Independent Makefile
+#
+# Bradford W. Mott
+# July 3,1994
+#
+###############################################################################
+# $Log:$
+###############################################################################
+
+## Base Directory of the BSVC distribution
+PROJECT_BASE = /home/bwmott/projects/bsvc/development/bsvc
+
+## Directory to install the BSVC system
+INSTALL_DIR = $(PROJECT_BASE)/bin
+
+## Name or path and Name of the Tcl/Tk "wish" executable
+#WISH        = /usr/bin/wish
+WISH         = wish
+
+## Name of WWW Browser and URL of the BSVC Home Page (or blank)
+WWW_BROWSER   = 
+WWW_HOME_PAGE = 
+#WWW_BROWSER   = netscape
+#WWW_HOME_PAGE = http://www2.ncsu.edu/eos/service/ece/project/bsvc/www/
+
+## List of simulators to build.
+SIMULATORS = sim68000 sim68360
+#SIMULATORS = sim68000 
+
+## List of subdirectories that need to be made
+SUBDIRS = Assemblers Framework UI Tools $(SIMULATORS)
+
+######################### END OF CONFIGURATION ################################
+
+INDEPENDENT_PARMS = PROJECT_BASE='$(PROJECT_BASE)' WISH='$(WISH)' \
+	INCLUDES='-I$(PROJECT_BASE)/src/Framework $(SYS_INCLUDE)' \
+	LIBS='$(SYS_LIBS)' INSTALL_DIR='$(INSTALL_DIR)' \
+	WWW_BROWSER='$(WWW_BROWSER)' WWW_HOME_PAGE='$(WWW_HOME_PAGE)'
+
+MAKEPARMS = $(INDEPENDENT_PARMS) $(DEPENDENT_PARMS)
+
+all: subdirectories
+
+subdirectories:
+	@for dir in $(SUBDIRS); \
+	do \
+		echo ""; \
+		echo "------ Building: $$dir"; \
+		cd $$dir; \
+		make $(MAKEPARMS) MAKEPARMS="$(MAKEPARMS)" all; \
+		if [ $$? -eq 0 ] ; \
+		then \
+			cd ..; \
+		else \
+			exit 1; \
+		fi \
+	done
+
+install:
+	$(MKDIR) $(INSTALL_DIR)
+	@for dir in $(SUBDIRS); \
+	do \
+		echo ""; \
+		echo "------ Installing: $$dir"; \
+		cd $$dir; \
+		make $(MAKEPARMS) MAKEPARMS="$(MAKEPARMS)" install; \
+		if [ $$? -eq 0 ] ; \
+		then \
+			cd ..; \
+		else \
+			exit 1; \
+		fi \
+	done
+
+clean:
+	@for dir in $(SUBDIRS); \
+	do \
+		echo ""; \
+		echo "------ Cleaning: $$dir"; \
+		cd $$dir; \
+		make $(MAKEPARMS) MAKEPARMS="$(MAKEPARMS)" clean; \
+		if [ $$? -eq 0 ] ; \
+		then \
+			cd ..; \
+		else \
+			exit 1; \
+		fi \
+	done
+
+

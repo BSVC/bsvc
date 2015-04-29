@@ -1,0 +1,1751 @@
+%!PS-Adobe-3.0
+%%Title: Ami Pro - APPA.SAM
+%%Creator: PSCRIPT.DRV Version 4.0
+%%CreationDate: 08/02/96 12:04:11
+%%BoundingBox: 19 19 594 774 
+%%Pages: (atend)
+%%PageOrder: Special
+%%Requirements: 
+%%DocumentNeededFonts: (atend)
+%%DocumentSuppliedFonts: (atend)
+%%DocumentData: Clean7Bit
+%%LanguageLevel: 1
+%%EndComments
+
+%%BeginProlog 
+%%BeginProcSet: Pscript_Win_ErrorHandler 1.0 1
+/currentpacking where{pop/oldpack currentpacking def/setpacking where{pop
+false setpacking}if}if/$brkpage 64 dict def $brkpage begin/prnt{dup type
+/stringtype ne{=string cvs}if dup length 6 mul/tx exch def/ty 10 def
+currentpoint/toy exch def/tox exch def 1 setgray newpath tox toy 2 sub moveto
+0 ty rlineto tx 0 rlineto 0 ty neg rlineto closepath fill tox toy moveto 0
+setgray show}bind def/nl{currentpoint exch pop lmargin exch moveto 0 -10
+rmoveto}def/=={/cp 0 def typeprint nl}def/typeprint{dup type exec}readonly def
+/lmargin 72 def/rmargin 72 def/tprint{dup length cp add rmargin gt{nl/cp 0 def
+}if dup length cp add/cp exch def prnt}readonly def/cvsprint{=string cvs
+tprint( )tprint}readonly def/integertype{cvsprint}readonly def/realtype{
+cvsprint}readonly def/booleantype{cvsprint}readonly def/operatortype{(--)
+tprint =string cvs tprint(-- )tprint}readonly def/marktype{pop(-mark- )tprint}
+readonly def/dicttype{pop(-dictionary- )tprint}readonly def/nulltype{pop
+(-null- )tprint}readonly def/filetype{pop(-filestream- )tprint}readonly def
+/savetype{pop(-savelevel- )tprint}readonly def/fonttype{pop(-fontid- )tprint}
+readonly def/nametype{dup xcheck not{(/)tprint}if cvsprint}readonly def
+/stringtype{dup rcheck{(\()tprint tprint(\))tprint}{pop(-string- )tprint}
+ifelse}readonly def/arraytype{dup rcheck{dup xcheck{({)tprint{typeprint}forall
+(})tprint}{([)tprint{typeprint}forall(])tprint}ifelse}{pop(-array- )tprint}
+ifelse}readonly def/packedarraytype{dup rcheck{dup xcheck{({)tprint{typeprint}
+forall(})tprint}{([)tprint{typeprint}forall(])tprint}ifelse}{pop
+(-packedarray- )tprint}ifelse}readonly def/courier/Courier findfont 10
+scalefont def end errordict/handleerror{systemdict begin $error begin $brkpage
+begin newerror{/newerror false store vmstatus pop pop 0 ne{grestoreall}if
+showpage initgraphics courier setfont lmargin 720 moveto(ERROR: )prnt
+errorname prnt nl(OFFENDING COMMAND: )prnt/command load prnt $error/ostack
+known{nl nl(STACK:)prnt nl nl $error/ostack get aload length{==}repeat}if
+systemdict/showpage get exec(%%[ Error: )print errorname =print
+(; OffendingCommand: )print/command load =print( ]%%)= flush}if end end end}
+dup 0 systemdict put dup 4 $brkpage put bind readonly put/currentpacking where
+{pop/setpacking where{pop oldpack setpacking}if}if
+%%EndProcSet
+userdict /Pscript_Win_Driver_Incr 200 dict dup begin put
+%%BeginResource: file Pscript_FatalError 2.0 0
+/FatalErrorIf{{initgraphics findfont exch scalefont setfont counttomark 3 div
+cvi{moveto show}repeat showpage quit}{cleartomark}ifelse}bind def
+%%EndResource
+/VM? {vmstatus exch sub exch pop gt { [
+(This job requires more memory than is available in this printer.) 100 500
+(Try one or more of the following, and then print again:) 100 485
+(In the PostScript dialog box, click Optimize For Portability.) 115 470
+(In the Device Options dialog box, make sure the Available Printer Memory is accurate.) 115 455
+(Reduce the number of fonts in the document.) 115 440
+(Print the document in parts.) 115 425
+12 /Times-Roman showpage
+(%%[ PrinterError: Low Printer VM ]%%) =
+true FatalErrorIf}if} bind def
+30000  VM?
+%%BeginResource: file Pscript_Win_Utils 2.0 0
+/|/def load def/,/load load |/~/exch , |/?/ifelse , |/!/pop , |/`/begin , |/^
+/index , |/@/dup , |/+/translate , |/$/roll , |/U/userdict , |/M/moveto , |/-
+/rlineto , |/&/currentdict , |/:/gsave , |/;/grestore , |/F/false , |/T/true ,
+|/N/newpath , |/E/end , |/Ac/arc , |/An/arcn , |/A/ashow , |/D/awidthshow , |
+/C/closepath , |/V/div , |/O/eofill , |/L/fill , |/I/lineto , |/-C/rcurveto ,
+|/-M/rmoveto , |/+S/scale , |/Ji/setfont , |/Lc/setlinecap , |/Lj/setlinejoin
+, |/Lw/setlinewidth , |/S/show , |/LH/showpage , |/K/stroke , |/W/widthshow ,
+|/R/rotate , |/b{bind |}bind |/bd{bind |}bind |/xd{~ |}bd/ld{, |}bd/lw/Lw ld
+/lc/Lc ld/lj/Lj ld/sg/setgray ld/L2? F/languagelevel where{! languagelevel 2
+ge{! T}if}if |/g{@ not{U/DefIf_save save put}if U/DefIf_bool 2 ^ put}b
+/DefIf_El{if U/DefIf_bool get not @{U/DefIf_save get restore}if}b/e{DefIf_El !
+}b/self & |/reinitialize{[/TextInit/GraphInit/UtilsInit counttomark{@ where{
+self eq}{F}?{cvx exec}{!}?}repeat cleartomark}b/initialize{`{/ADO_mxRot ~ |
+/TextInitialised? F | reinitialize E}{U/Pscript_Win_Data 200 dict @ ` put
+/ADO_mxRot ~ |/TextInitialised? F | reinitialize}?}b/terminate{!{& self eq{
+exit}{E}?}loop E}b/suspend/terminate , |/resume{` Pscript_Win_Data `}b/snap{
+transform 0.25 sub round 0.25 add ~ 0.25 sub round 0.25 add ~ itransform}b
+/dsnap{dtransform round ~ round ~ idtransform}b<04>cvn{}|/setjn{{statusdict
+/jobname known{statusdict/jobname 3 -1 $ put}if}stopped cleartomark}b/solid{[]
+0 setdash}b/setdsh{0 setdash}b/colspRefresh{}b/rp{4 2 $ M 1 ^ 0 - 0 ~ - neg 0
+-}b/rr{1 ^ 0 - 0 ~ - neg 0 - C}b
+%%EndResource
+%%BeginResource: file Pscript_Win_Utils_L1 2.0 0
+L2? not g{/rf{N rp L}b/fx{1 1 dtransform @ 0 ge{1 sub 1}{1 add -0.25}? 3 -1 $
+@ 0 ge{1 sub 1}{1 add -0.25}? 3 1 $ 4 1 $ idtransform 4 -2 $ idtransform}b/BZ{
+4 -2 $ snap + +S fx rf}b/rs{N rp C K}b/rc{N rp clip N}b/sg{setgray}b/sco{
+setrgbcolor}b/sgco{{sg}{sco}?}b}e
+%%EndResource
+%%BeginResource: file Pscript_Win_Utils_L2 2.0 0
+L2? g{/colspA/DeviceGray |/colspABC/DeviceRGB |/setAorABC{{colspA}{colspABC}?
+setcolorspace}b/rf/rectfill , |/fx{1 1 dtransform @ 0 ge{1 sub 0.5}{1 add -0.5
+}? 3 -1 $ @ 0 ge{1 sub 0.5}{1 add -0.5}? 3 1 $ 4 1 $ idtransform 4 -2 $
+idtransform}b/BZ{4 -2 $ snap + +S fx rf}b/rs/rectstroke , |/rc/rectclip , |/sg
+{@ @ setcolor}b/sco{setcolor}b/colspRefresh{colspABC setcolorspace}b/sgco{{sg
+}{sco}?}b/UtilsInit{F setglobal}b/definecolorrendering{/ColorRendering
+defineresource !}b/findcolorrendering{@/ColorRendering resourcestatus{! !
+/ColorRendering findresource T}{! F}?}b/selectcolorrendering{@/ColorRendering
+resourcestatus{! !/ColorRendering}{!/DefaultColorRendering/ColorRendering}?
+findresource setcolorrendering}b}e
+%%EndResource
+end
+%%EndProlog
+
+%%BeginSetup 
+[ 1.000 0 0 1.000 0 0 ] false Pscript_Win_Driver_Incr dup /initialize get exec
+
+[{0 
+/languagelevel where{pop languagelevel}{1}ifelse 2 ge{1 dict dup/JobTimeout  4 -1 roll put setuserparams}{statusdict/setjobtimeout get exec}ifelse 
+} stopped cleartomark
+[{240 
+/languagelevel where{pop languagelevel}{1}ifelse 2 ge{1 dict dup/WaitTimeout 4 -1 roll put setuserparams}{statusdict/waittimeout 3 -1 roll put}ifelse 
+} stopped cleartomark
+[{
+1 dict dup /ManualFeed false put setpagedevice
+} stopped cleartomark
+[{
+%%BeginFeature: *InputSlot AutoSelect Tray
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *PageSize Letter 8 1/2 x 11 in
+
+    3 dict dup /TraySwitch true put
+    dup  /PageSize [612 792] put dup /ImagingBBox null put setpagedevice
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution Enhancement Printer Default
+
+%%EndFeature
+} stopped cleartomark
+1 setlinecap 1 setlinejoin 
+/mysetup [ 0.240 0 0 -0.240 19.000 774.000 ] | 
+%%EndSetup
+
+[{1 
+/languagelevel where{pop languagelevel}{1}ifelse 2 ge{1 dict dup/NumCopies 4
+-1 roll put setpagedevice}{userdict/#copies 3 -1 roll put}ifelse
+
+} stopped cleartomark
+userdict begin /savelevel0 save def end
+%%Page: 1 1
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 151 551 910 75 rc pagesave restore
+Pscript_Win_Driver_Incr begin
+%%BeginResource: file Pscript_Win_Encoding 2.0 0
+/bullets{{/bullet}repeat}b/ANSIEncoding[/grave/acute/circumflex/tilde/macron
+/breve/dotaccent/dieresis/ring/cedilla/hungarumlaut/ogonek/caron/dotlessi 18
+bullets StandardEncoding 32 95 getinterval aload ! 3 bullets/quotesinglbase
+/florin/quotedblbase/ellipsis/dagger/daggerdbl/circumflex/perthousand/Scaron
+/guilsinglleft/OE 4 bullets/quoteleft/quoteright/quotedblleft/quotedblright
+/bullet/endash/emdash/tilde/trademark/scaron/guilsinglright/oe 2 bullets
+/Ydieresis/space/exclamdown/cent/sterling/currency/yen/brokenbar/section
+/dieresis/copyright/ordfeminine/guillemotleft/logicalnot/hyphen/registered
+/macron/degree/plusminus/twosuperior/threesuperior/acute/mu/paragraph
+/periodcentered/cedilla/onesuperior/ordmasculine/guillemotright/onequarter
+/onehalf/threequarters/questiondown/Agrave/Aacute/Acircumflex/Atilde/Adieresis
+/Aring/AE/Ccedilla/Egrave/Eacute/Ecircumflex/Edieresis/Igrave/Iacute
+/Icircumflex/Idieresis/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis
+/multiply/Oslash/Ugrave/Uacute/Ucircumflex/Udieresis/Yacute/Thorn/germandbls
+/agrave/aacute/acircumflex/atilde/adieresis/aring/ae/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave/iacute/icircumflex/idieresis/eth/ntilde/ograve
+/oacute/ocircumflex/otilde/odieresis/divide/oslash/ugrave/uacute/ucircumflex
+/udieresis/yacute/thorn/ydieresis]| ANSIEncoding @ 39/quotesingle put 96/grave
+put/ANSIEncodingOld ANSIEncoding 256 array copy | ANSIEncodingOld @[138 153
+154 169 172 174 177 178 179 181 185 188 189 190 208 215 221 222 240 247 253
+254]{/bullet put @}forall 166/bar put 176/ring put
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Text 2.0 0
+/TextInit{TextInitialised? not{/Pscript_Windows_Font & |/TextInitialised? T |
+/fM[1 0 0 -1 0 0]|/mFM matrix |/iMat[1 0 0.212557 neg 1 0 0]|}if}b/xUP null |
+/yUP null |/uW null |/xSP null |/ySP null |/sW null |/copyfont{1 ^ length add
+dict `{1 ^/FID ne{|}{! !}?}forall & E}b/rF{3 copyfont @ `/Encoding
+ANSIEncoding &/CharStrings known{CharStrings/Eth known not{! ANSIEncodingOld}
+if}if | E}b/mF{findfont ~{@/Encoding get @ StandardEncoding eq{! T}{{
+ISOLatin1Encoding}stopped{! F}{eq}?{T}{@ ` T 32 1 127{Encoding 1 ^ get
+StandardEncoding 3 -1 $ get eq and}for E}?}?}{F}?{rF}{3 copyfont}? `
+/OrigFontType ~ |/OrigFontName ~ | & E 2 ^ ~ definefont fM 5 4 -1 $ put fM 4 0
+put fM makefont Pscript_Windows_Font 3 1 $ put}b/xF{scalefont
+Pscript_Windows_Font 3 1 $ put}b/xMF{mFM astore makefont Pscript_Windows_Font
+3 1 $ put}b/xF2/scalefont , |/xMF2{mFM astore makefont}b/sLT{: Lw -M
+currentpoint snap M 0 - 0 Lc K ;}b/sSU{N/uW ~ |/yUP ~ |/xUP ~ |}b/sU{xUP yUP
+uW sLT}b/sST{N/sW ~ |/ySP ~ |/xSP ~ |}b/sT{xSP ySP sW sLT}b/sR{: + R 0 0 M}b
+/sRxy{: matrix astore concat 0 0 M}b/eR/; , |
+%%EndResource
+
+end reinitialize
+userdict begin /pagesave save def end mysetup concat colspRefresh 
+: 0 0 0 sco 1 Lc 1 Lj solid 151 551 910 75 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F0) cvn
+0.896 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F0_67) cvn
+F0
+67 
+xF 
+F0_67
+Ji 
+221 551 M 
+-0.115 0 (Appendix A )A 
+; : 575 528 1821 103 rc 0 0 0 sco (F0_92) cvn
+F0
+92 
+xF 
+F0_92
+Ji 
+671 528 M 
+-0.163 0 (Framework Overview)A 
+; pagesave restore
+Pscript_Win_Driver_Incr begin
+%%BeginResource: file Pscript_Win_Graphics 2.0 0
+/SavedCTM null |/CTMsave{/SavedCTM SavedCTM currentmatrix |}b/CTMrestore{
+SavedCTM setmatrix}b/mp null |/ADO_mxRot null |/GDIHMatrix null |
+/GDIHPatternDict 22 dict | GDIHPatternDict `/PatternType 1 |/PaintType 2 |
+/Reps L2?{1}{5}? |/XStep 8 Reps mul |/YStep XStep |/BBox[0 0 XStep YStep]|
+/TilingType 1 |/PaintProc{` 1 Lw[]0 setdash PaintData , exec E}b/FGnd null |
+/BGnd null |/HS_Horizontal{horiz}b/HS_Vertical{vert}b/HS_FDiagonal{fdiag}b
+/HS_BDiagonal{biag}b/HS_Cross{horiz vert}b/HS_DiagCross{fdiag biag}b/MaxXYStep
+XStep YStep gt{XStep}{YStep}? |/horiz{Reps{0 4 M XStep 0 - 0 8 +}repeat 0 -8
+Reps mul + K}b/vert{Reps{4 0 M 0 YStep - 8 0 +}repeat 0 -8 Reps mul + K}b/biag
+{Reps{0 0 M MaxXYStep @ - 0 YStep neg M MaxXYStep @ - 0 8 +}repeat 0 -8 Reps
+mul + 0 YStep M 8 8 - K}b/fdiag{Reps{0 0 M MaxXYStep @ neg - 0 YStep M
+MaxXYStep @ neg - 0 8 +}repeat 0 -8 Reps mul + MaxXYStep @ M 8 -8 - K}b E
+/makehatch{GDIHPatternDict/PaintData 3 -1 $ put CTMsave GDIHMatrix setmatrix
+GDIHPatternDict matrix mp CTMrestore ~ U ~ 2 ^ put}b/h0{/h0/HS_Horizontal
+makehatch}b/h1{/h1/HS_Vertical makehatch}b/h2{/h2/HS_FDiagonal makehatch}b/h3{
+/h3/HS_BDiagonal makehatch}b/h4{/h4/HS_Cross makehatch}b/h5{/h5/HS_DiagCross
+makehatch}b/GDIBWPatternDict 17 dict @ `/PatternType 1 |/PaintType L2?{1}{2}?
+|/RepsV L2?{1}{6}? |/RepsH L2?{1}{5}? |/BBox[0 0 RepsH 1]|/TilingType 1 |
+/XStep 1 |/YStep 1 |/Height 8 RepsV mul |/Width 8 |/mx[Width 0 0 Height neg 0
+Height]|/FGnd null |/BGnd null |/SetBGndFGnd L2?{{BGnd null ne{BGnd aload !
+sgco BBox aload ! 2 ^ sub ~ 3 ^ sub ~ rf}if FGnd null ne{FGnd aload ! sgco}if}
+}{{}}? b/PaintProc{` SetBGndFGnd RepsH{Width Height F mx PaintData imagemask
+Width 0 +}repeat E}b E |/GDIBWPatternMx null |/pfprep{save 4 1 $
+/PatternOfTheDay 4 1 $ GDIBWPatternDict `/PaintData ~ |/BGnd ~ |/FGnd ~ | E
+CTMsave GDIBWPatternMx setmatrix GDIBWPatternDict matrix mp CTMrestore ~ !}b
+/hrf null |/prf{pfprep ~ 6 1 $ 5 hrf restore}b/GraphInit{GDIHMatrix null eq{
+/SavedCTM matrix | : ADO_mxRot concat 0 0 snap + : 0.48 @ GDIHPatternDict `
+YStep mul ~ XStep mul ~ dsnap YStep V ~ XStep V ~ E +S/GDIHMatrix matrix
+currentmatrix readonly | ; : 0.24 -0.24 +S GDIBWPatternDict ` Width Height E
+dsnap +S/GDIBWPatternMx matrix currentmatrix readonly | ; ;}if}b/cirp{360 0 An
+C}b/ellp{CTMsave + +S 0.5 0 M 0 0 0.5 360 0 An C CTMrestore}b/rrp{/rad ~ |/y2
+~ |/x2 ~ |/y1 ~ |/x1 ~ | x2 x1 add 2 V y1 M x1 y1 x1 y2 rad arct x1 y2 x2 y2
+rad arct x2 y2 x2 y1 rad arct x2 y1 x1 y1 rad arct C}b/RRp{CTMsave + +S/dyS ~
+|/dxS ~ | dxS 2 V 0 M 0 0 0 dyS 0.5 arct 0 dyS dxS dyS 0.5 arct dxS dyS dxS 0
+0.5 arct dxS 0 0 0 0.5 arct C CTMrestore}b
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Graphics_L1 2.0 0
+L2? not g{/arct{arcto ! ! ! !}b/GDIpattfill{@ ` BGnd null ne PaintType 2 eq
+and{: BGnd aload ! sgco fEOFill{O}{L}? ; FGnd aload ! U/fGray 2 ^ put{2}{4}?
+-1 $}if E @ patterncalc : 4 ^/PaintType get 2 eq{fGray{6 -1 $ sg}{8 -3 $ sco}?
+}if fEOFill{eoclip}{clip}? N patternfill ; N}b/hrf{/fGray 1 ^ 6 eq | -4 $ N rp
+C/fEOFill F | GDIpattfill}b/hfMain{/fEOFill ~ |/fGray ~ | GDIpattfill}b/hf{T
+hfMain}b/hfW{F hfMain}b/hs{currentpoint strokepath M hfW}b/pfMain{/fEOFill ~ |
+pfprep GDIpattfill restore N}b/pf{T pfMain}b/pfW{F pfMain}b/ps{currentpoint
+strokepath M pfW}b/mpstr 1 string |/mp{~ @ length 12 add dict copy `
+/PatternCTM matrix currentmatrix |/PatternMatrix ~ |/PatWidth XStep mpstr
+length mul |/PatHeight YStep |/FontType 3 |/Encoding 256 array | 3 string 0 1
+255{Encoding ~ @ 3 ^ cvs cvn put}for !/FontMatrix matrix |/FontBBox BBox |
+/BuildChar{! @ ` XStep 0 FontBBox aload ! setcachedevice/PaintProc , E : exec
+;}b & E ~ @ 3 -1 $ definefont}b/patterncalc{` : PatternCTM setmatrix
+PatternMatrix concat BBox aload ! ! ! + pathbbox ; PatHeight V ceiling 4 1 $
+PatWidth V ceiling 4 1 $ PatHeight V floor 4 1 $ PatWidth V floor 4 1 $ 2 ^
+sub cvi abs ~ 3 ^ sub cvi abs ~ 4 2 $ PatHeight mul ~ PatWidth mul ~ E}b
+/patternfill{5 -1 $ @ ` Ji PatternCTM setmatrix PatternMatrix concat 0 2 ^ 2 ^
+M 0 1 mpstr length 1 sub{1 ^ mpstr 3 1 $ put}for ! 2 ^{currentpoint 5 ^{mpstr
+S}repeat YStep add M}repeat ! ! ! ! E}b}e
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Graphics_L2 2.0 0
+L2? g{/mp/makepattern , |/hrf{6 eq setAorABC setpattern rectfill}b/hf{
+setAorABC setpattern O}b/hfW{setAorABC setpattern L}b/hs{setAorABC setpattern
+K}b/pf{pfprep setpattern O restore N}b/pfW{pfprep setpattern L restore N}b/ps{
+pfprep setpattern K restore N}b}e
+%%EndResource
+
+end reinitialize
+userdict begin /pagesave save def end mysetup concat colspRefresh 
+
+221 1381 N M 1950 8 rr : 0 0 0 sco O ; : 617 1465 1779 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F0) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F0_50) cvn
+F0
+50 
+xF 
+F0_50
+Ji 
+671 1465 M 
+-0.176 0 (BSVC provides a framework for writing microprocessor simulators with a)A 
+; : 617 1525 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 1525 M 
+-0.180 0 (set of C++ classes.  This chapter gives an overview of the framework)A 
+; : 617 1584 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 1584 M 
+-0.317 0 (describing the class layout along with the user interface communication)A 
+; : 617 1643 540 57 rc 0 0 0 sco F0_50
+Ji 
+671 1643 M 
+0.294 0 (protocol)A 
+; : 809 1641 93 33 rc 0 0 0 sco (F0_29) cvn
+F0
+29 
+xF 
+F0_29
+Ji 
+840 1641 M 
+-0.500 0 (8)A 
+; : 800 1643 162 57 rc 0 0 0 sco F0_50
+Ji 
+854 1643 M 
+0.500 0 (.)A 
+; : 601 1792 700 78 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F3) cvn
+0.925 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F3_67) cvn
+F3
+67 
+xF 
+F3_67
+Ji 
+671 1792 M 
+0.006 0 (Overview)A 
+; 
+671 1870 N M 1500 2 rr : 0 0 0 sco O ; : 617 1919 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 1919 M 
+-0.323 0 (The framework is as generic as possible to allow simulation of any)A 
+; : 617 1978 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 1978 M 
+-0.163 0 (processor or device. It handles all interaction with the user interface)A 
+; : 617 2038 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2038 M 
+-0.250 0 (process, provides base classes for common objects, furnishes timed events)A 
+; : 617 2097 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2097 M 
+-0.150 0 (to simulate interrupts, and manages breakpoints. Figure A-1 shows the)A 
+; : 617 2156 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2156 M 
+-0.269 0 (framework's layout. All the classes whose names start with 'Basic' are)A 
+; : 617 2215 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2215 M 
+-0.211 0 (abstract base classes. These base classes are "molds" for the actual classes)A 
+; : 617 2274 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2274 M 
+-0.164 0 (used in the simulator. For example in the Motorola 68000 simulator the)A 
+; : 638 2340 330 53 rc 0 0 0 sco %%IncludeFont: Courier
+(F5) cvn
+0.780 
+ (Courier) cvn /Type1 
+T 
+(Courier) cvn
+mF 
+(F5_50) cvn
+F5
+50 
+xF 
+F5_50
+Ji 
+671 2340 M 
+(BasicCPU)S 
+; : 857 2334 162 57 rc 0 0 0 sco F0_50
+Ji 
+911 2334 M 
+0.500 0 ( )A 
+; : 870 2334 1526 57 rc 0 0 0 sco F0_50
+Ji 
+924 2334 M 
+-0.237 0 (class is the base class for the )A 
+; : 1468 2340 264 53 rc 0 0 0 sco F5_50
+Ji 
+1501 2340 M 
+(m68000)S 
+; : 1629 2333 156 57 rc 0 0 0 sco %%IncludeFont: Times-Bold
+(F7) cvn
+0.920 
+ (Times-Bold) cvn /Type1 
+T 
+(Times-Bold) cvn
+mF 
+(F7_50) cvn
+F7
+50 
+xF 
+F7_50
+Ji 
+1681 2333 M 
+0.500 0 ( )A 
+; : 1640 2334 486 57 rc 0 0 0 sco F0_50
+Ji 
+1694 2334 M 
+-0.314 0 (class. )A 
+; : 0 0 2396 3145 rc 
+221 2845 N M 1950 0 - 1 Lw 1 Lc 1 Lj 0 0 0 sco K ; : 610 2866 93 33 rc 0 0 0 sco F0_29
+Ji 
+641 2866 M 
+-0.500 0 (8)A 
+; : 617 2868 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2868 M 
+-0.258 0 (The BSVC C++ class declarations are in Appendix B.)A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco F0_50
+Ji 
+2121 2942 M 
+(25)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 1 ]%%)  =
+%%PageTrailer
+
+%%Page: 2 2
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 617 227 162 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F0) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F0_50) cvn
+F0
+50 
+xF 
+F0_50
+Ji 
+671 227 M 
+0.500 0 ( )A 
+; 
+N 11.057 10.019 157 156 433 285 RRp C : 1.000 1.000 1.000 sco O ; 2 Lw 1 Lc 1 Lj solid : 1.000 1.000 1.000 sco solid K ; 0 0 0 sco K 
+532 1683 N M 183 120 rr : 1.000 1.000 1.000 sco O ; 
+532 1683 N M 183 120 rr 4 Lw 0 Lc 0 Lj solid 0 0 0 sco K 
+624 1720 N M 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 -1 - 1 0 - 2 0 - 1 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 -1 - 1 0 - 2 0 - 1 0 - 2 0 - 1 -1 - 1 0 - 2 0 - 1 0 - 1 0 - 1 -1 - 2 0 - 1 0 - 1 0 - 1 0 - 2 -1 - 1 0 - 1 -1 - 1 0 - 1 0 - 2 0 - 1 -1 - 1 0 - 1 -1 - 1 0 - 1 0 - 1 -1 - 2 0 - 1 -1 - 1 0 - 1 -1 - 1 0 - 1 0 - 1 -1 - 1 0 - 1 -1 - 1 0 - 1 0 - 1 -1 - 1 0 - 0 -1 - 1 0 - 1 -1 - 1 0 - 1 -1 - 1 0 - 0 -1 - 1 0 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 0 -1 - 1 0 - 0 -1 - 1 -1 - 0 -1 - 1 0 - 0 -1 - 1 -1 - 0 -1 - 0 -1 - 0 -1 - 0 -1 - 0 -1 - 0 -1 - 0 -1 - 0 -1 - 0 -1 - 0 -1 - -1 0 - 0 -1 - 0 -1 - -1 0 - 0 -1 - -1 0 - 0 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -1 0 - 0 -1 - -1 0 - -1 -1 - -1 0 - -1 0 - -1 -1 - -1 0 - 0 -1 - -1 0 - -2 -1 - -1 0 - -1 -1 - -1 0 - -2 0 - -1 -1 - -1 0 - -1 0 - -1 -1 - -1 0 - -1 -1 - -1 0 - -1 0 - -2 -1 - -1 0 - -1 0 - -1 -1 - -2 0 - -1 0 - -1 0 - -1 -1 - -2 0 - -1 0 - -1 0 - -1 -1 - -2 0 - -1 0 - -2 0 - -1 0 - -1 0 - -2 -1 - -1 0 - -2 0 - -1 0 - -2 -1 - -1 0 - -2 0 - -1 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 -1 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -2 0 - -1 0 - -1 0 - -2 0 - -1 1 - -2 0 - -1 0 - -2 0 - -1 0 - -2 1 - -1 0 - -2 0 - -1 0 - -1 1 - -2 0 - -1 0 - -1 0 - -2 0 - -1 1 - -1 0 - -1 0 - -2 0 - -1 0 - -1 1 - -2 0 - -1 0 - -1 1 - -1 0 - -1 0 - -2 1 - -1 0 - -1 1 - -1 0 - -1 0 - -1 1 - -1 0 - -1 1 - -2 0 - -1 1 - -1 0 - -1 0 - -1 1 - -1 0 - -1 1 - -1 0 - -1 1 - -1 0 - -1 0 - 0 1 - -1 0 - -1 1 - -1 1 - -1 0 - -1 1 - -1 1 - -1 0 - 0 1 - -1 0 - 0 1 - -1 0 - 0 1 - -1 0 - -1 1 - 0 1 - -1 0 - 0 1 - 0 1 - -1 0 - 0 1 - -1 1 - 0 1 - -1 1 - 0 1 - 0 1 - 0 1 - 0 1 - 0 1 - 0 1 - 0 1 - 0 1 - 1 0 - 0 1 - 0 1 - 1 0 - 0 1 - 1 1 - 0 1 - 1 0 - 0 1 - 1 1 - 1 1 - 1 0 - 0 1 - 1 0 - 0 1 - 1 0 - 1 1 - 1 0 - 1 1 - 1 0 - 0 1 - 1 0 - 1 1 - 1 0 - 1 1 - 1 0 - 0 1 - 1 0 - 1 0 - 1 1 - 1 0 - 1 1 - 1 0 - 1 1 - 1 0 - 1 0 - 1 1 - 1 0 - 1 0 - 2 1 - 1 0 - 1 0 - 1 1 - 1 0 - 1 0 - 1 1 - 2 0 - 1 0 - 1 0 - 1 1 - 2 0 - 1 0 - 1 1 - 1 0 - 2 0 - 1 0 - 2 1 - 1 0 - 2 0 - 1 0 - 1 0 - 1 0 - 2 1 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 1 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 2 0 - 1 1 - 2 0 - 2 0 - C : 1.000 1.000 1.000 sco O ; 
+624 1720 N M 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 -1 - 1 0 - 2 0 - 1 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 -1 - 1 0 - 2 0 - 1 0 - 2 0 - 1 -1 - 1 0 - 2 0 - 1 0 - 1 0 - 1 -1 - 2 0 - 1 0 - 1 0 - 1 0 - 2 -1 - 1 0 - 1 -1 - 1 0 - 1 0 - 2 0 - 1 -1 - 1 0 - 1 -1 - 1 0 - 1 0 - 1 -1 - 2 0 - 1 -1 - 1 0 - 1 -1 - 1 0 - 1 0 - 1 -1 - 1 0 - 1 -1 - 1 0 - 1 0 - 1 -1 - 1 0 - 0 -1 - 1 0 - 1 -1 - 1 0 - 1 -1 - 1 0 - 0 -1 - 1 0 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 0 -1 - 1 0 - 0 -1 - 1 -1 - 0 -1 - 1 0 - 0 -1 - 1 -1 - 0 -1 - 0 -1 - 0 -1 - 0 -1 - 0 -1 - 0 -1 - 0 -1 - 0 -1 - 0 -1 - 0 -1 - -1 0 - 0 -1 - 0 -1 - -1 0 - 0 -1 - -1 0 - 0 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -1 0 - 0 -1 - -1 0 - -1 -1 - -1 0 - -1 0 - -1 -1 - -1 0 - 0 -1 - -1 0 - -2 -1 - -1 0 - -1 -1 - -1 0 - -2 0 - -1 -1 - -1 0 - -1 0 - -1 -1 - -1 0 - -1 -1 - -1 0 - -1 0 - -2 -1 - -1 0 - -1 0 - -1 -1 - -2 0 - -1 0 - -1 0 - -1 -1 - -2 0 - -1 0 - -1 0 - -1 -1 - -2 0 - -1 0 - -2 0 - -1 0 - -1 0 - -2 -1 - -1 0 - -2 0 - -1 0 - -2 -1 - -1 0 - -2 0 - -1 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 -1 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -2 0 - -1 0 - -1 0 - -2 0 - -1 1 - -2 0 - -1 0 - -2 0 - -1 0 - -2 1 - -1 0 - -2 0 - -1 0 - -1 1 - -2 0 - -1 0 - -1 0 - -2 0 - -1 1 - -1 0 - -1 0 - -2 0 - -1 0 - -1 1 - -2 0 - -1 0 - -1 1 - -1 0 - -1 0 - -2 1 - -1 0 - -1 1 - -1 0 - -1 0 - -1 1 - -1 0 - -1 1 - -2 0 - -1 1 - -1 0 - -1 0 - -1 1 - -1 0 - -1 1 - -1 0 - -1 1 - -1 0 - -1 0 - 0 1 - -1 0 - -1 1 - -1 1 - -1 0 - -1 1 - -1 1 - -1 0 - 0 1 - -1 0 - 0 1 - -1 0 - 0 1 - -1 0 - -1 1 - 0 1 - -1 0 - 0 1 - 0 1 - -1 0 - 0 1 - -1 1 - 0 1 - -1 1 - 0 1 - 0 1 - 0 1 - 0 1 - 0 1 - 0 1 - 0 1 - 0 1 - 1 0 - 0 1 - 0 1 - 1 0 - 0 1 - 1 1 - 0 1 - 1 0 - 0 1 - 1 1 - 1 1 - 1 0 - 0 1 - 1 0 - 0 1 - 1 0 - 1 1 - 1 0 - 1 1 - 1 0 - 0 1 - 1 0 - 1 1 - 1 0 - 1 1 - 1 0 - 0 1 - 1 0 - 1 0 - 1 1 - 1 0 - 1 1 - 1 0 - 1 1 - 1 0 - 1 0 - 1 1 - 1 0 - 1 0 - 2 1 - 1 0 - 1 0 - 1 1 - 1 0 - 1 0 - 1 1 - 2 0 - 1 0 - 1 0 - 1 1 - 2 0 - 1 0 - 1 1 - 1 0 - 2 0 - 1 0 - 2 1 - 1 0 - 2 0 - 1 0 - 1 0 - 1 0 - 2 1 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 1 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 2 0 - 1 1 - 2 0 - 2 0 - C 1 Lc 1 Lj 0 0 0 sco K : 563 1746 1583 36 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F2) cvn
+0.906 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F2_32) cvn
+F2
+32 
+xF 
+F2_32
+Ji 
+596 1746 M 
+-0.344 0 (P)A 
+-0.104 0 (i)A 
+-0.792 0 (pe)A 
+; 
+2074 1467 N M 0 10 - 0 10 - -1 9 - -2 10 - -1 9 - -3 9 - -2 9 - -3 9 - -3 8 - -4 9 - -4 8 - -4 7 - -4 8 - -5 7 - -6 7 - -5 7 - -6 7 - -7 6 - -6 7 - -7 6 - -7 5 - -7 6 - -8 5 - -8 5 - -8 5 - -8 5 - -9 4 - -8 4 - -9 4 - -10 3 - -9 4 - -10 3 - -9 2 - -10 3 - -11 3 - -10 2 - -10 2 - -11 2 - -11 1 - -10 1 - -12 1 - -11 1 - -11 0 - -11 1 - -12 -1 - -11 0 - -12 -1 - -12 -1 - -11 0 - -12 -2 - -12 -1 - -12 -2 - -12 -2 - -12 -3 - -11 -2 - -12 -3 - -12 -4 - -12 -3 - -12 -4 - -12 -4 - -12 -5 - -12 -4 - -12 -5 - -12 -5 - -11 -6 - -12 -5 - -12 -6 - -11 -6 - -11 -7 - -12 -7 - -11 -7 - -11 -8 - -11 -7 - -11 -8 - -11 -9 - -10 -8 - -11 -9 - -10 -9 - -10 -9 - -10 -10 - -10 -10 - -10 -10 - -9 -11 - -9 -11 - -9 -11 - -9 -11 - -8 -12 - -9 -12 - -8 -12 - -8 -13 - -7 -13 - -8 -13 - -7 -14 - -7 -14 - -6 -14 - -7 -15 - 0 0 0 sco K 
+1230 1332 N M -2 28 - 7 -16 - -5 -12 - C : 0 0 0 sco O ; 0 0 0 sco K 
+1230 1332 N M 21 19 - -16 -7 - -5 -12 - C : 0 0 0 sco O ; 0 0 0 sco K 
+1684 1479 N M 0 -1 - 0 -1 - 0 -2 - 0 -2 - 0 -1 - 0 -1 - 0 -2 - 1 -1 - 0 -2 - 0 -2 - 0 -1 - 1 -2 - 0 -1 - 0 -1 - 0 -2 - 1 -1 - 0 -2 - 1 -1 - 0 -1 - 1 -2 - 0 -1 - 1 -2 - 0 -1 - 1 -2 - 0 -1 - 1 -1 - 1 -1 - 0 -2 - 1 -1 - 0 -1 - 1 -1 - 1 -2 - 0 -1 - 1 -1 - 1 -1 - 1 -2 - 1 -1 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 1 -2 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 0 - 2 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 2 0 - 1 -1 - 1 -1 - 1 -1 - 2 0 - 1 -1 - 1 -1 - 1 0 - 2 -1 - 1 -1 - 2 0 - 1 -1 - 1 0 - 2 -1 - 1 0 - 1 -1 - 2 0 - 1 -1 - 2 0 - 1 0 - 2 -1 - 1 0 - 2 -1 - 1 0 - 2 0 - 1 0 - 1 0 - 2 -1 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 -1 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 1 - 1 0 - 2 0 - 1 0 - 2 1 - 1 0 - 2 0 - 1 0 - 1 1 - 2 0 - 1 0 - 2 1 - 1 0 - 1 1 - 2 0 - 1 0 - 2 1 - 1 1 - 2 0 - 1 1 - 1 0 - 1 1 - 2 1 - 1 0 - 1 1 - 2 1 - 1 0 - 1 1 - 1 1 - 2 1 - 1 0 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 2 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 0 1 - 1 1 - 1 2 - 1 1 - 1 1 - 1 1 - 0 1 - 1 2 - 1 1 - 1 1 - 0 1 - 1 2 - 1 1 - 0 1 - 1 2 - 1 1 - 0 2 - 1 1 - 0 1 - 1 1 - 0 2 - 1 1 - 0 2 - 0 1 - 1 2 - 0 1 - 0 2 - 1 1 - 0 2 - 0 1 - 1 2 - 0 1 - 0 1 - 0 2 - 1 2 - 0 1 - 0 1 - 0 2 - 0 2 - 0 1 - 0 2 - 0 1 - 0 2 - 0 1 - 0 2 - 0 1 - 0 2 - -1 1 - 0 2 - 0 1 - 0 2 - -1 1 - 0 2 - 0 1 - -1 1 - 0 2 - 0 1 - -1 2 - 0 1 - -1 1 - 0 2 - -1 1 - 0 2 - -1 1 - -1 1 - 0 2 - -1 1 - 0 1 - -1 2 - -1 1 - 0 1 - -1 1 - -1 2 - -1 1 - 0 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 2 - 0 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 2 - -1 1 - -1 1 - -1 1 - -1 0 - -1 1 - -1 1 - -1 1 - -2 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -2 1 - -1 0 - -1 1 - -1 1 - -1 1 - -2 0 - -1 1 - -1 1 - -1 0 - -2 1 - -1 1 - -2 1 - -1 0 - -1 1 - -2 0 - -1 0 - -1 1 - -2 1 - -1 0 - -2 1 - -1 0 - -2 0 - -1 1 - -1 0 - -2 0 - -1 1 - -2 0 - -1 0 - -2 0 - -1 1 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -2 0 - -1 0 - -1 0 - -2 0 - -1 0 - -2 -1 - -2 0 - -1 0 - -2 0 - -1 -1 - -1 0 - -2 0 - -1 -1 - -1 0 - -2 -1 - -1 0 - -2 -1 - -1 0 - -2 -1 - -1 -1 - -1 0 - -2 -1 - -1 0 - -1 -1 - -1 -1 - -2 0 - -1 -1 - -1 0 - -1 -1 - -2 -1 - -1 -1 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -2 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -2 -1 - -1 -1 - -1 -1 - 0 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -2 - -1 -1 - 0 -1 - -1 -1 - -1 -1 - 0 -2 - -1 -1 - -1 -1 - -1 -1 - -1 -2 - 0 -1 - -1 -1 - -1 -2 - 0 -1 - -1 -2 - 0 -1 - -1 -1 - 0 -1 - -1 -2 - 0 -1 - -1 -2 - 0 -1 - -1 -2 - 0 -1 - 0 -1 - -1 -2 - 0 -1 - 0 -2 - -1 -1 - 0 -2 - 0 -1 - 0 -2 - 0 -1 - -1 -2 - 0 -1 - 0 -2 - 0 -1 - 0 -2 - 0 -2 - C : 1.000 1.000 1.000 sco O ; 
+1684 1479 N M 0 -1 - 0 -1 - 0 -2 - 0 -2 - 0 -1 - 0 -1 - 0 -2 - 1 -1 - 0 -2 - 0 -2 - 0 -1 - 1 -2 - 0 -1 - 0 -1 - 0 -2 - 1 -1 - 0 -2 - 1 -1 - 0 -1 - 1 -2 - 0 -1 - 1 -2 - 0 -1 - 1 -2 - 0 -1 - 1 -1 - 1 -1 - 0 -2 - 1 -1 - 0 -1 - 1 -1 - 1 -2 - 0 -1 - 1 -1 - 1 -1 - 1 -2 - 1 -1 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 1 -2 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 0 - 2 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 2 0 - 1 -1 - 1 -1 - 1 -1 - 2 0 - 1 -1 - 1 -1 - 1 0 - 2 -1 - 1 -1 - 2 0 - 1 -1 - 1 0 - 2 -1 - 1 0 - 1 -1 - 2 0 - 1 -1 - 2 0 - 1 0 - 2 -1 - 1 0 - 2 -1 - 1 0 - 2 0 - 1 0 - 1 0 - 2 -1 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 -1 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 1 - 1 0 - 2 0 - 1 0 - 2 1 - 1 0 - 2 0 - 1 0 - 1 1 - 2 0 - 1 0 - 2 1 - 1 0 - 1 1 - 2 0 - 1 0 - 2 1 - 1 1 - 2 0 - 1 1 - 1 0 - 1 1 - 2 1 - 1 0 - 1 1 - 2 1 - 1 0 - 1 1 - 1 1 - 2 1 - 1 0 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 2 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 0 1 - 1 1 - 1 2 - 1 1 - 1 1 - 1 1 - 0 1 - 1 2 - 1 1 - 1 1 - 0 1 - 1 2 - 1 1 - 0 1 - 1 2 - 1 1 - 0 2 - 1 1 - 0 1 - 1 1 - 0 2 - 1 1 - 0 2 - 0 1 - 1 2 - 0 1 - 0 2 - 1 1 - 0 2 - 0 1 - 1 2 - 0 1 - 0 1 - 0 2 - 1 2 - 0 1 - 0 1 - 0 2 - 0 2 - 0 1 - 0 2 - 0 1 - 0 2 - 0 1 - 0 2 - 0 1 - 0 2 - -1 1 - 0 2 - 0 1 - 0 2 - -1 1 - 0 2 - 0 1 - -1 1 - 0 2 - 0 1 - -1 2 - 0 1 - -1 1 - 0 2 - -1 1 - 0 2 - -1 1 - -1 1 - 0 2 - -1 1 - 0 1 - -1 2 - -1 1 - 0 1 - -1 1 - -1 2 - -1 1 - 0 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 2 - 0 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 2 - -1 1 - -1 1 - -1 1 - -1 0 - -1 1 - -1 1 - -1 1 - -2 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -2 1 - -1 0 - -1 1 - -1 1 - -1 1 - -2 0 - -1 1 - -1 1 - -1 0 - -2 1 - -1 1 - -2 1 - -1 0 - -1 1 - -2 0 - -1 0 - -1 1 - -2 1 - -1 0 - -2 1 - -1 0 - -2 0 - -1 1 - -1 0 - -2 0 - -1 1 - -2 0 - -1 0 - -2 0 - -1 1 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -2 0 - -1 0 - -1 0 - -2 0 - -1 0 - -2 -1 - -2 0 - -1 0 - -2 0 - -1 -1 - -1 0 - -2 0 - -1 -1 - -1 0 - -2 -1 - -1 0 - -2 -1 - -1 0 - -2 -1 - -1 -1 - -1 0 - -2 -1 - -1 0 - -1 -1 - -1 -1 - -2 0 - -1 -1 - -1 0 - -1 -1 - -2 -1 - -1 -1 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -2 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -2 -1 - -1 -1 - -1 -1 - 0 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -2 - -1 -1 - 0 -1 - -1 -1 - -1 -1 - 0 -2 - -1 -1 - -1 -1 - -1 -1 - -1 -2 - 0 -1 - -1 -1 - -1 -2 - 0 -1 - -1 -2 - 0 -1 - -1 -1 - 0 -1 - -1 -2 - 0 -1 - -1 -2 - 0 -1 - -1 -2 - 0 -1 - 0 -1 - -1 -2 - 0 -1 - 0 -2 - -1 -1 - 0 -2 - 0 -1 - 0 -2 - 0 -1 - -1 -2 - 0 -1 - 0 -2 - 0 -1 - 0 -2 - 0 -2 - C 1 Lw [ 5 25 ] setdsh 0 0 0 sco K 
+1870 1323 N M 17 41 - 4 Lw solid 0.447 0.447 0.447 sco K 
+1887 1364 N M 2 -28 - -7 16 - 5 12 - C : 0.447 0.447 0.447 sco O ; 0.447 0.447 0.447 sco K 
+1887 1364 N M -21 -18 - 16 6 - 5 12 - C : 0.447 0.447 0.447 sco O ; 0.447 0.447 0.447 sco K 
+1935 1274 N M 52 41 - 0.447 0.447 0.447 sco K 
+1987 1315 N M -12 -25 - 2 18 - 10 7 - C : 0.447 0.447 0.447 sco O ; 0.447 0.447 0.447 sco K 
+1987 1315 N M -28 -5 - 18 -2 - 10 7 - C : 0.447 0.447 0.447 sco O ; 0.447 0.447 0.447 sco K 
+1327 731 N M 13 -58 - 0.447 0.447 0.447 sco K 
+1340 673 N M -17 22 - 14 -10 - 3 -12 - C : 0.447 0.447 0.447 sco O ; 0.447 0.447 0.447 sco K 
+1340 673 N M 7 27 - -10 -15 - 3 -12 - C : 0.447 0.447 0.447 sco O ; 0.447 0.447 0.447 sco K 
+621 1095 N M -12 -102 - 0.447 0.447 0.447 sco K 
+609 993 N M -10 27 - 11 -14 - -1 -13 - C : 0.447 0.447 0.447 sco O ; 0.447 0.447 0.447 sco K 
+609 993 N M 15 24 - -14 -11 - -1 -13 - C : 0.447 0.447 0.447 sco O ; 0.447 0.447 0.447 sco K 
+743 1120 N M 69 -73 - 0.447 0.447 0.447 sco K 
+812 1047 N M -26 9 - 17 0 - 9 -9 - C : 0.447 0.447 0.447 sco O ; 0.447 0.447 0.447 sco K 
+812 1047 N M -8 26 - -1 -17 - 9 -9 - C : 0.447 0.447 0.447 sco O ; 0.447 0.447 0.447 sco K 
+737 1306 N M 33 42 - 0.447 0.447 0.447 sco K 
+770 1348 N M -6 -27 - -2 17 - 8 10 - C : 0.447 0.447 0.447 sco O ; 0.447 0.447 0.447 sco K 
+770 1348 N M -26 -12 - 18 2 - 8 10 - C : 0.447 0.447 0.447 sco O ; 0.447 0.447 0.447 sco K 
+541 1210 N M 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 1 -2 - 0 -2 - 0 -2 - 1 -2 - 0 -2 - 1 -2 - 0 -2 - 0 -2 - 1 -2 - 0 -2 - 1 -2 - 0 -1 - 1 -2 - 1 -2 - 1 -2 - 0 -2 - 1 -2 - 1 -1 - 1 -2 - 0 -2 - 1 -2 - 1 -1 - 1 -2 - 1 -2 - 1 -1 - 1 -2 - 1 -2 - 1 -1 - 1 -2 - 1 -1 - 1 -2 - 1 -1 - 1 -2 - 2 -2 - 1 -1 - 1 -2 - 1 -1 - 2 -2 - 1 -1 - 1 -1 - 2 -2 - 1 -1 - 1 -1 - 2 -2 - 1 -1 - 2 -1 - 1 -1 - 2 -2 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 2 -1 - 1 -1 - 2 -1 - 2 -1 - 1 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 0 - 1 -1 - 2 0 - 2 -1 - 2 -1 - 2 0 - 2 -1 - 2 -1 - 1 0 - 2 -1 - 2 0 - 2 -1 - 2 0 - 2 0 - 2 0 - 2 -1 - 2 0 - 2 0 - 2 -1 - 3 0 - 2 0 - 2 0 - 2 0 - 2 0 - 2 0 - 2 0 - 1 0 - 3 0 - 2 0 - 2 0 - 2 0 - 1 1 - 2 0 - 2 0 - 3 1 - 2 0 - 1 0 - 2 1 - 2 0 - 2 1 - 2 0 - 2 1 - 2 0 - 2 1 - 2 1 - 2 0 - 1 1 - 2 1 - 2 1 - 2 1 - 1 0 - 2 1 - 2 1 - 2 1 - 1 1 - 2 1 - 2 1 - 1 1 - 2 1 - 2 1 - 1 1 - 1 1 - 2 1 - 2 1 - 1 2 - 2 1 - 1 1 - 2 1 - 1 2 - 2 1 - 1 1 - 1 2 - 2 1 - 1 1 - 1 2 - 1 1 - 2 2 - 1 1 - 1 1 - 1 2 - 1 1 - 2 2 - 1 2 - 1 1 - 1 2 - 1 1 - 1 2 - 1 2 - 1 1 - 1 2 - 1 2 - 1 1 - 0 2 - 1 2 - 1 2 - 1 2 - 1 1 - 0 2 - 1 2 - 1 2 - 0 2 - 1 2 - 1 2 - 0 1 - 0 2 - 1 2 - 1 2 - 0 2 - 1 2 - 0 2 - 0 2 - 0 2 - 1 2 - 0 2 - 0 2 - 0 2 - 0 2 - 1 3 - 0 2 - 0 2 - 0 2 - 0 1 - 0 2 - 0 2 - 0 2 - -1 3 - 0 1 - 0 2 - 0 2 - -1 2 - 0 2 - 0 2 - -1 2 - 0 2 - -1 2 - 0 2 - -1 2 - 0 2 - -1 2 - 0 2 - -1 2 - -1 1 - -1 2 - -1 2 - 0 2 - -1 1 - -1 2 - -1 2 - 0 2 - -1 1 - -1 2 - -1 2 - -1 1 - -1 2 - -1 2 - -1 1 - -1 2 - -1 1 - -1 2 - -2 1 - -1 2 - -1 2 - -1 1 - -2 1 - -1 2 - -1 1 - -2 2 - -1 1 - -1 2 - -2 1 - -1 1 - -2 1 - -1 2 - -1 1 - -2 1 - -1 1 - -2 1 - -1 1 - -2 2 - -2 1 - -1 1 - -2 1 - -1 1 - -2 1 - -2 1 - -1 1 - -2 1 - -2 0 - -2 1 - -2 1 - -1 1 - -2 1 - -2 1 - -2 0 - -1 1 - -2 1 - -2 0 - -2 1 - -2 0 - -2 1 - -2 0 - -2 1 - -2 1 - -2 0 - -2 0 - -2 1 - -1 0 - -2 0 - -3 1 - -2 0 - -2 0 - -2 0 - -2 0 - -2 0 - -2 1 - -2 0 - -2 0 - -2 0 - -2 0 - -2 0 - -2 -1 - -2 0 - -2 0 - -2 0 - -2 0 - -2 -1 - -2 0 - -2 -1 - -2 0 - -2 0 - -2 -1 - -2 0 - -1 -1 - -2 0 - -2 -1 - -2 -1 - -2 0 - -2 -1 - -2 -1 - -2 -1 - -1 0 - -2 -1 - -2 -1 - -1 -1 - -2 -1 - -2 0 - -1 -1 - -2 -1 - -2 -1 - -1 -1 - -2 -1 - -2 -2 - -1 -1 - -2 -1 - -1 -1 - -2 -1 - -2 -1 - -1 -1 - -1 -2 - -2 -1 - -1 -1 - -2 -1 - -1 -2 - -2 -1 - -1 -2 - -1 -1 - -1 -1 - -2 -2 - -1 -1 - -1 -2 - -1 -1 - -2 -2 - -1 -1 - -1 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - -1 -2 - -1 -2 - -1 -2 - 0 -1 - -1 -2 - -1 -2 - 0 -2 - -1 -2 - -1 -1 - 0 -2 - -1 -2 - 0 -2 - -1 -2 - 0 -2 - -1 -2 - 0 -2 - -1 -2 - 0 -2 - 0 -2 - -1 -2 - 0 -2 - 0 -2 - -1 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - C 
+541 1210 N M 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 1 -2 - 0 -2 - 0 -2 - 1 -2 - 0 -2 - 1 -2 - 0 -2 - 0 -2 - 1 -2 - 0 -2 - 1 -2 - 0 -1 - 1 -2 - 1 -2 - 1 -2 - 0 -2 - 1 -2 - 1 -1 - 1 -2 - 0 -2 - 1 -2 - 1 -1 - 1 -2 - 1 -2 - 1 -1 - 1 -2 - 1 -2 - 1 -1 - 1 -2 - 1 -1 - 1 -2 - 1 -1 - 1 -2 - 2 -2 - 1 -1 - 1 -2 - 1 -1 - 2 -2 - 1 -1 - 1 -1 - 2 -2 - 1 -1 - 1 -1 - 2 -2 - 1 -1 - 2 -1 - 1 -1 - 2 -2 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 2 -1 - 1 -1 - 2 -1 - 2 -1 - 1 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 0 - 1 -1 - 2 0 - 2 -1 - 2 -1 - 2 0 - 2 -1 - 2 -1 - 1 0 - 2 -1 - 2 0 - 2 -1 - 2 0 - 2 0 - 2 0 - 2 -1 - 2 0 - 2 0 - 2 -1 - 3 0 - 2 0 - 2 0 - 2 0 - 2 0 - 2 0 - 2 0 - 1 0 - 3 0 - 2 0 - 2 0 - 2 0 - 1 1 - 2 0 - 2 0 - 3 1 - 2 0 - 1 0 - 2 1 - 2 0 - 2 1 - 2 0 - 2 1 - 2 0 - 2 1 - 2 1 - 2 0 - 1 1 - 2 1 - 2 1 - 2 1 - 1 0 - 2 1 - 2 1 - 2 1 - 1 1 - 2 1 - 2 1 - 1 1 - 2 1 - 2 1 - 1 1 - 1 1 - 2 1 - 2 1 - 1 2 - 2 1 - 1 1 - 2 1 - 1 2 - 2 1 - 1 1 - 1 2 - 2 1 - 1 1 - 1 2 - 1 1 - 2 2 - 1 1 - 1 1 - 1 2 - 1 1 - 2 2 - 1 2 - 1 1 - 1 2 - 1 1 - 1 2 - 1 2 - 1 1 - 1 2 - 1 2 - 1 1 - 0 2 - 1 2 - 1 2 - 1 2 - 1 1 - 0 2 - 1 2 - 1 2 - 0 2 - 1 2 - 1 2 - 0 1 - 0 2 - 1 2 - 1 2 - 0 2 - 1 2 - 0 2 - 0 2 - 0 2 - 1 2 - 0 2 - 0 2 - 0 2 - 0 2 - 1 3 - 0 2 - 0 2 - 0 2 - 0 1 - 0 2 - 0 2 - 0 2 - -1 3 - 0 1 - 0 2 - 0 2 - -1 2 - 0 2 - 0 2 - -1 2 - 0 2 - -1 2 - 0 2 - -1 2 - 0 2 - -1 2 - 0 2 - -1 2 - -1 1 - -1 2 - -1 2 - 0 2 - -1 1 - -1 2 - -1 2 - 0 2 - -1 1 - -1 2 - -1 2 - -1 1 - -1 2 - -1 2 - -1 1 - -1 2 - -1 1 - -1 2 - -2 1 - -1 2 - -1 2 - -1 1 - -2 1 - -1 2 - -1 1 - -2 2 - -1 1 - -1 2 - -2 1 - -1 1 - -2 1 - -1 2 - -1 1 - -2 1 - -1 1 - -2 1 - -1 1 - -2 2 - -2 1 - -1 1 - -2 1 - -1 1 - -2 1 - -2 1 - -1 1 - -2 1 - -2 0 - -2 1 - -2 1 - -1 1 - -2 1 - -2 1 - -2 0 - -1 1 - -2 1 - -2 0 - -2 1 - -2 0 - -2 1 - -2 0 - -2 1 - -2 1 - -2 0 - -2 0 - -2 1 - -1 0 - -2 0 - -3 1 - -2 0 - -2 0 - -2 0 - -2 0 - -2 0 - -2 1 - -2 0 - -2 0 - -2 0 - -2 0 - -2 0 - -2 -1 - -2 0 - -2 0 - -2 0 - -2 0 - -2 -1 - -2 0 - -2 -1 - -2 0 - -2 0 - -2 -1 - -2 0 - -1 -1 - -2 0 - -2 -1 - -2 -1 - -2 0 - -2 -1 - -2 -1 - -2 -1 - -1 0 - -2 -1 - -2 -1 - -1 -1 - -2 -1 - -2 0 - -1 -1 - -2 -1 - -2 -1 - -1 -1 - -2 -1 - -2 -2 - -1 -1 - -2 -1 - -1 -1 - -2 -1 - -2 -1 - -1 -1 - -1 -2 - -2 -1 - -1 -1 - -2 -1 - -1 -2 - -2 -1 - -1 -2 - -1 -1 - -1 -1 - -2 -2 - -1 -1 - -1 -2 - -1 -1 - -2 -2 - -1 -1 - -1 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - -1 -2 - -1 -2 - -1 -2 - 0 -1 - -1 -2 - -1 -2 - 0 -2 - -1 -2 - -1 -1 - 0 -2 - -1 -2 - 0 -2 - -1 -2 - 0 -2 - -1 -2 - 0 -2 - -1 -2 - 0 -2 - 0 -2 - -1 -2 - 0 -2 - 0 -2 - -1 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - C 0 0 0 sco K 
+721 1432 N M 0 -2 - 0 -2 - 0 -1 - 0 -2 - 0 -2 - 0 -2 - 1 -2 - 0 -1 - 0 -2 - 1 -2 - 0 -2 - 1 -1 - 0 -2 - 1 -2 - 0 -1 - 1 -2 - 1 -2 - 1 -1 - 0 -2 - 1 -2 - 1 -1 - 1 -2 - 0 -2 - 2 -1 - 0 -2 - 1 -1 - 1 -2 - 1 -1 - 2 -2 - 1 -1 - 1 -2 - 1 -1 - 1 -2 - 1 -1 - 2 -2 - 1 -1 - 1 -1 - 2 -2 - 1 -1 - 2 -1 - 1 -2 - 2 -1 - 1 -1 - 2 -2 - 1 -1 - 2 -1 - 2 -2 - 2 -1 - 1 -1 - 2 -1 - 2 -1 - 1 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 0 - 2 -1 - 2 -1 - 3 0 - 2 -1 - 2 -1 - 2 -1 - 3 0 - 2 -1 - 2 0 - 3 -1 - 2 -1 - 2 0 - 2 0 - 3 -1 - 2 0 - 3 -1 - 2 0 - 3 0 - 2 -1 - 3 0 - 2 0 - 3 -1 - 2 0 - 3 0 - 2 0 - 3 0 - 2 0 - 3 0 - 3 0 - 2 0 - 3 0 - 2 0 - 3 0 - 2 0 - 3 0 - 2 0 - 3 0 - 2 0 - 3 1 - 2 0 - 3 0 - 2 1 - 2 0 - 3 0 - 2 1 - 3 0 - 2 1 - 2 0 - 2 1 - 3 1 - 2 0 - 2 1 - 3 1 - 2 0 - 2 1 - 2 1 - 2 0 - 3 1 - 2 1 - 2 0 - 2 1 - 2 1 - 2 1 - 2 1 - 2 1 - 2 1 - 2 1 - 2 1 - 2 1 - 2 1 - 2 1 - 2 1 - 1 1 - 2 1 - 2 2 - 2 1 - 1 1 - 2 1 - 2 1 - 1 2 - 2 1 - 1 1 - 2 1 - 1 2 - 2 1 - 1 1 - 2 1 - 1 2 - 2 1 - 1 2 - 1 1 - 1 2 - 2 1 - 1 1 - 1 2 - 1 1 - 1 2 - 1 1 - 1 2 - 2 2 - 1 1 - 1 2 - 0 1 - 1 2 - 1 2 - 1 1 - 1 2 - 0 2 - 1 1 - 1 2 - 0 2 - 1 1 - 1 2 - 0 2 - 0 1 - 1 2 - 0 2 - 1 2 - 0 2 - 0 1 - 0 2 - 0 2 - 1 2 - 0 2 - 0 2 - 0 1 - 0 2 - 0 2 - 0 1 - -1 2 - 0 2 - 0 2 - 0 1 - -1 2 - 0 2 - 0 2 - -1 1 - 0 2 - -1 2 - -1 1 - 0 2 - -1 2 - -1 1 - 0 2 - -1 2 - -1 1 - -1 2 - -1 2 - -1 1 - -1 2 - -1 1 - -1 2 - -1 1 - -1 2 - -1 1 - -1 2 - -1 1 - -2 2 - -1 1 - -1 1 - -2 2 - -1 1 - -1 1 - -2 2 - -1 1 - -2 2 - -1 1 - -2 1 - -1 1 - -2 2 - -2 1 - -1 1 - -2 2 - -2 1 - -1 1 - -2 1 - -2 1 - -2 1 - -2 1 - -1 1 - -2 1 - -2 1 - -2 1 - -2 1 - -2 1 - -2 1 - -2 1 - -2 1 - -2 1 - -2 1 - -2 0 - -3 1 - -2 1 - -2 1 - -2 0 - -3 1 - -2 1 - -2 1 - -2 0 - -2 1 - -3 0 - -2 1 - -2 1 - -3 0 - -2 0 - -2 1 - -3 0 - -2 1 - -3 0 - -2 0 - -3 1 - -2 0 - -3 0 - -2 1 - -3 0 - -2 0 - -3 0 - -2 0 - -3 0 - -2 1 - -3 0 - -3 0 - -2 0 - -3 0 - -2 0 - -3 0 - -2 -1 - -3 0 - -2 0 - -3 0 - -2 0 - -3 -1 - -2 0 - -2 -1 - -3 0 - -2 0 - -3 -1 - -2 0 - -3 -1 - -2 0 - -2 -1 - -2 0 - -3 -1 - -2 -1 - -2 -1 - -3 0 - -2 -1 - -2 0 - -2 -1 - -2 -1 - -2 -1 - -2 -1 - -3 0 - -2 -1 - -2 -1 - -2 -1 - -2 -1 - -2 -1 - -2 -1 - -2 -1 - -2 -1 - -1 -1 - -2 -1 - -2 -1 - -2 -1 - -2 -2 - -1 -1 - -2 -1 - -2 -1 - -2 -1 - -1 -2 - -2 -1 - -1 -1 - -2 -1 - -2 -2 - -1 -1 - -1 -1 - -2 -1 - -1 -2 - -2 -1 - -1 -2 - -2 -1 - -1 -1 - -1 -2 - -1 -1 - -2 -2 - -1 -1 - -1 -2 - -1 -1 - -1 -2 - -1 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - -1 -1 - 0 -2 - -1 -2 - -1 -1 - -1 -2 - 0 -2 - -1 -1 - -1 -2 - 0 -2 - -1 -1 - 0 -2 - -1 -2 - 0 -1 - 0 -2 - -1 -2 - 0 -2 - 0 -1 - -1 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -1 - C 
+721 1432 N M 0 -2 - 0 -2 - 0 -1 - 0 -2 - 0 -2 - 0 -2 - 1 -2 - 0 -1 - 0 -2 - 1 -2 - 0 -2 - 1 -1 - 0 -2 - 1 -2 - 0 -1 - 1 -2 - 1 -2 - 1 -1 - 0 -2 - 1 -2 - 1 -1 - 1 -2 - 0 -2 - 2 -1 - 0 -2 - 1 -1 - 1 -2 - 1 -1 - 2 -2 - 1 -1 - 1 -2 - 1 -1 - 1 -2 - 1 -1 - 2 -2 - 1 -1 - 1 -1 - 2 -2 - 1 -1 - 2 -1 - 1 -2 - 2 -1 - 1 -1 - 2 -2 - 1 -1 - 2 -1 - 2 -2 - 2 -1 - 1 -1 - 2 -1 - 2 -1 - 1 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 0 - 2 -1 - 2 -1 - 3 0 - 2 -1 - 2 -1 - 2 -1 - 3 0 - 2 -1 - 2 0 - 3 -1 - 2 -1 - 2 0 - 2 0 - 3 -1 - 2 0 - 3 -1 - 2 0 - 3 0 - 2 -1 - 3 0 - 2 0 - 3 -1 - 2 0 - 3 0 - 2 0 - 3 0 - 2 0 - 3 0 - 3 0 - 2 0 - 3 0 - 2 0 - 3 0 - 2 0 - 3 0 - 2 0 - 3 0 - 2 0 - 3 1 - 2 0 - 3 0 - 2 1 - 2 0 - 3 0 - 2 1 - 3 0 - 2 1 - 2 0 - 2 1 - 3 1 - 2 0 - 2 1 - 3 1 - 2 0 - 2 1 - 2 1 - 2 0 - 3 1 - 2 1 - 2 0 - 2 1 - 2 1 - 2 1 - 2 1 - 2 1 - 2 1 - 2 1 - 2 1 - 2 1 - 2 1 - 2 1 - 2 1 - 1 1 - 2 1 - 2 2 - 2 1 - 1 1 - 2 1 - 2 1 - 1 2 - 2 1 - 1 1 - 2 1 - 1 2 - 2 1 - 1 1 - 2 1 - 1 2 - 2 1 - 1 2 - 1 1 - 1 2 - 2 1 - 1 1 - 1 2 - 1 1 - 1 2 - 1 1 - 1 2 - 2 2 - 1 1 - 1 2 - 0 1 - 1 2 - 1 2 - 1 1 - 1 2 - 0 2 - 1 1 - 1 2 - 0 2 - 1 1 - 1 2 - 0 2 - 0 1 - 1 2 - 0 2 - 1 2 - 0 2 - 0 1 - 0 2 - 0 2 - 1 2 - 0 2 - 0 2 - 0 1 - 0 2 - 0 2 - 0 1 - -1 2 - 0 2 - 0 2 - 0 1 - -1 2 - 0 2 - 0 2 - -1 1 - 0 2 - -1 2 - -1 1 - 0 2 - -1 2 - -1 1 - 0 2 - -1 2 - -1 1 - -1 2 - -1 2 - -1 1 - -1 2 - -1 1 - -1 2 - -1 1 - -1 2 - -1 1 - -1 2 - -1 1 - -2 2 - -1 1 - -1 1 - -2 2 - -1 1 - -1 1 - -2 2 - -1 1 - -2 2 - -1 1 - -2 1 - -1 1 - -2 2 - -2 1 - -1 1 - -2 2 - -2 1 - -1 1 - -2 1 - -2 1 - -2 1 - -2 1 - -1 1 - -2 1 - -2 1 - -2 1 - -2 1 - -2 1 - -2 1 - -2 1 - -2 1 - -2 1 - -2 1 - -2 0 - -3 1 - -2 1 - -2 1 - -2 0 - -3 1 - -2 1 - -2 1 - -2 0 - -2 1 - -3 0 - -2 1 - -2 1 - -3 0 - -2 0 - -2 1 - -3 0 - -2 1 - -3 0 - -2 0 - -3 1 - -2 0 - -3 0 - -2 1 - -3 0 - -2 0 - -3 0 - -2 0 - -3 0 - -2 1 - -3 0 - -3 0 - -2 0 - -3 0 - -2 0 - -3 0 - -2 -1 - -3 0 - -2 0 - -3 0 - -2 0 - -3 -1 - -2 0 - -2 -1 - -3 0 - -2 0 - -3 -1 - -2 0 - -3 -1 - -2 0 - -2 -1 - -2 0 - -3 -1 - -2 -1 - -2 -1 - -3 0 - -2 -1 - -2 0 - -2 -1 - -2 -1 - -2 -1 - -2 -1 - -3 0 - -2 -1 - -2 -1 - -2 -1 - -2 -1 - -2 -1 - -2 -1 - -2 -1 - -2 -1 - -1 -1 - -2 -1 - -2 -1 - -2 -1 - -2 -2 - -1 -1 - -2 -1 - -2 -1 - -2 -1 - -1 -2 - -2 -1 - -1 -1 - -2 -1 - -2 -2 - -1 -1 - -1 -1 - -2 -1 - -1 -2 - -2 -1 - -1 -2 - -2 -1 - -1 -1 - -1 -2 - -1 -1 - -2 -2 - -1 -1 - -1 -2 - -1 -1 - -1 -2 - -1 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - -1 -1 - 0 -2 - -1 -2 - -1 -1 - -1 -2 - 0 -2 - -1 -1 - -1 -2 - 0 -2 - -1 -1 - 0 -2 - -1 -2 - 0 -1 - 0 -2 - -1 -2 - 0 -2 - 0 -1 - -1 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -1 - C 0 0 0 sco K 
+786 971 N M 0 -2 - 0 -2 - 0 -1 - 0 -2 - 0 -2 - 1 -2 - 0 -2 - 0 -1 - 0 -2 - 1 -2 - 0 -2 - 0 -1 - 1 -2 - 0 -2 - 0 -1 - 1 -2 - 0 -2 - 1 -1 - 0 -2 - 1 -2 - 1 -1 - 0 -2 - 1 -1 - 1 -2 - 0 -2 - 1 -1 - 0 -1 - 1 -2 - 1 -2 - 1 -1 - 1 -2 - 0 -1 - 1 -1 - 1 -2 - 1 -2 - 1 -1 - 1 -1 - 1 -2 - 1 -1 - 1 -1 - 1 -2 - 1 -1 - 1 -1 - 1 -1 - 2 -2 - 1 -1 - 1 -1 - 1 -2 - 1 -1 - 2 -1 - 1 -1 - 1 -1 - 1 -1 - 2 -1 - 1 -1 - 1 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 0 - 2 -1 - 1 -1 - 2 0 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 2 0 - 1 -1 - 2 0 - 2 -1 - 1 0 - 2 -1 - 2 0 - 1 -1 - 2 0 - 2 -1 - 2 0 - 1 0 - 2 0 - 2 -1 - 1 0 - 2 0 - 2 -1 - 2 0 - 2 0 - 1 0 - 2 0 - 2 0 - 2 0 - 2 0 - 1 0 - 2 0 - 2 0 - 2 0 - 2 0 - 1 0 - 2 0 - 2 1 - 1 0 - 2 0 - 2 1 - 2 0 - 1 0 - 2 1 - 2 0 - 1 0 - 2 1 - 2 1 - 1 0 - 2 1 - 2 0 - 1 1 - 2 1 - 1 0 - 2 1 - 1 1 - 2 0 - 1 1 - 2 1 - 1 1 - 2 0 - 1 1 - 2 1 - 1 1 - 2 1 - 1 1 - 1 1 - 2 1 - 1 1 - 2 1 - 1 1 - 1 1 - 1 1 - 2 1 - 1 2 - 2 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 2 - 2 1 - 1 1 - 1 1 - 1 2 - 1 1 - 1 1 - 1 2 - 1 1 - 1 2 - 0 1 - 1 2 - 1 1 - 1 1 - 1 2 - 1 1 - 1 2 - 0 1 - 1 2 - 1 2 - 1 1 - 0 2 - 1 1 - 0 2 - 1 2 - 1 1 - 0 2 - 1 2 - 0 1 - 1 2 - 0 2 - 1 1 - 0 2 - 0 2 - 0 1 - 1 2 - 0 2 - 1 2 - 0 1 - 0 2 - 0 2 - 0 2 - 0 2 - 0 2 - 0 2 - 0 1 - 0 2 - 0 2 - 0 1 - 0 2 - 0 2 - 0 2 - 0 1 - 0 2 - -1 2 - 0 2 - -1 1 - 0 2 - 0 2 - -1 1 - 0 2 - 0 2 - -1 1 - 0 2 - -1 2 - -1 1 - 0 2 - -1 1 - -1 2 - 0 2 - -1 1 - -1 2 - 0 1 - -1 2 - -1 1 - -1 2 - -1 1 - -1 1 - 0 2 - -2 1 - -1 2 - 0 1 - -1 1 - -1 2 - -2 1 - -1 2 - -1 1 - -1 1 - -1 1 - -1 2 - -1 1 - -1 1 - -2 1 - -1 2 - -1 1 - -1 1 - -1 1 - -2 1 - -1 1 - -1 1 - -1 1 - -2 1 - -1 1 - -2 1 - -1 1 - -2 1 - -1 1 - -1 1 - -2 1 - -1 1 - -2 1 - -1 0 - -2 1 - -1 1 - -2 1 - -2 0 - -1 1 - -2 1 - -2 0 - -1 1 - -2 0 - -2 1 - -1 1 - -2 0 - -2 1 - -1 0 - -2 1 - -2 0 - -1 0 - -2 1 - -2 0 - -1 0 - -2 0 - -2 1 - -2 0 - -2 0 - -1 0 - -2 0 - -2 1 - -2 0 - -2 0 - -2 0 - -1 0 - -2 0 - -2 0 - -2 0 - -2 0 - -1 -1 - -2 0 - -2 0 - -1 0 - -2 -1 - -2 0 - -2 0 - -1 -1 - -2 0 - -2 -1 - -1 0 - -2 -1 - -2 0 - -1 -1 - -2 0 - -1 -1 - -2 -1 - -2 0 - -1 -1 - -2 -1 - -1 0 - -2 -1 - -1 -1 - -2 -1 - -1 0 - -2 -1 - -1 -1 - -2 -1 - -1 -1 - -2 -1 - -1 -1 - -1 -1 - -1 -1 - -2 -1 - -1 -1 - -2 -1 - -1 -1 - -1 -1 - -2 -1 - -1 -2 - -1 -1 - -1 -1 - -2 -1 - -1 -1 - -1 -2 - -1 -1 - -1 -1 - -1 -1 - -1 -2 - -1 -1 - -1 -1 - -1 -2 - -1 -1 - -1 -2 - -1 -1 - -1 -1 - -1 -2 - -1 -1 - -1 -2 - 0 -1 - -1 -2 - -1 -1 - 0 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - 0 -1 - -1 -2 - 0 -2 - -1 -1 - -1 -2 - 0 -2 - 0 -1 - -1 -2 - 0 -2 - -1 -1 - 0 -2 - 0 -2 - -1 -2 - 0 -1 - 0 -2 - -1 -2 - 0 -2 - 0 -1 - 0 -2 - 0 -2 - 0 -2 - -1 -2 - 0 -1 - C 
+786 971 N M 0 -2 - 0 -2 - 0 -1 - 0 -2 - 0 -2 - 1 -2 - 0 -2 - 0 -1 - 0 -2 - 1 -2 - 0 -2 - 0 -1 - 1 -2 - 0 -2 - 0 -1 - 1 -2 - 0 -2 - 1 -1 - 0 -2 - 1 -2 - 1 -1 - 0 -2 - 1 -1 - 1 -2 - 0 -2 - 1 -1 - 0 -1 - 1 -2 - 1 -2 - 1 -1 - 1 -2 - 0 -1 - 1 -1 - 1 -2 - 1 -2 - 1 -1 - 1 -1 - 1 -2 - 1 -1 - 1 -1 - 1 -2 - 1 -1 - 1 -1 - 1 -1 - 2 -2 - 1 -1 - 1 -1 - 1 -2 - 1 -1 - 2 -1 - 1 -1 - 1 -1 - 1 -1 - 2 -1 - 1 -1 - 1 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 0 - 2 -1 - 1 -1 - 2 0 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 2 0 - 1 -1 - 2 0 - 2 -1 - 1 0 - 2 -1 - 2 0 - 1 -1 - 2 0 - 2 -1 - 2 0 - 1 0 - 2 0 - 2 -1 - 1 0 - 2 0 - 2 -1 - 2 0 - 2 0 - 1 0 - 2 0 - 2 0 - 2 0 - 2 0 - 1 0 - 2 0 - 2 0 - 2 0 - 2 0 - 1 0 - 2 0 - 2 1 - 1 0 - 2 0 - 2 1 - 2 0 - 1 0 - 2 1 - 2 0 - 1 0 - 2 1 - 2 1 - 1 0 - 2 1 - 2 0 - 1 1 - 2 1 - 1 0 - 2 1 - 1 1 - 2 0 - 1 1 - 2 1 - 1 1 - 2 0 - 1 1 - 2 1 - 1 1 - 2 1 - 1 1 - 1 1 - 2 1 - 1 1 - 2 1 - 1 1 - 1 1 - 1 1 - 2 1 - 1 2 - 2 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 2 - 2 1 - 1 1 - 1 1 - 1 2 - 1 1 - 1 1 - 1 2 - 1 1 - 1 2 - 0 1 - 1 2 - 1 1 - 1 1 - 1 2 - 1 1 - 1 2 - 0 1 - 1 2 - 1 2 - 1 1 - 0 2 - 1 1 - 0 2 - 1 2 - 1 1 - 0 2 - 1 2 - 0 1 - 1 2 - 0 2 - 1 1 - 0 2 - 0 2 - 0 1 - 1 2 - 0 2 - 1 2 - 0 1 - 0 2 - 0 2 - 0 2 - 0 2 - 0 2 - 0 2 - 0 1 - 0 2 - 0 2 - 0 1 - 0 2 - 0 2 - 0 2 - 0 1 - 0 2 - -1 2 - 0 2 - -1 1 - 0 2 - 0 2 - -1 1 - 0 2 - 0 2 - -1 1 - 0 2 - -1 2 - -1 1 - 0 2 - -1 1 - -1 2 - 0 2 - -1 1 - -1 2 - 0 1 - -1 2 - -1 1 - -1 2 - -1 1 - -1 1 - 0 2 - -2 1 - -1 2 - 0 1 - -1 1 - -1 2 - -2 1 - -1 2 - -1 1 - -1 1 - -1 1 - -1 2 - -1 1 - -1 1 - -2 1 - -1 2 - -1 1 - -1 1 - -1 1 - -2 1 - -1 1 - -1 1 - -1 1 - -2 1 - -1 1 - -2 1 - -1 1 - -2 1 - -1 1 - -1 1 - -2 1 - -1 1 - -2 1 - -1 0 - -2 1 - -1 1 - -2 1 - -2 0 - -1 1 - -2 1 - -2 0 - -1 1 - -2 0 - -2 1 - -1 1 - -2 0 - -2 1 - -1 0 - -2 1 - -2 0 - -1 0 - -2 1 - -2 0 - -1 0 - -2 0 - -2 1 - -2 0 - -2 0 - -1 0 - -2 0 - -2 1 - -2 0 - -2 0 - -2 0 - -1 0 - -2 0 - -2 0 - -2 0 - -2 0 - -1 -1 - -2 0 - -2 0 - -1 0 - -2 -1 - -2 0 - -2 0 - -1 -1 - -2 0 - -2 -1 - -1 0 - -2 -1 - -2 0 - -1 -1 - -2 0 - -1 -1 - -2 -1 - -2 0 - -1 -1 - -2 -1 - -1 0 - -2 -1 - -1 -1 - -2 -1 - -1 0 - -2 -1 - -1 -1 - -2 -1 - -1 -1 - -2 -1 - -1 -1 - -1 -1 - -1 -1 - -2 -1 - -1 -1 - -2 -1 - -1 -1 - -1 -1 - -2 -1 - -1 -2 - -1 -1 - -1 -1 - -2 -1 - -1 -1 - -1 -2 - -1 -1 - -1 -1 - -1 -1 - -1 -2 - -1 -1 - -1 -1 - -1 -2 - -1 -1 - -1 -2 - -1 -1 - -1 -1 - -1 -2 - -1 -1 - -1 -2 - 0 -1 - -1 -2 - -1 -1 - 0 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - 0 -1 - -1 -2 - 0 -2 - -1 -1 - -1 -2 - 0 -2 - 0 -1 - -1 -2 - 0 -2 - -1 -1 - 0 -2 - 0 -2 - -1 -2 - 0 -1 - 0 -2 - -1 -2 - 0 -2 - 0 -1 - 0 -2 - 0 -2 - 0 -2 - -1 -2 - 0 -1 - C 0 0 0 sco K 
+1363 520 N M 3 -6 - 2 -5 - 4 -5 - 3 -4 - 4 -4 - 5 -4 - 4 -4 - 5 -2 - 5 -3 - 6 -2 - 6 -2 - 6 -2 - 6 -1 - 7 -1 - 6 0 - 8 -1 - 7 0 - 8 1 - 7 1 - 8 1 - 9 2 - 8 2 - 9 2 - 9 3 - 9 2 - 9 3 - 9 4 - 10 3 - 9 4 - 10 5 - 10 4 - 10 5 - 10 6 - 10 5 - 10 6 - 10 6 - 11 7 - 10 6 - 10 7 - 11 7 - 11 8 - 10 8 - 11 7 - 11 8 - 10 9 - 11 9 - 10 9 - 11 9 - 10 9 - 11 10 - 10 10 - 11 10 - 10 10 - 10 11 - 10 10 - 10 11 - 10 11 - 10 12 - 10 11 - 9 12 - 10 12 - 9 12 - 9 12 - 9 13 - 9 12 - 8 13 - 9 13 - 8 13 - 8 14 - 8 13 - 7 14 - 8 14 - 7 14 - 7 14 - 6 14 - 6 15 - 6 14 - 6 15 - 6 15 - 5 15 - 4 15 - 5 15 - 4 16 - 4 15 - 4 16 - 3 15 - 2 16 - 3 16 - 2 16 - 2 16 - 1 16 - 1 16 - 0 17 - 1 16 - -1 17 - -1 17 - 0 0 0 sco K 
+2057 1286 N M 14 -25 - -13 12 - -1 13 - C : 0 0 0 sco O ; 0 0 0 sco K 
+2057 1286 N M -11 -26 - 12 13 - -1 13 - C : 0 0 0 sco O ; 0 0 0 sco K 
+1453 735 N M 0 -1 - 0 -1 - 0 -1 - 0 -2 - 0 -1 - 1 -1 - 0 -1 - 0 -2 - 0 -1 - 0 -1 - 0 -1 - 1 -2 - 0 -1 - 0 -1 - 0 -1 - 1 -1 - 0 -1 - 0 -2 - 1 -1 - 0 -1 - 1 -1 - 0 -1 - 1 -2 - 0 -1 - 1 -1 - 0 -1 - 0 -1 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 0 -1 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 1 -1 - 1 0 - 1 -1 - 1 -1 - 0 -1 - 1 0 - 1 -1 - 1 -1 - 1 0 - 1 -1 - 1 -1 - 1 -1 - 1 0 - 1 -1 - 1 0 - 1 -1 - 1 -1 - 1 0 - 1 -1 - 1 0 - 1 -1 - 1 0 - 2 -1 - 1 -1 - 1 0 - 1 0 - 1 -1 - 1 0 - 1 -1 - 2 0 - 1 0 - 1 -1 - 1 0 - 1 0 - 2 -1 - 1 0 - 1 0 - 1 0 - 2 0 - 1 -1 - 1 0 - 1 0 - 2 0 - 1 0 - 1 0 - 1 0 - 2 -1 - 1 0 - 2 0 - 1 0 - 1 0 - 1 0 - 1 0 - 2 1 - 1 0 - 1 0 - 1 0 - 2 0 - 1 0 - 1 1 - 1 0 - 1 0 - 1 0 - 2 1 - 1 0 - 1 0 - 1 1 - 1 0 - 1 1 - 2 0 - 1 1 - 1 0 - 1 1 - 1 0 - 1 0 - 1 1 - 1 0 - 1 1 - 1 1 - 1 0 - 1 1 - 2 1 - 1 0 - 1 1 - 1 0 - 0 1 - 1 1 - 1 0 - 1 1 - 1 1 - 1 1 - 1 1 - 1 0 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 0 1 - 1 1 - 1 0 - 1 1 - 0 1 - 1 1 - 1 1 - 1 1 - 0 1 - 1 1 - 1 1 - 0 1 - 1 1 - 1 1 - 0 1 - 1 1 - 0 1 - 1 1 - 0 1 - 1 1 - 0 2 - 1 1 - 1 1 - 0 1 - 0 1 - 1 1 - 0 1 - 0 2 - 1 1 - 0 1 - 0 1 - 1 1 - 0 2 - 0 1 - 1 1 - 0 1 - 0 2 - 0 1 - 1 1 - 0 1 - 0 2 - 0 1 - 0 1 - 0 1 - 0 2 - 0 1 - 0 2 - 0 1 - 0 1 - 0 1 - 0 1 - 0 2 - 0 1 - 0 1 - 0 1 - 0 2 - -1 1 - 0 1 - 0 1 - -1 1 - 0 1 - 0 1 - 0 2 - -1 1 - 0 1 - -1 1 - 0 1 - 0 2 - -1 1 - 0 1 - -1 1 - 0 1 - -1 1 - 0 1 - -1 1 - 0 1 - -1 1 - -1 1 - 0 1 - -1 1 - -1 2 - 0 1 - -1 1 - -1 1 - -1 1 - 0 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - 0 1 - -2 1 - 0 1 - -1 0 - -1 1 - -1 1 - -1 1 - -1 1 - -1 0 - 0 1 - -1 1 - -1 1 - -2 0 - -1 1 - 0 1 - -1 0 - -1 1 - -2 0 - -1 1 - -1 1 - -1 0 - -1 1 - -1 0 - -1 1 - -1 0 - -1 1 - -2 0 - -1 1 - -1 0 - -1 1 - -1 0 - -1 0 - -1 1 - -1 0 - -1 0 - -2 1 - -1 0 - -1 0 - -1 1 - -2 0 - -1 0 - -1 0 - -1 0 - -2 1 - -1 0 - -1 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -1 0 - -1 0 - -2 0 - -1 0 - -1 0 - -1 0 - -2 0 - -1 0 - -1 -1 - -1 0 - -2 0 - -1 0 - -1 -1 - -1 0 - -1 0 - -1 0 - -2 -1 - -1 0 - -1 -1 - -1 0 - -1 0 - -2 -1 - -1 -1 - -1 0 - -1 0 - -1 -1 - -1 0 - -1 -1 - -1 0 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -1 0 - -1 -1 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 0 - 0 -1 - -1 -1 - -1 -1 - -1 -1 - 0 -1 - -1 -1 - -1 0 - 0 -1 - -1 -2 - -1 -1 - -1 -1 - -1 -1 - 0 -2 - -1 -1 - -1 -1 - 0 -1 - -1 -1 - 0 -1 - -1 -1 - 0 -1 - -1 -1 - -1 -2 - 0 -1 - 0 -1 - -1 -1 - 0 -1 - 0 -1 - -1 -1 - 0 -1 - -1 -1 - 0 -2 - 0 -1 - -1 -1 - 0 -1 - 0 -2 - 0 -1 - 0 -1 - -1 -1 - 0 -2 - 0 -1 - 0 -1 - 0 -1 - 0 -2 - 0 -1 - -1 -1 - 0 -2 - C : 1.000 1.000 1.000 sco O ; 
+1453 735 N M 0 -1 - 0 -1 - 0 -1 - 0 -2 - 0 -1 - 1 -1 - 0 -1 - 0 -2 - 0 -1 - 0 -1 - 0 -1 - 1 -2 - 0 -1 - 0 -1 - 0 -1 - 1 -1 - 0 -1 - 0 -2 - 1 -1 - 0 -1 - 1 -1 - 0 -1 - 1 -2 - 0 -1 - 1 -1 - 0 -1 - 0 -1 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 0 -1 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 1 -1 - 1 0 - 1 -1 - 1 -1 - 0 -1 - 1 0 - 1 -1 - 1 -1 - 1 0 - 1 -1 - 1 -1 - 1 -1 - 1 0 - 1 -1 - 1 0 - 1 -1 - 1 -1 - 1 0 - 1 -1 - 1 0 - 1 -1 - 1 0 - 2 -1 - 1 -1 - 1 0 - 1 0 - 1 -1 - 1 0 - 1 -1 - 2 0 - 1 0 - 1 -1 - 1 0 - 1 0 - 2 -1 - 1 0 - 1 0 - 1 0 - 2 0 - 1 -1 - 1 0 - 1 0 - 2 0 - 1 0 - 1 0 - 1 0 - 2 -1 - 1 0 - 2 0 - 1 0 - 1 0 - 1 0 - 1 0 - 2 1 - 1 0 - 1 0 - 1 0 - 2 0 - 1 0 - 1 1 - 1 0 - 1 0 - 1 0 - 2 1 - 1 0 - 1 0 - 1 1 - 1 0 - 1 1 - 2 0 - 1 1 - 1 0 - 1 1 - 1 0 - 1 0 - 1 1 - 1 0 - 1 1 - 1 1 - 1 0 - 1 1 - 2 1 - 1 0 - 1 1 - 1 0 - 0 1 - 1 1 - 1 0 - 1 1 - 1 1 - 1 1 - 1 1 - 1 0 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 0 1 - 1 1 - 1 0 - 1 1 - 0 1 - 1 1 - 1 1 - 1 1 - 0 1 - 1 1 - 1 1 - 0 1 - 1 1 - 1 1 - 0 1 - 1 1 - 0 1 - 1 1 - 0 1 - 1 1 - 0 2 - 1 1 - 1 1 - 0 1 - 0 1 - 1 1 - 0 1 - 0 2 - 1 1 - 0 1 - 0 1 - 1 1 - 0 2 - 0 1 - 1 1 - 0 1 - 0 2 - 0 1 - 1 1 - 0 1 - 0 2 - 0 1 - 0 1 - 0 1 - 0 2 - 0 1 - 0 2 - 0 1 - 0 1 - 0 1 - 0 1 - 0 2 - 0 1 - 0 1 - 0 1 - 0 2 - -1 1 - 0 1 - 0 1 - -1 1 - 0 1 - 0 1 - 0 2 - -1 1 - 0 1 - -1 1 - 0 1 - 0 2 - -1 1 - 0 1 - -1 1 - 0 1 - -1 1 - 0 1 - -1 1 - 0 1 - -1 1 - -1 1 - 0 1 - -1 1 - -1 2 - 0 1 - -1 1 - -1 1 - -1 1 - 0 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - 0 1 - -2 1 - 0 1 - -1 0 - -1 1 - -1 1 - -1 1 - -1 1 - -1 0 - 0 1 - -1 1 - -1 1 - -2 0 - -1 1 - 0 1 - -1 0 - -1 1 - -2 0 - -1 1 - -1 1 - -1 0 - -1 1 - -1 0 - -1 1 - -1 0 - -1 1 - -2 0 - -1 1 - -1 0 - -1 1 - -1 0 - -1 0 - -1 1 - -1 0 - -1 0 - -2 1 - -1 0 - -1 0 - -1 1 - -2 0 - -1 0 - -1 0 - -1 0 - -2 1 - -1 0 - -1 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -1 0 - -1 0 - -2 0 - -1 0 - -1 0 - -1 0 - -2 0 - -1 0 - -1 -1 - -1 0 - -2 0 - -1 0 - -1 -1 - -1 0 - -1 0 - -1 0 - -2 -1 - -1 0 - -1 -1 - -1 0 - -1 0 - -2 -1 - -1 -1 - -1 0 - -1 0 - -1 -1 - -1 0 - -1 -1 - -1 0 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -1 0 - -1 -1 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 0 - 0 -1 - -1 -1 - -1 -1 - -1 -1 - 0 -1 - -1 -1 - -1 0 - 0 -1 - -1 -2 - -1 -1 - -1 -1 - -1 -1 - 0 -2 - -1 -1 - -1 -1 - 0 -1 - -1 -1 - 0 -1 - -1 -1 - 0 -1 - -1 -1 - -1 -2 - 0 -1 - 0 -1 - -1 -1 - 0 -1 - 0 -1 - -1 -1 - 0 -1 - -1 -1 - 0 -2 - 0 -1 - -1 -1 - 0 -1 - 0 -2 - 0 -1 - 0 -1 - -1 -1 - 0 -2 - 0 -1 - 0 -1 - 0 -1 - 0 -2 - 0 -1 - -1 -1 - 0 -2 - C 1 Lw [ 5 25 ] setdsh 0 0 0 sco K : 1461 719 685 33 rc 0 0 0 sco (F2_29) cvn
+F2
+29 
+xF 
+F2_29
+Ji 
+1491 719 M 
+-0.343 0 (E)A 
+-1.500 0 (v)A 
+-0.124 0 (en)A 
+-0.062 0 (t)A 
+; 
+1392 649 N M 0 -1 - 0 -1 - 0 -2 - 0 -1 - 0 -1 - 0 -1 - 0 -2 - 1 -1 - 0 -1 - 0 -1 - 0 -2 - 1 -1 - 0 -1 - 0 -1 - 0 -1 - 0 -1 - 1 -2 - 0 -1 - 1 -1 - 0 -1 - 0 -1 - 1 -2 - 0 -1 - 1 -1 - 0 -1 - 1 -1 - 0 -1 - 1 -1 - 0 -1 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 0 -2 - 1 -1 - 1 -1 - 0 -1 - 1 0 - 0 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 0 - 1 -1 - 1 -1 - 1 0 - 1 -1 - 1 -1 - 1 -1 - 1 0 - 1 -1 - 1 0 - 1 -1 - 1 -1 - 1 0 - 1 -1 - 1 0 - 1 -1 - 1 0 - 2 -1 - 1 0 - 1 -1 - 1 0 - 1 0 - 1 -1 - 1 0 - 1 -1 - 2 0 - 1 0 - 1 0 - 1 -1 - 2 0 - 1 0 - 1 -1 - 1 0 - 2 0 - 1 0 - 1 0 - 1 -1 - 2 0 - 1 0 - 1 0 - 2 0 - 1 0 - 1 0 - 2 0 - 1 0 - 1 0 - 1 0 - 1 0 - 2 0 - 1 0 - 1 1 - 1 0 - 2 0 - 1 1 - 1 0 - 1 0 - 1 0 - 1 0 - 2 1 - 1 0 - 1 1 - 1 0 - 1 0 - 1 1 - 2 0 - 1 1 - 1 0 - 1 1 - 1 0 - 1 1 - 1 0 - 1 1 - 1 0 - 1 1 - 1 1 - 1 0 - 1 1 - 1 1 - 1 0 - 1 1 - 1 0 - 1 1 - 1 1 - 1 1 - 1 1 - 1 0 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 0 1 - 1 0 - 1 1 - 1 1 - 0 1 - 1 1 - 1 1 - 0 1 - 1 1 - 1 1 - 1 1 - 1 1 - 0 1 - 1 1 - 0 1 - 1 1 - 1 1 - 0 1 - 1 1 - 0 1 - 1 1 - 0 1 - 1 2 - 0 1 - 1 1 - 0 1 - 0 1 - 1 1 - 0 1 - 1 1 - 0 2 - 0 1 - 0 1 - 1 1 - 0 2 - 0 1 - 1 1 - 0 1 - 0 2 - 0 1 - 0 1 - 1 1 - 0 2 - 0 1 - 0 1 - 0 2 - 0 1 - 0 1 - 0 2 - 0 1 - 0 1 - 0 1 - 0 1 - 0 2 - 0 1 - -1 1 - 0 1 - 0 2 - 0 1 - -1 1 - 0 1 - 0 1 - 0 1 - -1 1 - 0 2 - 0 1 - -1 1 - 0 1 - -1 1 - 0 2 - -1 1 - 0 1 - -1 1 - 0 1 - 0 1 - -1 1 - -1 1 - 0 1 - -1 1 - -1 1 - 0 1 - -1 1 - 0 1 - -1 1 - -1 1 - 0 1 - -1 1 - -1 1 - -1 1 - 0 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 0 - -1 1 - -1 1 - -1 0 - -1 1 - -1 1 - -1 1 - -1 1 - -1 0 - -1 1 - -1 0 - -1 1 - -1 0 - -1 1 - -1 1 - -1 0 - -1 1 - -1 0 - -2 1 - -1 0 - -1 1 - -1 0 - -1 0 - -1 1 - -1 0 - -1 1 - -1 0 - -2 0 - -1 0 - -1 1 - -1 0 - -2 0 - -1 1 - -1 0 - -1 0 - -2 0 - -1 0 - -1 1 - -1 0 - -2 0 - -1 0 - -1 0 - -2 0 - -1 0 - -1 0 - -2 0 - -1 0 - -1 0 - -1 0 - -2 0 - -1 0 - -1 -1 - -1 0 - -2 0 - -1 0 - -1 -1 - -1 0 - -1 0 - -1 0 - -2 -1 - -1 0 - -1 0 - -1 -1 - -1 0 - -2 -1 - -1 0 - -1 -1 - -1 0 - -1 -1 - -1 0 - -1 0 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -1 -1 - -1 0 - -2 -1 - -1 0 - -1 -1 - 0 -1 - -1 0 - -1 -1 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - 0 -1 - -1 -1 - 0 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - 0 -1 - -1 -1 - 0 -1 - -1 -1 - -1 -1 - 0 -1 - -1 -1 - 0 -1 - -1 -1 - 0 -2 - -1 -1 - 0 -1 - -1 -1 - 0 -1 - 0 -1 - -1 -1 - 0 -1 - -1 -1 - 0 -2 - 0 -1 - 0 -1 - -1 -1 - 0 -2 - 0 -1 - -1 -1 - 0 -1 - 0 -2 - 0 -1 - 0 -1 - 0 -1 - 0 -2 - 0 -1 - -1 -1 - 0 -1 - 0 -2 - C : 1.000 1.000 1.000 sco O ; 
+1392 649 N M 0 -1 - 0 -1 - 0 -2 - 0 -1 - 0 -1 - 0 -1 - 0 -2 - 1 -1 - 0 -1 - 0 -1 - 0 -2 - 1 -1 - 0 -1 - 0 -1 - 0 -1 - 0 -1 - 1 -2 - 0 -1 - 1 -1 - 0 -1 - 0 -1 - 1 -2 - 0 -1 - 1 -1 - 0 -1 - 1 -1 - 0 -1 - 1 -1 - 0 -1 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 0 -2 - 1 -1 - 1 -1 - 0 -1 - 1 0 - 0 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 0 - 1 -1 - 1 -1 - 1 0 - 1 -1 - 1 -1 - 1 -1 - 1 0 - 1 -1 - 1 0 - 1 -1 - 1 -1 - 1 0 - 1 -1 - 1 0 - 1 -1 - 1 0 - 2 -1 - 1 0 - 1 -1 - 1 0 - 1 0 - 1 -1 - 1 0 - 1 -1 - 2 0 - 1 0 - 1 0 - 1 -1 - 2 0 - 1 0 - 1 -1 - 1 0 - 2 0 - 1 0 - 1 0 - 1 -1 - 2 0 - 1 0 - 1 0 - 2 0 - 1 0 - 1 0 - 2 0 - 1 0 - 1 0 - 1 0 - 1 0 - 2 0 - 1 0 - 1 1 - 1 0 - 2 0 - 1 1 - 1 0 - 1 0 - 1 0 - 1 0 - 2 1 - 1 0 - 1 1 - 1 0 - 1 0 - 1 1 - 2 0 - 1 1 - 1 0 - 1 1 - 1 0 - 1 1 - 1 0 - 1 1 - 1 0 - 1 1 - 1 1 - 1 0 - 1 1 - 1 1 - 1 0 - 1 1 - 1 0 - 1 1 - 1 1 - 1 1 - 1 1 - 1 0 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 0 1 - 1 0 - 1 1 - 1 1 - 0 1 - 1 1 - 1 1 - 0 1 - 1 1 - 1 1 - 1 1 - 1 1 - 0 1 - 1 1 - 0 1 - 1 1 - 1 1 - 0 1 - 1 1 - 0 1 - 1 1 - 0 1 - 1 2 - 0 1 - 1 1 - 0 1 - 0 1 - 1 1 - 0 1 - 1 1 - 0 2 - 0 1 - 0 1 - 1 1 - 0 2 - 0 1 - 1 1 - 0 1 - 0 2 - 0 1 - 0 1 - 1 1 - 0 2 - 0 1 - 0 1 - 0 2 - 0 1 - 0 1 - 0 2 - 0 1 - 0 1 - 0 1 - 0 1 - 0 2 - 0 1 - -1 1 - 0 1 - 0 2 - 0 1 - -1 1 - 0 1 - 0 1 - 0 1 - -1 1 - 0 2 - 0 1 - -1 1 - 0 1 - -1 1 - 0 2 - -1 1 - 0 1 - -1 1 - 0 1 - 0 1 - -1 1 - -1 1 - 0 1 - -1 1 - -1 1 - 0 1 - -1 1 - 0 1 - -1 1 - -1 1 - 0 1 - -1 1 - -1 1 - -1 1 - 0 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 0 - -1 1 - -1 1 - -1 0 - -1 1 - -1 1 - -1 1 - -1 1 - -1 0 - -1 1 - -1 0 - -1 1 - -1 0 - -1 1 - -1 1 - -1 0 - -1 1 - -1 0 - -2 1 - -1 0 - -1 1 - -1 0 - -1 0 - -1 1 - -1 0 - -1 1 - -1 0 - -2 0 - -1 0 - -1 1 - -1 0 - -2 0 - -1 1 - -1 0 - -1 0 - -2 0 - -1 0 - -1 1 - -1 0 - -2 0 - -1 0 - -1 0 - -2 0 - -1 0 - -1 0 - -2 0 - -1 0 - -1 0 - -1 0 - -2 0 - -1 0 - -1 -1 - -1 0 - -2 0 - -1 0 - -1 -1 - -1 0 - -1 0 - -1 0 - -2 -1 - -1 0 - -1 0 - -1 -1 - -1 0 - -2 -1 - -1 0 - -1 -1 - -1 0 - -1 -1 - -1 0 - -1 0 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -1 -1 - -1 0 - -2 -1 - -1 0 - -1 -1 - 0 -1 - -1 0 - -1 -1 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - 0 -1 - -1 -1 - 0 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - 0 -1 - -1 -1 - 0 -1 - -1 -1 - -1 -1 - 0 -1 - -1 -1 - 0 -1 - -1 -1 - 0 -2 - -1 -1 - 0 -1 - -1 -1 - 0 -1 - 0 -1 - -1 -1 - 0 -1 - -1 -1 - 0 -2 - 0 -1 - 0 -1 - -1 -1 - 0 -2 - 0 -1 - -1 -1 - 0 -1 - 0 -2 - 0 -1 - 0 -1 - 0 -1 - 0 -2 - 0 -1 - -1 -1 - 0 -1 - 0 -2 - C 0 0 0 sco K : 1400 633 746 33 rc 0 0 0 sco F2_29
+Ji 
+1430 633 M 
+-0.343 0 (E)A 
+-1.500 0 (v)A 
+-0.124 0 (en)A 
+-0.062 0 (t)A 
+; 
+1932 1539 N M 0 5 - 0 6 - -1 5 - -1 5 - -2 6 - -2 4 - -2 5 - -2 5 - -2 4 - -3 5 - -3 4 - -4 4 - -3 4 - -4 4 - -4 3 - -4 4 - -5 3 - -5 3 - -5 3 - -5 3 - -5 2 - -6 3 - -6 3 - -6 2 - -6 2 - -6 1 - -6 2 - -7 2 - -7 1 - -7 1 - -7 1 - -7 1 - -8 1 - -7 0 - -8 1 - -8 0 - -8 0 - -8 0 - -8 0 - -8 -1 - -8 0 - -9 -1 - -9 -1 - -8 -1 - -9 -2 - -9 -1 - -9 -2 - -9 -2 - -8 -2 - -9 -2 - -9 -3 - -9 -2 - -9 -3 - -9 -3 - -10 -3 - -9 -3 - -9 -4 - -9 -3 - -9 -4 - -9 -5 - -10 -4 - -9 -4 - -9 -5 - -9 -5 - -9 -5 - -9 -5 - -9 -5 - -9 -6 - -9 -6 - -8 -6 - -9 -6 - -9 -7 - -9 -6 - -8 -7 - -8 -7 - -9 -7 - -8 -8 - -8 -7 - -8 -8 - -8 -8 - -8 -8 - -7 -9 - -8 -8 - -7 -9 - -8 -9 - -7 -10 - -6 -9 - -7 -10 - -7 -10 - -6 -10 - -7 -10 - -6 -11 - -6 -10 - -5 -11 - -6 -11 - -5 -12 - 4 Lw solid 0 0 0 sco K 
+1278 1320 N M -2 28 - 7 -17 - -5 -11 - C : 0 0 0 sco O ; 0 0 0 sco K 
+1278 1320 N M 21 18 - -16 -7 - -5 -11 - C : 0 0 0 sco O ; 0 0 0 sco K 
+1711 1210 N M 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 1 -2 - 0 -2 - 0 -2 - 1 -2 - 0 -2 - 1 -2 - 0 -2 - 0 -2 - 1 -2 - 0 -2 - 1 -2 - 0 -1 - 1 -2 - 1 -2 - 1 -2 - 0 -2 - 1 -2 - 1 -1 - 1 -2 - 1 -2 - 0 -2 - 1 -1 - 1 -2 - 1 -2 - 1 -1 - 1 -2 - 1 -2 - 1 -1 - 1 -2 - 1 -1 - 1 -2 - 1 -1 - 1 -2 - 2 -2 - 1 -1 - 1 -2 - 1 -1 - 2 -2 - 1 -1 - 1 -1 - 2 -2 - 1 -1 - 1 -1 - 2 -2 - 1 -1 - 2 -1 - 1 -1 - 2 -2 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 2 -1 - 1 -1 - 2 -1 - 2 -1 - 1 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 0 - 1 -1 - 2 0 - 2 -1 - 2 -1 - 2 0 - 2 -1 - 2 -1 - 1 0 - 2 -1 - 2 0 - 2 -1 - 2 0 - 2 0 - 2 0 - 2 -1 - 2 0 - 2 0 - 2 -1 - 3 0 - 2 0 - 2 0 - 2 0 - 2 0 - 2 0 - 2 0 - 1 0 - 3 0 - 2 0 - 2 0 - 2 0 - 1 1 - 2 0 - 2 0 - 3 1 - 2 0 - 1 0 - 2 1 - 2 0 - 2 1 - 2 0 - 2 1 - 2 0 - 2 1 - 2 1 - 2 0 - 1 1 - 2 1 - 2 1 - 2 1 - 1 0 - 2 1 - 2 1 - 2 1 - 1 1 - 2 1 - 2 1 - 1 1 - 2 1 - 2 1 - 1 1 - 1 1 - 2 1 - 2 1 - 1 2 - 2 1 - 1 1 - 2 1 - 1 2 - 2 1 - 1 1 - 1 2 - 2 1 - 1 1 - 1 2 - 1 1 - 2 2 - 1 1 - 1 1 - 1 2 - 1 1 - 2 2 - 1 2 - 1 1 - 1 2 - 1 1 - 1 2 - 1 2 - 1 1 - 1 2 - 1 2 - 1 1 - 0 2 - 1 2 - 1 2 - 1 2 - 1 1 - 0 2 - 1 2 - 1 2 - 0 2 - 1 2 - 1 2 - 0 1 - 0 2 - 1 2 - 1 2 - 0 2 - 1 2 - 0 2 - 0 2 - 0 2 - 1 2 - 0 2 - 0 2 - 0 2 - 0 2 - 1 3 - 0 2 - 0 2 - 0 2 - 0 1 - 0 2 - 0 2 - 0 2 - -1 3 - 0 1 - 0 2 - 0 2 - -1 2 - 0 2 - 0 2 - -1 2 - 0 2 - -1 2 - 0 2 - -1 2 - 0 2 - -1 2 - 0 2 - -1 2 - -1 1 - -1 2 - -1 2 - 0 2 - -1 1 - -1 2 - -1 2 - 0 2 - -1 1 - -1 2 - -1 2 - -1 1 - -1 2 - -1 2 - -1 1 - -1 2 - -1 1 - -1 2 - -2 1 - -1 2 - -1 2 - -1 1 - -2 1 - -1 2 - -1 1 - -2 2 - -1 1 - -1 2 - -2 1 - -1 1 - -2 1 - -1 2 - -1 1 - -2 1 - -1 1 - -2 1 - -1 1 - -2 2 - -2 1 - -1 1 - -2 1 - -1 1 - -2 1 - -2 1 - -1 1 - -2 1 - -2 0 - -2 1 - -2 1 - -1 1 - -2 1 - -2 1 - -2 0 - -1 1 - -2 1 - -2 0 - -2 1 - -2 0 - -2 1 - -2 0 - -2 1 - -2 1 - -2 0 - -2 0 - -2 1 - -1 0 - -2 0 - -3 1 - -2 0 - -2 0 - -2 0 - -2 0 - -2 0 - -2 1 - -2 0 - -2 0 - -2 0 - -2 0 - -2 0 - -2 -1 - -2 0 - -2 0 - -2 0 - -2 0 - -2 -1 - -2 0 - -2 -1 - -2 0 - -2 0 - -2 -1 - -2 0 - -1 -1 - -2 0 - -2 -1 - -2 -1 - -2 0 - -2 -1 - -2 -1 - -2 -1 - -1 0 - -2 -1 - -2 -1 - -1 -1 - -2 -1 - -2 0 - -1 -1 - -2 -1 - -2 -1 - -1 -1 - -2 -1 - -2 -2 - -1 -1 - -2 -1 - -1 -1 - -2 -1 - -2 -1 - -1 -1 - -1 -2 - -2 -1 - -1 -1 - -2 -1 - -1 -2 - -2 -1 - -1 -2 - -1 -1 - -1 -1 - -2 -2 - -1 -1 - -1 -2 - -1 -1 - -2 -2 - -1 -1 - -1 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - -1 -2 - -1 -2 - -1 -2 - 0 -1 - -1 -2 - -1 -2 - 0 -2 - -1 -2 - -1 -1 - 0 -2 - -1 -2 - 0 -2 - -1 -2 - 0 -2 - -1 -2 - 0 -2 - -1 -2 - 0 -2 - 0 -2 - -1 -2 - 0 -2 - 0 -2 - -1 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - C 
+1711 1210 N M 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 1 -2 - 0 -2 - 0 -2 - 1 -2 - 0 -2 - 1 -2 - 0 -2 - 0 -2 - 1 -2 - 0 -2 - 1 -2 - 0 -1 - 1 -2 - 1 -2 - 1 -2 - 0 -2 - 1 -2 - 1 -1 - 1 -2 - 1 -2 - 0 -2 - 1 -1 - 1 -2 - 1 -2 - 1 -1 - 1 -2 - 1 -2 - 1 -1 - 1 -2 - 1 -1 - 1 -2 - 1 -1 - 1 -2 - 2 -2 - 1 -1 - 1 -2 - 1 -1 - 2 -2 - 1 -1 - 1 -1 - 2 -2 - 1 -1 - 1 -1 - 2 -2 - 1 -1 - 2 -1 - 1 -1 - 2 -2 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 2 -1 - 1 -1 - 2 -1 - 2 -1 - 1 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 0 - 1 -1 - 2 0 - 2 -1 - 2 -1 - 2 0 - 2 -1 - 2 -1 - 1 0 - 2 -1 - 2 0 - 2 -1 - 2 0 - 2 0 - 2 0 - 2 -1 - 2 0 - 2 0 - 2 -1 - 3 0 - 2 0 - 2 0 - 2 0 - 2 0 - 2 0 - 2 0 - 1 0 - 3 0 - 2 0 - 2 0 - 2 0 - 1 1 - 2 0 - 2 0 - 3 1 - 2 0 - 1 0 - 2 1 - 2 0 - 2 1 - 2 0 - 2 1 - 2 0 - 2 1 - 2 1 - 2 0 - 1 1 - 2 1 - 2 1 - 2 1 - 1 0 - 2 1 - 2 1 - 2 1 - 1 1 - 2 1 - 2 1 - 1 1 - 2 1 - 2 1 - 1 1 - 1 1 - 2 1 - 2 1 - 1 2 - 2 1 - 1 1 - 2 1 - 1 2 - 2 1 - 1 1 - 1 2 - 2 1 - 1 1 - 1 2 - 1 1 - 2 2 - 1 1 - 1 1 - 1 2 - 1 1 - 2 2 - 1 2 - 1 1 - 1 2 - 1 1 - 1 2 - 1 2 - 1 1 - 1 2 - 1 2 - 1 1 - 0 2 - 1 2 - 1 2 - 1 2 - 1 1 - 0 2 - 1 2 - 1 2 - 0 2 - 1 2 - 1 2 - 0 1 - 0 2 - 1 2 - 1 2 - 0 2 - 1 2 - 0 2 - 0 2 - 0 2 - 1 2 - 0 2 - 0 2 - 0 2 - 0 2 - 1 3 - 0 2 - 0 2 - 0 2 - 0 1 - 0 2 - 0 2 - 0 2 - -1 3 - 0 1 - 0 2 - 0 2 - -1 2 - 0 2 - 0 2 - -1 2 - 0 2 - -1 2 - 0 2 - -1 2 - 0 2 - -1 2 - 0 2 - -1 2 - -1 1 - -1 2 - -1 2 - 0 2 - -1 1 - -1 2 - -1 2 - 0 2 - -1 1 - -1 2 - -1 2 - -1 1 - -1 2 - -1 2 - -1 1 - -1 2 - -1 1 - -1 2 - -2 1 - -1 2 - -1 2 - -1 1 - -2 1 - -1 2 - -1 1 - -2 2 - -1 1 - -1 2 - -2 1 - -1 1 - -2 1 - -1 2 - -1 1 - -2 1 - -1 1 - -2 1 - -1 1 - -2 2 - -2 1 - -1 1 - -2 1 - -1 1 - -2 1 - -2 1 - -1 1 - -2 1 - -2 0 - -2 1 - -2 1 - -1 1 - -2 1 - -2 1 - -2 0 - -1 1 - -2 1 - -2 0 - -2 1 - -2 0 - -2 1 - -2 0 - -2 1 - -2 1 - -2 0 - -2 0 - -2 1 - -1 0 - -2 0 - -3 1 - -2 0 - -2 0 - -2 0 - -2 0 - -2 0 - -2 1 - -2 0 - -2 0 - -2 0 - -2 0 - -2 0 - -2 -1 - -2 0 - -2 0 - -2 0 - -2 0 - -2 -1 - -2 0 - -2 -1 - -2 0 - -2 0 - -2 -1 - -2 0 - -1 -1 - -2 0 - -2 -1 - -2 -1 - -2 0 - -2 -1 - -2 -1 - -2 -1 - -1 0 - -2 -1 - -2 -1 - -1 -1 - -2 -1 - -2 0 - -1 -1 - -2 -1 - -2 -1 - -1 -1 - -2 -1 - -2 -2 - -1 -1 - -2 -1 - -1 -1 - -2 -1 - -2 -1 - -1 -1 - -1 -2 - -2 -1 - -1 -1 - -2 -1 - -1 -2 - -2 -1 - -1 -2 - -1 -1 - -1 -1 - -2 -2 - -1 -1 - -1 -2 - -1 -1 - -2 -2 - -1 -1 - -1 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - -1 -2 - -1 -2 - -1 -2 - 0 -1 - -1 -2 - -1 -2 - 0 -2 - -1 -2 - -1 -1 - 0 -2 - -1 -2 - 0 -2 - -1 -2 - 0 -2 - -1 -2 - 0 -2 - -1 -2 - 0 -2 - 0 -2 - -1 -2 - 0 -2 - 0 -2 - -1 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - C 0 0 0 sco K 
+1111 1210 N M 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 1 -2 - 0 -2 - 0 -2 - 1 -2 - 0 -2 - 1 -2 - 0 -2 - 0 -2 - 1 -2 - 0 -2 - 1 -2 - 0 -1 - 1 -2 - 1 -2 - 1 -2 - 0 -2 - 1 -2 - 1 -1 - 1 -2 - 1 -2 - 0 -2 - 1 -1 - 1 -2 - 1 -2 - 1 -1 - 1 -2 - 1 -2 - 1 -1 - 1 -2 - 1 -1 - 1 -2 - 1 -1 - 1 -2 - 2 -2 - 1 -1 - 1 -2 - 1 -1 - 2 -2 - 1 -1 - 1 -1 - 2 -2 - 1 -1 - 1 -1 - 2 -2 - 1 -1 - 2 -1 - 1 -1 - 2 -2 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 2 -1 - 1 -1 - 2 -1 - 2 -1 - 1 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 0 - 1 -1 - 2 0 - 2 -1 - 2 -1 - 2 0 - 2 -1 - 2 -1 - 1 0 - 2 -1 - 2 0 - 2 -1 - 2 0 - 2 0 - 2 0 - 2 -1 - 2 0 - 2 0 - 2 -1 - 3 0 - 2 0 - 2 0 - 2 0 - 2 0 - 2 0 - 2 0 - 1 0 - 3 0 - 2 0 - 2 0 - 2 0 - 1 1 - 2 0 - 2 0 - 3 1 - 2 0 - 1 0 - 2 1 - 2 0 - 2 1 - 2 0 - 2 1 - 2 0 - 2 1 - 2 1 - 2 0 - 1 1 - 2 1 - 2 1 - 2 1 - 1 0 - 2 1 - 2 1 - 2 1 - 1 1 - 2 1 - 2 1 - 1 1 - 2 1 - 2 1 - 1 1 - 1 1 - 2 1 - 2 1 - 1 2 - 2 1 - 1 1 - 2 1 - 1 2 - 2 1 - 1 1 - 1 2 - 2 1 - 1 1 - 1 2 - 1 1 - 2 2 - 1 1 - 1 1 - 1 2 - 1 1 - 2 2 - 1 2 - 1 1 - 1 2 - 1 1 - 1 2 - 1 2 - 1 1 - 1 2 - 1 2 - 1 1 - 0 2 - 1 2 - 1 2 - 1 2 - 1 1 - 0 2 - 1 2 - 1 2 - 0 2 - 1 2 - 1 2 - 0 1 - 0 2 - 1 2 - 1 2 - 0 2 - 1 2 - 0 2 - 0 2 - 0 2 - 1 2 - 0 2 - 0 2 - 0 2 - 0 2 - 1 3 - 0 2 - 0 2 - 0 2 - 0 1 - 0 2 - 0 2 - 0 2 - -1 3 - 0 1 - 0 2 - 0 2 - -1 2 - 0 2 - 0 2 - -1 2 - 0 2 - -1 2 - 0 2 - -1 2 - 0 2 - -1 2 - 0 2 - -1 2 - -1 1 - -1 2 - -1 2 - 0 2 - -1 1 - -1 2 - -1 2 - 0 2 - -1 1 - -1 2 - -1 2 - -1 1 - -1 2 - -1 2 - -1 1 - -1 2 - -1 1 - -1 2 - -2 1 - -1 2 - -1 2 - -1 1 - -2 1 - -1 2 - -1 1 - -2 2 - -1 1 - -1 2 - -2 1 - -1 1 - -2 1 - -1 2 - -1 1 - -2 1 - -1 1 - -2 1 - -1 1 - -2 2 - -2 1 - -1 1 - -2 1 - -1 1 - -2 1 - -2 1 - -1 1 - -2 1 - -2 0 - -2 1 - -2 1 - -1 1 - -2 1 - -2 1 - -2 0 - -1 1 - -2 1 - -2 0 - -2 1 - -2 0 - -2 1 - -2 0 - -2 1 - -2 1 - -2 0 - -2 0 - -2 1 - -1 0 - -2 0 - -3 1 - -2 0 - -2 0 - -2 0 - -2 0 - -2 0 - -2 1 - -2 0 - -2 0 - -2 0 - -2 0 - -2 0 - -2 -1 - -2 0 - -2 0 - -2 0 - -2 0 - -2 -1 - -2 0 - -2 -1 - -2 0 - -2 0 - -2 -1 - -2 0 - -1 -1 - -2 0 - -2 -1 - -2 -1 - -2 0 - -2 -1 - -2 -1 - -2 -1 - -1 0 - -2 -1 - -2 -1 - -1 -1 - -2 -1 - -2 0 - -1 -1 - -2 -1 - -2 -1 - -1 -1 - -2 -1 - -2 -2 - -1 -1 - -2 -1 - -1 -1 - -2 -1 - -2 -1 - -1 -1 - -1 -2 - -2 -1 - -1 -1 - -2 -1 - -1 -2 - -2 -1 - -1 -2 - -1 -1 - -1 -1 - -2 -2 - -1 -1 - -1 -2 - -1 -1 - -2 -2 - -1 -1 - -1 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - -1 -2 - -1 -2 - -1 -2 - 0 -1 - -1 -2 - -1 -2 - 0 -2 - -1 -2 - -1 -1 - 0 -2 - -1 -2 - 0 -2 - -1 -2 - 0 -2 - -1 -2 - 0 -2 - -1 -2 - 0 -2 - 0 -2 - -1 -2 - 0 -2 - 0 -2 - -1 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - C 
+1111 1210 N M 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 1 -2 - 0 -2 - 0 -2 - 1 -2 - 0 -2 - 1 -2 - 0 -2 - 0 -2 - 1 -2 - 0 -2 - 1 -2 - 0 -1 - 1 -2 - 1 -2 - 1 -2 - 0 -2 - 1 -2 - 1 -1 - 1 -2 - 1 -2 - 0 -2 - 1 -1 - 1 -2 - 1 -2 - 1 -1 - 1 -2 - 1 -2 - 1 -1 - 1 -2 - 1 -1 - 1 -2 - 1 -1 - 1 -2 - 2 -2 - 1 -1 - 1 -2 - 1 -1 - 2 -2 - 1 -1 - 1 -1 - 2 -2 - 1 -1 - 1 -1 - 2 -2 - 1 -1 - 2 -1 - 1 -1 - 2 -2 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 2 -1 - 1 -1 - 2 -1 - 2 -1 - 1 -1 - 2 -1 - 2 -1 - 2 -1 - 2 -1 - 2 0 - 1 -1 - 2 0 - 2 -1 - 2 -1 - 2 0 - 2 -1 - 2 -1 - 1 0 - 2 -1 - 2 0 - 2 -1 - 2 0 - 2 0 - 2 0 - 2 -1 - 2 0 - 2 0 - 2 -1 - 3 0 - 2 0 - 2 0 - 2 0 - 2 0 - 2 0 - 2 0 - 1 0 - 3 0 - 2 0 - 2 0 - 2 0 - 1 1 - 2 0 - 2 0 - 3 1 - 2 0 - 1 0 - 2 1 - 2 0 - 2 1 - 2 0 - 2 1 - 2 0 - 2 1 - 2 1 - 2 0 - 1 1 - 2 1 - 2 1 - 2 1 - 1 0 - 2 1 - 2 1 - 2 1 - 1 1 - 2 1 - 2 1 - 1 1 - 2 1 - 2 1 - 1 1 - 1 1 - 2 1 - 2 1 - 1 2 - 2 1 - 1 1 - 2 1 - 1 2 - 2 1 - 1 1 - 1 2 - 2 1 - 1 1 - 1 2 - 1 1 - 2 2 - 1 1 - 1 1 - 1 2 - 1 1 - 2 2 - 1 2 - 1 1 - 1 2 - 1 1 - 1 2 - 1 2 - 1 1 - 1 2 - 1 2 - 1 1 - 0 2 - 1 2 - 1 2 - 1 2 - 1 1 - 0 2 - 1 2 - 1 2 - 0 2 - 1 2 - 1 2 - 0 1 - 0 2 - 1 2 - 1 2 - 0 2 - 1 2 - 0 2 - 0 2 - 0 2 - 1 2 - 0 2 - 0 2 - 0 2 - 0 2 - 1 3 - 0 2 - 0 2 - 0 2 - 0 1 - 0 2 - 0 2 - 0 2 - -1 3 - 0 1 - 0 2 - 0 2 - -1 2 - 0 2 - 0 2 - -1 2 - 0 2 - -1 2 - 0 2 - -1 2 - 0 2 - -1 2 - 0 2 - -1 2 - -1 1 - -1 2 - -1 2 - 0 2 - -1 1 - -1 2 - -1 2 - 0 2 - -1 1 - -1 2 - -1 2 - -1 1 - -1 2 - -1 2 - -1 1 - -1 2 - -1 1 - -1 2 - -2 1 - -1 2 - -1 2 - -1 1 - -2 1 - -1 2 - -1 1 - -2 2 - -1 1 - -1 2 - -2 1 - -1 1 - -2 1 - -1 2 - -1 1 - -2 1 - -1 1 - -2 1 - -1 1 - -2 2 - -2 1 - -1 1 - -2 1 - -1 1 - -2 1 - -2 1 - -1 1 - -2 1 - -2 0 - -2 1 - -2 1 - -1 1 - -2 1 - -2 1 - -2 0 - -1 1 - -2 1 - -2 0 - -2 1 - -2 0 - -2 1 - -2 0 - -2 1 - -2 1 - -2 0 - -2 0 - -2 1 - -1 0 - -2 0 - -3 1 - -2 0 - -2 0 - -2 0 - -2 0 - -2 0 - -2 1 - -2 0 - -2 0 - -2 0 - -2 0 - -2 0 - -2 -1 - -2 0 - -2 0 - -2 0 - -2 0 - -2 -1 - -2 0 - -2 -1 - -2 0 - -2 0 - -2 -1 - -2 0 - -1 -1 - -2 0 - -2 -1 - -2 -1 - -2 0 - -2 -1 - -2 -1 - -2 -1 - -1 0 - -2 -1 - -2 -1 - -1 -1 - -2 -1 - -2 0 - -1 -1 - -2 -1 - -2 -1 - -1 -1 - -2 -1 - -2 -2 - -1 -1 - -2 -1 - -1 -1 - -2 -1 - -2 -1 - -1 -1 - -1 -2 - -2 -1 - -1 -1 - -2 -1 - -1 -2 - -2 -1 - -1 -2 - -1 -1 - -1 -1 - -2 -2 - -1 -1 - -1 -2 - -1 -1 - -2 -2 - -1 -1 - -1 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - -1 -2 - -1 -2 - -1 -2 - 0 -1 - -1 -2 - -1 -2 - 0 -2 - -1 -2 - -1 -1 - 0 -2 - -1 -2 - 0 -2 - -1 -2 - 0 -2 - -1 -2 - 0 -2 - -1 -2 - 0 -2 - 0 -2 - -1 -2 - 0 -2 - 0 -2 - -1 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - C 0 0 0 sco K 
+781 1210 N M 330 0 - 0 0 0 sco K 
+1111 1210 N M -25 -13 - 12 13 - 13 0 - C : 0 0 0 sco O ; 0 0 0 sco K 
+1111 1210 N M -25 12 - 12 -12 - 13 0 - C : 0 0 0 sco O ; 0 0 0 sco K 
+1351 1210 N M 360 0 - 0 0 0 sco K 
+1711 1210 N M -25 -13 - 12 13 - 13 0 - C : 0 0 0 sco O ; 0 0 0 sco K 
+1711 1210 N M -25 12 - 12 -12 - 13 0 - C : 0 0 0 sco O ; 0 0 0 sco K 
+1201 834 N M 0 -1 - 0 -2 - 0 -2 - 0 -1 - 0 -2 - 0 -2 - 0 -2 - 0 -1 - 1 -2 - 0 -2 - 0 -2 - 1 -1 - 0 -2 - 0 -2 - 1 -1 - 0 -2 - 1 -2 - 0 -1 - 1 -2 - 0 -2 - 1 -1 - 1 -2 - 0 -1 - 1 -2 - 1 -2 - 0 -1 - 1 -2 - 0 -1 - 1 -2 - 1 -1 - 1 -2 - 1 -1 - 1 -1 - 0 -2 - 2 -2 - 1 -1 - 0 -1 - 1 -2 - 1 -1 - 2 -1 - 1 -2 - 1 -1 - 1 -1 - 1 -1 - 1 -2 - 1 -1 - 1 -1 - 2 -2 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 2 -1 - 1 -1 - 1 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 2 0 - 1 -1 - 2 -1 - 1 0 - 2 -1 - 2 -1 - 1 -1 - 2 -1 - 1 0 - 2 -1 - 1 0 - 2 -1 - 2 -1 - 1 0 - 2 0 - 2 -1 - 1 0 - 2 -1 - 2 0 - 2 0 - 1 0 - 2 -1 - 2 0 - 2 0 - 1 -1 - 2 0 - 2 0 - 2 0 - 2 0 - 2 0 - 1 0 - 2 0 - 2 0 - 1 0 - 2 0 - 2 0 - 2 0 - 2 0 - 1 0 - 2 1 - 2 0 - 2 0 - 1 1 - 2 0 - 2 0 - 1 1 - 2 0 - 2 0 - 1 1 - 2 0 - 2 1 - 1 1 - 2 0 - 2 1 - 1 1 - 2 0 - 1 1 - 2 1 - 1 0 - 2 1 - 1 1 - 2 1 - 1 0 - 2 1 - 1 1 - 2 1 - 1 1 - 1 1 - 2 1 - 1 1 - 1 1 - 2 1 - 1 1 - 2 1 - 1 1 - 1 1 - 2 2 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 2 2 - 1 1 - 1 1 - 1 1 - 1 2 - 1 1 - 1 1 - 1 2 - 1 1 - 1 2 - 1 1 - 1 1 - 1 2 - 1 1 - 1 2 - 0 1 - 1 2 - 1 1 - 1 2 - 0 2 - 1 1 - 1 2 - 0 1 - 1 2 - 0 1 - 1 2 - 1 2 - 0 1 - 1 2 - 0 2 - 1 1 - 0 2 - 0 2 - 1 2 - 0 1 - 0 2 - 0 2 - 1 2 - 0 1 - 0 2 - 0 2 - 0 2 - 1 2 - 0 2 - 0 1 - 0 2 - 0 2 - 0 1 - 0 2 - 0 2 - 0 2 - -1 2 - 0 1 - 0 2 - 0 2 - -1 2 - 0 1 - 0 2 - -1 2 - 0 1 - -1 2 - 0 2 - -1 1 - 0 2 - -1 2 - 0 1 - -1 2 - -1 1 - 0 2 - -1 2 - -1 1 - 0 1 - -1 2 - -1 2 - -1 1 - -1 2 - 0 1 - -1 1 - -1 2 - -1 1 - -1 2 - -1 1 - -1 1 - -1 2 - -1 1 - -1 1 - -1 2 - -1 1 - -1 1 - -2 1 - -1 2 - -1 1 - -1 1 - -1 1 - -2 2 - -1 1 - -1 1 - -1 1 - -2 1 - -1 1 - -1 1 - -2 1 - -1 1 - -1 1 - -2 1 - -1 1 - -2 1 - -1 1 - -2 1 - -1 1 - -1 1 - -2 0 - -1 1 - -2 1 - -2 0 - -1 1 - -2 1 - -2 1 - -1 0 - -2 1 - -2 0 - -1 1 - -2 1 - -2 0 - -1 1 - -2 0 - -2 1 - -1 0 - -2 0 - -2 1 - -1 0 - -2 0 - -2 0 - -2 1 - -1 0 - -2 0 - -2 0 - -2 0 - -2 0 - -2 1 - -2 0 - -1 0 - -2 0 - -2 0 - -1 0 - -2 0 - -2 -1 - -2 0 - -1 0 - -2 0 - -2 0 - -2 -1 - -2 0 - -1 0 - -2 -1 - -2 0 - -1 -1 - -2 0 - -2 -1 - -1 0 - -2 -1 - -1 0 - -2 -1 - -2 -1 - -1 0 - -2 -1 - -1 -1 - -2 0 - -1 -1 - -2 -1 - -1 -1 - -2 0 - -1 -1 - -2 -1 - -1 -1 - -2 -1 - -1 -1 - -2 -1 - -1 -1 - -1 -1 - -1 -1 - -2 -1 - -1 -1 - -2 -1 - -1 -1 - -1 -1 - -2 -2 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -2 - -1 -1 - -2 -1 - -1 -1 - -1 -2 - -1 -1 - -1 -1 - -1 -2 - -1 -1 - -1 -2 - -1 -1 - 0 -1 - -1 -2 - -1 -1 - -1 -2 - -1 -1 - -1 -2 - 0 -1 - -1 -1 - -1 -2 - -1 -2 - -1 -1 - 0 -2 - -1 -1 - 0 -2 - -1 -2 - -1 -1 - 0 -2 - -1 -2 - 0 -1 - 0 -2 - -1 -2 - 0 -1 - -1 -2 - 0 -2 - 0 -2 - 0 -1 - -1 -2 - 0 -2 - -1 -2 - 0 -1 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - C 
+1201 834 N M 0 -1 - 0 -2 - 0 -2 - 0 -1 - 0 -2 - 0 -2 - 0 -2 - 0 -1 - 1 -2 - 0 -2 - 0 -2 - 1 -1 - 0 -2 - 0 -2 - 1 -1 - 0 -2 - 1 -2 - 0 -1 - 1 -2 - 0 -2 - 1 -1 - 1 -2 - 0 -1 - 1 -2 - 1 -2 - 0 -1 - 1 -2 - 0 -1 - 1 -2 - 1 -1 - 1 -2 - 1 -1 - 1 -1 - 0 -2 - 2 -2 - 1 -1 - 0 -1 - 1 -2 - 1 -1 - 2 -1 - 1 -2 - 1 -1 - 1 -1 - 1 -1 - 1 -2 - 1 -1 - 1 -1 - 2 -2 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 2 -1 - 1 -1 - 1 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 2 0 - 1 -1 - 2 -1 - 1 0 - 2 -1 - 2 -1 - 1 -1 - 2 -1 - 1 0 - 2 -1 - 1 0 - 2 -1 - 2 -1 - 1 0 - 2 0 - 2 -1 - 1 0 - 2 -1 - 2 0 - 2 0 - 1 0 - 2 -1 - 2 0 - 2 0 - 1 -1 - 2 0 - 2 0 - 2 0 - 2 0 - 2 0 - 1 0 - 2 0 - 2 0 - 1 0 - 2 0 - 2 0 - 2 0 - 2 0 - 1 0 - 2 1 - 2 0 - 2 0 - 1 1 - 2 0 - 2 0 - 1 1 - 2 0 - 2 0 - 1 1 - 2 0 - 2 1 - 1 1 - 2 0 - 2 1 - 1 1 - 2 0 - 1 1 - 2 1 - 1 0 - 2 1 - 1 1 - 2 1 - 1 0 - 2 1 - 1 1 - 2 1 - 1 1 - 1 1 - 2 1 - 1 1 - 1 1 - 2 1 - 1 1 - 2 1 - 1 1 - 1 1 - 2 2 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 2 2 - 1 1 - 1 1 - 1 1 - 1 2 - 1 1 - 1 1 - 1 2 - 1 1 - 1 2 - 1 1 - 1 1 - 1 2 - 1 1 - 1 2 - 0 1 - 1 2 - 1 1 - 1 2 - 0 2 - 1 1 - 1 2 - 0 1 - 1 2 - 0 1 - 1 2 - 1 2 - 0 1 - 1 2 - 0 2 - 1 1 - 0 2 - 0 2 - 1 2 - 0 1 - 0 2 - 0 2 - 1 2 - 0 1 - 0 2 - 0 2 - 0 2 - 1 2 - 0 2 - 0 1 - 0 2 - 0 2 - 0 1 - 0 2 - 0 2 - 0 2 - -1 2 - 0 1 - 0 2 - 0 2 - -1 2 - 0 1 - 0 2 - -1 2 - 0 1 - -1 2 - 0 2 - -1 1 - 0 2 - -1 2 - 0 1 - -1 2 - -1 1 - 0 2 - -1 2 - -1 1 - 0 1 - -1 2 - -1 2 - -1 1 - -1 2 - 0 1 - -1 1 - -1 2 - -1 1 - -1 2 - -1 1 - -1 1 - -1 2 - -1 1 - -1 1 - -1 2 - -1 1 - -1 1 - -2 1 - -1 2 - -1 1 - -1 1 - -1 1 - -2 2 - -1 1 - -1 1 - -1 1 - -2 1 - -1 1 - -1 1 - -2 1 - -1 1 - -1 1 - -2 1 - -1 1 - -2 1 - -1 1 - -2 1 - -1 1 - -1 1 - -2 0 - -1 1 - -2 1 - -2 0 - -1 1 - -2 1 - -2 1 - -1 0 - -2 1 - -2 0 - -1 1 - -2 1 - -2 0 - -1 1 - -2 0 - -2 1 - -1 0 - -2 0 - -2 1 - -1 0 - -2 0 - -2 0 - -2 1 - -1 0 - -2 0 - -2 0 - -2 0 - -2 0 - -2 1 - -2 0 - -1 0 - -2 0 - -2 0 - -1 0 - -2 0 - -2 -1 - -2 0 - -1 0 - -2 0 - -2 0 - -2 -1 - -2 0 - -1 0 - -2 -1 - -2 0 - -1 -1 - -2 0 - -2 -1 - -1 0 - -2 -1 - -1 0 - -2 -1 - -2 -1 - -1 0 - -2 -1 - -1 -1 - -2 0 - -1 -1 - -2 -1 - -1 -1 - -2 0 - -1 -1 - -2 -1 - -1 -1 - -2 -1 - -1 -1 - -2 -1 - -1 -1 - -1 -1 - -1 -1 - -2 -1 - -1 -1 - -2 -1 - -1 -1 - -1 -1 - -2 -2 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -2 - -1 -1 - -2 -1 - -1 -1 - -1 -2 - -1 -1 - -1 -1 - -1 -2 - -1 -1 - -1 -2 - -1 -1 - 0 -1 - -1 -2 - -1 -1 - -1 -2 - -1 -1 - -1 -2 - 0 -1 - -1 -1 - -1 -2 - -1 -2 - -1 -1 - 0 -2 - -1 -1 - 0 -2 - -1 -2 - -1 -1 - 0 -2 - -1 -2 - 0 -1 - 0 -2 - -1 -2 - 0 -1 - -1 -2 - 0 -2 - 0 -2 - 0 -1 - -1 -2 - 0 -2 - -1 -2 - 0 -1 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - C 0 0 0 sco K : 1191 818 955 33 rc 0 0 0 sco F2_29
+Ji 
+1221 818 M 
+-0.343 0 (E)A 
+-1.500 0 (v)A 
+-0.124 0 (en)A 
+-0.062 0 (t)A 
+0.062 0 (H)A 
+-0.124 0 (and)A 
+0.562 0 (l)A 
+-0.124 0 (e)A 
+0.343 0 (r)A 
+; 
+1285 596 N M 0 -1 - 0 -1 - 0 -2 - 0 -1 - 0 -1 - 0 -1 - 0 -2 - 0 -1 - 0 -1 - 0 -1 - 1 -2 - 0 -1 - 0 -1 - 0 -1 - 1 -1 - 0 -1 - 0 -1 - 1 -2 - 0 -1 - 1 -1 - 0 -1 - 0 -2 - 1 -1 - 0 -1 - 1 -1 - 0 -1 - 1 -1 - 0 -1 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 0 -1 - 1 -1 - 0 -1 - 1 -2 - 1 -1 - 1 -1 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 1 0 - 1 -1 - 1 -1 - 1 -1 - 0 -1 - 1 0 - 1 -1 - 1 0 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 0 - 1 -1 - 1 0 - 1 -1 - 1 0 - 1 -1 - 1 -1 - 1 0 - 2 -1 - 1 0 - 1 -1 - 1 0 - 1 -1 - 1 0 - 1 0 - 2 -1 - 1 0 - 1 -1 - 1 0 - 1 0 - 2 0 - 1 -1 - 1 0 - 1 0 - 2 -1 - 1 0 - 1 0 - 1 0 - 2 0 - 1 0 - 1 0 - 1 0 - 2 -1 - 1 0 - 2 0 - 1 0 - 1 0 - 1 0 - 1 0 - 2 0 - 1 0 - 1 0 - 1 1 - 2 0 - 1 0 - 1 0 - 1 1 - 1 0 - 1 0 - 2 0 - 1 0 - 1 1 - 1 0 - 2 1 - 1 0 - 1 1 - 1 0 - 1 0 - 1 1 - 1 0 - 1 1 - 1 0 - 2 1 - 1 0 - 1 1 - 1 1 - 1 0 - 1 1 - 1 0 - 1 1 - 1 1 - 1 0 - 1 1 - 1 1 - 1 0 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 0 1 - 1 0 - 1 1 - 1 1 - 1 1 - 0 1 - 1 1 - 1 1 - 1 1 - 0 1 - 1 1 - 1 1 - 0 1 - 1 1 - 0 1 - 1 1 - 1 1 - 0 1 - 0 1 - 1 1 - 1 2 - 0 1 - 1 1 - 0 1 - 0 1 - 1 1 - 0 1 - 1 1 - 0 1 - 0 2 - 0 1 - 1 1 - 0 1 - 1 2 - 0 1 - 0 1 - 0 1 - 1 2 - 0 1 - 0 1 - 0 1 - 0 2 - 0 1 - 0 1 - 1 2 - 0 1 - 0 1 - 0 2 - 0 1 - 0 1 - 0 1 - -1 1 - 0 2 - 0 1 - 0 1 - 0 1 - 0 2 - -1 1 - 0 1 - 0 1 - 0 1 - -1 1 - 0 2 - -1 1 - 0 1 - 0 1 - -1 1 - 0 1 - -1 2 - 0 1 - -1 1 - 0 1 - 0 1 - -1 1 - -1 1 - 0 1 - -1 1 - 0 1 - -1 1 - -1 1 - 0 1 - -1 1 - -1 1 - 0 1 - -1 1 - 0 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - 0 1 - -1 1 - -1 1 - -1 1 - -1 0 - -1 1 - -1 1 - 0 1 - -1 0 - -1 1 - -1 1 - -1 1 - -1 0 - -1 1 - -1 1 - -1 1 - -1 0 - -1 1 - -1 0 - -1 1 - -1 1 - -1 0 - -1 1 - -1 0 - -2 1 - -1 0 - -1 1 - -1 0 - -1 1 - -1 0 - -1 0 - -2 1 - -1 0 - -1 1 - -1 0 - -1 0 - -1 0 - -2 1 - -1 0 - -1 0 - -1 1 - -2 0 - -1 0 - -1 0 - -1 1 - -2 0 - -1 0 - -1 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -1 0 - -1 0 - -2 0 - -1 0 - -1 0 - -1 0 - -2 0 - -1 -1 - -1 0 - -1 0 - -1 -1 - -1 0 - -2 0 - -1 0 - -1 -1 - -1 0 - -2 0 - -1 -1 - -1 0 - -1 -1 - -1 0 - -2 -1 - -1 0 - -1 -1 - -1 0 - -1 0 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -1 0 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -1 -1 - -1 -1 - -1 0 - -1 -1 - 0 -1 - -1 -1 - -1 -1 - -2 -1 - 0 -1 - -1 0 - -1 -1 - 0 -1 - -1 -1 - -1 -1 - -1 -1 - 0 -1 - -1 -1 - -1 -1 - -1 -1 - 0 -1 - -1 -1 - -1 -1 - 0 -1 - -1 -1 - 0 -1 - -1 -1 - -1 -1 - 0 -1 - 0 -1 - -1 -1 - -1 -1 - 0 -2 - -1 -1 - 0 -1 - 0 -1 - -1 -1 - 0 -1 - -1 -1 - 0 -1 - 0 -1 - 0 -2 - -1 -1 - 0 -1 - -1 -1 - 0 -2 - 0 -1 - 0 -1 - 0 -1 - -1 -2 - 0 -1 - 0 -1 - 0 -1 - 0 -2 - 0 -1 - 0 -1 - 0 -2 - C : 1.000 1.000 1.000 sco O ; 
+1285 596 N M 0 -1 - 0 -1 - 0 -2 - 0 -1 - 0 -1 - 0 -1 - 0 -2 - 0 -1 - 0 -1 - 0 -1 - 1 -2 - 0 -1 - 0 -1 - 0 -1 - 1 -1 - 0 -1 - 0 -1 - 1 -2 - 0 -1 - 1 -1 - 0 -1 - 0 -2 - 1 -1 - 0 -1 - 1 -1 - 0 -1 - 1 -1 - 0 -1 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 0 -1 - 1 -1 - 0 -1 - 1 -2 - 1 -1 - 1 -1 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 1 0 - 1 -1 - 1 -1 - 1 -1 - 0 -1 - 1 0 - 1 -1 - 1 0 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 0 - 1 -1 - 1 0 - 1 -1 - 1 0 - 1 -1 - 1 -1 - 1 0 - 2 -1 - 1 0 - 1 -1 - 1 0 - 1 -1 - 1 0 - 1 0 - 2 -1 - 1 0 - 1 -1 - 1 0 - 1 0 - 2 0 - 1 -1 - 1 0 - 1 0 - 2 -1 - 1 0 - 1 0 - 1 0 - 2 0 - 1 0 - 1 0 - 1 0 - 2 -1 - 1 0 - 2 0 - 1 0 - 1 0 - 1 0 - 1 0 - 2 0 - 1 0 - 1 0 - 1 1 - 2 0 - 1 0 - 1 0 - 1 1 - 1 0 - 1 0 - 2 0 - 1 0 - 1 1 - 1 0 - 2 1 - 1 0 - 1 1 - 1 0 - 1 0 - 1 1 - 1 0 - 1 1 - 1 0 - 2 1 - 1 0 - 1 1 - 1 1 - 1 0 - 1 1 - 1 0 - 1 1 - 1 1 - 1 0 - 1 1 - 1 1 - 1 0 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 0 1 - 1 0 - 1 1 - 1 1 - 1 1 - 0 1 - 1 1 - 1 1 - 1 1 - 0 1 - 1 1 - 1 1 - 0 1 - 1 1 - 0 1 - 1 1 - 1 1 - 0 1 - 0 1 - 1 1 - 1 2 - 0 1 - 1 1 - 0 1 - 0 1 - 1 1 - 0 1 - 1 1 - 0 1 - 0 2 - 0 1 - 1 1 - 0 1 - 1 2 - 0 1 - 0 1 - 0 1 - 1 2 - 0 1 - 0 1 - 0 1 - 0 2 - 0 1 - 0 1 - 1 2 - 0 1 - 0 1 - 0 2 - 0 1 - 0 1 - 0 1 - -1 1 - 0 2 - 0 1 - 0 1 - 0 1 - 0 2 - -1 1 - 0 1 - 0 1 - 0 1 - -1 1 - 0 2 - -1 1 - 0 1 - 0 1 - -1 1 - 0 1 - -1 2 - 0 1 - -1 1 - 0 1 - 0 1 - -1 1 - -1 1 - 0 1 - -1 1 - 0 1 - -1 1 - -1 1 - 0 1 - -1 1 - -1 1 - 0 1 - -1 1 - 0 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - 0 1 - -1 1 - -1 1 - -1 1 - -1 0 - -1 1 - -1 1 - 0 1 - -1 0 - -1 1 - -1 1 - -1 1 - -1 0 - -1 1 - -1 1 - -1 1 - -1 0 - -1 1 - -1 0 - -1 1 - -1 1 - -1 0 - -1 1 - -1 0 - -2 1 - -1 0 - -1 1 - -1 0 - -1 1 - -1 0 - -1 0 - -2 1 - -1 0 - -1 1 - -1 0 - -1 0 - -1 0 - -2 1 - -1 0 - -1 0 - -1 1 - -2 0 - -1 0 - -1 0 - -1 1 - -2 0 - -1 0 - -1 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -1 0 - -1 0 - -2 0 - -1 0 - -1 0 - -1 0 - -2 0 - -1 -1 - -1 0 - -1 0 - -1 -1 - -1 0 - -2 0 - -1 0 - -1 -1 - -1 0 - -2 0 - -1 -1 - -1 0 - -1 -1 - -1 0 - -2 -1 - -1 0 - -1 -1 - -1 0 - -1 0 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -1 0 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -1 -1 - -1 -1 - -1 0 - -1 -1 - 0 -1 - -1 -1 - -1 -1 - -2 -1 - 0 -1 - -1 0 - -1 -1 - 0 -1 - -1 -1 - -1 -1 - -1 -1 - 0 -1 - -1 -1 - -1 -1 - -1 -1 - 0 -1 - -1 -1 - -1 -1 - 0 -1 - -1 -1 - 0 -1 - -1 -1 - -1 -1 - 0 -1 - 0 -1 - -1 -1 - -1 -1 - 0 -2 - -1 -1 - 0 -1 - 0 -1 - -1 -1 - 0 -1 - -1 -1 - 0 -1 - 0 -1 - 0 -2 - -1 -1 - 0 -1 - -1 -1 - 0 -2 - 0 -1 - 0 -1 - 0 -1 - -1 -2 - 0 -1 - 0 -1 - 0 -1 - 0 -2 - 0 -1 - 0 -1 - 0 -2 - C 0 0 0 sco K : 1293 580 853 33 rc 0 0 0 sco F2_29
+Ji 
+1323 580 M 
+-0.343 0 (E)A 
+-1.500 0 (v)A 
+-0.124 0 (en)A 
+-0.062 0 (t)A 
+; : 578 1191 1568 33 rc 0 0 0 sco F2_29
+Ji 
+608 1191 M 
+-1.062 0 (I)A 
+-0.124 0 (n)A 
+-0.062 0 (t)A 
+-0.124 0 (e)A 
+0.343 0 (r)A 
+-0.062 0 (f)A 
+-0.124 0 (a)A 
+0.500 0 (c)A 
+-0.124 0 (e)A 
+; : 1134 1187 1012 33 rc 0 0 0 sco F2_29
+Ji 
+1164 1187 M 
+-0.343 0 (B)A 
+-0.124 0 (a)A 
+0.500 0 (s)A 
+0.562 0 (i)A 
+0.500 0 (c)A 
+0.062 0 (C)A 
+-0.343 0 (P)A 
+0.062 0 (U)A 
+; : 1707 1189 439 33 rc 0 0 0 sco F2_29
+Ji 
+1737 1189 M 
+-0.343 0 (A)A 
+-0.124 0 (dd)A 
+0.343 0 (r)A 
+-0.124 0 (e)A 
+0.500 0 (ss)A 
+-0.343 0 (S)A 
+-0.124 0 (pa)A 
+0.500 0 (c)A 
+-0.124 0 (e)A 
+; 
+1246 1090 N M 33 -151 - 0 0 0 sco K 
+1279 939 N M -17 22 - 14 -10 - 3 -12 - C : 0 0 0 sco O ; 0 0 0 sco K 
+1279 939 N M 7 27 - -10 -15 - 3 -12 - C : 0 0 0 sco O ; 0 0 0 sco K : 711 1415 1435 33 rc 0 0 0 sco F2_29
+Ji 
+741 1415 M 
+-0.343 0 (B)A 
+-0.124 0 (a)A 
+0.500 0 (s)A 
+0.562 0 (i)A 
+0.500 0 (c)A 
+0.062 0 (D)A 
+-0.124 0 (e)A 
+-1.500 0 (v)A 
+0.562 0 (i)A 
+0.500 0 (c)A 
+-0.124 0 (e)A 
+0.062 0 (R)A 
+-0.124 0 (eg)A 
+0.562 0 (i)A 
+0.500 0 (s)A 
+-0.062 0 (t)A 
+0.343 0 (r)A 
+-1.500 0 (y)A 
+; 
+495 886 N M 0 -2 - 0 -2 - 0 -1 - 0 -2 - 0 -2 - 0 -2 - 0 -1 - 0 -2 - 0 -2 - 1 -2 - 0 -1 - 0 -2 - 1 -2 - 0 -1 - 0 -2 - 1 -2 - 0 -1 - 1 -2 - 0 -2 - 1 -1 - 1 -2 - 0 -2 - 1 -1 - 1 -2 - 0 -1 - 1 -2 - 1 -1 - 0 -2 - 1 -1 - 1 -2 - 1 -1 - 1 -2 - 0 -1 - 1 -2 - 1 -1 - 1 -2 - 1 -1 - 1 -1 - 1 -2 - 1 -1 - 1 -1 - 1 -2 - 1 -1 - 1 -1 - 2 -1 - 1 -2 - 1 -1 - 1 -1 - 1 -1 - 2 -2 - 1 -1 - 1 -1 - 1 -1 - 2 -1 - 1 -1 - 1 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 0 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 2 0 - 2 -1 - 1 -1 - 2 -1 - 1 0 - 2 -1 - 2 0 - 1 -1 - 2 -1 - 2 0 - 1 -1 - 2 0 - 2 -1 - 1 0 - 2 0 - 2 -1 - 1 0 - 2 0 - 2 0 - 1 -1 - 2 0 - 2 0 - 2 -1 - 2 0 - 2 0 - 1 0 - 2 0 - 2 0 - 2 0 - 2 0 - 1 0 - 2 0 - 2 0 - 2 0 - 1 0 - 2 1 - 2 0 - 2 0 - 1 0 - 2 1 - 2 0 - 1 0 - 2 1 - 2 0 - 1 1 - 2 0 - 2 1 - 1 0 - 2 1 - 2 1 - 1 0 - 2 1 - 2 1 - 1 0 - 1 1 - 2 1 - 2 0 - 1 1 - 1 1 - 2 1 - 1 1 - 2 0 - 2 1 - 1 1 - 1 1 - 1 1 - 2 1 - 1 1 - 2 1 - 1 1 - 1 1 - 2 1 - 1 2 - 1 1 - 2 1 - 1 1 - 1 1 - 1 1 - 1 2 - 1 1 - 2 1 - 1 1 - 1 2 - 1 1 - 1 1 - 1 2 - 1 1 - 1 2 - 1 1 - 1 1 - 0 2 - 1 1 - 2 2 - 0 1 - 1 2 - 1 1 - 0 1 - 1 2 - 1 2 - 1 1 - 1 2 - 0 1 - 1 2 - 0 2 - 1 1 - 0 2 - 1 2 - 0 1 - 1 2 - 0 2 - 1 1 - 0 2 - 0 2 - 1 2 - 0 1 - 0 2 - 1 2 - 0 2 - 0 1 - 0 2 - 0 2 - 0 2 - 0 2 - 0 2 - 0 1 - 0 2 - 0 2 - 0 2 - 0 1 - 0 2 - 0 2 - 0 1 - 0 2 - -1 2 - 0 2 - 0 2 - -1 1 - 0 2 - 0 2 - -1 1 - 0 2 - -1 2 - 0 1 - -1 2 - -1 1 - 0 2 - -1 2 - -1 1 - 0 2 - -1 1 - -1 2 - 0 1 - -1 2 - -1 1 - -1 2 - -1 1 - -1 2 - 0 1 - -1 2 - -1 1 - -1 1 - -1 2 - -1 1 - -1 1 - -1 2 - -1 1 - -2 1 - -1 1 - -1 2 - -1 1 - -1 1 - -2 2 - -1 1 - -1 1 - -1 1 - -1 1 - -2 1 - -1 1 - -1 1 - -1 1 - -2 1 - -1 1 - -2 1 - -1 1 - -1 1 - -2 1 - -1 1 - -2 1 - -1 1 - -2 1 - -1 1 - -2 0 - -1 1 - -2 1 - -2 1 - -1 0 - -2 1 - -1 1 - -2 0 - -2 1 - -1 0 - -2 1 - -2 0 - -1 1 - -2 0 - -2 1 - -1 0 - -2 1 - -2 0 - -2 0 - -1 0 - -2 1 - -2 0 - -2 0 - -1 1 - -2 0 - -2 0 - -2 0 - -2 0 - -2 0 - -1 0 - -2 0 - -2 0 - -2 0 - -2 0 - -1 0 - -2 0 - -2 -1 - -1 0 - -2 0 - -2 -1 - -2 0 - -1 0 - -2 -1 - -2 0 - -1 0 - -2 -1 - -2 0 - -1 -1 - -2 0 - -2 -1 - -1 -1 - -2 0 - -2 -1 - -1 -1 - -2 0 - -1 -1 - -2 -1 - -1 -1 - -2 0 - -1 -1 - -2 -1 - -1 -1 - -2 -1 - -1 -1 - -2 -1 - -1 -1 - -1 -1 - -1 -1 - -2 -1 - -1 -1 - -2 -1 - -1 -1 - -1 -1 - -1 -1 - -2 -1 - -1 -2 - -1 -1 - -1 -1 - -1 -1 - -2 -1 - -1 -2 - -1 -1 - -1 -1 - -1 -1 - -1 -2 - -1 -1 - -1 -1 - -1 -2 - -1 -1 - -1 -2 - -1 -1 - -1 -1 - -1 -2 - 0 -1 - -1 -2 - -1 -1 - -1 -2 - 0 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - 0 -1 - -1 -2 - 0 -1 - -1 -2 - 0 -2 - -1 -1 - 0 -2 - -1 -2 - 0 -1 - -1 -2 - 0 -2 - 0 -2 - -1 -1 - 0 -2 - 0 -2 - -1 -2 - 0 -1 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -1 - 0 -2 - C 
+495 886 N M 0 -2 - 0 -2 - 0 -1 - 0 -2 - 0 -2 - 0 -2 - 0 -1 - 0 -2 - 0 -2 - 1 -2 - 0 -1 - 0 -2 - 1 -2 - 0 -1 - 0 -2 - 1 -2 - 0 -1 - 1 -2 - 0 -2 - 1 -1 - 1 -2 - 0 -2 - 1 -1 - 1 -2 - 0 -1 - 1 -2 - 1 -1 - 0 -2 - 1 -1 - 1 -2 - 1 -1 - 1 -2 - 0 -1 - 1 -2 - 1 -1 - 1 -2 - 1 -1 - 1 -1 - 1 -2 - 1 -1 - 1 -1 - 1 -2 - 1 -1 - 1 -1 - 2 -1 - 1 -2 - 1 -1 - 1 -1 - 1 -1 - 2 -2 - 1 -1 - 1 -1 - 1 -1 - 2 -1 - 1 -1 - 1 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 0 - 1 -1 - 2 -1 - 1 -1 - 2 -1 - 1 -1 - 2 0 - 2 -1 - 1 -1 - 2 -1 - 1 0 - 2 -1 - 2 0 - 1 -1 - 2 -1 - 2 0 - 1 -1 - 2 0 - 2 -1 - 1 0 - 2 0 - 2 -1 - 1 0 - 2 0 - 2 0 - 1 -1 - 2 0 - 2 0 - 2 -1 - 2 0 - 2 0 - 1 0 - 2 0 - 2 0 - 2 0 - 2 0 - 1 0 - 2 0 - 2 0 - 2 0 - 1 0 - 2 1 - 2 0 - 2 0 - 1 0 - 2 1 - 2 0 - 1 0 - 2 1 - 2 0 - 1 1 - 2 0 - 2 1 - 1 0 - 2 1 - 2 1 - 1 0 - 2 1 - 2 1 - 1 0 - 1 1 - 2 1 - 2 0 - 1 1 - 1 1 - 2 1 - 1 1 - 2 0 - 2 1 - 1 1 - 1 1 - 1 1 - 2 1 - 1 1 - 2 1 - 1 1 - 1 1 - 2 1 - 1 2 - 1 1 - 2 1 - 1 1 - 1 1 - 1 1 - 1 2 - 1 1 - 2 1 - 1 1 - 1 2 - 1 1 - 1 1 - 1 2 - 1 1 - 1 2 - 1 1 - 1 1 - 0 2 - 1 1 - 2 2 - 0 1 - 1 2 - 1 1 - 0 1 - 1 2 - 1 2 - 1 1 - 1 2 - 0 1 - 1 2 - 0 2 - 1 1 - 0 2 - 1 2 - 0 1 - 1 2 - 0 2 - 1 1 - 0 2 - 0 2 - 1 2 - 0 1 - 0 2 - 1 2 - 0 2 - 0 1 - 0 2 - 0 2 - 0 2 - 0 2 - 0 2 - 0 1 - 0 2 - 0 2 - 0 2 - 0 1 - 0 2 - 0 2 - 0 1 - 0 2 - -1 2 - 0 2 - 0 2 - -1 1 - 0 2 - 0 2 - -1 1 - 0 2 - -1 2 - 0 1 - -1 2 - -1 1 - 0 2 - -1 2 - -1 1 - 0 2 - -1 1 - -1 2 - 0 1 - -1 2 - -1 1 - -1 2 - -1 1 - -1 2 - 0 1 - -1 2 - -1 1 - -1 1 - -1 2 - -1 1 - -1 1 - -1 2 - -1 1 - -2 1 - -1 1 - -1 2 - -1 1 - -1 1 - -2 2 - -1 1 - -1 1 - -1 1 - -1 1 - -2 1 - -1 1 - -1 1 - -1 1 - -2 1 - -1 1 - -2 1 - -1 1 - -1 1 - -2 1 - -1 1 - -2 1 - -1 1 - -2 1 - -1 1 - -2 0 - -1 1 - -2 1 - -2 1 - -1 0 - -2 1 - -1 1 - -2 0 - -2 1 - -1 0 - -2 1 - -2 0 - -1 1 - -2 0 - -2 1 - -1 0 - -2 1 - -2 0 - -2 0 - -1 0 - -2 1 - -2 0 - -2 0 - -1 1 - -2 0 - -2 0 - -2 0 - -2 0 - -2 0 - -1 0 - -2 0 - -2 0 - -2 0 - -2 0 - -1 0 - -2 0 - -2 -1 - -1 0 - -2 0 - -2 -1 - -2 0 - -1 0 - -2 -1 - -2 0 - -1 0 - -2 -1 - -2 0 - -1 -1 - -2 0 - -2 -1 - -1 -1 - -2 0 - -2 -1 - -1 -1 - -2 0 - -1 -1 - -2 -1 - -1 -1 - -2 0 - -1 -1 - -2 -1 - -1 -1 - -2 -1 - -1 -1 - -2 -1 - -1 -1 - -1 -1 - -1 -1 - -2 -1 - -1 -1 - -2 -1 - -1 -1 - -1 -1 - -1 -1 - -2 -1 - -1 -2 - -1 -1 - -1 -1 - -1 -1 - -2 -1 - -1 -2 - -1 -1 - -1 -1 - -1 -1 - -1 -2 - -1 -1 - -1 -1 - -1 -2 - -1 -1 - -1 -2 - -1 -1 - -1 -1 - -1 -2 - 0 -1 - -1 -2 - -1 -1 - -1 -2 - 0 -1 - -1 -2 - -1 -2 - -1 -1 - -1 -2 - 0 -1 - -1 -2 - 0 -1 - -1 -2 - 0 -2 - -1 -1 - 0 -2 - -1 -2 - 0 -1 - -1 -2 - 0 -2 - 0 -2 - -1 -1 - 0 -2 - 0 -2 - -1 -2 - 0 -1 - 0 -2 - 0 -2 - 0 -2 - 0 -2 - 0 -1 - 0 -2 - C 0 0 0 sco K : 470 867 1676 33 rc 0 0 0 sco F2_29
+Ji 
+500 867 M 
+-0.062 0 32 ( )W 
+-0.343 0 (B)A 
+0.343 0 (r)A 
+-0.124 0 (ea)A 
+-0.500 0 (k)A 
+-0.124 0 (po)A 
+0.562 0 (i)A 
+-0.124 0 (n)A 
+-0.062 0 (t)A 
+-0.124 0 (L)A 
+0.562 0 (i)A 
+0.500 0 (s)A 
+-0.062 0 (t)A 
+; : 787 954 1359 33 rc 0 0 0 sco F2_29
+Ji 
+817 954 M 
+-0.343 0 (B)A 
+-0.124 0 (a)A 
+0.500 0 (s)A 
+0.562 0 (i)A 
+0.500 0 (c)A 
+-0.124 0 (Loade)A 
+0.343 0 (r)A 
+; : 615 1566 1531 33 rc 0 0 0 sco F2_29
+Ji 
+645 1566 M 
+0.657 0 (S)A 
+1.281 0 (T)A 
+1.062 0 (D)A 
+-0.062 0 (I)A 
+0.062 0 (N)A 
+; : 458 1566 1688 33 rc 0 0 0 sco F2_29
+Ji 
+460 1566 M 
+-0.343 0 (S)A 
+1.281 0 (T)A 
+0.062 0 (D)A 
+0.438 0 (O)A 
+0.062 0 (U)A 
+1.281 0 (T)A 
+; 
+625 1683 N M 0 -360 - 0 0 0 sco K 
+625 1323 N M -12 25 - 12 -12 - 0 -13 - C : 0 0 0 sco O ; 0 0 0 sco K 
+625 1323 N M 13 25 - -13 -12 - 0 -13 - C : 0 0 0 sco O ; 0 0 0 sco K 
+596 1688 N M 0 -371 - 0 0 0 sco K 
+596 1688 N M -12 -25 - 12 13 - 0 12 - C : 0 0 0 sco O ; 0 0 0 sco K 
+596 1688 N M 13 -25 - -13 13 - 0 12 - C : 0 0 0 sco O ; 0 0 0 sco K : 1663 1461 483 33 rc 0 0 0 sco F2_29
+Ji 
+1693 1461 M 
+-0.343 0 (B)A 
+-0.124 0 (a)A 
+0.500 0 (s)A 
+0.562 0 (i)A 
+0.500 0 (c)A 
+0.062 0 (D)A 
+-0.124 0 (e)A 
+-1.500 0 (v)A 
+0.562 0 (i)A 
+0.500 0 (c)A 
+-0.124 0 (e)A 
+; 
+1837 1449 N M 0 -2 - 0 -1 - 0 -2 - 0 -1 - 0 -2 - 1 -1 - 0 -2 - 0 -1 - 0 -1 - 0 -2 - 1 -2 - 0 -1 - 0 -2 - 0 -1 - 1 -1 - 0 -2 - 1 -1 - 0 -2 - 0 -1 - 1 -2 - 0 -1 - 1 -1 - 1 -2 - 0 -1 - 1 -1 - 0 -2 - 1 -1 - 0 -1 - 1 -2 - 1 -1 - 0 -1 - 1 -1 - 1 -2 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -2 - 0 -1 - 2 -1 - 0 -1 - 1 -1 - 1 -1 - 1 -2 - 2 -1 - 1 -1 - 0 -1 - 1 -1 - 1 0 - 2 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 2 -1 - 1 0 - 1 -1 - 1 -1 - 1 0 - 2 -1 - 1 -1 - 1 -1 - 1 0 - 2 -1 - 1 -1 - 2 0 - 1 -1 - 1 0 - 2 -1 - 1 0 - 1 -1 - 2 -1 - 1 0 - 2 0 - 1 -1 - 2 0 - 1 0 - 2 -1 - 1 0 - 1 0 - 2 -1 - 1 0 - 2 0 - 1 0 - 2 -1 - 1 0 - 2 0 - 1 0 - 2 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 1 1 - 2 0 - 2 0 - 1 1 - 1 0 - 2 0 - 1 0 - 1 1 - 2 0 - 1 1 - 2 0 - 1 0 - 2 1 - 1 0 - 1 1 - 2 1 - 1 0 - 1 1 - 2 0 - 1 1 - 1 1 - 2 0 - 1 1 - 1 1 - 1 0 - 2 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 0 - 1 1 - 2 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 2 1 - 1 1 - 0 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 2 - 1 1 - 0 1 - 1 1 - 1 2 - 1 1 - 0 1 - 1 1 - 1 2 - 1 1 - 0 1 - 1 1 - 1 2 - 0 1 - 1 2 - 0 1 - 1 1 - 0 1 - 1 2 - 1 1 - 0 2 - 0 1 - 1 2 - 0 1 - 0 2 - 1 1 - 0 2 - 0 1 - 1 1 - 0 2 - 0 1 - 0 2 - 1 1 - 0 2 - 0 1 - 0 2 - 0 2 - 0 1 - 0 2 - 0 1 - 0 2 - 0 1 - 0 2 - 0 1 - 0 2 - 0 1 - 0 2 - -1 1 - 0 2 - 0 1 - 0 2 - -1 1 - 0 1 - 0 2 - -1 1 - 0 1 - 0 2 - -1 1 - 0 2 - -1 1 - -1 2 - 0 1 - -1 1 - 0 2 - -1 1 - 0 1 - -1 2 - -1 1 - 0 1 - -1 1 - -1 2 - 0 1 - -1 1 - -1 1 - -1 2 - -1 1 - -1 1 - 0 1 - -1 1 - -1 1 - -1 2 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 0 - -2 1 - -1 1 - -1 1 - -1 1 - -1 1 - -2 0 - -1 1 - -1 1 - -1 1 - -2 1 - -1 0 - -1 1 - -1 0 - -2 1 - -1 1 - -2 1 - -1 0 - -1 0 - -1 1 - -2 0 - -1 1 - -2 0 - -1 1 - -2 0 - -1 1 - -2 0 - -1 0 - -2 1 - -1 0 - -1 0 - -2 0 - -1 1 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 1 - -2 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 -1 - -2 0 - -1 0 - -2 0 - -1 0 - -2 -1 - -1 0 - -2 0 - -1 -1 - -1 0 - -2 0 - -1 -1 - -2 0 - -1 -1 - -1 0 - -2 -1 - -1 -1 - -2 0 - -1 -1 - -1 0 - -1 -1 - -2 -1 - -1 0 - -1 -1 - -2 0 - -1 -1 - -1 -1 - -1 -1 - -2 -1 - -1 0 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -2 -1 - -1 -1 - -1 0 - -1 -1 - -1 -1 - -1 -2 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -1 -2 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - 0 -1 - -1 -1 - -1 -1 - -1 -2 - -1 -1 - -1 -1 - 0 -1 - -1 -2 - -1 -1 - -1 -1 - 0 -1 - -1 -2 - -1 -1 - 0 -1 - -1 -2 - -1 -1 - 0 -1 - 0 -2 - -1 -1 - 0 -1 - -1 -2 - -1 -1 - 0 -2 - 0 -1 - -1 -2 - 0 -1 - 0 -2 - -1 -1 - 0 -1 - 0 -2 - 0 -1 - -1 -2 - 0 -1 - 0 -2 - 0 -1 - 0 -2 - 0 -1 - 0 -2 - -1 -1 - 0 -2 - C : 1.000 1.000 1.000 sco O ; 
+1837 1449 N M 0 -2 - 0 -1 - 0 -2 - 0 -1 - 0 -2 - 1 -1 - 0 -2 - 0 -1 - 0 -1 - 0 -2 - 1 -2 - 0 -1 - 0 -2 - 0 -1 - 1 -1 - 0 -2 - 1 -1 - 0 -2 - 0 -1 - 1 -2 - 0 -1 - 1 -1 - 1 -2 - 0 -1 - 1 -1 - 0 -2 - 1 -1 - 0 -1 - 1 -2 - 1 -1 - 0 -1 - 1 -1 - 1 -2 - 1 -1 - 0 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -2 - 0 -1 - 2 -1 - 0 -1 - 1 -1 - 1 -1 - 1 -2 - 2 -1 - 1 -1 - 0 -1 - 1 -1 - 1 0 - 2 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 2 -1 - 1 0 - 1 -1 - 1 -1 - 1 0 - 2 -1 - 1 -1 - 1 -1 - 1 0 - 2 -1 - 1 -1 - 2 0 - 1 -1 - 1 0 - 2 -1 - 1 0 - 1 -1 - 2 -1 - 1 0 - 2 0 - 1 -1 - 2 0 - 1 0 - 2 -1 - 1 0 - 1 0 - 2 -1 - 1 0 - 2 0 - 1 0 - 2 -1 - 1 0 - 2 0 - 1 0 - 2 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 1 1 - 2 0 - 2 0 - 1 1 - 1 0 - 2 0 - 1 0 - 1 1 - 2 0 - 1 1 - 2 0 - 1 0 - 2 1 - 1 0 - 1 1 - 2 1 - 1 0 - 1 1 - 2 0 - 1 1 - 1 1 - 2 0 - 1 1 - 1 1 - 1 0 - 2 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 0 - 1 1 - 2 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 2 1 - 1 1 - 0 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 2 - 1 1 - 0 1 - 1 1 - 1 2 - 1 1 - 0 1 - 1 1 - 1 2 - 1 1 - 0 1 - 1 1 - 1 2 - 0 1 - 1 2 - 0 1 - 1 1 - 0 1 - 1 2 - 1 1 - 0 2 - 0 1 - 1 2 - 0 1 - 0 2 - 1 1 - 0 2 - 0 1 - 1 1 - 0 2 - 0 1 - 0 2 - 1 1 - 0 2 - 0 1 - 0 2 - 0 2 - 0 1 - 0 2 - 0 1 - 0 2 - 0 1 - 0 2 - 0 1 - 0 2 - 0 1 - 0 2 - -1 1 - 0 2 - 0 1 - 0 2 - -1 1 - 0 1 - 0 2 - -1 1 - 0 1 - 0 2 - -1 1 - 0 2 - -1 1 - -1 2 - 0 1 - -1 1 - 0 2 - -1 1 - 0 1 - -1 2 - -1 1 - 0 1 - -1 1 - -1 2 - 0 1 - -1 1 - -1 1 - -1 2 - -1 1 - -1 1 - 0 1 - -1 1 - -1 1 - -1 2 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 0 - -2 1 - -1 1 - -1 1 - -1 1 - -1 1 - -2 0 - -1 1 - -1 1 - -1 1 - -2 1 - -1 0 - -1 1 - -1 0 - -2 1 - -1 1 - -2 1 - -1 0 - -1 0 - -1 1 - -2 0 - -1 1 - -2 0 - -1 1 - -2 0 - -1 1 - -2 0 - -1 0 - -2 1 - -1 0 - -1 0 - -2 0 - -1 1 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 1 - -2 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 -1 - -2 0 - -1 0 - -2 0 - -1 0 - -2 -1 - -1 0 - -2 0 - -1 -1 - -1 0 - -2 0 - -1 -1 - -2 0 - -1 -1 - -1 0 - -2 -1 - -1 -1 - -2 0 - -1 -1 - -1 0 - -1 -1 - -2 -1 - -1 0 - -1 -1 - -2 0 - -1 -1 - -1 -1 - -1 -1 - -2 -1 - -1 0 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -2 -1 - -1 -1 - -1 0 - -1 -1 - -1 -1 - -1 -2 - -1 -1 - -1 -1 - -1 0 - -1 -1 - -1 -2 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - 0 -1 - -1 -1 - -1 -1 - -1 -2 - -1 -1 - -1 -1 - 0 -1 - -1 -2 - -1 -1 - -1 -1 - 0 -1 - -1 -2 - -1 -1 - 0 -1 - -1 -2 - -1 -1 - 0 -1 - 0 -2 - -1 -1 - 0 -1 - -1 -2 - -1 -1 - 0 -2 - 0 -1 - -1 -2 - 0 -1 - 0 -2 - -1 -1 - 0 -1 - 0 -2 - 0 -1 - -1 -2 - 0 -1 - 0 -2 - 0 -1 - 0 -2 - 0 -1 - 0 -2 - -1 -1 - 0 -2 - C 0 0 0 sco K : 1816 1431 330 33 rc 0 0 0 sco F2_29
+Ji 
+1846 1431 M 
+-0.343 0 (B)A 
+-0.124 0 (a)A 
+0.500 0 (s)A 
+0.562 0 (i)A 
+0.500 0 (c)A 
+0.062 0 (D)A 
+-0.124 0 (e)A 
+-1.500 0 (v)A 
+0.562 0 (i)A 
+0.500 0 (c)A 
+-0.124 0 (e)A 
+; 
+1965 1377 N M 0 -1 - 0 -2 - 0 -1 - 0 -2 - 0 -1 - 0 -2 - 1 -1 - 0 -2 - 0 -1 - 0 -2 - 0 -1 - 1 -2 - 0 -1 - 0 -2 - 1 -1 - 0 -1 - 1 -2 - 0 -1 - 0 -2 - 1 -1 - 0 -1 - 1 -2 - 0 -1 - 1 -2 - 1 -1 - 0 -1 - 1 -2 - 0 -1 - 1 -1 - 1 -2 - 0 -1 - 1 -1 - 1 -1 - 1 -2 - 0 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 0 -2 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -2 - 1 -1 - 1 0 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 2 -1 - 1 -1 - 1 -1 - 1 0 - 1 -2 - 1 0 - 2 -1 - 1 -1 - 1 -1 - 1 0 - 1 -1 - 2 -1 - 1 -1 - 1 0 - 1 -1 - 2 -1 - 1 0 - 2 -1 - 1 -1 - 1 0 - 2 -1 - 1 0 - 1 -1 - 2 0 - 1 -1 - 2 0 - 1 0 - 2 -1 - 1 0 - 1 -1 - 2 0 - 1 0 - 2 0 - 1 -1 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 -1 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 1 1 - 2 0 - 1 0 - 2 0 - 1 0 - 2 1 - 1 0 - 2 0 - 1 1 - 1 0 - 2 1 - 1 0 - 2 0 - 1 1 - 1 0 - 2 1 - 1 0 - 2 1 - 1 0 - 1 1 - 2 1 - 1 0 - 1 1 - 2 1 - 1 0 - 1 1 - 1 1 - 2 1 - 1 0 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 2 0 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 2 1 - 1 1 - 0 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 2 - 1 1 - 1 1 - 1 1 - 1 1 - 0 2 - 1 1 - 1 1 - 0 1 - 1 1 - 1 2 - 1 1 - 1 1 - 0 1 - 1 2 - 1 1 - 0 2 - 1 1 - 0 1 - 1 1 - 0 2 - 1 1 - 0 2 - 1 1 - 0 2 - 1 1 - 0 1 - 0 2 - 1 1 - 0 2 - 0 1 - 1 2 - 0 1 - 0 2 - 0 1 - 1 2 - 0 1 - 0 2 - 0 1 - 0 2 - 0 2 - 0 1 - 0 2 - 0 1 - 0 2 - 0 1 - 0 1 - 0 2 - 0 1 - 0 2 - -1 1 - 0 2 - 0 1 - 0 2 - -1 1 - 0 2 - 0 1 - -1 1 - 0 2 - -1 1 - 0 2 - 0 1 - -1 1 - -1 2 - 0 1 - -1 2 - 0 1 - -1 1 - -1 2 - 0 1 - -1 1 - 0 1 - -1 2 - -1 1 - 0 1 - -1 1 - -1 2 - -1 1 - -1 1 - -1 1 - 0 1 - -1 1 - -1 2 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 2 - -1 0 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -2 1 - -1 1 - -1 1 - -1 0 - -1 1 - -2 1 - -1 0 - -1 1 - -1 1 - -2 1 - -1 1 - -1 0 - -1 1 - -2 1 - -1 0 - -2 1 - -1 0 - -1 1 - -2 0 - -1 1 - -1 0 - -2 1 - -1 0 - -2 1 - -1 0 - -2 0 - -1 1 - -2 0 - -1 0 - -2 1 - -1 0 - -1 0 - -2 0 - -1 1 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 -1 - -2 0 - -1 0 - -2 0 - -1 -1 - -2 0 - -1 0 - -1 -1 - -2 0 - -1 -1 - -2 0 - -1 0 - -1 -1 - -2 -1 - -1 0 - -2 -1 - -1 0 - -1 -1 - -2 -1 - -1 0 - -1 -1 - -1 0 - -2 -1 - -1 -1 - -1 -1 - -1 0 - -2 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 0 - -2 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -2 -1 - 0 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - 0 -2 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -2 - 0 -1 - -1 -1 - -1 -1 - -1 -2 - 0 -1 - -1 -1 - -1 -1 - 0 -2 - -1 -1 - -1 -2 - 0 -1 - -1 -1 - 0 -2 - -1 -1 - 0 -1 - -1 -2 - 0 -1 - 0 -2 - -1 -1 - 0 -2 - 0 -1 - -1 -2 - 0 -1 - 0 -2 - -1 -1 - 0 -2 - 0 -1 - 0 -1 - 0 -2 - 0 -1 - 0 -2 - -1 -1 - 0 -2 - 0 -2 - C : 1.000 1.000 1.000 sco O ; 
+1965 1377 N M 0 -1 - 0 -2 - 0 -1 - 0 -2 - 0 -1 - 0 -2 - 1 -1 - 0 -2 - 0 -1 - 0 -2 - 0 -1 - 1 -2 - 0 -1 - 0 -2 - 1 -1 - 0 -1 - 1 -2 - 0 -1 - 0 -2 - 1 -1 - 0 -1 - 1 -2 - 0 -1 - 1 -2 - 1 -1 - 0 -1 - 1 -2 - 0 -1 - 1 -1 - 1 -2 - 0 -1 - 1 -1 - 1 -1 - 1 -2 - 0 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 0 -2 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 1 -2 - 1 -1 - 1 0 - 1 -1 - 1 -1 - 1 -1 - 1 -1 - 2 -1 - 1 -1 - 1 -1 - 1 0 - 1 -2 - 1 0 - 2 -1 - 1 -1 - 1 -1 - 1 0 - 1 -1 - 2 -1 - 1 -1 - 1 0 - 1 -1 - 2 -1 - 1 0 - 2 -1 - 1 -1 - 1 0 - 2 -1 - 1 0 - 1 -1 - 2 0 - 1 -1 - 2 0 - 1 0 - 2 -1 - 1 0 - 1 -1 - 2 0 - 1 0 - 2 0 - 1 -1 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 -1 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 2 0 - 1 0 - 1 1 - 2 0 - 1 0 - 2 0 - 1 0 - 2 1 - 1 0 - 2 0 - 1 1 - 1 0 - 2 1 - 1 0 - 2 0 - 1 1 - 1 0 - 2 1 - 1 0 - 2 1 - 1 0 - 1 1 - 2 1 - 1 0 - 1 1 - 2 1 - 1 0 - 1 1 - 1 1 - 2 1 - 1 0 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 2 0 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 2 1 - 1 1 - 0 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 1 - 1 2 - 1 1 - 1 1 - 1 1 - 1 1 - 0 2 - 1 1 - 1 1 - 0 1 - 1 1 - 1 2 - 1 1 - 1 1 - 0 1 - 1 2 - 1 1 - 0 2 - 1 1 - 0 1 - 1 1 - 0 2 - 1 1 - 0 2 - 1 1 - 0 2 - 1 1 - 0 1 - 0 2 - 1 1 - 0 2 - 0 1 - 1 2 - 0 1 - 0 2 - 0 1 - 1 2 - 0 1 - 0 2 - 0 1 - 0 2 - 0 2 - 0 1 - 0 2 - 0 1 - 0 2 - 0 1 - 0 1 - 0 2 - 0 1 - 0 2 - -1 1 - 0 2 - 0 1 - 0 2 - -1 1 - 0 2 - 0 1 - -1 1 - 0 2 - -1 1 - 0 2 - 0 1 - -1 1 - -1 2 - 0 1 - -1 2 - 0 1 - -1 1 - -1 2 - 0 1 - -1 1 - 0 1 - -1 2 - -1 1 - 0 1 - -1 1 - -1 2 - -1 1 - -1 1 - -1 1 - 0 1 - -1 1 - -1 2 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 2 - -1 0 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -1 1 - -2 1 - -1 1 - -1 1 - -1 0 - -1 1 - -2 1 - -1 0 - -1 1 - -1 1 - -2 1 - -1 1 - -1 0 - -1 1 - -2 1 - -1 0 - -2 1 - -1 0 - -1 1 - -2 0 - -1 1 - -1 0 - -2 1 - -1 0 - -2 1 - -1 0 - -2 0 - -1 1 - -2 0 - -1 0 - -2 1 - -1 0 - -1 0 - -2 0 - -1 1 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 0 - -2 0 - -1 -1 - -2 0 - -1 0 - -2 0 - -1 -1 - -2 0 - -1 0 - -1 -1 - -2 0 - -1 -1 - -2 0 - -1 0 - -1 -1 - -2 -1 - -1 0 - -2 -1 - -1 0 - -1 -1 - -2 -1 - -1 0 - -1 -1 - -1 0 - -2 -1 - -1 -1 - -1 -1 - -1 0 - -2 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 0 - -2 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -2 -1 - 0 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - 0 -2 - -1 -1 - -1 -1 - -1 -1 - -1 -1 - -1 -2 - 0 -1 - -1 -1 - -1 -1 - -1 -2 - 0 -1 - -1 -1 - -1 -1 - 0 -2 - -1 -1 - -1 -2 - 0 -1 - -1 -1 - 0 -2 - -1 -1 - 0 -1 - -1 -2 - 0 -1 - 0 -2 - -1 -1 - 0 -2 - 0 -1 - -1 -2 - 0 -1 - 0 -2 - -1 -1 - 0 -2 - 0 -1 - 0 -1 - 0 -2 - 0 -1 - 0 -2 - -1 -1 - 0 -2 - 0 -2 - C 0 0 0 sco K : 1944 1359 202 33 rc 0 0 0 sco F2_29
+Ji 
+1974 1359 M 
+-0.343 0 (B)A 
+-0.124 0 (a)A 
+0.500 0 (s)A 
+0.562 0 (i)A 
+0.500 0 (c)A 
+0.062 0 (D)A 
+-0.124 0 (e)A 
+-1.500 0 (v)A 
+0.562 0 (i)A 
+0.500 0 (c)A 
+-0.124 0 (e)A 
+; 
+984 1027 N M 153 103 - 0 0 0 sco K 
+1137 1130 N M -13 -24 - 3 17 - 10 7 - C : 0 0 0 sco O ; 0 0 0 sco K 
+1137 1130 N M -27 -3 - 17 -4 - 10 7 - C : 0 0 0 sco O ; 0 0 0 sco K : 160 1899 732 67 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F5) cvn
+0.914 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F5_58) cvn
+F5
+58 
+xF 
+F5_58
+Ji 
+221 1899 M 
+-0.169 0 (FIGURE A-1)A 
+; : 610 1899 1098 66 rc 0 0 0 sco (F2_58) cvn
+F2
+58 
+xF 
+F2_58
+Ji 
+671 1899 M 
+-0.265 0 (Framework Layout)A 
+; 
+221 1895 N M 1950 2 rr : 0 0 0 sco O ; : 601 2148 1400 78 rc 0 0 0 sco (F5_67) cvn
+F5
+67 
+xF 
+F5_67
+Ji 
+671 2148 M 
+-0.067 0 (Class Descriptions)A 
+; 
+671 2226 N M 1500 2 rr : 0 0 0 sco O ; : 617 2275 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2275 M 
+-0.269 0 (This section provides a brief summary describing the purpose of each of the)A 
+; : 617 2335 1674 57 rc 0 0 0 sco F0_50
+Ji 
+671 2335 M 
+-0.257 0 (C++ classes in the framework.)A 
+; : 610 2469 854 67 rc 0 0 0 sco F5_58
+Ji 
+671 2469 M 
+-0.244 0 (AddressSpace)A 
+; : 617 2568 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2568 M 
+-0.297 0 (This class maintains a collection of attached devices and provides methods)A 
+; : 617 2627 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2627 M 
+-0.035 0 (to peek and poke into them.  It's not an abstract base class and in most)A 
+; : 617 2686 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2686 M 
+-0.166 0 (cases used as is. However using it as a super class you could derive a)A 
+; : 617 2745 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 2745 M 
+-0.207 0 ("VirtualAddressSpace" or "CachedAddressSpace" class supporting virtual)A 
+; : 617 2805 1026 57 rc 0 0 0 sco F0_50
+Ji 
+671 2805 M 
+-0.212 0 (or cached memory.)A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco F0_50
+Ji 
+2121 2942 M 
+(26)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 2 ]%%)  =
+%%PageTrailer
+
+%%Page: 3 3
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 610 227 610 67 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F0) cvn
+0.914 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F0_58) cvn
+F0
+58 
+xF 
+F0_58
+Ji 
+671 227 M 
+-0.023 0 (BasicCPU)A 
+; : 617 326 1779 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F2) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F2_50) cvn
+F2
+50 
+xF 
+F2_50
+Ji 
+671 326 M 
+-0.185 0 (This class is the heart of the simulator its main purpose is to execute)A 
+; : 617 385 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 385 M 
+-0.120 0 (instructions and handle interrupts.  Most of  the work writing a simulator)A 
+; : 617 445 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 445 M 
+-0.176 0 (goes into the "CPU" class derived from this abstract base class.)A 
+; : 610 579 793 67 rc 0 0 0 sco F0_58
+Ji 
+671 579 M 
+-0.249 0 (BasicDevice)A 
+; : 617 678 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 678 M 
+-0.246 0 (This abstract base class is the foundation for all devices in the simulator. Its)A 
+; : 617 737 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 737 M 
+-0.268 0 (main job is to simulate the device at the register level and provided)A 
+; : 617 796 972 57 rc 0 0 0 sco F2_50
+Ji 
+671 796 M 
+-0.022 0 (methods for the )A 
+; : 964 802 462 53 rc 0 0 0 sco %%IncludeFont: Courier
+(F4) cvn
+0.780 
+ (Courier) cvn /Type1 
+T 
+(Courier) cvn
+mF 
+(F4_50) cvn
+F4
+50 
+xF 
+F4_50
+Ji 
+997 802 M 
+(AddressSpace)S 
+; : 1303 796 1093 57 rc 0 0 0 sco F2_50
+Ji 
+1357 796 M 
+0.024 0 ( to read from and write to the device.)A 
+; : 610 932 1281 67 rc 0 0 0 sco F0_58
+Ji 
+671 932 M 
+-0.305 0 (BasicDeviceRegistry)A 
+; : 617 1031 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 1031 M 
+-0.274 0 (This abstract base class is used to derive a class that maintains a list of all)A 
+; : 617 1091 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 1091 M 
+-0.181 0 (the devices in the simulator and allows them to be created.)A 
+; : 610 1225 793 67 rc 0 0 0 sco F0_58
+Ji 
+671 1225 M 
+-0.192 0 (BasicLoader)A 
+; : 617 1324 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 1324 M 
+-0.180 0 (This abstract base class provides methods to load object files into the)A 
+; : 617 1383 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 1383 M 
+-0.257 0 (simulator. A derived class should load all the object file formats supported)A 
+; : 617 1443 1296 57 rc 0 0 0 sco F2_50
+Ji 
+671 1443 M 
+-0.239 0 (by the simulator. The )A 
+; : 1073 1449 363 53 rc 0 0 0 sco F4_50
+Ji 
+1106 1449 M 
+(Interface)S 
+; : 1324 1442 156 57 rc 0 0 0 sco %%IncludeFont: Times-Bold
+(F6) cvn
+0.920 
+ (Times-Bold) cvn /Type1 
+T 
+(Times-Bold) cvn
+mF 
+(F6_50) cvn
+F6
+50 
+xF 
+F6_50
+Ji 
+1376 1442 M 
+0.500 0 ( )A 
+; : 1335 1443 1061 57 rc 0 0 0 sco F2_50
+Ji 
+1389 1443 M 
+-0.121 0 (object uses this derived object to load)A 
+; : 617 1504 1458 57 rc 0 0 0 sco F2_50
+Ji 
+671 1504 M 
+-0.356 0 (files into the simulator.)A 
+; : 610 1639 976 67 rc 0 0 0 sco F0_58
+Ji 
+671 1639 M 
+-0.218 0 (BreakpointList)A 
+; : 617 1739 324 57 rc 0 0 0 sco F2_50
+Ji 
+671 1739 M 
+-0.063 0 (The )A 
+; : 728 1745 363 53 rc 0 0 0 sco F4_50
+Ji 
+761 1745 M 
+(Interface)S 
+; : 979 1738 156 57 rc 0 0 0 sco F6_50
+Ji 
+1031 1738 M 
+0.500 0 ( )A 
+; : 990 1739 1406 57 rc 0 0 0 sco F2_50
+Ji 
+1044 1739 M 
+-0.252 0 (class uses this class to manage a list of breakpoints. This)A 
+; : 617 1800 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 1800 M 
+-0.203 0 (should not have to be modified.)A 
+; : 610 1934 427 67 rc 0 0 0 sco F0_58
+Ji 
+671 1934 M 
+-0.387 0 (Event)A 
+; : 617 2034 1728 57 rc 0 0 0 sco F2_50
+Ji 
+671 2034 M 
+-0.297 0 (This is a nested class in the )A 
+; : 1186 2040 462 53 rc 0 0 0 sco F4_50
+Ji 
+1219 2040 M 
+(EventHandler)S 
+; : 1527 2033 156 57 rc 0 0 0 sco F6_50
+Ji 
+1579 2033 M 
+0.500 0 ( )A 
+; : 1538 2034 858 57 rc 0 0 0 sco F2_50
+Ji 
+1592 2034 M 
+-0.408 0 (class. Whenever an)A 
+; : 638 2101 363 53 rc 0 0 0 sco F4_50
+Ji 
+671 2101 M 
+(EventBase)S 
+; : 887 2095 1509 57 rc 0 0 0 sco F2_50
+Ji 
+941 2095 M 
+-0.117 0 ( derived object \(i.e., a device\) requests an event an )A 
+; : 1925 2101 231 53 rc 0 0 0 sco F4_50
+Ji 
+1958 2101 M 
+(Event)S 
+; : 617 2157 1458 57 rc 0 0 0 sco F2_50
+Ji 
+671 2157 M 
+0.134 0 (object gets added to the )A 
+; : 1126 2163 462 53 rc 0 0 0 sco F4_50
+Ji 
+1159 2163 M 
+(EventHandler)S 
+; : 1465 2157 216 57 rc 0 0 0 sco F2_50
+Ji 
+1519 2157 M 
+-0.725 0 ('s)A 
+; : 1494 2156 156 57 rc 0 0 0 sco F6_50
+Ji 
+1546 2156 M 
+0.500 0 ( )A 
+; : 1505 2157 756 57 rc 0 0 0 sco F2_50
+Ji 
+1559 2157 M 
+-0.050 0 (delta queue.)A 
+; : 610 2293 854 67 rc 0 0 0 sco F0_58
+Ji 
+671 2293 M 
+-0.239 0 (EventHandler)A 
+; : 617 2394 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 2394 M 
+-0.282 0 (This class maintains a queue of events requested by )A 
+; : 1669 2400 363 53 rc 0 0 0 sco F4_50
+Ji 
+1702 2400 M 
+(EventBase)S 
+; : 1920 2393 156 57 rc 0 0 0 sco F6_50
+Ji 
+1972 2393 M 
+0.500 0 ( )A 
+; : 1931 2394 465 57 rc 0 0 0 sco F2_50
+Ji 
+1985 2394 M 
+-0.421 0 (derived)A 
+; : 617 2456 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 2456 M 
+-0.149 0 (objects. Whenever an event times-out the )A 
+; : 1472 2462 363 53 rc 0 0 0 sco F4_50
+Ji 
+1505 2462 M 
+(EventBase)S 
+; : 1723 2455 156 57 rc 0 0 0 sco F6_50
+Ji 
+1775 2455 M 
+0.500 0 ( )A 
+; : 1734 2456 662 57 rc 0 0 0 sco F2_50
+Ji 
+1788 2456 M 
+-0.465 0 (object's Callback)A 
+; : 617 2517 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 2517 M 
+-0.292 0 (method is executed. Events are useful for simulating regular time interval)A 
+; : 617 2576 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 2576 M 
+-0.155 0 (interrupts. You should not have to modify this class.)A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco F2_50
+Ji 
+2121 2942 M 
+(27)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 3 ]%%)  =
+%%PageTrailer
+
+%%Page: 4 4
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 610 227 671 67 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F0) cvn
+0.914 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F0_58) cvn
+F0
+58 
+xF 
+F0_58
+Ji 
+671 227 M 
+-0.194 0 (Interface)A 
+; : 617 326 1779 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F2) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F2_50) cvn
+F2
+50 
+xF 
+F2_50
+Ji 
+671 326 M 
+-0.174 0 (This class communicates with the user interface. It provides a standard set)A 
+; : 617 385 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 385 M 
+-0.231 0 (of commands allowing the user interface to "wrap" around any simulator)A 
+; : 617 445 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 445 M 
+-0.130 0 (written with the BSVC framework. This class should not have to be)A 
+; : 617 504 594 57 rc 0 0 0 sco F2_50
+Ji 
+671 504 M 
+-0.672 0 (modified.)A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco F2_50
+Ji 
+2121 2942 M 
+(28)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 4 ]%%)  =
+%%PageTrailer
+
+%%Page: 5 5
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 601 227 1795 78 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F0) cvn
+0.925 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F0_67) cvn
+F0
+67 
+xF 
+F0_67
+Ji 
+671 227 M 
+0.015 0 (Communication with the User Interface)A 
+; 
+671 305 N M 1500 2 rr : 0 0 0 sco O ; : 617 354 1779 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F2) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F2_50) cvn
+F2
+50 
+xF 
+F2_50
+Ji 
+671 354 M 
+-0.103 0 (The simulator and user interface are two separate processes. The simulator)A 
+; : 617 413 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 413 M 
+-0.165 0 (process is a slave process that waits for commands from the user interface)A 
+; : 617 473 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 473 M 
+-0.150 0 (process. Whenever the user interacts with the user interface, commands are)A 
+; : 617 532 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 532 M 
+-0.103 0 (sent to the simulator to perform the necessary tasks. For example when the)A 
+; : 617 591 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 591 M 
+-0.065 0 ("Single Step" button is pressed the user interface sends "Step 1" to the)A 
+; : 617 650 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 650 M 
+-0.153 0 (simulator. In response to this command the simulator executes the next)A 
+; : 617 709 1779 57 rc 0 0 0 sco F2_50
+Ji 
+671 709 M 
+-0.279 0 (instruction.  Listed below in Table A-1 are all the simulator commands.)A 
+; : 160 861 610 67 rc 0 0 0 sco (F0_58) cvn
+F0
+58 
+xF 
+F0_58
+Ji 
+221 861 M 
+-0.329 0 (TABLE A-)A 
+; : 428 861 183 67 rc 0 0 0 sco F0_58
+Ji 
+489 861 M 
+-0.248 0 (1)A 
+; : 460 861 183 67 rc 0 0 0 sco F0_58
+Ji 
+521 861 M 
+-0.124 0 ( )A 
+; : 610 861 1220 66 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F5) cvn
+0.914 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F5_58) cvn
+F5
+58 
+xF 
+F5_58
+Ji 
+671 861 M 
+0.025 0 (Simulator Commands)A 
+; 
+221 856 N M 1950 2 rr : 0 0 0 sco O ; : 394 984 396 48 rc 0 0 0 sco %%IncludeFont: Times-Bold
+(F7) cvn
+0.929 
+ (Times-Bold) cvn /Type1 
+T 
+(Times-Bold) cvn
+mF 
+(F7_42) cvn
+F7
+42 
+xF 
+F7_42
+Ji 
+438 984 M 
+-0.571 0 (Command)A 
+; : 996 984 484 48 rc 0 0 0 sco F7_42
+Ji 
+1040 984 M 
+-0.293 0 (Arguments)A 
+; : 1681 984 490 48 rc 0 0 0 sco F7_42
+Ji 
+1725 984 M 
+-0.059 0 (Description)A 
+; : 184 1051 690 48 rc 0 0 0 sco (F2_42) cvn
+F2
+42 
+xF 
+F2_42
+Ji 
+230 1051 M 
+0.002 0 (AddBreakpoint)A 
+; : 803 1051 368 48 rc 0 0 0 sco F2_42
+Ji 
+849 1051 M 
+0.332 0 (<addr>)A 
+; : 1401 1051 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 1051 M 
+0.112 0 (Sets a breakpoint at the address)A 
+; : 184 1119 644 48 rc 0 0 0 sco F2_42
+Ji 
+230 1119 M 
+-0.160 0 (AttachDevice)A 
+; : 803 1119 1242 48 rc 0 0 0 sco F2_42
+Ji 
+849 1119 M 
+0.200 0 (<addrspace> <name> <args>)A 
+; : 1401 1119 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 1119 M 
+0.025 0 (Attaches the named device)A 
+; : 184 1187 782 48 rc 0 0 0 sco F2_42
+Ji 
+230 1187 M 
+0.088 0 (ClearStatistics)A 
+; : 1063 1187 245 48 rc 0 0 0 sco %%IncludeFont: Times-Italic
+(F10) cvn
+0.905 
+ (Times-Italic) cvn /Type1 
+T 
+(Times-Italic) cvn
+mF 
+(F10_42) cvn
+F10
+42 
+xF 
+F10_42
+Ji 
+1112 1187 M 
+0.108 0 (n/a)A 
+; : 1401 1187 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 1187 M 
+0.089 0 (Clears any statistics the simulator keeps )A 
+; : 184 1255 644 48 rc 0 0 0 sco F2_42
+Ji 
+230 1255 M 
+-0.241 0 (DetachDevice)A 
+; : 803 1255 1288 48 rc 0 0 0 sco F2_42
+Ji 
+849 1255 M 
+0.015 0 (<addrspace> <device index>)A 
+; : 1401 1255 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 1255 M 
+-0.050 0 (Detaches the indexed device)A 
+; : 184 1323 828 48 rc 0 0 0 sco F2_42
+Ji 
+230 1323 M 
+-0.079 0 (DeleteBreakpoint)A 
+; : 803 1323 368 48 rc 0 0 0 sco F2_42
+Ji 
+849 1323 M 
+0.332 0 (<addr>)A 
+; : 1401 1323 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 1323 M 
+0.154 0 (Clear the breakpoint at address)A 
+; : 184 1391 782 48 rc 0 0 0 sco F2_42
+Ji 
+230 1391 M 
+-0.291 0 (FillMemoryBlock)A 
+; : 803 1391 1368 48 rc 0 0 0 sco F2_42
+Ji 
+849 1391 M 
+0.193 0 (<addrspace> <addr> <len> <val>)A 
+; : 1401 1391 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 1391 M 
+-0.045 0 (Fills the block of memory with the value)A 
+; : 184 1459 966 48 rc 0 0 0 sco F2_42
+Ji 
+230 1459 M 
+-0.171 0 (ListAttachedDevices)A 
+; : 803 1459 598 48 rc 0 0 0 sco F2_42
+Ji 
+849 1459 M 
+0.064 0 (<addrspace>)A 
+; : 1401 1459 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 1459 M 
+-0.019 0 (Lists devices attached to the address space)A 
+; : 184 1527 782 48 rc 0 0 0 sco F2_42
+Ji 
+230 1527 M 
+-0.023 0 (ListBreakpoints)A 
+; : 1063 1527 245 48 rc 0 0 0 sco F10_42
+Ji 
+1112 1527 M 
+0.108 0 (n/a)A 
+; : 1401 1527 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 1527 M 
+0.160 0 (Lists all the breakpoints that are set)A 
+; : 184 1595 598 48 rc 0 0 0 sco F2_42
+Ji 
+230 1595 M 
+-0.330 0 (ListDevices)A 
+; : 1063 1595 245 48 rc 0 0 0 sco F10_42
+Ji 
+1112 1595 M 
+0.108 0 (n/a)A 
+; : 1401 1595 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 1595 M 
+-0.142 0 (Lists available devices)A 
+; : 184 1663 828 48 rc 0 0 0 sco F2_42
+Ji 
+230 1663 M 
+-0.165 0 (ListDeviceScript)A 
+; : 803 1663 368 48 rc 0 0 0 sco F2_42
+Ji 
+849 1663 M 
+0.275 0 (<name>)A 
+; : 1401 1663 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 1663 M 
+0.056 0 (Lists the Tcl script for the named device)A 
+; : 184 1731 1196 48 rc 0 0 0 sco F2_42
+Ji 
+230 1731 M 
+-0.106 0 (ListExecutionTraceRecord)A 
+; : 1063 1731 245 48 rc 0 0 0 sco F10_42
+Ji 
+1112 1731 M 
+0.108 0 (n/a)A 
+; : 1401 1731 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 1731 M 
+0.019 0 (Lists the symbolic names in trace records)A 
+; : 184 1798 1564 48 rc 0 0 0 sco F2_42
+Ji 
+230 1798 M 
+0.025 0 (ListDefaultExecutionTraceEntries)A 
+; : 1063 1798 245 48 rc 0 0 0 sco F10_42
+Ji 
+1112 1798 M 
+0.108 0 (n/a)A 
+; : 1401 1798 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 1798 M 
+0.003 0 (Lists the default trace records to display)A 
+; : 184 1866 782 48 rc 0 0 0 sco F2_42
+Ji 
+230 1866 M 
+0.135 0 (ListGranularity)A 
+; : 1063 1866 245 48 rc 0 0 0 sco F10_42
+Ji 
+1112 1866 M 
+0.108 0 (n/a)A 
+; : 1401 1866 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 1866 M 
+0.052 0 (Granularity in bytes)A 
+; : 184 1934 920 48 rc 0 0 0 sco F2_42
+Ji 
+230 1934 M 
+(ListMaximumAddress)S 
+; : 803 1934 598 48 rc 0 0 0 sco F2_42
+Ji 
+849 1934 M 
+0.064 0 (<addrspace>)A 
+; : 1401 1934 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 1934 M 
+0.027 0 (Maximum address of the address space)A 
+; : 184 2002 552 48 rc 0 0 0 sco F2_42
+Ji 
+230 2002 M 
+-0.300 0 (ListMemory)A 
+; : 803 2002 1196 48 rc 0 0 0 sco F2_42
+Ji 
+849 2002 M 
+0.208 0 (<addrspace> <addr> <len>)A 
+; : 1401 2002 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 2002 M 
+-0.079 0 (Lists memory contents)A 
+; : 184 2070 1242 48 rc 0 0 0 sco F2_42
+Ji 
+230 2070 M 
+-0.183 0 (ListNumberOfAddressSpaces)A 
+; : 1063 2070 245 48 rc 0 0 0 sco F10_42
+Ji 
+1112 2070 M 
+0.108 0 (n/a)A 
+; : 1401 2070 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 2070 M 
+-0.112 0 (Number of address spaces)A 
+; : 184 2138 690 48 rc 0 0 0 sco F2_42
+Ji 
+230 2138 M 
+-0.129 0 (ListRegisters)A 
+; : 1063 2138 245 48 rc 0 0 0 sco F10_42
+Ji 
+1112 2138 M 
+0.108 0 (n/a)A 
+; : 1401 2138 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 2138 M 
+0.076 0 (List registers and values)A 
+; : 184 2206 874 48 rc 0 0 0 sco F2_42
+Ji 
+230 2206 M 
+-0.096 0 (ListRegisterValue)A 
+; : 803 2206 782 48 rc 0 0 0 sco F2_42
+Ji 
+849 2206 M 
+0.213 0 (<register name>)A 
+; : 1401 2206 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 2206 M 
+0.048 0 (Lists value of the named register)A 
+; : 184 2274 1150 48 rc 0 0 0 sco F2_42
+Ji 
+230 2274 M 
+-0.057 0 (ListRegisterDescription)A 
+; : 803 2274 782 48 rc 0 0 0 sco F2_42
+Ji 
+849 2274 M 
+0.213 0 (<register name>)A 
+; : 1401 2274 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 2274 M 
+0.092 0 (Lists a description of the named register)A 
+; : 184 2342 736 48 rc 0 0 0 sco F2_42
+Ji 
+230 2342 M 
+-0.004 0 (ListStatistics)A 
+; : 1067 2342 230 48 rc 0 0 0 sco F2_42
+Ji 
+1113 2342 M 
+0.559 0 (n/a)A 
+; : 1401 2342 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 2342 M 
+0.015 0 (Lists any statistics kept by the simulator)A 
+; : 184 2410 598 48 rc 0 0 0 sco F2_42
+Ji 
+230 2410 M 
+0.004 0 (LoadProgram)A 
+; : 803 2410 1104 48 rc 0 0 0 sco F2_42
+Ji 
+849 2410 M 
+0.085 0 (<addrspace> <filename>)A 
+; : 1401 2410 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 2410 M 
+0.164 0 (Load the named program)A 
+; : 184 2478 966 48 rc 0 0 0 sco F2_42
+Ji 
+230 2478 M 
+0.091 0 (ProgramCounterValue)A 
+; : 1063 2478 245 48 rc 0 0 0 sco F10_42
+Ji 
+1112 2478 M 
+0.108 0 (n/a)A 
+; : 1401 2478 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 2478 M 
+0.064 0 (Lists the value of the program counter)A 
+; : 184 2546 322 48 rc 0 0 0 sco F2_42
+Ji 
+230 2546 M 
+-0.465 0 (Reset)A 
+; : 1063 2546 245 48 rc 0 0 0 sco F10_42
+Ji 
+1112 2546 M 
+0.108 0 (n/a)A 
+; : 1401 2546 644 48 rc 0 0 0 sco F2_42
+Ji 
+1447 2546 M 
+-0.207 0 (System reset)A 
+; : 184 2613 230 48 rc 0 0 0 sco F2_42
+Ji 
+230 2613 M 
+-0.005 0 (Run)A 
+; : 1063 2613 245 48 rc 0 0 0 sco F10_42
+Ji 
+1112 2613 M 
+0.108 0 (n/a)A 
+; : 1401 2613 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 2613 M 
+-0.082 0 (Full speed execution)A 
+; : 184 2681 506 48 rc 0 0 0 sco F2_42
+Ji 
+230 2681 M 
+-0.369 0 (SetMemory)A 
+; : 803 2681 1288 48 rc 0 0 0 sco F2_42
+Ji 
+849 2681 M 
+0.129 0 (<addrspace> <addr> <value>)A 
+; : 1401 2681 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 2681 M 
+-0.032 0 (Sets the given memory location)A 
+; : 184 2749 598 48 rc 0 0 0 sco F2_42
+Ji 
+230 2749 M 
+-0.151 0 (SetRegister)A 
+; : 803 2749 1150 48 rc 0 0 0 sco F2_42
+Ji 
+849 2749 M 
+0.145 0 (<register name> <value>)A 
+; : 1401 2749 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 2749 M 
+0.104 0 (Sets the named register to the value)A 
+; : 184 2817 276 48 rc 0 0 0 sco F2_42
+Ji 
+230 2817 M 
+-0.169 0 (Step)A 
+; : 803 2817 460 48 rc 0 0 0 sco F2_42
+Ji 
+849 2817 M 
+0.164 0 (<number>)A 
+; : 1401 2817 770 48 rc 0 0 0 sco F2_42
+Ji 
+1447 2817 M 
+0.060 0 (Execute instructions)A 
+; 
+225 976 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1036 N M 1946 8 rr : 0 0 0 sco O ; 
+225 1039 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1107 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1107 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1175 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1175 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1243 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1243 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1311 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1311 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1379 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1379 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1447 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1447 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1515 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1515 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1583 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1583 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1651 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1651 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1719 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1719 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1786 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1786 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1854 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1854 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1922 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1922 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1990 N M 1946 2 rr : 0 0 0 sco O ; 
+225 1990 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2058 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2058 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2126 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2126 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2194 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2194 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2262 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2262 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2330 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2330 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2398 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2398 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2466 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2466 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2534 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2534 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2601 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2601 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2669 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2669 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2737 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2737 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2805 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2805 N M 1946 2 rr : 0 0 0 sco O ; 
+225 2873 N M 1946 2 rr : 0 0 0 sco O ; 
+225 976 N M 2 1899 rr : 0 0 0 sco O ; 
+839 976 N M 2 1899 rr : 0 0 0 sco O ; 
+839 976 N M 2 1899 rr : 0 0 0 sco O ; 
+1437 976 N M 2 1899 rr : 0 0 0 sco O ; 
+1437 976 N M 2 1899 rr : 0 0 0 sco O ; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco F2_50
+Ji 
+2121 2942 M 
+(29)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 5 ]%%)  =
+%%PageTrailer
+
+%%Trailer
+%%DocumentNeededFonts: Helvetica
+%%+ Times-Roman
+%%+ Helvetica-Bold
+%%+ Courier
+%%+ Times-Bold
+%%+ Times-Italic
+%%DocumentSuppliedFonts: 
+Pscript_Win_Driver_Incr dup /terminate get exec
+savelevel0 restore 
+%%Pages: 5
+(%%[ LastPage ]%%)  =
+%%EOF
+

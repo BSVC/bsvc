@@ -1,0 +1,1301 @@
+###############################################################################
+#
+# main.tk - BSVC user interface
+#
+# Copyright 1993
+# Bradford W. Mott
+# September 18,1993
+###############################################################################
+# $Id: main.tk,v 1.1 1996/08/06 12:58:37 bwmott Exp $
+###############################################################################
+
+## Include the various sub-systems
+source $Program(LibDir)/BtkFile.tk
+source $Program(LibDir)/memory.tk
+source $Program(LibDir)/listing.tk
+source $Program(LibDir)/tools.tk
+source $Program(LibDir)/license.tk
+source $Program(LibDir)/device.tk
+source $Program(LibDir)/breakpt.tk
+
+## Important globals
+set Program(Name)     "BSVC"
+set Program(Version)  "2.1"
+
+wm title      . "$Program(Name): Version $Program(Version)"
+wm iconname   . "$Program(Name)"
+wm iconbitmap . "@$Program(BitmapDir)/bsvcicon.xbm"
+
+###############################################################################
+## Setup fonts for Windows
+###############################################################################
+if {$tcl_version >= 7.5 && $tcl_platform(platform) == "windows"} {
+  option add *Font {"MS Sans Serif" 8 {}}
+  option add *memoryViewer.text*Font {"Courier New" 10 {}}
+  option add *memoryViewer.register.list.list*Font {"Courier New" 9 {}}
+  option add *programListing.pack.text*Font {"Courier New" 9 {}}
+  option add *breakpoints.list.list*Font {"Courier New" 10 {}}
+  option add *about*message1*Font {"Times New Roman" 12 {}}
+  option add *about*message2*Font {"Times New Roman" 10 {}}
+  option add *about*message3*Font {"Times New Roman" 10 {}}
+  option add *license.text*Font {"Courier New" 10 {}}
+  option add *mainMenu*Font {"MS Sans Serif" 8 {}}
+  option add *systemResources.registers.list*Font {"Courier New" 9 {}}
+  option add *systemResources.statistics.list*Font {"Courier New" 9 {}}
+  option add *systemOutput.text*Font {"Courier New" 9 {}}
+  option add *entry*Font {"Courier New" 10 {}}
+}
+
+###############################################################################
+# Send the given line to the simulator
+###############################################################################
+proc PutLine {line} {
+  global Simulator
+
+  puts $Simulator(Pipe) $line
+  flush $Simulator(Pipe)
+}
+
+###############################################################################
+# Answer a line from the simulator
+###############################################################################
+proc GetLine {} {
+  global Simulator
+
+  return [gets $Simulator(Pipe)]
+}
+
+###############################################################################
+# Answer a list of lines from the simulator
+###############################################################################
+proc GetList {} {
+  global Simulator
+
+  set list ""
+
+  ## Create a list from all the simulator's output
+  while {1} {
+    set input [gets $Simulator(Pipe)]
+    if {[string compare $input "Ready!"] != 0} {
+      lappend list "$input"
+    } else {
+      return $list
+    }
+  }
+}
+
+###############################################################################
+# Execute given command line to start the simulator and answer 1 if successful
+###############################################################################
+proc Simulator:Execute {command} {
+  global Program
+  global Simulator
+  global tcl_version
+  global tcl_platform
+  global env
+
+  ## Get the executable name of the simulator 
+  scan $command "%s" name
+
+  ## Get the name of the simulator in conical form
+  set name [file tail [string tolower $name]]
+  if {[file extension $name] == ".exe"} {
+    set name [file root $name]
+  }
+
+  ## Check to make sure the simulator exists and is executable
+  if {$tcl_version >= 7.5 && $tcl_platform(platform) == "windows"} {
+    set paths [split $env(PATH) ";"]
+  } else {
+    set paths [concat . [split $env(PATH) ":"]]
+  }
+
+  ## Add the installation directory to the path
+  set paths [concat [list $Program(InstallDir)] $paths]
+
+  set pipe_command ""
+  foreach i $paths {
+    if {[file executable $i/$name] && [file isfile $i/$name]} {
+      set pipe_command "$i/$name"
+      break
+    } elseif {[file executable $i/$name.exe] && [file isfile $i/$name.exe]} {
+      set pipe_command "$i/$name.exe"
+      break
+    }
+  }
+
+  ## If the simulator isn't found then notify the user and leave
+  if {$pipe_command == ""} {
+    Tool:AlertDialog {} \
+        "Could not find the requested simulator to execute!\n\n($name)"
+    return 0
+  }
+
+  ## Open a pipe to the simulator (read & write)
+  if {[catch {open "|\"$pipe_command\"" "r+"} Simulator(Pipe)]} {
+    catch {close $Simulator(Pipe)}
+    Tool:AlertDialog {} "Problem opening pipe to the simulator!"
+    return 0 
+  }
+
+  ## Make sure the program is a BSVC Simulator!!!
+  if {[string compare [GetLine] "BSVC Simulator"] != 0} {
+    catch {close $Simulator(Pipe)}
+    Tool:AlertDialog {} "Program doesn't seem to be a BSVC simulator!"
+    return 0
+  } else {
+    set Simulator(ProgramName) $command
+    set Simulator(Greeting) [GetList]
+
+    set Simulator(Pid) [pid $Simulator(Pipe)]
+    PutLine "ListNumberOfAddressSpaces"
+    set Simulator(NumberOfAddressSpaces) [lindex [GetList] 0]
+
+    PutLine "ListGranularity"
+    set Simulator(Granularity) [lindex [GetList] 0]
+
+    PutLine "ListExecutionTraceRecord"
+    set Simulator(TraceRecord) [lindex [GetList] 0]
+
+    PutLine "ListDefaultExecutionTraceEntries"
+    set Simulator(TraceEntries) [lindex [GetList] 0]
+
+    return 1
+  }
+}
+
+###############################################################################
+# Terminate the simulator and clean up the user interface
+###############################################################################
+proc Simulator:Terminate {} {
+  global Simulator
+
+  ## Stop the the simulator from running if it is
+  Run:Stop
+
+  ## Change to startup mode
+  SetApplicationMode "StartupMode"
+
+  ## Shutdown the simulator process by sending Exit Command
+  catch {PutLine "Exit"}
+  catch {unset Simulator(Pid)}
+
+  ## Wait for a little while
+  after 300
+
+  ## Close the pipe to the simulator
+  catch {close $Simulator(Pipe)}
+  catch {unset Simulator(Pipe)}
+
+  ## Destory old values
+  catch {unset Simulator(ProgramName)}
+  catch {unset Simulator(Greeting)}
+  catch {unset Simulator(NumberOfAddressSpaces)}
+  catch {unset Simulator(Granularity)}
+  catch {unset Simulator(TraceRecord)}
+  catch {unset Simulator(TraceEntries)}
+
+  ## Clean up the windows
+  .systemResources.registers.list delete 0 end
+  .systemResources.statistics.list delete 0 end
+
+  .systemOutput.text configure -state normal
+  .systemOutput.text delete 1.0 end
+  .systemOutput.text configure -state disabled
+}
+
+###############################################################################
+# Alter the value of a register
+###############################################################################
+proc Registers:Alter {} {
+
+  ## If no register is selected then leave
+  if {[llength [.systemResources.registers.list curselection]] == 0} {
+    bell
+    return
+  }
+
+  ## Get the register name
+  scan [.systemResources.registers.list get [.systemResources.registers.list \
+       curselection]] "%s" name
+
+  set value [Tool:EntryDialog {} \
+      "Enter new value for register $name:" {^[0-9a-fA-F]+$}]
+
+  ## If ok was pressed set the register value in the simulator
+  if {$value != ""} {
+    PutLine "SetRegister $name $value"
+    GetList
+
+    Statistics:Refresh
+    Registers:Refresh
+    ProgramListing:Refresh
+  }
+}
+
+###############################################################################
+# Clear all of the registers (set them to zero)
+###############################################################################
+proc Registers:ClearAll {} {
+  
+  ## Set each of the registers to 0
+  PutLine "ListRegisters"
+  foreach i [GetList] {
+    scan $i "%s" name
+    PutLine "SetRegister $name 0"
+
+    ## Remove any simulator output (should be just a Ready)
+    GetList 
+  }
+
+  Statistics:Refresh 
+  Registers:Refresh
+  ProgramListing:Refresh
+}
+
+###############################################################################
+# Refresh the register list
+###############################################################################
+proc Registers:Refresh {} {
+
+  ## Set a good default width for the register list
+  set width 8
+
+  ## Get the list of registers and values from the simulator
+  PutLine {ListRegisters}
+
+  .systemResources.registers.list delete 0 end 
+  foreach i [GetList] {
+    .systemResources.registers.list insert end "$i"
+
+    ## Adjust the register list geometry if necessary
+    if {$width < [expr [string length $i] + 2]} {
+      set width [expr [string length $i] + 2]
+      .systemResources.registers.list configure -width $width
+    }
+  }
+}
+  
+###############################################################################
+# Clear the simulator's statistics
+###############################################################################
+proc Statistics:Clear {} {
+
+  ## Tell the simulator to clear the statistics
+  PutLine "ClearStatistics"
+  GetList
+
+  ## Update the statistics list
+  Statistics:Refresh
+}
+
+###############################################################################
+# Refresh the statistics list (returns 0 if a list does not exists)
+###############################################################################
+proc Statistics:Refresh {} {
+  global ReturnValue
+
+  ## Get the geometry of the statistics list
+  set w 8
+
+  ## Get the list of statistics from the simulator
+  PutLine {ListStatistics}
+
+  set stat_list [GetList]
+  if {[llength $stat_list] == 0} { return 0 }
+
+  .systemResources.statistics.list delete 0 end 
+  foreach i $stat_list {
+    .systemResources.statistics.list insert end "$i"
+
+    ## Adjust the statistics list geometry if necessary
+    if {$w < [string length $i]} {
+      set w [expr [string length $i]+2]
+      .systemResources.statistics.list configure -width $w
+    }
+  }
+  return 1
+}
+
+###############################################################################
+# Insert the register list into the trace window
+###############################################################################
+proc Trace:InsertRegisters {} {
+
+  ## Get the width of the trace window
+  set width [.systemOutput.text cget -width]
+
+  ## Get the register list and put it in the trace window
+  PutLine {ListRegisters}
+  set line ""
+  foreach i [GetList] {
+    if {[expr [string length $i] + [string length $line]] > $width} {
+      .systemOutput.text configure -state normal
+      .systemOutput.text insert end "$line\n" 
+      .systemOutput.text yview -pickplace end
+      .systemOutput.text configure -state disabled
+      set line "$i"  
+    } else {
+      if {[string length $line] != 0} {
+        set line "$line $i"
+      } else {
+        set line "$i"
+      }
+    }
+  }
+
+  ## Add the last line if there is one  
+  if {[string length $line] != 0} {
+    .systemOutput.text configure -state normal
+    .systemOutput.text insert end "$line\n\n" 
+    .systemOutput.text yview -pickplace end
+    .systemOutput.text configure -state disabled
+  } else {
+    .systemOutput.text configure -state normal
+    .systemOutput.text insert end "\n"
+    .systemOutput.text yview -pickplace end
+    .systemOutput.text configure -state disabled
+  }
+}
+
+###############################################################################
+# Insert the statistics list into the trace window
+###############################################################################
+proc Trace:InsertStatistics {} {
+
+  ## Get the statistics list and put it in the trace window
+  PutLine {ListStatistics}
+
+  .systemOutput.text configure -state normal
+  foreach i [GetList] {
+    .systemOutput.text insert end "$i\n" 
+    .systemOutput.text yview -pickplace end
+  } 
+  .systemOutput.text insert end "\n" 
+  .systemOutput.text configure -state disabled
+}
+  
+###############################################################################
+# Insert the execution trace record into the output window
+###############################################################################
+proc Trace:InsertTraceRecord {record} {
+  global Simulator
+
+  ## Add the SimulatorMessage to the possible records/entries
+  set trace_records "{SimulatorMessage 40} $Simulator(TraceRecord)"
+  set entries "SimulatorMessage $Simulator(TraceEntries)"
+
+  foreach i $trace_records {
+    if {[scan $i "%s %d" name width] == 2} { 
+      if {[lsearch $entries $name] != -1} {
+        set i [lsearch -regexp $record "^$name"]
+        if {$i != -1} {
+          set field [lindex $record $i]
+          set t [format "%-$width\s" "[lindex $field 1]"]
+          .systemOutput.text configure -state normal
+          .systemOutput.text insert end "$t "
+          .systemOutput.text yview -pickplace end
+          .systemOutput.text configure -state disabled
+        }
+      }
+    } 
+  }
+  .systemOutput.text configure -state normal
+  .systemOutput.text insert end "\n"
+  .systemOutput.text yview -pickplace end
+  .systemOutput.text configure -state disabled
+}
+
+###############################################################################
+# Set the execution trace prefrences 
+###############################################################################
+proc Trace:Preferences {} {
+  global Simulator
+  global ReturnValue
+  global TraceCheckButton
+
+  ## Put the application in modal mode
+  set mode [GetApplicationMode]
+  SetApplicationMode "ModalMode"
+
+  catch {destroy .tracePreferences}
+
+  ## Create a frame for the dialog
+  frame .tracePreferences -relief ridge -borderwidth 4
+
+  message .tracePreferences.message -width 2.5i -relief raised \
+    -text "Select trace fields to display:"
+  pack .tracePreferences.message -side top -padx 2 -pady 2
+
+  ## Build a checkbutton for each trace record field
+  foreach i $Simulator(TraceRecord) {
+    if {[scan $i "%s" name]==1} {
+      checkbutton .tracePreferences.checkbutton$name -text $name \
+          -variable TraceCheckButton($name) -relief flat -anchor w
+      pack .tracePreferences.checkbutton$name -side top -fill x
+      if {[lsearch -exact $Simulator(TraceEntries) $name] != -1} {
+        set TraceCheckButton($name) 1
+      }
+    }
+  }
+
+  button .tracePreferences.ok -text "Ok" \
+      -command {set ReturnValue "Ok" ; destroy .tracePreferences}
+  button .tracePreferences.cancel -text "Cancel" \
+      -command {set ReturnValue "" ; destroy .tracePreferences}
+
+  pack .tracePreferences.ok -side left -expand 1 -fill x -padx 2 -pady 2
+  pack .tracePreferences.cancel -side left -expand 1 -fill x -padx 2 -pady 2
+
+  update idletasks
+  place .tracePreferences -relx 0.5 -rely 0.5 -anchor center
+
+  ## Wait for ok or cancel to be pressed
+  tkwait window .tracePreferences 
+
+  ## Reset application mode
+  SetApplicationMode $mode
+
+  ## If okay was pressed build the new Simulator(TraceEntries)
+  if {$ReturnValue != ""} {
+    set Simulator(TraceEntries) ""
+    foreach i $Simulator(TraceRecord) {
+      if {[scan $i "%s" name]==1} {
+        if {$TraceCheckButton($name) == 1} {
+          set Simulator(TraceEntries) "$i $Simulator(TraceEntries)"
+        }
+      }
+    }
+  } 
+  unset TraceCheckButton
+}
+
+###############################################################################
+# Save the contents of the trace window to a file
+###############################################################################
+proc Trace:SaveContents {} {
+
+  ## Get the filename
+  set name [Tool:SaveFileSelector -parent . \
+      -title "Select file to write the trace contents to:"]
+
+  ## If the user selected a file then handle writing to it
+  if {$name != ""} {
+
+    ## Make sure they didn't select a directory name
+    if {[file isdirectory $name]} {
+      Tool:AlertDialog {} "ERROR: The specified name is a directory!"
+      return
+    }
+
+    set mode "w+"
+
+    ## If we're tk_getSaveFile not available then ask user what to do about file
+    if {[info commands tk_getSaveFile] == ""} {
+      ## If the file exists ask user for writing mode otherwise use overwrite
+      if {[file exists $name]} {
+        switch -exact [Tool:GetWritingMode {} {overwrite append}] {
+          overwrite {set mode "w+"}
+          append    {set mode "a+"}
+          default   {return}
+        }
+      }
+    }
+
+    ## Open the output file
+    if {[catch {open $name $mode} file] != 0} {
+      Tool:AlertDialog {} "ERROR: Couldn't open $name for writing!"
+      return
+    }
+
+    ## Output a small title to the file
+    puts $file "Trace Contents"
+    puts $file "=============="
+    puts $file ""
+
+    puts $file [.systemOutput.text get 1.0 end]
+    close $file
+  }
+}
+
+###############################################################################
+# Tell the simulator to start running at full speed
+###############################################################################
+proc Run:Start {} {
+  global Program
+  global Simulator
+  global tcl_version
+  global tcl_platform
+
+  ## We get around the problem of non-blocking I/O in Tcl for Windows
+  ## by using a file to tell the UI when the Simulator has stopped running
+  if {$tcl_version >= 7.5 && $tcl_platform(platform) == "windows"} {
+    ## Make sure the stop running indicator file is truncated
+    close [open "$Program(StopIndicator)" "w+"]
+  
+    ## Setup event to check to see if the indicator file has been written to
+    after 200 Run:CheckForStop
+  } else {
+    ## If input becomes availiable on the pipe then stop running
+    fileevent $Simulator(Pipe) readable {Run:HandleStop}
+  }
+
+  ## If user presses stop then stop running
+  .systemControl.run configure -text "Stop" \
+      -command {
+        Run:Stop
+      }
+
+  ## Start the "running" animation
+  Run:StartAnimation
+
+  ## Put application in RunningMode
+  SetApplicationMode {RunningMode}
+
+  ## Tell tk to update the display
+  update idletasks
+
+  ## Start the program running
+  PutLine "Run {$Program(StopIndicator)}"
+}
+
+###############################################################################
+# Fix for non-blocking I/O problem with Tcl for Windows
+###############################################################################
+proc Run:CheckForStop {} {
+  global Program
+
+  if {[file size $Program(StopIndicator)] > 0} {
+    Run:HandleStop
+  } else {
+    after 200 Run:CheckForStop
+  }
+}
+
+###############################################################################
+# Tell the simulator to stop running
+###############################################################################
+proc Run:Stop {} {
+  global Simulator
+
+  ## Stop running only if we are running
+  if {[GetApplicationMode] == "RunningMode"} {
+    PutLine "NOP"
+    Run:HandleStop
+  }
+}
+
+###############################################################################
+# Reset everything after the simulator stops running
+###############################################################################
+proc Run:HandleStop {} {
+  global Simulator
+  global tcl_version
+  global tcl_platform
+  
+  ## Stop running only if we are running
+  if {[GetApplicationMode] == "RunningMode"} {
+
+    if {$tcl_version >= 7.5 && $tcl_platform(platform) == "windows"} {
+      after cancel Run:CheckForStop
+    } else {
+      ## Remove the input callback on the pipe file id
+      fileevent $Simulator(Pipe) readable ""
+    }
+
+    ## Insert output from the simulator into the output window
+    foreach i [GetList] {
+      .systemOutput.text configure -state normal
+      .systemOutput.text insert end "$i\n"
+      .systemOutput.text yview -pickplace end
+      .systemOutput.text configure -state disabled
+    }    
+
+    ## Stop the "running" animation
+    Run:StopAnimation
+
+    ## Change button back to Run
+    .systemControl.run configure -text "Run" -command {Run:Start}
+
+    ## Put application back in SimulationMode
+    SetApplicationMode {SimulationMode}
+
+    ## Refresh the Registers
+    Statistics:Refresh
+    Registers:Refresh
+    ProgramListing:Refresh
+    MemoryViewer:Refresh
+  }
+}
+
+###############################################################################
+# Starts the "running" animation in the menu bar
+###############################################################################
+proc Run:StartAnimation {} {
+  global Run
+
+  set Run(AnimationFrame) 0
+  Run:Animate
+}
+
+###############################################################################
+# Display the next frame of the "running" animation
+###############################################################################
+proc Run:Animate {} {
+  global Program
+  global Run
+
+  ## Go to the next frame
+  set Run(AnimationFrame) [expr ($Run(AnimationFrame) + 1) % 4]
+
+  ## Display the next frame
+  .mainMenu.running configure \
+      -bitmap "@$Program(BitmapDir)/wait$Run(AnimationFrame).xbm"
+
+  ## Queue up another call to handle the next frame
+  after 100 Run:Animate
+}
+
+###############################################################################
+# Stops the "running" animation in the menu bar
+###############################################################################
+proc Run:StopAnimation {} {
+  global Program
+
+  ## Remove the callback for the next frame
+  after cancel Run:Animate
+
+  ## Remove the last frame from the main menu
+  .mainMenu.running configure -bitmap "@$Program(BitmapDir)/wait.xbm"
+}
+
+###############################################################################
+# Display the about BSVC dialog
+###############################################################################
+proc About {} {
+  global Program
+
+  # Make sure the about dialog does not already exist
+  if {[winfo exists .about] == 1} {
+    wm deiconify .about
+    return
+  }
+
+  toplevel .about
+  wm title .about "About $Program(Name)"
+  wm iconname .about "About $Program(Name)"
+  wm resizable .about 0 0
+
+  set i1 [image create photo -file $Program(BitmapDir)/bsvc.gif]
+
+  frame .about.bsvc -relief raised -borderwidth 2
+    label .about.bsvc.bitmap -relief ridge -borderwidth 4 -image $i1
+    message .about.bsvc.message1 \
+        -text "Version $Program(Version)" \
+        -width 4i -justify center
+    label .about.bsvc.blogo -relief sunken
+    message .about.bsvc.message2 \
+      -text "Copyright (C) 1993 - 1998\nBradford W. Mott" \
+      -width 4i -justify center
+    message .about.bsvc.message3 \
+        -text "http://www4.ncsu.edu/~bwmott/www/\nbwmott@acm.org" \
+        -width 4i -justify center
+    button .about.bsvc.ok -text "Ok" \
+        -command "destroy .about;image delete $i1"
+
+    pack .about.bsvc.bitmap -side top -padx 6 -pady 6
+    pack .about.bsvc.message1 -side top -padx 6 -pady 6
+    pack .about.bsvc.message2 -side top -padx 6
+    pack .about.bsvc.blogo -side top -padx 6 -pady 6
+    pack .about.bsvc.message3 -side top -padx 6 -pady 3
+    pack .about.bsvc.ok -side bottom -padx 6 -pady 6 -fill x
+
+  pack .about.bsvc -side left -fill both -expand 1
+
+  set i2 [image create photo -file $Program(BitmapDir)/bspin.gif]
+  Tool:StartAnimation $i2 75 75 75 .about.bsvc.blogo
+}
+
+###############################################################################
+# Allow the user to load a program into the simulator
+###############################################################################
+proc LoadProgram {} {
+
+  set name [Tool:OpenFileSelector -title "Select program to load:" -parent .]
+
+  if {$name != ""} {
+
+    ## Make sure the file isn't a directory
+    if {[file isdirectory $name]} {
+      Tool:AlertDialog {} "ERROR: The specified name is a directory!"
+      return
+    }
+
+    ## Tell the simulator to load in the program
+    PutLine "LoadProgram 0 {$name}"
+
+    ## Get any error message from the simulator and display it
+    set err [lindex [GetList] 0]
+    if {$err != ""} {
+      Tool:AlertDialog {} "$err"
+    } else {
+      ProgramListing:SetFilename $name
+    }
+
+    MemoryViewer:Refresh
+    ProgramListing:Refresh
+    Registers:Refresh
+    Statistics:Refresh
+  }
+}
+
+###############################################################################
+# Load the named simulator setup file and set everything up
+###############################################################################
+proc LoadSetup {name} {
+  global Simulator
+  global Program
+
+  ## Shutdown any running simulator
+  Simulator:Terminate
+
+  ## If a name wasn't supplied then pop up a file selector
+  if {$name == ""} {
+    set name [Tool:OpenFileSelector -title "Select setup file to load:" \
+        -parent . -filetypes {{{Setup Files} {.setup}} {{All Files} *}}]
+  }
+
+  if {$name != ""} {
+
+    ## Make sure the file exists
+    if {[file exists $name] == 0} {
+      Tool:AlertDialog {} "ERROR: Specified setup file does not exist!"
+      return
+    }
+
+    ## Make sure the file isn't a directory
+    if {[file isdirectory $name]} {
+      Tool:AlertDialog {} "ERROR: Specified setup file is a directory!"
+      return
+    }
+
+    set file [open $name "r"]
+    if {[gets $file] != "BSVC Simulator Setup File"} {
+      Tool:AlertDialog {} "File doesn't appear to be a BSVC setup file!"
+      close $file
+      return
+    }
+
+    ## read in the contents of the file
+    set contents [read $file]
+    close $file
+
+    ## Make sure the file has a UI version in it
+    if {[lsearch -exact "$contents" UI_VERSION] == "-1"} {
+      Tool:AlertDialog {} "The Setup file seems to be corrupt!"
+      return
+    } else {
+      set index [expr [lsearch -exact "$contents" UI_VERSION] + 1]
+      set version [lindex "$contents" $index]
+
+      if {$version != $Program(Version) && ($version != 2.0)} {
+        Tool:AlertDialog {} "The specified setup file is not compatiable with this version of BSVC!"
+        return
+      }
+    }
+       
+    ## Make sure the file names a simulator to use 
+    if {[lsearch -exact "$contents" SIMULATOR] == "-1"} {
+      Tool:AlertDialog {} "The Setup file seems to be corrupt!"
+      return
+    }
+
+    ## Start the named simulator
+    if {[Simulator:Execute [lindex "$contents" \
+        [expr [lsearch -exact "$contents" SIMULATOR] + 1]]] == 0 } { return }
+
+    while {[lsearch -exact "$contents" COMMAND] != "-1"} {
+      ## Get the next command
+      set index [lsearch -exact "$contents" COMMAND]
+      set command [lindex "$contents" [expr $index+1]]
+
+      ## Send the command to the simulator
+      PutLine "$command"
+      set errs [lindex [GetList] 0]
+
+      ## Remove the command from the contents
+      set contents [lreplace "$contents" $index [expr $index+1]]
+    }
+
+    ## Simulator started so switch to simulation mode
+    SetApplicationMode "SimulationMode"
+
+    ## Decided if the statistics list should be displayed
+    if {[Statistics:Refresh] == "0"} {
+      pack forget .systemResources.statistics
+    } else {
+      pack .systemResources.statistics -after .systemResources.registers \
+          -side left -fill y
+    }
+
+    Registers:Refresh
+    MemoryViewer:Refresh
+  }
+}
+    
+###############################################################################
+## Ask the user for the simulator command line and startup the simulator
+###############################################################################
+proc NewSetup {} {
+  global Simulator
+
+  ## Shutdown any running simulator
+  Simulator:Terminate
+
+  ## Put the application in startup mode
+  SetApplicationMode "StartupMode"
+
+  ## Ask the user what simulator they want to use
+  set value [Tool:EntryDialog {} \
+      "What simulator do you want to use? (i.e. sim68000)" {[.]*}]
+
+  ## Make sure ok was pressed
+  if {$value != ""} {
+    ## Attempt to start the simulator process
+    if {[Simulator:Execute $value]} {
+
+      ## Simulator started so switch to simulation mode
+      SetApplicationMode "SimulationMode"
+
+      ## Decided if the statistics list should be displayed
+      if {[Statistics:Refresh] == 0} {
+        pack forget .systemResources.statistics
+      } else {
+        pack .systemResources.statistics -after .systemResources.registers \
+            -side left -fill y
+      }
+
+      Registers:Refresh
+      MemoryViewer:Refresh
+      ProgramListing:Refresh
+      DeviceSetup:Open
+    }
+  }
+}
+
+###############################################################################
+# Reset the simulator
+###############################################################################
+proc Reset {} {
+
+  ## Stop the simulator if it is running
+  Run:Stop
+
+  ## Tell the simulator to reset itself
+  PutLine "Reset"
+  GetList
+
+  ## Refresh windows
+  Statistics:Refresh
+  Registers:Refresh
+  ProgramListing:Refresh
+  MemoryViewer:Refresh
+}
+
+###############################################################################
+# Save the simulator setup to a file
+###############################################################################
+proc SaveSetup {} {
+  global Simulator
+  global Program
+
+  set name [Tool:SaveFileSelector -title "Select file to save the setup in:" \
+      -parent . -filetypes {{{Setup Files} {.setup}} {{All Files} *}}]
+
+  ## Make sure the user selected a file
+  if {$name != ""} {
+
+    ## Make sure they didn't select a directory name
+    if {[file isdirectory $name]} {
+      Tool:AlertDialog {} "ERROR: The specified file is a directory!"
+      return
+    }
+ 
+    set mode "w"
+
+    ## If we're tk_getSaveFile not available then ask user what to do about file
+    if {[info commands tk_getSaveFile] == ""} {
+      ## If the file already exists ask user what to do
+      if {[file exists $name]} {
+        switch -exact [Tool:GetWritingMode {} {overwrite}] {
+          overwrite {set mode "w"}
+          default   {return}
+        }
+      }
+    }
+
+    set file [open $name $mode]
+    puts $file "BSVC Simulator Setup File"
+    puts $file ""
+    puts $file "UI_VERSION \{$Program(Version)\}"
+    puts $file "SIMULATOR \{$Simulator(ProgramName)\}"
+
+    for {set t 0} {$t<$Simulator(NumberOfAddressSpaces)} {set t [expr $t+1]} {
+      ## Get a list of devices attached to this address space
+      PutLine "ListAttachedDevices $t"
+      foreach i [GetList] {
+        puts $file "COMMAND \{AttachDevice $t $i\}" 
+      }
+    }
+    close $file
+  }
+} 
+
+###############################################################################
+# Step through some number of instructions
+###############################################################################
+proc Step {number} {
+
+  PutLine "Step $number"
+  foreach i [GetList] {
+     Trace:InsertTraceRecord "$i"
+  }
+
+  ## Refresh windows
+  Statistics:Refresh
+  Registers:Refresh
+  ProgramListing:Refresh
+  MemoryViewer:Refresh
+}
+
+###############################################################################
+# Parse the command line arguments
+###############################################################################
+proc ParseCommandLineArguments {} {
+  global tcl_version
+  global tcl_platform
+  global env
+
+  ## If we're in windows then exit
+  if {$tcl_version >= 7.5 && $tcl_platform(platform) == "windows"} {
+    return
+  }
+
+  ## Get the arguments from the environment variable
+  set args $env(ARGS)
+
+  ## See if a setup file was named on the command line
+  if {[llength $args] == 1} {
+    LoadSetup [lindex $args 0]
+  }
+
+  if {[llength $args] > 1} {
+    Tool:AlertDialog {} "Invalid command line arguments!"
+  }
+}
+
+###############################################################################
+# Set the application's widgets to the correct mode
+###############################################################################
+proc SetApplicationMode {mode} {
+  global ApplicationMode
+  global Program
+
+  ## Save the mode
+  set ApplicationMode $mode
+
+  if {$mode == "SimulationMode"} {
+
+    .mainMenu.file.menu entryconfigure "Load Program...  " -state normal
+    .mainMenu.file.menu entryconfigure "New Setup...  " -state normal
+    .mainMenu.file.menu entryconfigure "Open Setup...  " -state normal
+    .mainMenu.file.menu entryconfigure "Save Setup...  " -state normal
+    .mainMenu.edit.menu entryconfigure "Device Setup...  " -state normal
+    .mainMenu.window.menu entryconfigure "Memory Viewer  " -state normal
+    .mainMenu.window.menu entryconfigure "Program Listing  " -state normal
+
+    .systemResources.registers.popup configure -state normal
+    .systemResources.statistics.popup configure -state normal
+    .systemOutput.popup configure -state normal
+
+    .systemControl.singleStep configure -state normal
+    .systemControl.breakpoints configure -state normal
+    .systemControl.run configure -state normal
+    .systemControl.reset configure -state normal
+
+    bind .systemResources.registers.list <Double-1> {Registers:Alter; break}
+    bind . <Control-l> {LoadProgram; break}
+    bind . <Control-n> {NewSetup; break}
+    bind . <Control-o> {LoadSetup ""; break}
+    bind . <Control-s> {SaveSetup; break}
+    bind . <Control-d> {DeviceSetup:Open; break}
+    bind . <Control-m> {MemoryViewer:Open; break}
+    bind . <Control-p> {ProgramListing:Open; break}
+
+  } elseif {$mode == "StartupMode"} {
+
+    .mainMenu.file.menu entryconfigure "Load Program...  " -state disabled
+    .mainMenu.file.menu entryconfigure "New Setup...  " -state normal
+    .mainMenu.file.menu entryconfigure "Open Setup...  " -state normal
+    .mainMenu.file.menu entryconfigure "Save Setup...  " -state disabled
+    .mainMenu.edit.menu entryconfigure "Device Setup...  " -state disabled
+    .mainMenu.window.menu entryconfigure "Memory Viewer  " -state normal
+    .mainMenu.window.menu entryconfigure "Program Listing  " -state normal
+
+    .systemResources.registers.popup configure -state disabled
+    .systemResources.statistics.popup configure -state disabled
+    .systemOutput.popup configure -state disabled
+
+    .systemControl.singleStep configure -state disabled
+    .systemControl.breakpoints configure -state disabled
+    .systemControl.run configure -state disabled
+    .systemControl.reset configure -state disabled
+
+    bind .systemResources.registers.list <Double-1> {break}
+    bind . <Control-l> {break}
+    bind . <Control-n> {NewSetup; break}
+    bind . <Control-o> {LoadSetup ""; break}
+    bind . <Control-s> {break}
+    bind . <Control-d> {break}
+    bind . <Control-m> {MemoryViewer:Open; break}
+    bind . <Control-p> {ProgramListing:Open; break}
+
+  } elseif {$mode == "RunningMode"} {
+
+    .mainMenu.file.menu entryconfigure "Load Program...  " -state disabled
+    .mainMenu.file.menu entryconfigure "New Setup...  " -state disabled
+    .mainMenu.file.menu entryconfigure "Open Setup...  " -state disabled
+    .mainMenu.file.menu entryconfigure "Save Setup...  " -state disabled
+    .mainMenu.edit.menu entryconfigure "Device Setup...  " -state disabled
+    .mainMenu.window.menu entryconfigure "Memory Viewer  " -state disabled
+    .mainMenu.window.menu entryconfigure "Program Listing  " -state disabled
+
+    .systemResources.registers.popup configure -state disabled
+    .systemResources.statistics.popup configure -state disabled
+    .systemOutput.popup configure -state disabled
+
+    .systemControl.breakpoints configure -state disabled
+    .systemControl.singleStep configure -state disabled
+    .systemControl.run configure -state normal
+    .systemControl.reset configure -state normal
+
+    bind .systemResources.registers.list <Double-1> {break}
+    bind . <Control-l> {break}
+    bind . <Control-n> {break}
+    bind . <Control-o> {break}
+    bind . <Control-s> {break}
+    bind . <Control-d> {break}
+    bind . <Control-m> {break}
+    bind . <Control-p> {break}
+
+  } elseif {$mode == "ModalMode"} {
+
+    .mainMenu.file.menu entryconfigure "Load Program...  " -state disabled
+    .mainMenu.file.menu entryconfigure "New Setup...  " -state disabled
+    .mainMenu.file.menu entryconfigure "Open Setup...  " -state disabled
+    .mainMenu.file.menu entryconfigure "Save Setup...  " -state disabled
+    .mainMenu.edit.menu entryconfigure "Device Setup...  " -state disabled
+    .mainMenu.window.menu entryconfigure "Memory Viewer  " -state disabled
+    .mainMenu.window.menu entryconfigure "Program Listing  " -state disabled
+
+    .systemResources.registers.popup configure -state disabled
+    .systemResources.statistics.popup configure -state disabled
+    .systemOutput.popup configure -state disabled
+
+    .systemControl.singleStep configure -state disabled
+    .systemControl.breakpoints configure -state disabled
+    .systemControl.run configure -state disabled
+    .systemControl.reset configure -state disabled
+
+    bind .systemResources.registers.list <Double-1> {break}
+    bind . <Control-l> {break}
+    bind . <Control-n> {break}
+    bind . <Control-o> {break}
+    bind . <Control-s> {break}
+    bind . <Control-d> {break}
+    bind . <Control-m> {break}
+    bind . <Control-p> {break}
+  }
+
+  MemoryViewer:SetApplicationMode $mode
+  ProgramListing:SetApplicationMode $mode
+}
+
+###############################################################################
+# Answer the application's mode
+###############################################################################
+proc GetApplicationMode {} {
+  global ApplicationMode
+
+  return $ApplicationMode
+}
+
+###############################################################################
+# Build the main drop down menu for the application
+###############################################################################
+frame .mainMenu -relief raised -borderwidth 2
+  menubutton .mainMenu.file -text "File" -menu .mainMenu.file.menu 
+    menu .mainMenu.file.menu -tearoff 0
+      .mainMenu.file.menu add command -label "Load Program...  " \
+          -accelerator "Ctrl-L" -command {LoadProgram}
+      .mainMenu.file.menu add separator
+      .mainMenu.file.menu add command -label "New Setup...  " \
+          -accelerator "Ctrl-N" -command {NewSetup}
+      .mainMenu.file.menu add command -label "Open Setup...  " \
+          -accelerator "Ctrl-O" -command {LoadSetup {}}
+      .mainMenu.file.menu add command -label "Save Setup...  " \
+          -accelerator "Ctrl-S" -command {SaveSetup}
+      .mainMenu.file.menu add separator
+      .mainMenu.file.menu add command -label "Quit  " \
+          -command {
+            Simulator:Terminate
+            exit
+          }
+
+  menubutton .mainMenu.edit -text "Edit" -menu .mainMenu.edit.menu
+    menu .mainMenu.edit.menu -tearoff 0
+      .mainMenu.edit.menu add command -label "Device Setup...  " \
+          -accelerator "Ctrl-D" -command {DeviceSetup:Open}
+
+  menubutton .mainMenu.window -text "Window" -menu .mainMenu.window.menu
+    menu .mainMenu.window.menu -tearoff 0
+      .mainMenu.window.menu add command -label "Memory Viewer  " \
+          -accelerator "Ctrl-M" -command {MemoryViewer:Open}
+      .mainMenu.window.menu add command -label "Program Listing  " \
+          -accelerator "Ctrl-P" -command {ProgramListing:Open}
+
+  menubutton .mainMenu.help -text "Help" -menu .mainMenu.help.menu
+    menu .mainMenu.help.menu -tearoff 0
+      .mainMenu.help.menu add command -label "About $Program(Name)...  " \
+           -command {About}
+      .mainMenu.help.menu add separator
+      .mainMenu.help.menu add command -label "License...  " \
+          -command {License:Open}
+      .mainMenu.help.menu add command -label "Home Page...  " \
+          -command {exec $Program(WWWBrowser) $Program(WWWHomePage) &}
+
+    if {$Program(WWWBrowser) == ""} {
+      .mainMenu.help.menu entryconfigure "Home Page...  " -state disabled
+    } else {
+      .mainMenu.help.menu entryconfigure "Home Page...  " -state normal
+    }
+
+  ## Label used for displaying the "running" animation
+  label .mainMenu.running -bitmap "@$Program(BitmapDir)/wait.xbm"
+
+  pack .mainMenu.file -side left
+  pack .mainMenu.edit -side left
+  pack .mainMenu.window -side left
+  pack .mainMenu.help -side right
+  pack .mainMenu.running -side right
+
+###############################################################################
+# Build the Internal System Resource area
+###############################################################################
+frame .systemResources
+  frame .systemResources.registers
+    frame .systemResources.registers.popslot -relief raised -borderwidth 2
+    menubutton .systemResources.registers.popup -text "Registers" \
+        -menu .systemResources.registers.popup.menu 
+      menu .systemResources.registers.popup.menu -tearoff 0 
+      .systemResources.registers.popup.menu add command -label "Alter...  " \
+          -command {Registers:Alter}
+      .systemResources.registers.popup.menu add command -label "Clear All  " \
+          -command {Registers:ClearAll}
+    scrollbar .systemResources.registers.scroll -relief raised \
+        -command ".systemResources.registers.list yview" \
+        -takefocus 0 -highlightthickness 0
+    listbox .systemResources.registers.list -relief raised \
+        -yscroll ".systemResources.registers.scroll set" \
+        -takefocus 0 -highlightthickness 0
+
+    pack .systemResources.registers.popup -side top \
+        -in .systemResources.registers.popslot
+    pack .systemResources.registers.popslot -side top -fill x
+    pack .systemResources.registers.scroll -side left -fill y
+    pack .systemResources.registers.list -side left -fill y 
+
+
+  frame .systemResources.statistics
+    frame .systemResources.statistics.popslot -relief raised -borderwidth 2
+    menubutton .systemResources.statistics.popup -text "Statistics" \
+        -menu .systemResources.statistics.popup.menu 
+      menu .systemResources.statistics.popup.menu -tearoff 0
+      .systemResources.statistics.popup.menu add command \
+          -label "Clear All  " -command {Statistics:Clear}
+    scrollbar .systemResources.statistics.scroll -relief raised \
+        -command ".systemResources.statistics.list yview" \
+        -takefocus 0 -highlightthickness 0
+    listbox .systemResources.statistics.list -relief raised \
+        -yscroll ".systemResources.statistics.scroll set" \
+        -takefocus 0 -highlightthickness 0
+
+    pack .systemResources.statistics.popup -side top \
+        -in .systemResources.statistics.popslot
+    pack .systemResources.statistics.popslot -side top -fill x
+    pack .systemResources.statistics.scroll -side left -fill y
+    pack .systemResources.statistics.list -side left -fill y
+
+  pack .systemResources.registers -side left -fill y
+  pack .systemResources.statistics -side left -fill y
+
+###############################################################################
+# Build the Control area
+###############################################################################
+frame .systemControl
+  button .systemControl.breakpoints -text "Breakpoints" \
+      -command {Breakpoints:Open}
+  button .systemControl.singleStep -text "Single Step" \
+      -command {Step "1"}
+  button .systemControl.run -text "Run" \
+      -command {Run:Start} -width 5 
+  button .systemControl.reset -text "Reset" \
+      -command {Reset}
+
+  pack .systemControl.breakpoints -side left -expand 1 -fill x 
+  pack .systemControl.singleStep -side left -expand 1 -fill x 
+  pack .systemControl.run -side left -expand 1 -fill x 
+  pack .systemControl.reset -side left -expand 1 -fill x 
+
+###############################################################################
+# Build the Output/Trace area
+###############################################################################
+frame .systemOutput
+  frame .systemOutput.popslot -relief raised -borderwidth 2
+  menubutton .systemOutput.popup -text "Trace" -menu .systemOutput.popup.menu 
+    menu .systemOutput.popup.menu -tearoff 0
+    .systemOutput.popup.menu add command -label "Save Contents...    " \
+        -command {Trace:SaveContents}
+    .systemOutput.popup.menu add command -label "Clear Contents    " \
+        -command {  
+            .systemOutput.text configure -state normal
+            .systemOutput.text delete 1.0 end
+            .systemOutput.text configure -state disabled }
+    .systemOutput.popup.menu add separator
+    .systemOutput.popup.menu add command -label "Insert Registers    " \
+        -command {Trace:InsertRegisters}
+    .systemOutput.popup.menu add command -label "Insert Statistics    " \
+        -command {Trace:InsertStatistics}
+    .systemOutput.popup.menu add separator
+    .systemOutput.popup.menu add command -label "Trace Preferences...    " \
+        -command {Trace:Preferences}
+  scrollbar .systemOutput.scroll -relief raised \
+      -command ".systemOutput.text yview" -takefocus 0 \
+      -highlightthickness 0
+  text .systemOutput.text -relief raised -wrap none \
+      -yscroll ".systemOutput.scroll set" -state disabled \
+      -highlightthickness 0
+
+  pack .systemOutput.popup -side top -in .systemOutput.popslot
+  pack .systemOutput.popslot -side top -fill x
+  pack .systemOutput.scroll -side left -fill y
+  pack .systemOutput.text -side left -fill both -expand 1
+
+pack .mainMenu -side top -fill x
+pack .systemResources -side left -fill y
+pack .systemControl -side bottom -fill x
+pack .systemOutput -side bottom -expand 1 -fill both 
+
+SetApplicationMode "StartupMode"
+ParseCommandLineArguments
+

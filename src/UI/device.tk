@@ -1,0 +1,253 @@
+###############################################################################
+#
+# device.tk - sub-system to handle device setup
+#
+# Copyright (c) 1996
+# Bradford W. Mott
+# Feburary 6,1996
+###############################################################################
+# $Id: device.tk,v 1.1 1996/08/02 14:56:37 bwmott Exp $
+###############################################################################
+
+###############################################################################
+# Attach the named device to the simulator 
+###############################################################################
+proc DeviceSetup:Attach {name} {
+  global DeviceSetup
+
+  ## Get the device's script
+  PutLine "ListDeviceScript $name"
+  set script [GetList]
+
+  ## Get the script in a form that can be executed by 'eval'
+  set t ""
+  foreach i $script { set t "$t\n$i" }
+
+  ## Evaluate the script and execute the device setup
+  if {[catch {eval $t}] == 0} {
+    ## Call the DeviceSetup procedure that should have just been created
+    set args [DeviceSetup]
+
+    if {$args != ""} {
+      PutLine "AttachDevice $DeviceSetup(CurrentAddressSpace) $name \{$args\}"
+      set errs [lindex [GetList] 0]
+      if {$errs != ""} {
+        Tool:AlertDialog {} $errs
+      }
+    }
+  } else {
+    Tool:AlertDialog {} "The device script cannot be executed!"
+  }
+
+  ## Refresh the edit setup dialog and the memory viewer
+  DeviceSetup:Refresh
+  MemoryViewer:Refresh
+}
+
+###############################################################################
+# Detach the indexed device from the simulator 
+###############################################################################
+proc DeviceSetup:Detach {index} {
+  global DeviceSetup
+
+  ## Send the detach command to the simulator
+  PutLine "DetachDevice $DeviceSetup(CurrentAddressSpace) $index"
+
+  ## Save any error message from the simulator
+  set errs [lindex [GetList] 0]
+
+  ## Refresh the edit setup dialog and the memory viewer
+  DeviceSetup:Refresh
+  MemoryViewer:Refresh
+
+  ## Output error to the user if there was one 
+  if {$errs != ""} {
+    Tool:AlertDialog {} $errs
+  }
+}
+
+###############################################################################
+# Detach all of the devices from the current address space
+###############################################################################
+proc DeviceSetup:DetachAll {} {
+  global DeviceSetup
+
+  ## Get a list of all the attached devices
+  PutLine "ListAttachedDevices $DeviceSetup(CurrentAddressSpace)"
+  set number_of_devices [llength [GetList]]
+
+  ## Remove each device from the address space
+  for {set t [expr $number_of_devices-1]} {$t>=0} {set t [expr $t-1]} {
+    ## Send the detach command to the simulator
+    PutLine "DetachDevice $DeviceSetup(CurrentAddressSpace) $t"
+
+    ## Output any errors to the user
+    set errs [lindex [GetList] 0]
+    if {$errs != ""} {
+      Tool:AlertDialog {} $errs
+    }
+  }
+
+  ## Refresh the edit setup dialog and the memory viewer
+  DeviceSetup:Refresh
+  MemoryViewer:Refresh
+}
+
+###############################################################################
+# Refresh the device setup dialog
+###############################################################################
+proc DeviceSetup:Refresh {} {
+  global DeviceSetup
+
+  ## Empty available list
+  .deviceSetup.available.list delete 0 end
+
+  ## Fill in the available device list  
+  PutLine {ListDevices}
+  foreach i [GetList] {
+    .deviceSetup.available.list insert end $i
+  }
+
+  ## Empty attached list
+  .deviceSetup.attached.list delete 0 end
+
+  ## Fill in the attached device list
+  PutLine "ListAttachedDevices $DeviceSetup(CurrentAddressSpace)"
+  foreach i [GetList] {
+    .deviceSetup.attached.list insert end $i
+  }
+}
+
+###############################################################################
+# Change the edit setup address space 
+###############################################################################
+proc DeviceSetup:SetAddressSpace {value} {
+  global DeviceSetup
+
+  set DeviceSetup(CurrentAddressSpace) $value
+  DeviceSetup:Refresh
+}
+
+###############################################################################
+# Open the device setup dialog
+###############################################################################
+proc DeviceSetup:Open {} {
+  global Simulator
+  global DeviceSetup
+
+  ## Put application in modal mode
+  set mode [GetApplicationMode]
+  SetApplicationMode ModalMode
+
+  ## Start off working with address space 0
+  set DeviceSetup(CurrentAddressSpace) 0
+
+  ## Create frame to hold the dialog
+  frame .deviceSetup -relief ridge -borderwidth 4
+
+  ## Title for the dialog
+  label .deviceSetup.title -text "Device Setup" -relief raised
+
+  ## Create the "Attached Devices" area
+  frame .deviceSetup.attached
+    label .deviceSetup.attached.label -text "Attached Devices" \
+        -relief raised
+    scrollbar .deviceSetup.attached.scroll -relief raised \
+        -command ".deviceSetup.attached.list yview" \
+        -takefocus 0 -highlightthickness 0
+    listbox .deviceSetup.attached.list -relief raised \
+        -yscroll ".deviceSetup.attached.scroll set" \
+        -takefocus 0 -highlightthickness 0
+    frame .deviceSetup.attached.buttons
+      button .deviceSetup.attached.buttons.remove -text "Detach" \
+          -takefocus 0 -highlightthickness 0 -command {
+            if {[llength [.deviceSetup.attached.list curselection]] != 0} {
+              DeviceSetup:Detach [.deviceSetup.attached.list curselection]
+            } else {
+              bell
+            }
+          }
+      button .deviceSetup.attached.buttons.removeAll -text "Detach All" \
+          -takefocus 0 -highlightthickness 0 -command {DeviceSetup:DetachAll}
+      pack .deviceSetup.attached.buttons.remove -side left \
+          -fill x -expand 1
+      pack .deviceSetup.attached.buttons.removeAll -side left \
+          -fill x -expand 1
+
+    pack .deviceSetup.attached.label -side top -fill x
+    pack .deviceSetup.attached.buttons -side bottom -fill x -expand 1
+    pack .deviceSetup.attached.scroll -side left -fill y
+    pack .deviceSetup.attached.list -side left -fill y
+
+  ## Create the "Available Devices" area
+  frame .deviceSetup.available
+    label .deviceSetup.available.label -text "Available Devices" \
+        -relief raised
+    scrollbar .deviceSetup.available.scroll -relief raised \
+        -command ".deviceSetup.available.list yview" \
+        -takefocus 0 -highlightthickness 0
+    listbox .deviceSetup.available.list -relief raised \
+        -yscroll ".deviceSetup.available.scroll set" \
+        -takefocus 0 -highlightthickness 0
+    bind .deviceSetup.available.list <Double-1> {
+        if {[llength [.deviceSetup.available.list curselection]] != 0} {
+          DeviceSetup:Attach [.deviceSetup.available.list get \
+              [.deviceSetup.available.list curselection]]
+        }
+      }
+    frame .deviceSetup.available.buttons
+      button .deviceSetup.available.buttons.add -text "Attach" \
+          -takefocus 0 -highlightthickness 0 -command {
+            if {[llength [.deviceSetup.available.list curselection]]!=0} {
+              DeviceSetup:Attach [.deviceSetup.available.list get \
+                  [.deviceSetup.available.list curselection]]
+            } else {
+              bell
+            }
+          }
+      pack .deviceSetup.available.buttons.add -side left -fill x -expand 1
+
+    pack .deviceSetup.available.label -side top -fill x
+    pack .deviceSetup.available.buttons -side bottom -fill x -expand 1
+    pack .deviceSetup.available.scroll -side left -fill y
+    pack .deviceSetup.available.list -side left -fill y
+
+  ## Create the "Dismiss" button
+  button .deviceSetup.dismiss -text "Dismiss" -command {destroy .deviceSetup}
+
+  pack .deviceSetup.title -side top -fill x -expand 1 -padx 4 -ipady 2 -pady 2
+  pack .deviceSetup.dismiss -side bottom -fill x -padx 2
+  pack .deviceSetup.attached -side left -padx 4 
+  pack .deviceSetup.available -side left -padx 4 -pady 2
+
+  ## If there are multiple address spaces then create a scale
+  PutLine "ListNumberOfAddressSpaces"
+  set NumberOfAddressSpaces [lindex [GetList] 0]
+
+  if {$NumberOfAddressSpaces > 1} {
+    frame .deviceSetup.addressSpace
+      label .deviceSetup.addressSpace.label -text "Address Space" \
+          -relief raised
+      scale .deviceSetup.addressSpace.scale -from 0 -showvalue 1 \
+          -tickinterval 1 -to [expr $NumberOfAddressSpaces - 1] \
+          -relief raised -command {DeviceSetup:SetAddressSpace}
+      pack .deviceSetup.addressSpace.label -side top -fill x
+      pack .deviceSetup.addressSpace.scale -side top -fill both -expand 1
+
+    pack .deviceSetup.addressSpace -side left -fill y -padx 4 -pady 4
+  }
+
+  ## Let tk size the window and place it on the screen
+  update idletasks 
+  place .deviceSetup -relx 0.5 -rely 0.5 -anchor center
+
+  ## Update the edit dialog
+  DeviceSetup:Refresh
+
+  ## Wait for dismiss to be pressed
+  tkwait window .deviceSetup
+
+  ## Reset the application mode
+  SetApplicationMode $mode
+}
+

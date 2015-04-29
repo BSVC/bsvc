@@ -1,0 +1,23 @@
+#!/bin/sh
+###############################################################################
+#
+# This shell script copies the header files to my documentation directory
+# where they get included in the BSVC manual.  
+#
+###############################################################################
+
+DOCDIR="/c/work/docs/BSVC 2.0 Manual/Headers/Framework"
+
+cp -f AddressSpace.hxx "$DOCDIR"
+cp -f BasicCPU.hxx "$DOCDIR"
+cp -f BasicDevice.hxx "$DOCDIR"
+cp -f BasicLoader.hxx "$DOCDIR"
+cp -f BasicDeviceRegistry.hxx "$DOCDIR"
+cp -f BreakpointList.hxx "$DOCDIR"
+cp -f Event.hxx "$DOCDIR"
+cp -f Interface.hxx "$DOCDIR"
+cp -f RegInfo.hxx "$DOCDIR"
+cp -f StatInfo.hxx "$DOCDIR"
+cp -f Time.hxx "$DOCDIR"
+cp -f Tools.hxx "$DOCDIR"
+

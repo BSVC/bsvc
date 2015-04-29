@@ -1,0 +1,282 @@
+###############################################################################
+#
+# tools.tk - Routines to implement several useful routines
+#
+# Copyright 1993 
+# Bradford W. Mott
+# November 19,1993
+###############################################################################
+# $Id: tools.tk,v 1.1 1996/08/02 14:57:12 bwmott Exp $
+###############################################################################
+
+###############################################################################
+# Simple dialog to get a value from the user 
+###############################################################################
+proc Tool:EntryDialog {parent_window label regular_expression} {
+  global ReturnValue
+  global EntryDialogRegExp
+  global EntryDialogParent
+
+  ## Put application in modal mode
+  set mode [GetApplicationMode]
+  SetApplicationMode ModalMode
+
+  set EntryDialogRegExp $regular_expression
+  set EntryDialogParent $parent_window
+
+  ## Just in case destroy the window
+  catch {destroy $EntryDialogParent.entryDialog}
+
+  ## Create the dialog frame
+  frame $EntryDialogParent.entryDialog -relief raised -borderwidth 3
+
+  ## Create the dialog label
+  message $EntryDialogParent.entryDialog.message -text $label \
+      -width 3i -justify left
+
+  ## Create Entry field
+  entry $EntryDialogParent.entryDialog.entry -width 20 -relief sunken
+  $EntryDialogParent.entryDialog.entry icursor 0
+  bind $EntryDialogParent.entryDialog.entry <Return> {
+        set ReturnValue [$EntryDialogParent.entryDialog.entry get]
+        if {[regexp $EntryDialogRegExp $ReturnValue]} {
+          destroy $EntryDialogParent.entryDialog 
+        } else {
+          bell
+        }
+      }
+
+  ## Create the OK and Cancel button field
+  frame $parent_window.entryDialog.buttons
+    button $EntryDialogParent.entryDialog.buttons.ok -text "Ok" \
+        -command { set ReturnValue [$EntryDialogParent.entryDialog.entry get]
+                   if {[regexp $EntryDialogRegExp $ReturnValue]} {
+                     destroy $EntryDialogParent.entryDialog 
+                   } else {
+                     bell
+                   }
+                 }
+    button $EntryDialogParent.entryDialog.buttons.cancel -text "Cancel" \
+        -command {set ReturnValue ""; destroy $EntryDialogParent.entryDialog}
+    pack $EntryDialogParent.entryDialog.buttons.ok -side left -expand 1 \
+        -fill x -padx 4
+    pack $EntryDialogParent.entryDialog.buttons.cancel -side right -expand 1 \
+        -fill x -padx 4
+
+  pack $EntryDialogParent.entryDialog.message -side top -fill x -pady 4 -padx 4
+  pack $EntryDialogParent.entryDialog.entry -side top -fill x -pady 4 -padx 4
+  pack $EntryDialogParent.entryDialog.buttons -side top -fill x -pady 4
+
+  place $EntryDialogParent.entryDialog -relx 0.5 -rely 0.5 -anchor center
+  focus $EntryDialogParent.entryDialog.entry
+
+  ## Wait for ok or cancel to be pressed
+  tkwait window $EntryDialogParent.entryDialog
+
+  ## Restore application mode
+  SetApplicationMode $mode
+
+  return $ReturnValue
+}
+
+###############################################################################
+# Ask the user what they what to do about the file that exists?
+###############################################################################
+proc Tool:GetWritingMode {window mode_list} {
+  global Tool
+
+  set Tool(window) $window
+
+  ## Put application in modal mode
+  set mode [GetApplicationMode]
+  SetApplicationMode ModalMode
+
+  ## Just in case destroy the window
+  catch {destroy $Tool(window).writeModeDialog}
+
+  frame $Tool(window).writeModeDialog -relief raised -borderwidth 3
+
+    frame $Tool(window).writeModeDialog.title 
+      label $Tool(window).writeModeDialog.title.label -bitmap question \
+          -relief ridge -height 0.6i -width 0.5i -borderwidth 3
+      message $Tool(window).writeModeDialog.title.message -text \
+          "The file you specified already exists! What would you like to do?" \
+          -width 3i -justify left
+      pack $Tool(window).writeModeDialog.title.label -side left
+      pack $Tool(window).writeModeDialog.title.message -side left
+    pack $Tool(window).writeModeDialog.title -side top -padx 8 -pady 8
+
+    ## Create an overwrite button if it's a specified mode
+    if {[lsearch -exact $mode_list "overwrite"] != -1} {
+      button $Tool(window).writeModeDialog.overwrite -text "Overwrite it" \
+          -command {
+            destroy $Tool(window).writeModeDialog
+            set Tool(return) "overwrite"
+          }
+      pack $Tool(window).writeModeDialog.overwrite -fill x -expand 1 \
+          -side left -padx 4 -pady 4
+    }
+
+    ## Create an append button if it's a specified mode
+    if {[lsearch -exact $mode_list "append"] != -1} {
+      button $Tool(window).writeModeDialog.append -text "Append to it" \
+          -command {
+            destroy $Tool(window).writeModeDialog
+            set Tool(return) "append"
+          }
+      pack $Tool(window).writeModeDialog.append -fill x -expand 1 \
+          -side left -padx 4 -pady 4
+    }
+
+    button $Tool(window).writeModeDialog.cancel -text "Cancel" \
+        -command {
+          destroy $Tool(window).writeModeDialog
+          set Tool(return) ""
+        }
+
+  pack $Tool(window).writeModeDialog.cancel -fill x -expand 1 \
+      -side left -padx 4 -pady 4
+  place $Tool(window).writeModeDialog -relx 0.5 -rely 0.5 -anchor center
+
+  ## Wait for ok to be pressed
+  tkwait window $Tool(window).writeModeDialog
+
+  ## Restore application mode
+  SetApplicationMode $mode
+
+  return $Tool(return)
+}
+
+###############################################################################
+# Bring up a "child" alert dialog with the given message
+###############################################################################
+proc Tool:AlertDialog {parent_window the_message} {
+  global AlertDialogParent
+
+  ## Put application in modal mode
+  set mode [GetApplicationMode]
+  SetApplicationMode ModalMode
+
+  set AlertDialogParent $parent_window
+
+  ## Just in case destroy the window
+  catch {destroy $AlertDialogParent.alertDialog}
+
+  frame $AlertDialogParent.alertDialog -relief raised -borderwidth 3
+
+  label $AlertDialogParent.alertDialog.label -bitmap warning -relief ridge \
+      -height 0.6i -width 0.4i -borderwidth 3
+  message $AlertDialogParent.alertDialog.message -text $the_message \
+      -width 3i -justify left
+  button $AlertDialogParent.alertDialog.button -text "Ok" \
+      -command {destroy $AlertDialogParent.alertDialog}
+
+  pack $AlertDialogParent.alertDialog.label -side left -padx 8 -pady 8
+  pack $AlertDialogParent.alertDialog.message -side top -padx 4 -pady 8
+  pack $AlertDialogParent.alertDialog.button -side top -fill x -padx 4 -pady 4
+
+  place $AlertDialogParent.alertDialog -relx 0.5 -rely 0.5 -anchor center
+
+  ## Wait for ok to be pressed
+  tkwait window $AlertDialogParent.alertDialog 
+
+  ## Restore application mode
+  SetApplicationMode $mode
+}
+
+###############################################################################
+# Popup a modal open file selector using either the built-in Tcl/Tk selector 
+# or the BtkFileSelector
+###############################################################################
+proc Tool:OpenFileSelector {args} {
+
+  ## Put the application in modal mode
+  set mode [GetApplicationMode]
+  SetApplicationMode "ModalMode"
+
+  ## Which file selector should we use?
+  if {[info commands tk_getOpenFile] == ""} {
+    set command "BtkFileSelector $args"
+  } else {
+    set command "tk_getOpenFile $args"
+  }
+
+  set result [eval $command]
+
+  ## Reset the application mode
+  SetApplicationMode $mode
+
+  return $result
+}
+
+###############################################################################
+# Popup a modal save file selector using either the built-in Tcl/Tk selector 
+# or the BtkFileSelector
+###############################################################################
+proc Tool:SaveFileSelector {args} {
+
+  ## Put the application in modal mode
+  set mode [GetApplicationMode]
+  SetApplicationMode "ModalMode"
+
+  ## Which file selector should we use?
+  if {[info commands tk_getSaveFile] == ""} {
+    set command "BtkFileSelector $args"
+  } else {
+    set command "tk_getSaveFile $args"
+  }
+
+  set result [eval $command]
+
+  ## Reset the application mode
+  SetApplicationMode $mode
+
+  return $result
+}
+
+###############################################################################
+## Animate the specified image in the specified widget
+###############################################################################
+proc Tool:StartAnimation {image width height delay widget} {
+
+  ## Calculate the number of frames in the animation
+  set number [expr [image width $image] / $width]
+
+  ## Create an image that we'll use to display a single frame in
+  set single [image create photo -width $width -height $height]
+
+  ## Copy the first frame of the animation
+  $single copy $image -from 0 0 $width $height
+
+  ## Place the image in the animation window
+  $widget configure -image $single
+
+  ## Schedule the next update
+  after $delay Tool:NextAnimationFrame 0 $number $single $image \
+      $width $height $delay $widget
+}
+
+###############################################################################
+## Called each time a new frame of an animation needs displaying
+###############################################################################
+proc Tool:NextAnimationFrame {current number single image \
+    width height delay widget} {
+  global AnimateTable
+
+  ## If the animation window has been destroyed then stop the animation
+  if {[winfo exists $widget] == 0} {
+    image delete $single $image
+    return
+  }
+
+  ## Calculate next frame to display
+  set next [expr ($current + 1) % $number]
+
+  $single copy $image -from [expr $next * $width] 0 \
+      [expr $next * $width + $width] $height
+
+  ## Schedule another call to handle the next frame
+  after $delay Tool:NextAnimationFrame $next $number $single $image \
+      $width $height $delay $widget
+}
+

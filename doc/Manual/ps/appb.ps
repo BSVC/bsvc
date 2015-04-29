@@ -1,0 +1,7353 @@
+%!PS-Adobe-3.0
+%%Title: Ami Pro - APPB.SAM
+%%Creator: PSCRIPT.DRV Version 4.0
+%%CreationDate: 08/02/96 12:05:11
+%%BoundingBox: 19 19 594 774 
+%%Pages: (atend)
+%%PageOrder: Special
+%%Requirements: 
+%%DocumentNeededFonts: (atend)
+%%DocumentSuppliedFonts: (atend)
+%%DocumentData: Clean7Bit
+%%LanguageLevel: 1
+%%EndComments
+
+%%BeginProlog 
+%%BeginProcSet: Pscript_Win_ErrorHandler 1.0 1
+/currentpacking where{pop/oldpack currentpacking def/setpacking where{pop
+false setpacking}if}if/$brkpage 64 dict def $brkpage begin/prnt{dup type
+/stringtype ne{=string cvs}if dup length 6 mul/tx exch def/ty 10 def
+currentpoint/toy exch def/tox exch def 1 setgray newpath tox toy 2 sub moveto
+0 ty rlineto tx 0 rlineto 0 ty neg rlineto closepath fill tox toy moveto 0
+setgray show}bind def/nl{currentpoint exch pop lmargin exch moveto 0 -10
+rmoveto}def/=={/cp 0 def typeprint nl}def/typeprint{dup type exec}readonly def
+/lmargin 72 def/rmargin 72 def/tprint{dup length cp add rmargin gt{nl/cp 0 def
+}if dup length cp add/cp exch def prnt}readonly def/cvsprint{=string cvs
+tprint( )tprint}readonly def/integertype{cvsprint}readonly def/realtype{
+cvsprint}readonly def/booleantype{cvsprint}readonly def/operatortype{(--)
+tprint =string cvs tprint(-- )tprint}readonly def/marktype{pop(-mark- )tprint}
+readonly def/dicttype{pop(-dictionary- )tprint}readonly def/nulltype{pop
+(-null- )tprint}readonly def/filetype{pop(-filestream- )tprint}readonly def
+/savetype{pop(-savelevel- )tprint}readonly def/fonttype{pop(-fontid- )tprint}
+readonly def/nametype{dup xcheck not{(/)tprint}if cvsprint}readonly def
+/stringtype{dup rcheck{(\()tprint tprint(\))tprint}{pop(-string- )tprint}
+ifelse}readonly def/arraytype{dup rcheck{dup xcheck{({)tprint{typeprint}forall
+(})tprint}{([)tprint{typeprint}forall(])tprint}ifelse}{pop(-array- )tprint}
+ifelse}readonly def/packedarraytype{dup rcheck{dup xcheck{({)tprint{typeprint}
+forall(})tprint}{([)tprint{typeprint}forall(])tprint}ifelse}{pop
+(-packedarray- )tprint}ifelse}readonly def/courier/Courier findfont 10
+scalefont def end errordict/handleerror{systemdict begin $error begin $brkpage
+begin newerror{/newerror false store vmstatus pop pop 0 ne{grestoreall}if
+showpage initgraphics courier setfont lmargin 720 moveto(ERROR: )prnt
+errorname prnt nl(OFFENDING COMMAND: )prnt/command load prnt $error/ostack
+known{nl nl(STACK:)prnt nl nl $error/ostack get aload length{==}repeat}if
+systemdict/showpage get exec(%%[ Error: )print errorname =print
+(; OffendingCommand: )print/command load =print( ]%%)= flush}if end end end}
+dup 0 systemdict put dup 4 $brkpage put bind readonly put/currentpacking where
+{pop/setpacking where{pop oldpack setpacking}if}if
+%%EndProcSet
+userdict /Pscript_Win_Driver_Incr 200 dict dup begin put
+%%BeginResource: file Pscript_FatalError 2.0 0
+/FatalErrorIf{{initgraphics findfont exch scalefont setfont counttomark 3 div
+cvi{moveto show}repeat showpage quit}{cleartomark}ifelse}bind def
+%%EndResource
+/VM? {vmstatus exch sub exch pop gt { [
+(This job requires more memory than is available in this printer.) 100 500
+(Try one or more of the following, and then print again:) 100 485
+(In the PostScript dialog box, click Optimize For Portability.) 115 470
+(In the Device Options dialog box, make sure the Available Printer Memory is accurate.) 115 455
+(Reduce the number of fonts in the document.) 115 440
+(Print the document in parts.) 115 425
+12 /Times-Roman showpage
+(%%[ PrinterError: Low Printer VM ]%%) =
+true FatalErrorIf}if} bind def
+30000  VM?
+%%BeginResource: file Pscript_Win_Utils 2.0 0
+/|/def load def/,/load load |/~/exch , |/?/ifelse , |/!/pop , |/`/begin , |/^
+/index , |/@/dup , |/+/translate , |/$/roll , |/U/userdict , |/M/moveto , |/-
+/rlineto , |/&/currentdict , |/:/gsave , |/;/grestore , |/F/false , |/T/true ,
+|/N/newpath , |/E/end , |/Ac/arc , |/An/arcn , |/A/ashow , |/D/awidthshow , |
+/C/closepath , |/V/div , |/O/eofill , |/L/fill , |/I/lineto , |/-C/rcurveto ,
+|/-M/rmoveto , |/+S/scale , |/Ji/setfont , |/Lc/setlinecap , |/Lj/setlinejoin
+, |/Lw/setlinewidth , |/S/show , |/LH/showpage , |/K/stroke , |/W/widthshow ,
+|/R/rotate , |/b{bind |}bind |/bd{bind |}bind |/xd{~ |}bd/ld{, |}bd/lw/Lw ld
+/lc/Lc ld/lj/Lj ld/sg/setgray ld/L2? F/languagelevel where{! languagelevel 2
+ge{! T}if}if |/g{@ not{U/DefIf_save save put}if U/DefIf_bool 2 ^ put}b
+/DefIf_El{if U/DefIf_bool get not @{U/DefIf_save get restore}if}b/e{DefIf_El !
+}b/self & |/reinitialize{[/TextInit/GraphInit/UtilsInit counttomark{@ where{
+self eq}{F}?{cvx exec}{!}?}repeat cleartomark}b/initialize{`{/ADO_mxRot ~ |
+/TextInitialised? F | reinitialize E}{U/Pscript_Win_Data 200 dict @ ` put
+/ADO_mxRot ~ |/TextInitialised? F | reinitialize}?}b/terminate{!{& self eq{
+exit}{E}?}loop E}b/suspend/terminate , |/resume{` Pscript_Win_Data `}b/snap{
+transform 0.25 sub round 0.25 add ~ 0.25 sub round 0.25 add ~ itransform}b
+/dsnap{dtransform round ~ round ~ idtransform}b<04>cvn{}|/setjn{{statusdict
+/jobname known{statusdict/jobname 3 -1 $ put}if}stopped cleartomark}b/solid{[]
+0 setdash}b/setdsh{0 setdash}b/colspRefresh{}b/rp{4 2 $ M 1 ^ 0 - 0 ~ - neg 0
+-}b/rr{1 ^ 0 - 0 ~ - neg 0 - C}b
+%%EndResource
+%%BeginResource: file Pscript_Win_Utils_L1 2.0 0
+L2? not g{/rf{N rp L}b/fx{1 1 dtransform @ 0 ge{1 sub 1}{1 add -0.25}? 3 -1 $
+@ 0 ge{1 sub 1}{1 add -0.25}? 3 1 $ 4 1 $ idtransform 4 -2 $ idtransform}b/BZ{
+4 -2 $ snap + +S fx rf}b/rs{N rp C K}b/rc{N rp clip N}b/sg{setgray}b/sco{
+setrgbcolor}b/sgco{{sg}{sco}?}b}e
+%%EndResource
+%%BeginResource: file Pscript_Win_Utils_L2 2.0 0
+L2? g{/colspA/DeviceGray |/colspABC/DeviceRGB |/setAorABC{{colspA}{colspABC}?
+setcolorspace}b/rf/rectfill , |/fx{1 1 dtransform @ 0 ge{1 sub 0.5}{1 add -0.5
+}? 3 -1 $ @ 0 ge{1 sub 0.5}{1 add -0.5}? 3 1 $ 4 1 $ idtransform 4 -2 $
+idtransform}b/BZ{4 -2 $ snap + +S fx rf}b/rs/rectstroke , |/rc/rectclip , |/sg
+{@ @ setcolor}b/sco{setcolor}b/colspRefresh{colspABC setcolorspace}b/sgco{{sg
+}{sco}?}b/UtilsInit{F setglobal}b/definecolorrendering{/ColorRendering
+defineresource !}b/findcolorrendering{@/ColorRendering resourcestatus{! !
+/ColorRendering findresource T}{! F}?}b/selectcolorrendering{@/ColorRendering
+resourcestatus{! !/ColorRendering}{!/DefaultColorRendering/ColorRendering}?
+findresource setcolorrendering}b}e
+%%EndResource
+end
+%%EndProlog
+
+%%BeginSetup 
+[ 1.000 0 0 1.000 0 0 ] false Pscript_Win_Driver_Incr dup /initialize get exec
+
+[{0 
+/languagelevel where{pop languagelevel}{1}ifelse 2 ge{1 dict dup/JobTimeout  4 -1 roll put setuserparams}{statusdict/setjobtimeout get exec}ifelse 
+} stopped cleartomark
+[{240 
+/languagelevel where{pop languagelevel}{1}ifelse 2 ge{1 dict dup/WaitTimeout 4 -1 roll put setuserparams}{statusdict/waittimeout 3 -1 roll put}ifelse 
+} stopped cleartomark
+[{
+1 dict dup /ManualFeed false put setpagedevice
+} stopped cleartomark
+[{
+%%BeginFeature: *InputSlot AutoSelect Tray
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *PageSize Letter 8 1/2 x 11 in
+
+    3 dict dup /TraySwitch true put
+    dup  /PageSize [612 792] put dup /ImagingBBox null put setpagedevice
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution Enhancement Printer Default
+
+%%EndFeature
+} stopped cleartomark
+1 setlinecap 1 setlinejoin 
+/mysetup [ 0.240 0 0 -0.240 19.000 774.000 ] | 
+%%EndSetup
+
+[{1 
+/languagelevel where{pop languagelevel}{1}ifelse 2 ge{1 dict dup/NumCopies 4
+-1 roll put setpagedevice}{userdict/#copies 3 -1 roll put}ifelse
+
+} stopped cleartomark
+userdict begin /savelevel0 save def end
+%%Page: 1 1
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 151 551 910 75 rc pagesave restore
+Pscript_Win_Driver_Incr begin
+%%BeginResource: file Pscript_Win_Encoding 2.0 0
+/bullets{{/bullet}repeat}b/ANSIEncoding[/grave/acute/circumflex/tilde/macron
+/breve/dotaccent/dieresis/ring/cedilla/hungarumlaut/ogonek/caron/dotlessi 18
+bullets StandardEncoding 32 95 getinterval aload ! 3 bullets/quotesinglbase
+/florin/quotedblbase/ellipsis/dagger/daggerdbl/circumflex/perthousand/Scaron
+/guilsinglleft/OE 4 bullets/quoteleft/quoteright/quotedblleft/quotedblright
+/bullet/endash/emdash/tilde/trademark/scaron/guilsinglright/oe 2 bullets
+/Ydieresis/space/exclamdown/cent/sterling/currency/yen/brokenbar/section
+/dieresis/copyright/ordfeminine/guillemotleft/logicalnot/hyphen/registered
+/macron/degree/plusminus/twosuperior/threesuperior/acute/mu/paragraph
+/periodcentered/cedilla/onesuperior/ordmasculine/guillemotright/onequarter
+/onehalf/threequarters/questiondown/Agrave/Aacute/Acircumflex/Atilde/Adieresis
+/Aring/AE/Ccedilla/Egrave/Eacute/Ecircumflex/Edieresis/Igrave/Iacute
+/Icircumflex/Idieresis/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis
+/multiply/Oslash/Ugrave/Uacute/Ucircumflex/Udieresis/Yacute/Thorn/germandbls
+/agrave/aacute/acircumflex/atilde/adieresis/aring/ae/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave/iacute/icircumflex/idieresis/eth/ntilde/ograve
+/oacute/ocircumflex/otilde/odieresis/divide/oslash/ugrave/uacute/ucircumflex
+/udieresis/yacute/thorn/ydieresis]| ANSIEncoding @ 39/quotesingle put 96/grave
+put/ANSIEncodingOld ANSIEncoding 256 array copy | ANSIEncodingOld @[138 153
+154 169 172 174 177 178 179 181 185 188 189 190 208 215 221 222 240 247 253
+254]{/bullet put @}forall 166/bar put 176/ring put
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Text 2.0 0
+/TextInit{TextInitialised? not{/Pscript_Windows_Font & |/TextInitialised? T |
+/fM[1 0 0 -1 0 0]|/mFM matrix |/iMat[1 0 0.212557 neg 1 0 0]|}if}b/xUP null |
+/yUP null |/uW null |/xSP null |/ySP null |/sW null |/copyfont{1 ^ length add
+dict `{1 ^/FID ne{|}{! !}?}forall & E}b/rF{3 copyfont @ `/Encoding
+ANSIEncoding &/CharStrings known{CharStrings/Eth known not{! ANSIEncodingOld}
+if}if | E}b/mF{findfont ~{@/Encoding get @ StandardEncoding eq{! T}{{
+ISOLatin1Encoding}stopped{! F}{eq}?{T}{@ ` T 32 1 127{Encoding 1 ^ get
+StandardEncoding 3 -1 $ get eq and}for E}?}?}{F}?{rF}{3 copyfont}? `
+/OrigFontType ~ |/OrigFontName ~ | & E 2 ^ ~ definefont fM 5 4 -1 $ put fM 4 0
+put fM makefont Pscript_Windows_Font 3 1 $ put}b/xF{scalefont
+Pscript_Windows_Font 3 1 $ put}b/xMF{mFM astore makefont Pscript_Windows_Font
+3 1 $ put}b/xF2/scalefont , |/xMF2{mFM astore makefont}b/sLT{: Lw -M
+currentpoint snap M 0 - 0 Lc K ;}b/sSU{N/uW ~ |/yUP ~ |/xUP ~ |}b/sU{xUP yUP
+uW sLT}b/sST{N/sW ~ |/ySP ~ |/xSP ~ |}b/sT{xSP ySP sW sLT}b/sR{: + R 0 0 M}b
+/sRxy{: matrix astore concat 0 0 M}b/eR/; , |
+%%EndResource
+
+end reinitialize
+userdict begin /pagesave save def end mysetup concat colspRefresh 
+: 0 0 0 sco 1 Lc 1 Lj solid 151 551 910 75 rc 0 0 0 sco %%IncludeFont: Helvetica
+(F0) cvn
+0.896 
+ (Helvetica) cvn /Type1 
+T 
+(Helvetica) cvn
+mF 
+(F0_67) cvn
+F0
+67 
+xF 
+F0_67
+Ji 
+221 551 M 
+-0.115 0 (Appendix B )A 
+; : 575 528 1821 103 rc 0 0 0 sco (F0_92) cvn
+F0
+92 
+xF 
+F0_92
+Ji 
+671 528 M 
+-0.050 0 (Framework Class Declarations)A 
+; pagesave restore
+Pscript_Win_Driver_Incr begin
+%%BeginResource: file Pscript_Win_Graphics 2.0 0
+/SavedCTM null |/CTMsave{/SavedCTM SavedCTM currentmatrix |}b/CTMrestore{
+SavedCTM setmatrix}b/mp null |/ADO_mxRot null |/GDIHMatrix null |
+/GDIHPatternDict 22 dict | GDIHPatternDict `/PatternType 1 |/PaintType 2 |
+/Reps L2?{1}{5}? |/XStep 8 Reps mul |/YStep XStep |/BBox[0 0 XStep YStep]|
+/TilingType 1 |/PaintProc{` 1 Lw[]0 setdash PaintData , exec E}b/FGnd null |
+/BGnd null |/HS_Horizontal{horiz}b/HS_Vertical{vert}b/HS_FDiagonal{fdiag}b
+/HS_BDiagonal{biag}b/HS_Cross{horiz vert}b/HS_DiagCross{fdiag biag}b/MaxXYStep
+XStep YStep gt{XStep}{YStep}? |/horiz{Reps{0 4 M XStep 0 - 0 8 +}repeat 0 -8
+Reps mul + K}b/vert{Reps{4 0 M 0 YStep - 8 0 +}repeat 0 -8 Reps mul + K}b/biag
+{Reps{0 0 M MaxXYStep @ - 0 YStep neg M MaxXYStep @ - 0 8 +}repeat 0 -8 Reps
+mul + 0 YStep M 8 8 - K}b/fdiag{Reps{0 0 M MaxXYStep @ neg - 0 YStep M
+MaxXYStep @ neg - 0 8 +}repeat 0 -8 Reps mul + MaxXYStep @ M 8 -8 - K}b E
+/makehatch{GDIHPatternDict/PaintData 3 -1 $ put CTMsave GDIHMatrix setmatrix
+GDIHPatternDict matrix mp CTMrestore ~ U ~ 2 ^ put}b/h0{/h0/HS_Horizontal
+makehatch}b/h1{/h1/HS_Vertical makehatch}b/h2{/h2/HS_FDiagonal makehatch}b/h3{
+/h3/HS_BDiagonal makehatch}b/h4{/h4/HS_Cross makehatch}b/h5{/h5/HS_DiagCross
+makehatch}b/GDIBWPatternDict 17 dict @ `/PatternType 1 |/PaintType L2?{1}{2}?
+|/RepsV L2?{1}{6}? |/RepsH L2?{1}{5}? |/BBox[0 0 RepsH 1]|/TilingType 1 |
+/XStep 1 |/YStep 1 |/Height 8 RepsV mul |/Width 8 |/mx[Width 0 0 Height neg 0
+Height]|/FGnd null |/BGnd null |/SetBGndFGnd L2?{{BGnd null ne{BGnd aload !
+sgco BBox aload ! 2 ^ sub ~ 3 ^ sub ~ rf}if FGnd null ne{FGnd aload ! sgco}if}
+}{{}}? b/PaintProc{` SetBGndFGnd RepsH{Width Height F mx PaintData imagemask
+Width 0 +}repeat E}b E |/GDIBWPatternMx null |/pfprep{save 4 1 $
+/PatternOfTheDay 4 1 $ GDIBWPatternDict `/PaintData ~ |/BGnd ~ |/FGnd ~ | E
+CTMsave GDIBWPatternMx setmatrix GDIBWPatternDict matrix mp CTMrestore ~ !}b
+/hrf null |/prf{pfprep ~ 6 1 $ 5 hrf restore}b/GraphInit{GDIHMatrix null eq{
+/SavedCTM matrix | : ADO_mxRot concat 0 0 snap + : 0.48 @ GDIHPatternDict `
+YStep mul ~ XStep mul ~ dsnap YStep V ~ XStep V ~ E +S/GDIHMatrix matrix
+currentmatrix readonly | ; : 0.24 -0.24 +S GDIBWPatternDict ` Width Height E
+dsnap +S/GDIBWPatternMx matrix currentmatrix readonly | ; ;}if}b/cirp{360 0 An
+C}b/ellp{CTMsave + +S 0.5 0 M 0 0 0.5 360 0 An C CTMrestore}b/rrp{/rad ~ |/y2
+~ |/x2 ~ |/y1 ~ |/x1 ~ | x2 x1 add 2 V y1 M x1 y1 x1 y2 rad arct x1 y2 x2 y2
+rad arct x2 y2 x2 y1 rad arct x2 y1 x1 y1 rad arct C}b/RRp{CTMsave + +S/dyS ~
+|/dxS ~ | dxS 2 V 0 M 0 0 0 dyS 0.5 arct 0 dyS dxS dyS 0.5 arct dxS dyS dxS 0
+0.5 arct dxS 0 0 0 0.5 arct C CTMrestore}b
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Graphics_L1 2.0 0
+L2? not g{/arct{arcto ! ! ! !}b/GDIpattfill{@ ` BGnd null ne PaintType 2 eq
+and{: BGnd aload ! sgco fEOFill{O}{L}? ; FGnd aload ! U/fGray 2 ^ put{2}{4}?
+-1 $}if E @ patterncalc : 4 ^/PaintType get 2 eq{fGray{6 -1 $ sg}{8 -3 $ sco}?
+}if fEOFill{eoclip}{clip}? N patternfill ; N}b/hrf{/fGray 1 ^ 6 eq | -4 $ N rp
+C/fEOFill F | GDIpattfill}b/hfMain{/fEOFill ~ |/fGray ~ | GDIpattfill}b/hf{T
+hfMain}b/hfW{F hfMain}b/hs{currentpoint strokepath M hfW}b/pfMain{/fEOFill ~ |
+pfprep GDIpattfill restore N}b/pf{T pfMain}b/pfW{F pfMain}b/ps{currentpoint
+strokepath M pfW}b/mpstr 1 string |/mp{~ @ length 12 add dict copy `
+/PatternCTM matrix currentmatrix |/PatternMatrix ~ |/PatWidth XStep mpstr
+length mul |/PatHeight YStep |/FontType 3 |/Encoding 256 array | 3 string 0 1
+255{Encoding ~ @ 3 ^ cvs cvn put}for !/FontMatrix matrix |/FontBBox BBox |
+/BuildChar{! @ ` XStep 0 FontBBox aload ! setcachedevice/PaintProc , E : exec
+;}b & E ~ @ 3 -1 $ definefont}b/patterncalc{` : PatternCTM setmatrix
+PatternMatrix concat BBox aload ! ! ! + pathbbox ; PatHeight V ceiling 4 1 $
+PatWidth V ceiling 4 1 $ PatHeight V floor 4 1 $ PatWidth V floor 4 1 $ 2 ^
+sub cvi abs ~ 3 ^ sub cvi abs ~ 4 2 $ PatHeight mul ~ PatWidth mul ~ E}b
+/patternfill{5 -1 $ @ ` Ji PatternCTM setmatrix PatternMatrix concat 0 2 ^ 2 ^
+M 0 1 mpstr length 1 sub{1 ^ mpstr 3 1 $ put}for ! 2 ^{currentpoint 5 ^{mpstr
+S}repeat YStep add M}repeat ! ! ! ! E}b}e
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Graphics_L2 2.0 0
+L2? g{/mp/makepattern , |/hrf{6 eq setAorABC setpattern rectfill}b/hf{
+setAorABC setpattern O}b/hfW{setAorABC setpattern L}b/hs{setAorABC setpattern
+K}b/pf{pfprep setpattern O restore N}b/pfW{pfprep setpattern L restore N}b/ps{
+pfprep setpattern K restore N}b}e
+%%EndResource
+
+end reinitialize
+userdict begin /pagesave save def end mysetup concat colspRefresh 
+
+221 1381 N M 1950 8 rr : 0 0 0 sco O ; : 617 1465 1779 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F0) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F0_50) cvn
+F0
+50 
+xF 
+F0_50
+Ji 
+671 1465 M 
+-0.294 0 (This appendix contains the framework's C++ class declarations.  Anyone)A 
+; : 617 1525 1779 57 rc 0 0 0 sco F0_50
+Ji 
+671 1525 M 
+-0.079 0 (attempting to write a simulator should look them over.)A 
+; : 601 1674 1795 78 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F2) cvn
+0.925 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F2_67) cvn
+F2
+67 
+xF 
+F2_67
+Ji 
+671 1674 M 
+-0.080 0 (BasicCPU Class Declaration)A 
+; 
+671 1752 N M 1500 2 rr : 0 0 0 sco O ; : 600 1799 80 33 rc 0 0 0 sco %%IncludeFont: Courier-Bold
+(F4) cvn
+0.828 
+ (Courier-Bold) cvn /Type1 
+T 
+(Courier-Bold) cvn
+mF 
+(F4_29) cvn
+F4
+29 
+xF 
+F4_29
+Ji 
+620 1799 M 
+-0.400 0 (  )A 
+; : 652 1799 1539 32 rc 0 0 0 sco %%IncludeFont: Courier
+(F6) cvn
+0.828 
+ (Courier) cvn /Type1 
+T 
+(Courier) cvn
+mF 
+(F6_29) cvn
+F6
+29 
+xF 
+F6_29
+Ji 
+671 1799 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 1831 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 1831 M 
+-0.400 0 (  )A 
+; : 652 1831 1159 32 rc 0 0 0 sco F6_29
+Ji 
+671 1831 M 
+-0.400 0 (// $Id: BasicCPU.hxx,v 1.1 1996/08/02 14:49:30 bwmott Exp $)A 
+; : 600 1863 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 1863 M 
+-0.400 0 (  )A 
+; : 652 1863 1539 32 rc 0 0 0 sco F6_29
+Ji 
+671 1863 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 1895 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 1895 M 
+-0.400 0 (  )A 
+; : 652 1895 76 32 rc 0 0 0 sco F6_29
+Ji 
+671 1895 M 
+-0.400 0 (//)A 
+; : 600 1927 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 1927 M 
+-0.400 0 (  )A 
+; : 652 1927 323 32 rc 0 0 0 sco F6_29
+Ji 
+671 1927 M 
+-0.400 0 (// BasicCPU.hxx)A 
+; : 600 1959 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 1959 M 
+-0.400 0 (  )A 
+; : 652 1959 76 32 rc 0 0 0 sco F6_29
+Ji 
+671 1959 M 
+-0.400 0 (//)A 
+; : 600 1991 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 1991 M 
+-0.400 0 (  )A 
+; : 652 1991 1178 32 rc 0 0 0 sco F6_29
+Ji 
+671 1991 M 
+-0.400 0 (//   This is the abstract base class for all microprocessors)A 
+; : 600 2024 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2024 M 
+-0.400 0 (  )A 
+; : 652 2024 76 32 rc 0 0 0 sco F6_29
+Ji 
+671 2024 M 
+-0.400 0 (//)A 
+; : 600 2056 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2056 M 
+-0.400 0 (  )A 
+; : 652 2056 76 32 rc 0 0 0 sco F6_29
+Ji 
+671 2056 M 
+-0.400 0 (//)A 
+; : 600 2088 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2088 M 
+-0.400 0 (  )A 
+; : 652 2088 931 32 rc 0 0 0 sco F6_29
+Ji 
+671 2088 M 
+-0.400 0 (// BSVC "A Microprocessor Simulation Framework")A 
+; : 600 2120 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2120 M 
+-0.400 0 (  )A 
+; : 652 2120 437 32 rc 0 0 0 sco F6_29
+Ji 
+671 2120 M 
+-0.400 0 (// Copyright \(c\) 1993)A 
+; : 600 2152 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2152 M 
+-0.400 0 (  )A 
+; : 652 2152 475 32 rc 0 0 0 sco F6_29
+Ji 
+671 2152 M 
+-0.400 0 (// By: Bradford W. Mott)A 
+; : 600 2184 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2184 M 
+-0.400 0 (  )A 
+; : 652 2184 323 32 rc 0 0 0 sco F6_29
+Ji 
+671 2184 M 
+-0.400 0 (// June 27,1993)A 
+; : 600 2216 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2216 M 
+-0.400 0 (  )A 
+; : 652 2216 76 32 rc 0 0 0 sco F6_29
+Ji 
+671 2216 M 
+-0.400 0 (//)A 
+; : 600 2248 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2248 M 
+-0.400 0 (  )A 
+; : 652 2248 1539 32 rc 0 0 0 sco F6_29
+Ji 
+671 2248 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 2280 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2280 M 
+-0.400 0 (  )A 
+; : 652 2280 513 32 rc 0 0 0 sco F6_29
+Ji 
+671 2280 M 
+-0.400 0 (// $Log: BasicCPU.hxx,v $)A 
+; : 600 2312 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2312 M 
+-0.400 0 (  )A 
+; : 652 2312 874 32 rc 0 0 0 sco F6_29
+Ji 
+671 2312 M 
+-0.400 0 (// Revision 1.1  1996/08/02 14:49:30  bwmott)A 
+; : 600 2344 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2344 M 
+-0.400 0 (  )A 
+; : 652 2344 399 32 rc 0 0 0 sco F6_29
+Ji 
+671 2344 M 
+-0.400 0 (// Initial revision)A 
+; : 600 2376 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2376 M 
+-0.400 0 (  )A 
+; : 652 2376 76 32 rc 0 0 0 sco F6_29
+Ji 
+671 2376 M 
+-0.400 0 (//)A 
+; : 600 2409 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2409 M 
+-0.400 0 (  )A 
+; : 652 2409 1539 32 rc 0 0 0 sco F6_29
+Ji 
+671 2409 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 2441 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2441 M 
+-0.400 0 (  )A 
+; : 600 2473 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2473 M 
+-0.400 0 (  )A 
+; : 652 2473 418 32 rc 0 0 0 sco F6_29
+Ji 
+671 2473 M 
+-0.400 0 (#ifndef BASICCPU_HXX)A 
+; : 600 2505 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2505 M 
+-0.400 0 (  )A 
+; : 652 2505 418 32 rc 0 0 0 sco F6_29
+Ji 
+671 2505 M 
+-0.400 0 (#define BASICCPU_HXX)A 
+; : 600 2537 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2537 M 
+-0.400 0 (  )A 
+; : 600 2569 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2569 M 
+-0.400 0 (  )A 
+; : 652 2569 361 32 rc 0 0 0 sco F6_29
+Ji 
+671 2569 M 
+-0.400 0 (#include <string>)A 
+; : 600 2601 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2601 M 
+-0.400 0 (  )A 
+; : 652 2601 361 32 rc 0 0 0 sco F6_29
+Ji 
+671 2601 M 
+-0.400 0 (#include <vector>)A 
+; : 600 2633 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2633 M 
+-0.400 0 (  )A 
+; : 600 2665 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2665 M 
+-0.400 0 (  )A 
+; : 652 2665 551 32 rc 0 0 0 sco F6_29
+Ji 
+671 2665 M 
+-0.400 0 (#include "AddressSpace.hxx")A 
+; : 600 2697 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2697 M 
+-0.400 0 (  )A 
+; : 600 2729 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2729 M 
+-0.400 0 (  )A 
+; : 652 2729 323 32 rc 0 0 0 sco F6_29
+Ji 
+671 2729 M 
+-0.400 0 (class BasicCPU;)A 
+; : 600 2761 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2761 M 
+-0.400 0 (  )A 
+; : 652 2761 380 32 rc 0 0 0 sco F6_29
+Ji 
+671 2761 M 
+-0.400 0 (class BasicDevice;)A 
+; : 600 2794 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2794 M 
+-0.400 0 (  )A 
+; : 652 2794 608 32 rc 0 0 0 sco F6_29
+Ji 
+671 2794 M 
+-0.400 0 (class RegisterInformationList;)A 
+; : 600 2826 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2826 M 
+-0.400 0 (  )A 
+; : 652 2826 665 32 rc 0 0 0 sco F6_29
+Ji 
+671 2826 M 
+-0.400 0 (class StatisticalInformationList;)A 
+; : 600 2858 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2858 M 
+-0.400 0 (  )A 
+; : 652 2858 399 32 rc 0 0 0 sco F6_29
+Ji 
+671 2858 M 
+-0.400 0 (class AddressSpace;)A 
+; : 600 2890 80 33 rc 0 0 0 sco F4_29
+Ji 
+620 2890 M 
+-0.400 0 (  )A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco F0_50
+Ji 
+2121 2942 M 
+(30)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 1 ]%%)  =
+%%PageTrailer
+
+%%Page: 2 2
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 600 225 80 33 rc 0 0 0 sco %%IncludeFont: Courier-Bold
+(F0) cvn
+0.828 
+ (Courier-Bold) cvn /Type1 
+T 
+(Courier-Bold) cvn
+mF 
+(F0_29) cvn
+F0
+29 
+xF 
+F0_29
+Ji 
+620 225 M 
+-0.400 0 (  )A 
+; : 652 225 418 32 rc 0 0 0 sco %%IncludeFont: Courier
+(F2) cvn
+0.828 
+ (Courier) cvn /Type1 
+T 
+(Courier) cvn
+mF 
+(F2_29) cvn
+F2
+29 
+xF 
+F2_29
+Ji 
+671 225 M 
+-0.400 0 (#include "Event.hxx")A 
+; : 600 257 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 257 M 
+-0.400 0 (  )A 
+; : 600 289 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 289 M 
+-0.400 0 (  )A 
+; : 652 289 342 32 rc 0 0 0 sco F2_29
+Ji 
+671 289 M 
+-0.400 0 (class BasicCPU {)A 
+; : 600 321 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 321 M 
+-0.400 0 (  )A 
+; : 652 321 209 32 rc 0 0 0 sco F2_29
+Ji 
+671 321 M 
+-0.400 0 (  public:)A 
+; : 600 354 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 354 M 
+-0.400 0 (  )A 
+; : 652 354 380 32 rc 0 0 0 sco F2_29
+Ji 
+671 354 M 
+-0.400 0 (    // Constructor)A 
+; : 600 386 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 386 M 
+-0.400 0 (  )A 
+; : 652 386 950 32 rc 0 0 0 sco F2_29
+Ji 
+671 386 M 
+-0.400 0 (    BasicCPU\(const char* name, int granularity, )A 
+; : 600 418 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 418 M 
+-0.400 0 (  )A 
+; : 652 418 893 32 rc 0 0 0 sco F2_29
+Ji 
+671 418 M 
+-0.400 0 (        vector<AddressSpace*>& addressSpaces,)A 
+; : 600 450 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 450 M 
+-0.400 0 (  )A 
+; : 652 450 779 32 rc 0 0 0 sco F2_29
+Ji 
+671 450 M 
+-0.400 0 (        const char* traceRecordFormat, )A 
+; : 600 482 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 482 M 
+-0.400 0 (  )A 
+; : 652 482 931 32 rc 0 0 0 sco F2_29
+Ji 
+671 482 M 
+-0.400 0 (        const char* defaultTraceRecordEntries\);)A 
+; : 600 514 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 514 M 
+-0.400 0 (  )A 
+; : 600 546 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 546 M 
+-0.400 0 (  )A 
+; : 652 546 361 32 rc 0 0 0 sco F2_29
+Ji 
+671 546 M 
+-0.400 0 (    // Destructor)A 
+; : 600 578 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 578 M 
+-0.400 0 (  )A 
+; : 652 578 494 32 rc 0 0 0 sco F2_29
+Ji 
+671 578 M 
+-0.400 0 (    virtual ~BasicCPU\(\);)A 
+; : 600 610 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 610 M 
+-0.400 0 (  )A 
+; : 600 642 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 642 M 
+-0.400 0 (  )A 
+; : 652 642 798 32 rc 0 0 0 sco F2_29
+Ji 
+671 642 M 
+-0.400 0 (    // Answer name of the microprocessor)A 
+; : 600 674 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 674 M 
+-0.400 0 (  )A 
+; : 652 674 931 32 rc 0 0 0 sco F2_29
+Ji 
+671 674 M 
+-0.400 0 (    const char* Name\(\) const { return myName; })A 
+; : 600 706 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 706 M 
+-0.400 0 (  )A 
+; : 600 739 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 739 M 
+-0.400 0 (  )A 
+; : 652 739 1007 32 rc 0 0 0 sco F2_29
+Ji 
+671 739 M 
+-0.400 0 (    // Answer the granularity of the microprocessor)A 
+; : 600 771 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 771 M 
+-0.400 0 (  )A 
+; : 652 771 1216 32 rc 0 0 0 sco F2_29
+Ji 
+671 771 M 
+-0.400 0 (    unsigned int Granularity\(\) const { return myGranularity; })A 
+; : 600 803 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 803 M 
+-0.400 0 (  )A 
+; : 600 835 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 835 M 
+-0.400 0 (  )A 
+; : 652 835 893 32 rc 0 0 0 sco F2_29
+Ji 
+671 835 M 
+-0.400 0 (    // Answer a reference to my event handler)A 
+; : 600 867 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 867 M 
+-0.400 0 (  )A 
+; : 652 867 1178 32 rc 0 0 0 sco F2_29
+Ji 
+671 867 M 
+-0.400 0 (    EventHandler& eventHandler\(\) { return myEventHandler; };)A 
+; : 600 899 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 899 M 
+-0.400 0 (  )A 
+; : 600 931 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 931 M 
+-0.400 0 (  )A 
+; : 652 931 1254 32 rc 0 0 0 sco F2_29
+Ji 
+671 931 M 
+-0.400 0 (    // Answer the number of address spaces used by the processor)A 
+; : 600 963 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 963 M 
+-0.400 0 (  )A 
+; : 652 963 912 32 rc 0 0 0 sco F2_29
+Ji 
+671 963 M 
+-0.400 0 (    unsigned int NumberOfAddressSpaces\(\) const)A 
+; : 600 995 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 995 M 
+-0.400 0 (  )A 
+; : 652 995 760 32 rc 0 0 0 sco F2_29
+Ji 
+671 995 M 
+-0.400 0 (    { return myAddressSpaces.size\(\); })A 
+; : 600 1027 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1027 M 
+-0.400 0 (  )A 
+; : 600 1059 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1059 M 
+-0.400 0 (  )A 
+; : 652 1059 931 32 rc 0 0 0 sco F2_29
+Ji 
+671 1059 M 
+-0.400 0 (    // Answer the execution trace record format)A 
+; : 600 1091 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1091 M 
+-0.400 0 (  )A 
+; : 652 1091 874 32 rc 0 0 0 sco F2_29
+Ji 
+671 1091 M 
+-0.400 0 (    const char* ExecutionTraceRecord\(\) const)A 
+; : 600 1124 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1124 M 
+-0.400 0 (  )A 
+; : 652 1124 760 32 rc 0 0 0 sco F2_29
+Ji 
+671 1124 M 
+-0.400 0 (    { return myExecutionTraceRecord; })A 
+; : 600 1156 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1156 M 
+-0.400 0 (  )A 
+; : 600 1188 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1188 M 
+-0.400 0 (  )A 
+; : 652 1188 969 32 rc 0 0 0 sco F2_29
+Ji 
+671 1188 M 
+-0.400 0 (    // Answer the default execution trace entries)A 
+; : 600 1220 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1220 M 
+-0.400 0 (  )A 
+; : 652 1220 1026 32 rc 0 0 0 sco F2_29
+Ji 
+671 1220 M 
+-0.400 0 (    const char* DefaultExecutionTraceEntries\(\) const)A 
+; : 600 1252 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1252 M 
+-0.400 0 (  )A 
+; : 652 1252 912 32 rc 0 0 0 sco F2_29
+Ji 
+671 1252 M 
+-0.400 0 (    { return myDefaultExecutionTraceEntries; })A 
+; : 600 1284 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1284 M 
+-0.400 0 (  )A 
+; : 600 1316 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1316 M 
+-0.400 0 (  )A 
+; : 652 1316 912 32 rc 0 0 0 sco F2_29
+Ji 
+671 1316 M 
+-0.400 0 (    // Answer the indexed address space object)A 
+; : 600 1348 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1348 M 
+-0.400 0 (  )A 
+; : 652 1348 1121 32 rc 0 0 0 sco F2_29
+Ji 
+671 1348 M 
+-0.400 0 (    AddressSpace& addressSpace\(unsigned int addressSpace\))A 
+; : 600 1380 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1380 M 
+-0.400 0 (  )A 
+; : 652 1380 912 32 rc 0 0 0 sco F2_29
+Ji 
+671 1380 M 
+-0.400 0 (    { return *myAddressSpaces[addressSpace]; })A 
+; : 600 1412 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1412 M 
+-0.400 0 (  )A 
+; : 600 1444 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1444 M 
+-0.400 0 (  )A 
+; : 652 1444 1482 32 rc 0 0 0 sco F2_29
+Ji 
+671 1444 M 
+-0.400 0 (    // Execute next instruction. Answers pointer to an error message or null)A 
+; : 600 1476 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1476 M 
+-0.400 0 (  )A 
+; : 652 1476 1558 32 rc 0 0 0 sco F2_29
+Ji 
+671 1476 M 
+-0.400 0 (    virtual const char* ExecuteInstruction\(string& traceRecord, bool trace\) = 0;)A 
+; : 600 1509 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1509 M 
+-0.400 0 (  )A 
+; : 600 1541 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1541 M 
+-0.400 0 (  )A 
+; : 652 1541 950 32 rc 0 0 0 sco F2_29
+Ji 
+671 1541 M 
+-0.400 0 (    // Handle an interrupt request from a device)A 
+; : 600 1573 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1573 M 
+-0.400 0 (  )A 
+; : 652 1573 1368 32 rc 0 0 0 sco F2_29
+Ji 
+671 1573 M 
+-0.400 0 (    virtual void InterruptRequest\(BasicDevice* device, int level\) = 0;)A 
+; : 600 1605 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1605 M 
+-0.400 0 (  )A 
+; : 600 1637 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1637 M 
+-0.400 0 (  )A 
+; : 652 1637 589 32 rc 0 0 0 sco F2_29
+Ji 
+671 1637 M 
+-0.400 0 (    // Perform a system reset)A 
+; : 600 1669 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1669 M 
+-0.400 0 (  )A 
+; : 652 1669 589 32 rc 0 0 0 sco F2_29
+Ji 
+671 1669 M 
+-0.400 0 (    virtual void Reset\(\) = 0;)A 
+; : 600 1701 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1701 M 
+-0.400 0 (  )A 
+; : 600 1733 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1733 M 
+-0.400 0 (  )A 
+; : 652 1733 1026 32 rc 0 0 0 sco F2_29
+Ji 
+671 1733 M 
+-0.400 0 (    // Answers value of the program counter register)A 
+; : 600 1765 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1765 M 
+-0.400 0 (  )A 
+; : 652 1765 1064 32 rc 0 0 0 sco F2_29
+Ji 
+671 1765 M 
+-0.400 0 (    virtual unsigned long ValueOfProgramCounter\(\) = 0;)A 
+; : 600 1797 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1797 M 
+-0.400 0 (  )A 
+; : 600 1829 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1829 M 
+-0.400 0 (  )A 
+; : 652 1829 1121 32 rc 0 0 0 sco F2_29
+Ji 
+671 1829 M 
+-0.400 0 (    // Sets named register to the given hexidecimal value)A 
+; : 600 1861 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1861 M 
+-0.400 0 (  )A 
+; : 652 1861 1501 32 rc 0 0 0 sco F2_29
+Ji 
+671 1861 M 
+-0.400 0 (    virtual void SetRegister\(const string& name, const string& hexValue\) = 0;)A 
+; : 600 1894 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1894 M 
+-0.400 0 (  )A 
+; : 600 1926 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1926 M 
+-0.400 0 (  )A 
+; : 652 1926 665 32 rc 0 0 0 sco F2_29
+Ji 
+671 1926 M 
+-0.400 0 (    // Clear the CPU's Statistics)A 
+; : 600 1958 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1958 M 
+-0.400 0 (  )A 
+; : 652 1958 779 32 rc 0 0 0 sco F2_29
+Ji 
+671 1958 M 
+-0.400 0 (    virtual void ClearStatistics\(\) = 0;)A 
+; : 600 1990 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1990 M 
+-0.400 0 (  )A 
+; : 600 2022 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2022 M 
+-0.400 0 (  )A 
+; : 652 2022 1520 32 rc 0 0 0 sco F2_29
+Ji 
+671 2022 M 
+-0.400 0 (    // Append all of the CPU's registers to the RegisterInformationList object)A 
+; : 600 2054 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2054 M 
+-0.400 0 (  )A 
+; : 652 2054 1482 32 rc 0 0 0 sco F2_29
+Ji 
+671 2054 M 
+-0.400 0 (    virtual void BuildRegisterInformationList\(RegisterInformationList&\) = 0;)A 
+; : 600 2086 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2086 M 
+-0.400 0 (  )A 
+; : 600 2118 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2118 M 
+-0.400 0 (  )A 
+; : 652 2118 1501 32 rc 0 0 0 sco F2_29
+Ji 
+671 2118 M 
+-0.400 0 (    // Append all of the CPU's stats to the StatisticalInformationList object)A 
+; : 600 2150 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2150 M 
+-0.400 0 (  )A 
+; : 652 2150 1558 32 rc 0 0 0 sco F2_29
+Ji 
+671 2150 M 
+-0.400 0 (    virtual void BuildStatisticalInformationList\(StatisticalInformationList&\)=0;)A 
+; : 600 2182 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2182 M 
+-0.400 0 (  )A 
+; : 600 2214 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2214 M 
+-0.400 0 (  )A 
+; : 652 2214 266 32 rc 0 0 0 sco F2_29
+Ji 
+671 2214 M 
+-0.400 0 (  protected:)A 
+; : 600 2246 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2246 M 
+-0.400 0 (  )A 
+; : 652 2246 950 32 rc 0 0 0 sco F2_29
+Ji 
+671 2246 M 
+-0.400 0 (    // Pointer to array of address space objects)A 
+; : 600 2279 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2279 M 
+-0.400 0 (  )A 
+; : 652 2279 855 32 rc 0 0 0 sco F2_29
+Ji 
+671 2279 M 
+-0.400 0 (    vector<AddressSpace*>& myAddressSpaces;)A 
+; : 600 2311 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2311 M 
+-0.400 0 (  )A 
+; : 600 2343 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2343 M 
+-0.400 0 (  )A 
+; : 652 2343 475 32 rc 0 0 0 sco F2_29
+Ji 
+671 2343 M 
+-0.400 0 (    // My event handler)A 
+; : 600 2375 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2375 M 
+-0.400 0 (  )A 
+; : 652 2375 646 32 rc 0 0 0 sco F2_29
+Ji 
+671 2375 M 
+-0.400 0 (    EventHandler myEventHandler;)A 
+; : 600 2407 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2407 M 
+-0.400 0 (  )A 
+; : 600 2439 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2439 M 
+-0.400 0 (  )A 
+; : 652 2439 228 32 rc 0 0 0 sco F2_29
+Ji 
+671 2439 M 
+-0.400 0 (  private:)A 
+; : 600 2471 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2471 M 
+-0.400 0 (  )A 
+; : 652 2471 304 32 rc 0 0 0 sco F2_29
+Ji 
+671 2471 M 
+-0.400 0 (    // My name)A 
+; : 600 2503 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2503 M 
+-0.400 0 (  )A 
+; : 652 2503 475 32 rc 0 0 0 sco F2_29
+Ji 
+671 2503 M 
+-0.400 0 (    const char* myName;)A 
+; : 600 2535 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2535 M 
+-0.400 0 (  )A 
+; : 600 2567 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2567 M 
+-0.400 0 (  )A 
+; : 652 2567 608 32 rc 0 0 0 sco F2_29
+Ji 
+671 2567 M 
+-0.400 0 (    // My granularity in bytes)A 
+; : 600 2599 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2599 M 
+-0.400 0 (  )A 
+; : 652 2599 741 32 rc 0 0 0 sco F2_29
+Ji 
+671 2599 M 
+-0.400 0 (    const unsigned int myGranularity;)A 
+; : 600 2631 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2631 M 
+-0.400 0 (  )A 
+; : 600 2664 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2664 M 
+-0.400 0 (  )A 
+; : 652 2664 1425 32 rc 0 0 0 sco F2_29
+Ji 
+671 2664 M 
+-0.400 0 (    // Trace record format used by the ExecuteInstruction member function)A 
+; : 600 2696 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2696 M 
+-0.400 0 (  )A 
+; : 652 2696 779 32 rc 0 0 0 sco F2_29
+Ji 
+671 2696 M 
+-0.400 0 (    const char* myExecutionTraceRecord;)A 
+; : 600 2728 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2728 M 
+-0.400 0 (  )A 
+; : 600 2760 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2760 M 
+-0.400 0 (  )A 
+; : 652 2760 1406 32 rc 0 0 0 sco F2_29
+Ji 
+671 2760 M 
+-0.400 0 (    // Default fields of the trace record that should be displayed by UI)A 
+; : 600 2792 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2792 M 
+-0.400 0 (  )A 
+; : 652 2792 931 32 rc 0 0 0 sco F2_29
+Ji 
+671 2792 M 
+-0.400 0 (    const char* myDefaultExecutionTraceEntries;)A 
+; : 600 2824 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2824 M 
+-0.400 0 (  )A 
+; : 652 2824 76 32 rc 0 0 0 sco F2_29
+Ji 
+671 2824 M 
+-0.400 0 (};)A 
+; : 600 2856 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2856 M 
+-0.400 0 (  )A 
+; : 652 2856 152 32 rc 0 0 0 sco F2_29
+Ji 
+671 2856 M 
+-0.400 0 (#endif)A 
+; : 600 2888 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 2888 M 
+-0.400 0 (  )A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F4) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F4_50) cvn
+F4
+50 
+xF 
+F4_50
+Ji 
+2121 2942 M 
+(31)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 2 ]%%)  =
+%%PageTrailer
+
+%%Page: 3 3
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 601 227 1795 78 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F0) cvn
+0.925 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F0_67) cvn
+F0
+67 
+xF 
+F0_67
+Ji 
+671 227 M 
+-0.092 0 (BasicDevice Class Declaration)A 
+; 
+671 305 N M 1500 2 rr : 0 0 0 sco O ; : 600 352 80 33 rc 0 0 0 sco %%IncludeFont: Courier-Bold
+(F2) cvn
+0.828 
+ (Courier-Bold) cvn /Type1 
+T 
+(Courier-Bold) cvn
+mF 
+(F2_29) cvn
+F2
+29 
+xF 
+F2_29
+Ji 
+620 352 M 
+-0.400 0 (  )A 
+; : 652 352 1539 32 rc 0 0 0 sco %%IncludeFont: Courier
+(F4) cvn
+0.828 
+ (Courier) cvn /Type1 
+T 
+(Courier) cvn
+mF 
+(F4_29) cvn
+F4
+29 
+xF 
+F4_29
+Ji 
+671 352 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 384 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 384 M 
+-0.400 0 (  )A 
+; : 652 384 1216 32 rc 0 0 0 sco F4_29
+Ji 
+671 384 M 
+-0.400 0 (// $Id: BasicDevice.hxx,v 1.1 1996/08/02 14:50:07 bwmott Exp $)A 
+; : 600 416 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 416 M 
+-0.400 0 (  )A 
+; : 652 416 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 416 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 449 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 449 M 
+-0.400 0 (  )A 
+; : 652 449 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 449 M 
+-0.400 0 (//)A 
+; : 600 481 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 481 M 
+-0.400 0 (  )A 
+; : 652 481 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 481 M 
+-0.400 0 (// BasicDevice.hxx)A 
+; : 600 513 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 513 M 
+-0.400 0 (  )A 
+; : 652 513 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 513 M 
+-0.400 0 (//)A 
+; : 600 545 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 545 M 
+-0.400 0 (  )A 
+; : 652 545 988 32 rc 0 0 0 sco F4_29
+Ji 
+671 545 M 
+-0.400 0 (//   This should be the base class for all devices)A 
+; : 600 577 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 577 M 
+-0.400 0 (  )A 
+; : 652 577 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 577 M 
+-0.400 0 (//)A 
+; : 600 609 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 609 M 
+-0.400 0 (  )A 
+; : 652 609 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 609 M 
+-0.400 0 (//)A 
+; : 600 641 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 641 M 
+-0.400 0 (  )A 
+; : 652 641 931 32 rc 0 0 0 sco F4_29
+Ji 
+671 641 M 
+-0.400 0 (// BSVC "A Microprocessor Simulation Framework")A 
+; : 600 673 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 673 M 
+-0.400 0 (  )A 
+; : 652 673 437 32 rc 0 0 0 sco F4_29
+Ji 
+671 673 M 
+-0.400 0 (// Copyright \(c\) 1993)A 
+; : 600 705 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 705 M 
+-0.400 0 (  )A 
+; : 652 705 475 32 rc 0 0 0 sco F4_29
+Ji 
+671 705 M 
+-0.400 0 (// By: Bradford W. Mott)A 
+; : 600 737 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 737 M 
+-0.400 0 (  )A 
+; : 652 737 323 32 rc 0 0 0 sco F4_29
+Ji 
+671 737 M 
+-0.400 0 (// July 26,1993)A 
+; : 600 769 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 769 M 
+-0.400 0 (  )A 
+; : 652 769 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 769 M 
+-0.400 0 (//)A 
+; : 600 801 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 801 M 
+-0.400 0 (  )A 
+; : 652 801 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 801 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 834 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 834 M 
+-0.400 0 (  )A 
+; : 652 834 570 32 rc 0 0 0 sco F4_29
+Ji 
+671 834 M 
+-0.400 0 (// $Log: BasicDevice.hxx,v $)A 
+; : 600 866 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 866 M 
+-0.400 0 (  )A 
+; : 652 866 874 32 rc 0 0 0 sco F4_29
+Ji 
+671 866 M 
+-0.400 0 (// Revision 1.1  1996/08/02 14:50:07  bwmott)A 
+; : 600 898 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 898 M 
+-0.400 0 (  )A 
+; : 652 898 399 32 rc 0 0 0 sco F4_29
+Ji 
+671 898 M 
+-0.400 0 (// Initial revision)A 
+; : 600 930 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 930 M 
+-0.400 0 (  )A 
+; : 652 930 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 930 M 
+-0.400 0 (//)A 
+; : 600 962 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 962 M 
+-0.400 0 (  )A 
+; : 652 962 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 962 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 994 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 994 M 
+-0.400 0 (  )A 
+; : 600 1026 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1026 M 
+-0.400 0 (  )A 
+; : 652 1026 475 32 rc 0 0 0 sco F4_29
+Ji 
+671 1026 M 
+-0.400 0 (#ifndef BASICDEVICE_HXX)A 
+; : 600 1058 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1058 M 
+-0.400 0 (  )A 
+; : 652 1058 475 32 rc 0 0 0 sco F4_29
+Ji 
+671 1058 M 
+-0.400 0 (#define BASICDEVICE_HXX)A 
+; : 600 1090 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1090 M 
+-0.400 0 (  )A 
+; : 600 1122 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1122 M 
+-0.400 0 (  )A 
+; : 652 1122 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 1122 M 
+-0.400 0 (#include <string>)A 
+; : 600 1154 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1154 M 
+-0.400 0 (  )A 
+; : 600 1186 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1186 M 
+-0.400 0 (  )A 
+; : 652 1186 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 1186 M 
+-0.400 0 (class BasicDevice;)A 
+; : 600 1219 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1219 M 
+-0.400 0 (  )A 
+; : 652 1219 323 32 rc 0 0 0 sco F4_29
+Ji 
+671 1219 M 
+-0.400 0 (class BasicCPU;)A 
+; : 600 1251 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1251 M 
+-0.400 0 (  )A 
+; : 600 1283 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1283 M 
+-0.400 0 (  )A 
+; : 652 1283 418 32 rc 0 0 0 sco F4_29
+Ji 
+671 1283 M 
+-0.400 0 (#include "Event.hxx")A 
+; : 600 1315 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1315 M 
+-0.400 0 (  )A 
+; : 600 1347 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1347 M 
+-0.400 0 (  )A 
+; : 652 1347 646 32 rc 0 0 0 sco F4_29
+Ji 
+671 1347 M 
+-0.400 0 (#define AUTOVECTOR_INTERRUPT  -1)A 
+; : 600 1379 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1379 M 
+-0.400 0 (  )A 
+; : 652 1379 646 32 rc 0 0 0 sco F4_29
+Ji 
+671 1379 M 
+-0.400 0 (#define SPURIOUS_INTERRUPT    -2)A 
+; : 600 1411 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1411 M 
+-0.400 0 (  )A 
+; : 600 1443 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1443 M 
+-0.400 0 (  )A 
+; : 652 1443 760 32 rc 0 0 0 sco F4_29
+Ji 
+671 1443 M 
+-0.400 0 (class BasicDevice : public EventBase {)A 
+; : 600 1475 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1475 M 
+-0.400 0 (  )A 
+; : 652 1475 209 32 rc 0 0 0 sco F4_29
+Ji 
+671 1475 M 
+-0.400 0 (  public:)A 
+; : 600 1507 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1507 M 
+-0.400 0 (  )A 
+; : 652 1507 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 1507 M 
+-0.400 0 (    // Constructor)A 
+; : 600 1539 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1539 M 
+-0.400 0 (  )A 
+; : 652 1539 1444 32 rc 0 0 0 sco F4_29
+Ji 
+671 1539 M 
+-0.400 0 (    BasicDevice\(const char* name, const string& arguments, BasicCPU& cpu\);)A 
+; : 600 1571 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1571 M 
+-0.400 0 (  )A 
+; : 600 1604 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1604 M 
+-0.400 0 (  )A 
+; : 652 1604 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 1604 M 
+-0.400 0 (    // Destructor)A 
+; : 600 1636 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1636 M 
+-0.400 0 (  )A 
+; : 652 1636 551 32 rc 0 0 0 sco F4_29
+Ji 
+671 1636 M 
+-0.400 0 (    virtual ~BasicDevice\(\);)A 
+; : 600 1668 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1668 M 
+-0.400 0 (  )A 
+; : 600 1700 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1700 M 
+-0.400 0 (  )A 
+; : 652 1700 760 32 rc 0 0 0 sco F4_29
+Ji 
+671 1700 M 
+-0.400 0 (    // Change my startup error message)A 
+; : 600 1732 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1732 M 
+-0.400 0 (  )A 
+; : 652 1732 874 32 rc 0 0 0 sco F4_29
+Ji 
+671 1732 M 
+-0.400 0 (    void ErrorMessage\(const string& message\))A 
+; : 600 1764 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1764 M 
+-0.400 0 (  )A 
+; : 652 1764 665 32 rc 0 0 0 sco F4_29
+Ji 
+671 1764 M 
+-0.400 0 (    { myErrorMessage = message; })A 
+; : 600 1796 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1796 M 
+-0.400 0 (  )A 
+; : 600 1828 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1828 M 
+-0.400 0 (  )A 
+; : 652 1828 760 32 rc 0 0 0 sco F4_29
+Ji 
+671 1828 M 
+-0.400 0 (    // Answer my startup error message)A 
+; : 600 1860 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1860 M 
+-0.400 0 (  )A 
+; : 652 1860 627 32 rc 0 0 0 sco F4_29
+Ji 
+671 1860 M 
+-0.400 0 (    string ErrorMessage\(\) const)A 
+; : 600 1892 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1892 M 
+-0.400 0 (  )A 
+; : 652 1892 627 32 rc 0 0 0 sco F4_29
+Ji 
+671 1892 M 
+-0.400 0 (    { return\(myErrorMessage\); })A 
+; : 600 1924 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1924 M 
+-0.400 0 (  )A 
+; : 600 1956 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1956 M 
+-0.400 0 (  )A 
+; : 652 1956 437 32 rc 0 0 0 sco F4_29
+Ji 
+671 1956 M 
+-0.400 0 (    // Answer my name)A 
+; : 600 1989 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1989 M 
+-0.400 0 (  )A 
+; : 652 1989 950 32 rc 0 0 0 sco F4_29
+Ji 
+671 1989 M 
+-0.400 0 (    const char* Name\(\) const { return\(myName\); })A 
+; : 600 2021 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2021 M 
+-0.400 0 (  )A 
+; : 600 2053 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2053 M 
+-0.400 0 (  )A 
+; : 652 2053 684 32 rc 0 0 0 sco F4_29
+Ji 
+671 2053 M 
+-0.400 0 (    // Answer the CPU I belong too)A 
+; : 600 2085 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2085 M 
+-0.400 0 (  )A 
+; : 652 2085 874 32 rc 0 0 0 sco F4_29
+Ji 
+671 2085 M 
+-0.400 0 (    BasicCPU& CPU\(\) const { return\(myCPU\); })A 
+; : 600 2117 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2117 M 
+-0.400 0 (  )A 
+; : 600 2149 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2149 M 
+-0.400 0 (  )A 
+; : 652 2149 817 32 rc 0 0 0 sco F4_29
+Ji 
+671 2149 M 
+-0.400 0 (    // Answer my initialization arguments)A 
+; : 600 2181 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2181 M 
+-0.400 0 (  )A 
+; : 652 2181 1064 32 rc 0 0 0 sco F4_29
+Ji 
+671 2181 M 
+-0.400 0 (    string Arguments\(\) const { return \(myArguments\); })A 
+; : 600 2213 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2213 M 
+-0.400 0 (  )A 
+; : 600 2245 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2245 M 
+-0.400 0 (  )A 
+; : 652 2245 1102 32 rc 0 0 0 sco F4_29
+Ji 
+671 2245 M 
+-0.400 0 (    // Answers true iff the address maps into the device)A 
+; : 600 2277 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2277 M 
+-0.400 0 (  )A 
+; : 652 2277 1064 32 rc 0 0 0 sco F4_29
+Ji 
+671 2277 M 
+-0.400 0 (    virtual bool CheckMapped\(unsigned long\) const = 0;)A 
+; : 600 2309 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2309 M 
+-0.400 0 (  )A 
+; : 600 2341 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2341 M 
+-0.400 0 (  )A 
+; : 652 2341 1026 32 rc 0 0 0 sco F4_29
+Ji 
+671 2341 M 
+-0.400 0 (    // Answers the lowest address used by the device)A 
+; : 600 2374 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2374 M 
+-0.400 0 (  )A 
+; : 652 2374 1026 32 rc 0 0 0 sco F4_29
+Ji 
+671 2374 M 
+-0.400 0 (    virtual unsigned long LowestAddress\(\) const = 0;)A 
+; : 600 2406 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2406 M 
+-0.400 0 (  )A 
+; : 600 2438 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2438 M 
+-0.400 0 (  )A 
+; : 652 2438 1045 32 rc 0 0 0 sco F4_29
+Ji 
+671 2438 M 
+-0.400 0 (    // Answers the highest address used by the device)A 
+; : 600 2470 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2470 M 
+-0.400 0 (  )A 
+; : 652 2470 1045 32 rc 0 0 0 sco F4_29
+Ji 
+671 2470 M 
+-0.400 0 (    virtual unsigned long HighestAddress\(\) const = 0;)A 
+; : 600 2502 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2502 M 
+-0.400 0 (  )A 
+; : 600 2534 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2534 M 
+-0.400 0 (  )A 
+; : 652 2534 665 32 rc 0 0 0 sco F4_29
+Ji 
+671 2534 M 
+-0.400 0 (    // Get a byte from the device)A 
+; : 600 2566 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2566 M 
+-0.400 0 (  )A 
+; : 652 2566 1140 32 rc 0 0 0 sco F4_29
+Ji 
+671 2566 M 
+-0.400 0 (    virtual unsigned char Peek\(unsigned long address\) = 0;)A 
+; : 600 2598 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2598 M 
+-0.400 0 (  )A 
+; : 600 2630 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2630 M 
+-0.400 0 (  )A 
+; : 652 2630 665 32 rc 0 0 0 sco F4_29
+Ji 
+671 2630 M 
+-0.400 0 (    // Put a byte into the device)A 
+; : 600 2662 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2662 M 
+-0.400 0 (  )A 
+; : 652 2662 1292 32 rc 0 0 0 sco F4_29
+Ji 
+671 2662 M 
+-0.400 0 (    virtual void Poke\(unsigned long address, unsigned char c\) = 0;)A 
+; : 600 2694 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2694 M 
+-0.400 0 (  )A 
+; : 600 2726 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2726 M 
+-0.400 0 (  )A 
+; : 652 2726 475 32 rc 0 0 0 sco F4_29
+Ji 
+671 2726 M 
+-0.400 0 (    // Reset the device)A 
+; : 600 2759 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2759 M 
+-0.400 0 (  )A 
+; : 652 2759 513 32 rc 0 0 0 sco F4_29
+Ji 
+671 2759 M 
+-0.400 0 (    virtual void Reset\(\);)A 
+; : 600 2791 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2791 M 
+-0.400 0 (  )A 
+; : 600 2823 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2823 M 
+-0.400 0 (  )A 
+; : 652 2823 1235 32 rc 0 0 0 sco F4_29
+Ji 
+671 2823 M 
+-0.400 0 (    // This routine sends an interrupt request \(IRQ\) to the CPU)A 
+; : 600 2855 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2855 M 
+-0.400 0 (  )A 
+; : 652 2855 893 32 rc 0 0 0 sco F4_29
+Ji 
+671 2855 M 
+-0.400 0 (    virtual void InterruptRequest\(int level\);)A 
+; : 600 2887 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2887 M 
+-0.400 0 (  )A 
+; : 652 2887 171 32 rc 0 0 0 sco F4_29
+Ji 
+671 2887 M 
+-0.400 0 (       )A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F6) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F6_50) cvn
+F6
+50 
+xF 
+F6_50
+Ji 
+2121 2942 M 
+(32)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 3 ]%%)  =
+%%PageTrailer
+
+%%Page: 4 4
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 600 225 80 33 rc 0 0 0 sco %%IncludeFont: Courier-Bold
+(F0) cvn
+0.828 
+ (Courier-Bold) cvn /Type1 
+T 
+(Courier-Bold) cvn
+mF 
+(F0_29) cvn
+F0
+29 
+xF 
+F0_29
+Ji 
+620 225 M 
+-0.400 0 (  )A 
+; : 652 225 1387 32 rc 0 0 0 sco %%IncludeFont: Courier
+(F2) cvn
+0.828 
+ (Courier) cvn /Type1 
+T 
+(Courier) cvn
+mF 
+(F2_29) cvn
+F2
+29 
+xF 
+F2_29
+Ji 
+671 225 M 
+-0.400 0 (    // This routine is called by the CPU when it processes an interrupt)A 
+; : 600 257 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 257 M 
+-0.400 0 (  )A 
+; : 652 257 969 32 rc 0 0 0 sco F2_29
+Ji 
+671 257 M 
+-0.400 0 (    virtual long InterruptAcknowledge\(int level\);)A 
+; : 600 289 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 289 M 
+-0.400 0 (  )A 
+; : 600 321 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 321 M 
+-0.400 0 (  )A 
+; : 652 321 266 32 rc 0 0 0 sco F2_29
+Ji 
+671 321 M 
+-0.400 0 (  protected:)A 
+; : 600 354 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 354 M 
+-0.400 0 (  )A 
+; : 652 354 817 32 rc 0 0 0 sco F2_29
+Ji 
+671 354 M 
+-0.400 0 (    // Reference to the CPU I belong too )A 
+; : 600 386 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 386 M 
+-0.400 0 (  )A 
+; : 652 386 418 32 rc 0 0 0 sco F2_29
+Ji 
+671 386 M 
+-0.400 0 (    BasicCPU& myCPU;)A 
+; : 600 418 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 418 M 
+-0.400 0 (  )A 
+; : 600 450 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 450 M 
+-0.400 0 (  )A 
+; : 652 450 722 32 rc 0 0 0 sco F2_29
+Ji 
+671 450 M 
+-0.400 0 (    // My name \(i.e. RAM, ROM, etc.\))A 
+; : 600 482 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 482 M 
+-0.400 0 (  )A 
+; : 652 482 475 32 rc 0 0 0 sco F2_29
+Ji 
+671 482 M 
+-0.400 0 (    const char* myName;)A 
+; : 600 514 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 514 M 
+-0.400 0 (  )A 
+; : 600 546 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 546 M 
+-0.400 0 (  )A 
+; : 652 546 760 32 rc 0 0 0 sco F2_29
+Ji 
+671 546 M 
+-0.400 0 (    // Arguments passed to constructor)A 
+; : 600 578 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 578 M 
+-0.400 0 (  )A 
+; : 652 578 475 32 rc 0 0 0 sco F2_29
+Ji 
+671 578 M 
+-0.400 0 (    string myArguments;)A 
+; : 600 610 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 610 M 
+-0.400 0 (  )A 
+; : 600 642 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 642 M 
+-0.400 0 (  )A 
+; : 652 642 893 32 rc 0 0 0 sco F2_29
+Ji 
+671 642 M 
+-0.400 0 (    // Error that occured during construction)A 
+; : 600 674 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 674 M 
+-0.400 0 (  )A 
+; : 652 674 532 32 rc 0 0 0 sco F2_29
+Ji 
+671 674 M 
+-0.400 0 (    string myErrorMessage;)A 
+; : 600 706 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 706 M 
+-0.400 0 (  )A 
+; : 600 739 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 739 M 
+-0.400 0 (  )A 
+; : 652 739 589 32 rc 0 0 0 sco F2_29
+Ji 
+671 739 M 
+-0.400 0 (    // Interrupt pending flag)A 
+; : 600 771 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 771 M 
+-0.400 0 (  )A 
+; : 652 771 570 32 rc 0 0 0 sco F2_29
+Ji 
+671 771 M 
+-0.400 0 (    bool myInterruptPending;)A 
+; : 600 803 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 803 M 
+-0.400 0 (  )A 
+; : 652 803 76 32 rc 0 0 0 sco F2_29
+Ji 
+671 803 M 
+-0.400 0 (};)A 
+; : 600 835 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 835 M 
+-0.400 0 (  )A 
+; : 652 835 152 32 rc 0 0 0 sco F2_29
+Ji 
+671 835 M 
+-0.400 0 (#endif)A 
+; : 600 867 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 867 M 
+-0.400 0 (  )A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F4) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F4_50) cvn
+F4
+50 
+xF 
+F4_50
+Ji 
+2121 2942 M 
+(33)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 4 ]%%)  =
+%%PageTrailer
+
+%%Page: 5 5
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 601 227 1795 78 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F0) cvn
+0.925 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F0_67) cvn
+F0
+67 
+xF 
+F0_67
+Ji 
+671 227 M 
+-0.182 0 (BasicDeviceRegistry Class Declaration)A 
+; 
+671 305 N M 1500 2 rr : 0 0 0 sco O ; : 600 352 80 33 rc 0 0 0 sco %%IncludeFont: Courier-Bold
+(F2) cvn
+0.828 
+ (Courier-Bold) cvn /Type1 
+T 
+(Courier-Bold) cvn
+mF 
+(F2_29) cvn
+F2
+29 
+xF 
+F2_29
+Ji 
+620 352 M 
+-0.400 0 (  )A 
+; : 652 352 1539 32 rc 0 0 0 sco %%IncludeFont: Courier
+(F4) cvn
+0.828 
+ (Courier) cvn /Type1 
+T 
+(Courier) cvn
+mF 
+(F4_29) cvn
+F4
+29 
+xF 
+F4_29
+Ji 
+671 352 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 384 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 384 M 
+-0.400 0 (  )A 
+; : 652 384 1368 32 rc 0 0 0 sco F4_29
+Ji 
+671 384 M 
+-0.400 0 (// $Id: BasicDeviceRegistry.hxx,v 1.1 1996/08/02 14:50:41 bwmott Exp $)A 
+; : 600 416 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 416 M 
+-0.400 0 (  )A 
+; : 652 416 1596 32 rc 0 0 0 sco F4_29
+Ji 
+671 416 M 
+-0.400 0 (/////////////////////////////////////////////////////////////////////////////// //)A 
+; : 600 449 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 449 M 
+-0.400 0 (  )A 
+; : 652 449 532 32 rc 0 0 0 sco F4_29
+Ji 
+671 449 M 
+-0.400 0 (// BasicDeviceRegistry.hxx)A 
+; : 600 481 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 481 M 
+-0.400 0 (  )A 
+; : 652 481 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 481 M 
+-0.400 0 (//)A 
+; : 600 513 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 513 M 
+-0.400 0 (  )A 
+; : 652 513 1501 32 rc 0 0 0 sco F4_29
+Ji 
+671 513 M 
+-0.400 0 (//   This abstract base class is used to derive a class that maintains a list)A 
+; : 600 545 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 545 M 
+-0.400 0 (  )A 
+; : 652 545 1330 32 rc 0 0 0 sco F4_29
+Ji 
+671 545 M 
+-0.400 0 (// of all the device in the simulator and allows them to be created.)A 
+; : 600 577 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 577 M 
+-0.400 0 (  )A 
+; : 652 577 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 577 M 
+-0.400 0 (//)A 
+; : 600 609 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 609 M 
+-0.400 0 (  )A 
+; : 652 609 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 609 M 
+-0.400 0 (//)A 
+; : 600 641 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 641 M 
+-0.400 0 (  )A 
+; : 652 641 931 32 rc 0 0 0 sco F4_29
+Ji 
+671 641 M 
+-0.400 0 (// BSVC "A Microprocessor Simulation Framework")A 
+; : 600 673 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 673 M 
+-0.400 0 (  )A 
+; : 652 673 437 32 rc 0 0 0 sco F4_29
+Ji 
+671 673 M 
+-0.400 0 (// Copyright \(c\) 1993)A 
+; : 600 705 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 705 M 
+-0.400 0 (  )A 
+; : 652 705 475 32 rc 0 0 0 sco F4_29
+Ji 
+671 705 M 
+-0.400 0 (// By: Bradford W. Mott)A 
+; : 600 737 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 737 M 
+-0.400 0 (  )A 
+; : 652 737 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 737 M 
+-0.400 0 (// October 30,1993)A 
+; : 600 769 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 769 M 
+-0.400 0 (  )A 
+; : 652 769 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 769 M 
+-0.400 0 (//)A 
+; : 600 801 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 801 M 
+-0.400 0 (  )A 
+; : 652 801 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 801 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 834 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 834 M 
+-0.400 0 (  )A 
+; : 652 834 722 32 rc 0 0 0 sco F4_29
+Ji 
+671 834 M 
+-0.400 0 (// $Log: BasicDeviceRegistry.hxx,v $)A 
+; : 600 866 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 866 M 
+-0.400 0 (  )A 
+; : 652 866 874 32 rc 0 0 0 sco F4_29
+Ji 
+671 866 M 
+-0.400 0 (// Revision 1.1  1996/08/02 14:50:41  bwmott)A 
+; : 600 898 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 898 M 
+-0.400 0 (  )A 
+; : 652 898 399 32 rc 0 0 0 sco F4_29
+Ji 
+671 898 M 
+-0.400 0 (// Initial revision)A 
+; : 600 930 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 930 M 
+-0.400 0 (  )A 
+; : 652 930 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 930 M 
+-0.400 0 (//)A 
+; : 600 962 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 962 M 
+-0.400 0 (  )A 
+; : 652 962 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 962 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 994 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 994 M 
+-0.400 0 (  )A 
+; : 600 1026 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1026 M 
+-0.400 0 (  )A 
+; : 652 1026 627 32 rc 0 0 0 sco F4_29
+Ji 
+671 1026 M 
+-0.400 0 (#ifndef BASICDEVICEREGISTRY_HXX)A 
+; : 600 1058 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1058 M 
+-0.400 0 (  )A 
+; : 652 1058 627 32 rc 0 0 0 sco F4_29
+Ji 
+671 1058 M 
+-0.400 0 (#define BASICDEVICEREGISTRY_HXX)A 
+; : 600 1090 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1090 M 
+-0.400 0 (  )A 
+; : 600 1122 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1122 M 
+-0.400 0 (  )A 
+; : 652 1122 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 1122 M 
+-0.400 0 (#include <string>)A 
+; : 600 1154 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1154 M 
+-0.400 0 (  )A 
+; : 600 1186 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1186 M 
+-0.400 0 (  )A 
+; : 652 1186 323 32 rc 0 0 0 sco F4_29
+Ji 
+671 1186 M 
+-0.400 0 (class BasicCPU;)A 
+; : 600 1219 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1219 M 
+-0.400 0 (  )A 
+; : 652 1219 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 1219 M 
+-0.400 0 (class BasicDevice;)A 
+; : 600 1251 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1251 M 
+-0.400 0 (  )A 
+; : 600 1283 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1283 M 
+-0.400 0 (  )A 
+; : 652 1283 627 32 rc 0 0 0 sco F4_29
+Ji 
+671 1283 M 
+-0.400 0 (// Device information structure)A 
+; : 600 1315 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1315 M 
+-0.400 0 (  )A 
+; : 652 1315 532 32 rc 0 0 0 sco F4_29
+Ji 
+671 1315 M 
+-0.400 0 (struct DeviceInformation {)A 
+; : 600 1347 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1347 M 
+-0.400 0 (  )A 
+; : 652 1347 1463 32 rc 0 0 0 sco F4_29
+Ji 
+671 1347 M 
+-0.400 0 (  const char* name;           // The name of the device \("RAM","m6850",etc\))A 
+; : 600 1379 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1379 M 
+-0.400 0 (  )A 
+; : 652 1379 1292 32 rc 0 0 0 sco F4_29
+Ji 
+671 1379 M 
+-0.400 0 (  const char* description;    // A short description of the device)A 
+; : 600 1411 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1411 M 
+-0.400 0 (  )A 
+; : 652 1411 1482 32 rc 0 0 0 sco F4_29
+Ji 
+671 1411 M 
+-0.400 0 (  const char* script;         // UI script to get the device attachment args)A 
+; : 600 1443 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1443 M 
+-0.400 0 (  )A 
+; : 652 1443 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 1443 M 
+-0.400 0 (};)A 
+; : 600 1475 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1475 M 
+-0.400 0 (  )A 
+; : 600 1507 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1507 M 
+-0.400 0 (  )A 
+; : 652 1507 551 32 rc 0 0 0 sco F4_29
+Ji 
+671 1507 M 
+-0.400 0 (class BasicDeviceRegistry {)A 
+; : 600 1539 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1539 M 
+-0.400 0 (  )A 
+; : 652 1539 209 32 rc 0 0 0 sco F4_29
+Ji 
+671 1539 M 
+-0.400 0 (  public:)A 
+; : 600 1571 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1571 M 
+-0.400 0 (  )A 
+; : 652 1571 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 1571 M 
+-0.400 0 (    // Constructor)A 
+; : 600 1604 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1604 M 
+-0.400 0 (  )A 
+; : 652 1604 1520 32 rc 0 0 0 sco F4_29
+Ji 
+671 1604 M 
+-0.400 0 (    BasicDeviceRegistry\(const DeviceInformation* devices, unsigned int number\))A 
+; : 600 1636 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1636 M 
+-0.400 0 (  )A 
+; : 652 1636 589 32 rc 0 0 0 sco F4_29
+Ji 
+671 1636 M 
+-0.400 0 (        : myDevices\(devices\),)A 
+; : 600 1668 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1668 M 
+-0.400 0 (  )A 
+; : 652 1668 703 32 rc 0 0 0 sco F4_29
+Ji 
+671 1668 M 
+-0.400 0 (          myNumberOfDevices\(number\))A 
+; : 600 1700 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1700 M 
+-0.400 0 (  )A 
+; : 652 1700 152 32 rc 0 0 0 sco F4_29
+Ji 
+671 1700 M 
+-0.400 0 (    {})A 
+; : 600 1732 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1732 M 
+-0.400 0 (  )A 
+; : 600 1764 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1764 M 
+-0.400 0 (  )A 
+; : 652 1764 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 1764 M 
+-0.400 0 (    // Destructor)A 
+; : 600 1796 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1796 M 
+-0.400 0 (  )A 
+; : 652 1796 684 32 rc 0 0 0 sco F4_29
+Ji 
+671 1796 M 
+-0.400 0 (    virtual ~BasicDeviceRegistry\(\))A 
+; : 600 1828 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1828 M 
+-0.400 0 (  )A 
+; : 652 1828 152 32 rc 0 0 0 sco F4_29
+Ji 
+671 1828 M 
+-0.400 0 (    {})A 
+; : 600 1860 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1860 M 
+-0.400 0 (  )A 
+; : 600 1892 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1892 M 
+-0.400 0 (  )A 
+; : 652 1892 722 32 rc 0 0 0 sco F4_29
+Ji 
+671 1892 M 
+-0.400 0 (    // Answers the number of devices)A 
+; : 600 1924 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1924 M 
+-0.400 0 (  )A 
+; : 652 1924 1254 32 rc 0 0 0 sco F4_29
+Ji 
+671 1924 M 
+-0.400 0 (    unsigned int NumberOfDevices\(\) { return myNumberOfDevices; })A 
+; : 600 1956 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1956 M 
+-0.400 0 (  )A 
+; : 600 1989 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1989 M 
+-0.400 0 (  )A 
+; : 652 1989 1520 32 rc 0 0 0 sco F4_29
+Ji 
+671 1989 M 
+-0.400 0 (    // Get device information for the given index. Answers true iff successful)A 
+; : 600 2021 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2021 M 
+-0.400 0 (  )A 
+; : 652 2021 1425 32 rc 0 0 0 sco F4_29
+Ji 
+671 2021 M 
+-0.400 0 (    bool Information\(unsigned int index, DeviceInformation& information\);)A 
+; : 600 2053 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2053 M 
+-0.400 0 (  )A 
+; : 600 2085 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2085 M 
+-0.400 0 (  )A 
+; : 652 2085 1387 32 rc 0 0 0 sco F4_29
+Ji 
+671 2085 M 
+-0.400 0 (    // Create a device with the given name. Answers true iff successful)A 
+; : 600 2117 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2117 M 
+-0.400 0 (  )A 
+; : 652 2117 1254 32 rc 0 0 0 sco F4_29
+Ji 
+671 2117 M 
+-0.400 0 (    virtual bool Create\(const string& name, const string& args, )A 
+; : 600 2149 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2149 M 
+-0.400 0 (  )A 
+; : 652 2149 988 32 rc 0 0 0 sco F4_29
+Ji 
+671 2149 M 
+-0.400 0 (        BasicCPU& cpu, BasicDevice*& device\) = 0; )A 
+; : 600 2181 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2181 M 
+-0.400 0 (  )A 
+; : 600 2213 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2213 M 
+-0.400 0 (  )A 
+; : 652 2213 228 32 rc 0 0 0 sco F4_29
+Ji 
+671 2213 M 
+-0.400 0 (  private:)A 
+; : 600 2245 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2245 M 
+-0.400 0 (  )A 
+; : 652 2245 798 32 rc 0 0 0 sco F4_29
+Ji 
+671 2245 M 
+-0.400 0 (    // Array of devices in the simulator)A 
+; : 600 2277 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2277 M 
+-0.400 0 (  )A 
+; : 652 2277 779 32 rc 0 0 0 sco F4_29
+Ji 
+671 2277 M 
+-0.400 0 (    const DeviceInformation* myDevices;)A 
+; : 600 2309 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2309 M 
+-0.400 0 (  )A 
+; : 600 2341 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2341 M 
+-0.400 0 (  )A 
+; : 652 2341 817 32 rc 0 0 0 sco F4_29
+Ji 
+671 2341 M 
+-0.400 0 (    // Number of devices in the simulator)A 
+; : 600 2374 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2374 M 
+-0.400 0 (  )A 
+; : 652 2374 836 32 rc 0 0 0 sco F4_29
+Ji 
+671 2374 M 
+-0.400 0 (    const unsigned int myNumberOfDevices; )A 
+; : 600 2406 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2406 M 
+-0.400 0 (  )A 
+; : 652 2406 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 2406 M 
+-0.400 0 (};)A 
+; : 600 2438 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2438 M 
+-0.400 0 (  )A 
+; : 652 2438 152 32 rc 0 0 0 sco F4_29
+Ji 
+671 2438 M 
+-0.400 0 (#endif)A 
+; : 600 2470 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2470 M 
+-0.400 0 (  )A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F6) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F6_50) cvn
+F6
+50 
+xF 
+F6_50
+Ji 
+2121 2942 M 
+(34)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 5 ]%%)  =
+%%PageTrailer
+
+%%Page: 6 6
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 601 227 1795 78 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F0) cvn
+0.925 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F0_67) cvn
+F0
+67 
+xF 
+F0_67
+Ji 
+671 227 M 
+-0.178 0 (AddressSpace Class Declaration)A 
+; 
+671 305 N M 1500 2 rr : 0 0 0 sco O ; : 600 352 80 33 rc 0 0 0 sco %%IncludeFont: Courier-Bold
+(F2) cvn
+0.828 
+ (Courier-Bold) cvn /Type1 
+T 
+(Courier-Bold) cvn
+mF 
+(F2_29) cvn
+F2
+29 
+xF 
+F2_29
+Ji 
+620 352 M 
+-0.400 0 (  )A 
+; : 652 352 1539 32 rc 0 0 0 sco %%IncludeFont: Courier
+(F4) cvn
+0.828 
+ (Courier) cvn /Type1 
+T 
+(Courier) cvn
+mF 
+(F4_29) cvn
+F4
+29 
+xF 
+F4_29
+Ji 
+671 352 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 384 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 384 M 
+-0.400 0 (  )A 
+; : 652 384 1235 32 rc 0 0 0 sco F4_29
+Ji 
+671 384 M 
+-0.400 0 (// $Id: AddressSpace.hxx,v 1.1 1996/08/02 14:48:41 bwmott Exp $)A 
+; : 600 416 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 416 M 
+-0.400 0 (  )A 
+; : 652 416 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 416 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 449 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 449 M 
+-0.400 0 (  )A 
+; : 652 449 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 449 M 
+-0.400 0 (//)A 
+; : 600 481 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 481 M 
+-0.400 0 (  )A 
+; : 652 481 399 32 rc 0 0 0 sco F4_29
+Ji 
+671 481 M 
+-0.400 0 (// AddressSpace.hxx)A 
+; : 600 513 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 513 M 
+-0.400 0 (  )A 
+; : 652 513 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 513 M 
+-0.400 0 (//)A 
+; : 600 545 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 545 M 
+-0.400 0 (  )A 
+; : 652 545 1330 32 rc 0 0 0 sco F4_29
+Ji 
+671 545 M 
+-0.400 0 (//   This class maintains a list of devices and provides methods to )A 
+; : 600 577 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 577 M 
+-0.400 0 (  )A 
+; : 652 577 589 32 rc 0 0 0 sco F4_29
+Ji 
+671 577 M 
+-0.400 0 (// peek and poke into them.  )A 
+; : 600 609 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 609 M 
+-0.400 0 (  )A 
+; : 652 609 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 609 M 
+-0.400 0 (//)A 
+; : 600 641 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 641 M 
+-0.400 0 (  )A 
+; : 652 641 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 641 M 
+-0.400 0 (//)A 
+; : 600 673 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 673 M 
+-0.400 0 (  )A 
+; : 652 673 931 32 rc 0 0 0 sco F4_29
+Ji 
+671 673 M 
+-0.400 0 (// BSVC "A Microprocessor Simulation Framework")A 
+; : 600 705 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 705 M 
+-0.400 0 (  )A 
+; : 652 705 437 32 rc 0 0 0 sco F4_29
+Ji 
+671 705 M 
+-0.400 0 (// Copyright \(c\) 1993)A 
+; : 600 737 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 737 M 
+-0.400 0 (  )A 
+; : 652 737 475 32 rc 0 0 0 sco F4_29
+Ji 
+671 737 M 
+-0.400 0 (// By: Bradford W. Mott)A 
+; : 600 769 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 769 M 
+-0.400 0 (  )A 
+; : 652 769 323 32 rc 0 0 0 sco F4_29
+Ji 
+671 769 M 
+-0.400 0 (// June 27,1993)A 
+; : 600 801 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 801 M 
+-0.400 0 (  )A 
+; : 652 801 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 801 M 
+-0.400 0 (//)A 
+; : 600 834 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 834 M 
+-0.400 0 (  )A 
+; : 652 834 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 834 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 866 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 866 M 
+-0.400 0 (  )A 
+; : 652 866 589 32 rc 0 0 0 sco F4_29
+Ji 
+671 866 M 
+-0.400 0 (// $Log: AddressSpace.hxx,v $)A 
+; : 600 898 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 898 M 
+-0.400 0 (  )A 
+; : 652 898 874 32 rc 0 0 0 sco F4_29
+Ji 
+671 898 M 
+-0.400 0 (// Revision 1.1  1996/08/02 14:48:41  bwmott)A 
+; : 600 930 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 930 M 
+-0.400 0 (  )A 
+; : 652 930 399 32 rc 0 0 0 sco F4_29
+Ji 
+671 930 M 
+-0.400 0 (// Initial revision)A 
+; : 600 962 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 962 M 
+-0.400 0 (  )A 
+; : 652 962 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 962 M 
+-0.400 0 (//)A 
+; : 600 994 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 994 M 
+-0.400 0 (  )A 
+; : 652 994 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 994 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 1026 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1026 M 
+-0.400 0 (  )A 
+; : 600 1058 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1058 M 
+-0.400 0 (  )A 
+; : 652 1058 494 32 rc 0 0 0 sco F4_29
+Ji 
+671 1058 M 
+-0.400 0 (#ifndef ADDRESSSPACE_HXX)A 
+; : 600 1090 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1090 M 
+-0.400 0 (  )A 
+; : 652 1090 494 32 rc 0 0 0 sco F4_29
+Ji 
+671 1090 M 
+-0.400 0 (#define ADDRESSSPACE_HXX)A 
+; : 600 1122 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1122 M 
+-0.400 0 (  )A 
+; : 600 1154 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1154 M 
+-0.400 0 (  )A 
+; : 652 1154 323 32 rc 0 0 0 sco F4_29
+Ji 
+671 1154 M 
+-0.400 0 (#include <list>)A 
+; : 600 1186 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1186 M 
+-0.400 0 (  )A 
+; : 652 1186 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 1186 M 
+-0.400 0 (#include <string>)A 
+; : 600 1219 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1219 M 
+-0.400 0 (  )A 
+; : 600 1251 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1251 M 
+-0.400 0 (  )A 
+; : 652 1251 399 32 rc 0 0 0 sco F4_29
+Ji 
+671 1251 M 
+-0.400 0 (class AddressSpace;)A 
+; : 600 1283 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1283 M 
+-0.400 0 (  )A 
+; : 652 1283 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 1283 M 
+-0.400 0 (class BasicDevice;)A 
+; : 600 1315 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1315 M 
+-0.400 0 (  )A 
+; : 600 1347 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1347 M 
+-0.400 0 (  )A 
+; : 652 1347 532 32 rc 0 0 0 sco F4_29
+Ji 
+671 1347 M 
+-0.400 0 (#include "BasicDevice.hxx")A 
+; : 600 1379 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1379 M 
+-0.400 0 (  )A 
+; : 600 1411 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1411 M 
+-0.400 0 (  )A 
+; : 652 1411 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 1411 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 1443 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1443 M 
+-0.400 0 (  )A 
+; : 652 1443 665 32 rc 0 0 0 sco F4_29
+Ji 
+671 1443 M 
+-0.400 0 (// AddressSpace class declaration)A 
+; : 600 1475 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1475 M 
+-0.400 0 (  )A 
+; : 652 1475 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 1475 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 1507 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1507 M 
+-0.400 0 (  )A 
+; : 652 1507 418 32 rc 0 0 0 sco F4_29
+Ji 
+671 1507 M 
+-0.400 0 (class AddressSpace {)A 
+; : 600 1539 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1539 M 
+-0.400 0 (  )A 
+; : 652 1539 209 32 rc 0 0 0 sco F4_29
+Ji 
+671 1539 M 
+-0.400 0 (  public:)A 
+; : 600 1571 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1571 M 
+-0.400 0 (  )A 
+; : 652 1571 1140 32 rc 0 0 0 sco F4_29
+Ji 
+671 1571 M 
+-0.400 0 (    // Used to retrieve information about attached devices)A 
+; : 600 1604 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1604 M 
+-0.400 0 (  )A 
+; : 652 1604 608 32 rc 0 0 0 sco F4_29
+Ji 
+671 1604 M 
+-0.400 0 (    struct DeviceInformation {)A 
+; : 600 1636 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1636 M 
+-0.400 0 (  )A 
+; : 652 1636 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 1636 M 
+-0.400 0 (      string name;)A 
+; : 600 1668 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1668 M 
+-0.400 0 (  )A 
+; : 652 1668 475 32 rc 0 0 0 sco F4_29
+Ji 
+671 1668 M 
+-0.400 0 (      string arguments;)A 
+; : 600 1700 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1700 M 
+-0.400 0 (  )A 
+; : 652 1700 513 32 rc 0 0 0 sco F4_29
+Ji 
+671 1700 M 
+-0.400 0 (      unsigned int index;)A 
+; : 600 1732 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1732 M 
+-0.400 0 (  )A 
+; : 652 1732 152 32 rc 0 0 0 sco F4_29
+Ji 
+671 1732 M 
+-0.400 0 (    };)A 
+; : 600 1764 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1764 M 
+-0.400 0 (  )A 
+; : 600 1796 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1796 M 
+-0.400 0 (  )A 
+; : 652 1796 209 32 rc 0 0 0 sco F4_29
+Ji 
+671 1796 M 
+-0.400 0 (  public:)A 
+; : 600 1828 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1828 M 
+-0.400 0 (  )A 
+; : 652 1828 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 1828 M 
+-0.400 0 (    // Constructor)A 
+; : 600 1860 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1860 M 
+-0.400 0 (  )A 
+; : 652 1860 931 32 rc 0 0 0 sco F4_29
+Ji 
+671 1860 M 
+-0.400 0 (    AddressSpace\(unsigned long maximumAddress\);)A 
+; : 600 1892 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1892 M 
+-0.400 0 (  )A 
+; : 600 1924 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1924 M 
+-0.400 0 (  )A 
+; : 652 1924 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 1924 M 
+-0.400 0 (    // Destructor)A 
+; : 600 1956 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1956 M 
+-0.400 0 (  )A 
+; : 652 1956 570 32 rc 0 0 0 sco F4_29
+Ji 
+671 1956 M 
+-0.400 0 (    virtual ~AddressSpace\(\);)A 
+; : 600 1989 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1989 M 
+-0.400 0 (  )A 
+; : 600 2021 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2021 M 
+-0.400 0 (  )A 
+; : 652 2021 1064 32 rc 0 0 0 sco F4_29
+Ji 
+671 2021 M 
+-0.400 0 (    // Answer the maximum address of the address space)A 
+; : 600 2053 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2053 M 
+-0.400 0 (  )A 
+; : 652 2053 1368 32 rc 0 0 0 sco F4_29
+Ji 
+671 2053 M 
+-0.400 0 (    unsigned long MaximumAddress\(\) const { return\(myMaximumAddress\); })A 
+; : 600 2085 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2085 M 
+-0.400 0 (  )A 
+; : 600 2117 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2117 M 
+-0.400 0 (  )A 
+; : 652 2117 1159 32 rc 0 0 0 sco F4_29
+Ji 
+671 2117 M 
+-0.400 0 (    // Attach the given device. Answers true iff successful)A 
+; : 600 2149 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2149 M 
+-0.400 0 (  )A 
+; : 652 2149 722 32 rc 0 0 0 sco F4_29
+Ji 
+671 2149 M 
+-0.400 0 (    bool AttachDevice\(BasicDevice*\);)A 
+; : 600 2181 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2181 M 
+-0.400 0 (  )A 
+; : 600 2213 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2213 M 
+-0.400 0 (  )A 
+; : 652 2213 1482 32 rc 0 0 0 sco F4_29
+Ji 
+671 2213 M 
+-0.400 0 (    // Detach the indexed device and destroy it. Answers true iff successful)A 
+; : 600 2245 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2245 M 
+-0.400 0 (  )A 
+; : 652 2245 836 32 rc 0 0 0 sco F4_29
+Ji 
+671 2245 M 
+-0.400 0 (    bool DetachDevice\(unsigned int index\);)A 
+; : 600 2277 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2277 M 
+-0.400 0 (  )A 
+; : 600 2309 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2309 M 
+-0.400 0 (  )A 
+; : 652 2309 741 32 rc 0 0 0 sco F4_29
+Ji 
+671 2309 M 
+-0.400 0 (    // Reset all the attached devices)A 
+; : 600 2341 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2341 M 
+-0.400 0 (  )A 
+; : 652 2341 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 2341 M 
+-0.400 0 (    void Reset\(\);)A 
+; : 600 2374 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2374 M 
+-0.400 0 (  )A 
+; : 600 2406 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2406 M 
+-0.400 0 (  )A 
+; : 652 2406 893 32 rc 0 0 0 sco F4_29
+Ji 
+671 2406 M 
+-0.400 0 (    // Answers the number of attached devices)A 
+; : 600 2438 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2438 M 
+-0.400 0 (  )A 
+; : 652 2438 969 32 rc 0 0 0 sco F4_29
+Ji 
+671 2438 M 
+-0.400 0 (    unsigned int NumberOfAttachedDevices\(\) const;)A 
+; : 600 2470 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2470 M 
+-0.400 0 (  )A 
+; : 600 2502 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2502 M 
+-0.400 0 (  )A 
+; : 652 2502 1463 32 rc 0 0 0 sco F4_29
+Ji 
+671 2502 M 
+-0.400 0 (    // Get information about the indexed device. Answer true iff successful)A 
+; : 600 2534 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2534 M 
+-0.400 0 (  )A 
+; : 652 2534 988 32 rc 0 0 0 sco F4_29
+Ji 
+671 2534 M 
+-0.400 0 (    bool GetDeviceInformation\(unsigned int index, )A 
+; : 600 2566 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2566 M 
+-0.400 0 (  )A 
+; : 652 2566 1045 32 rc 0 0 0 sco F4_29
+Ji 
+671 2566 M 
+-0.400 0 (        AddressSpace::DeviceInformation& info\) const;)A 
+; : 600 2598 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2598 M 
+-0.400 0 (  )A 
+; : 600 2630 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2630 M 
+-0.400 0 (  )A 
+; : 652 2630 1178 32 rc 0 0 0 sco F4_29
+Ji 
+671 2630 M 
+-0.400 0 (    // Peek the given location.  Answers true iff successful)A 
+; : 600 2662 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2662 M 
+-0.400 0 (  )A 
+; : 652 2662 1178 32 rc 0 0 0 sco F4_29
+Ji 
+671 2662 M 
+-0.400 0 (    virtual bool Peek\(unsigned long addr, unsigned char &c\);)A 
+; : 600 2694 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2694 M 
+-0.400 0 (  )A 
+; : 600 2726 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2726 M 
+-0.400 0 (  )A 
+; : 652 2726 1178 32 rc 0 0 0 sco F4_29
+Ji 
+671 2726 M 
+-0.400 0 (    // Poke the given location.  Answers true iff successful)A 
+; : 600 2759 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2759 M 
+-0.400 0 (  )A 
+; : 652 2759 1159 32 rc 0 0 0 sco F4_29
+Ji 
+671 2759 M 
+-0.400 0 (    virtual bool Poke\(unsigned long addr, unsigned char c\);)A 
+; : 600 2791 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2791 M 
+-0.400 0 (  )A 
+; : 600 2823 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2823 M 
+-0.400 0 (  )A 
+; : 652 2823 228 32 rc 0 0 0 sco F4_29
+Ji 
+671 2823 M 
+-0.400 0 (  private:)A 
+; : 600 2855 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2855 M 
+-0.400 0 (  )A 
+; : 652 2855 627 32 rc 0 0 0 sco F4_29
+Ji 
+671 2855 M 
+-0.400 0 (    // List of attached devices)A 
+; : 600 2887 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2887 M 
+-0.400 0 (  )A 
+; : 652 2887 684 32 rc 0 0 0 sco F4_29
+Ji 
+671 2887 M 
+-0.400 0 (    list<BasicDevice*> myDevices; )A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F6) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F6_50) cvn
+F6
+50 
+xF 
+F6_50
+Ji 
+2121 2942 M 
+(35)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 6 ]%%)  =
+%%PageTrailer
+
+%%Page: 7 7
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 600 225 80 33 rc 0 0 0 sco %%IncludeFont: Courier-Bold
+(F0) cvn
+0.828 
+ (Courier-Bold) cvn /Type1 
+T 
+(Courier-Bold) cvn
+mF 
+(F0_29) cvn
+F0
+29 
+xF 
+F0_29
+Ji 
+620 225 M 
+-0.400 0 (  )A 
+; : 600 257 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 257 M 
+-0.400 0 (  )A 
+; : 652 257 1406 32 rc 0 0 0 sco %%IncludeFont: Courier
+(F2) cvn
+0.828 
+ (Courier) cvn /Type1 
+T 
+(Courier) cvn
+mF 
+(F2_29) cvn
+F2
+29 
+xF 
+F2_29
+Ji 
+671 257 M 
+-0.400 0 (    // Maximum address for this address space \(In CPU words not bytes!!\))A 
+; : 600 289 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 289 M 
+-0.400 0 (  )A 
+; : 652 289 817 32 rc 0 0 0 sco F2_29
+Ji 
+671 289 M 
+-0.400 0 (    const unsigned long myMaximumAddress;)A 
+; : 600 321 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 321 M 
+-0.400 0 (  )A 
+; : 652 321 76 32 rc 0 0 0 sco F2_29
+Ji 
+671 321 M 
+-0.400 0 (};)A 
+; : 600 354 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 354 M 
+-0.400 0 (  )A 
+; : 652 354 152 32 rc 0 0 0 sco F2_29
+Ji 
+671 354 M 
+-0.400 0 (#endif)A 
+; : 600 386 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 386 M 
+-0.400 0 (  )A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F4) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F4_50) cvn
+F4
+50 
+xF 
+F4_50
+Ji 
+2121 2942 M 
+(36)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 7 ]%%)  =
+%%PageTrailer
+
+%%Page: 8 8
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 601 227 1795 78 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F0) cvn
+0.925 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F0_67) cvn
+F0
+67 
+xF 
+F0_67
+Ji 
+671 227 M 
+-0.070 0 (BasicLoader Class Declaration)A 
+; 
+671 305 N M 1500 2 rr : 0 0 0 sco O ; : 600 352 80 33 rc 0 0 0 sco %%IncludeFont: Courier-Bold
+(F2) cvn
+0.828 
+ (Courier-Bold) cvn /Type1 
+T 
+(Courier-Bold) cvn
+mF 
+(F2_29) cvn
+F2
+29 
+xF 
+F2_29
+Ji 
+620 352 M 
+-0.400 0 (  )A 
+; : 652 352 1539 32 rc 0 0 0 sco %%IncludeFont: Courier
+(F4) cvn
+0.828 
+ (Courier) cvn /Type1 
+T 
+(Courier) cvn
+mF 
+(F4_29) cvn
+F4
+29 
+xF 
+F4_29
+Ji 
+671 352 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 384 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 384 M 
+-0.400 0 (  )A 
+; : 652 384 1216 32 rc 0 0 0 sco F4_29
+Ji 
+671 384 M 
+-0.400 0 (// $Id: BasicLoader.hxx,v 1.1 1996/08/02 14:51:02 bwmott Exp $)A 
+; : 600 416 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 416 M 
+-0.400 0 (  )A 
+; : 652 416 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 416 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 449 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 449 M 
+-0.400 0 (  )A 
+; : 652 449 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 449 M 
+-0.400 0 (// BasicLoader.hxx)A 
+; : 600 481 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 481 M 
+-0.400 0 (  )A 
+; : 652 481 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 481 M 
+-0.400 0 (//)A 
+; : 600 513 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 513 M 
+-0.400 0 (  )A 
+; : 652 513 1482 32 rc 0 0 0 sco F4_29
+Ji 
+671 513 M 
+-0.400 0 (//   This abstract base class provides methods to load object files into the)A 
+; : 600 545 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 545 M 
+-0.400 0 (  )A 
+; : 652 545 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 545 M 
+-0.400 0 (// the simulator.)A 
+; : 600 577 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 577 M 
+-0.400 0 (  )A 
+; : 652 577 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 577 M 
+-0.400 0 (//)A 
+; : 600 609 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 609 M 
+-0.400 0 (  )A 
+; : 652 609 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 609 M 
+-0.400 0 (//)A 
+; : 600 641 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 641 M 
+-0.400 0 (  )A 
+; : 652 641 931 32 rc 0 0 0 sco F4_29
+Ji 
+671 641 M 
+-0.400 0 (// BSVC "A Microprocessor Simulation Framework")A 
+; : 600 673 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 673 M 
+-0.400 0 (  )A 
+; : 652 673 437 32 rc 0 0 0 sco F4_29
+Ji 
+671 673 M 
+-0.400 0 (// Copyright \(c\) 1993)A 
+; : 600 705 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 705 M 
+-0.400 0 (  )A 
+; : 652 705 475 32 rc 0 0 0 sco F4_29
+Ji 
+671 705 M 
+-0.400 0 (// By: Bradford W. Mott)A 
+; : 600 737 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 737 M 
+-0.400 0 (  )A 
+; : 652 737 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 737 M 
+-0.400 0 (// November 5,1993)A 
+; : 600 769 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 769 M 
+-0.400 0 (  )A 
+; : 652 769 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 769 M 
+-0.400 0 (//)A 
+; : 600 801 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 801 M 
+-0.400 0 (  )A 
+; : 652 801 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 801 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 834 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 834 M 
+-0.400 0 (  )A 
+; : 652 834 570 32 rc 0 0 0 sco F4_29
+Ji 
+671 834 M 
+-0.400 0 (// $Log: BasicLoader.hxx,v $)A 
+; : 600 866 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 866 M 
+-0.400 0 (  )A 
+; : 652 866 874 32 rc 0 0 0 sco F4_29
+Ji 
+671 866 M 
+-0.400 0 (// Revision 1.1  1996/08/02 14:51:02  bwmott)A 
+; : 600 898 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 898 M 
+-0.400 0 (  )A 
+; : 652 898 399 32 rc 0 0 0 sco F4_29
+Ji 
+671 898 M 
+-0.400 0 (// Initial revision)A 
+; : 600 930 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 930 M 
+-0.400 0 (  )A 
+; : 652 930 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 930 M 
+-0.400 0 (//)A 
+; : 600 962 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 962 M 
+-0.400 0 (  )A 
+; : 652 962 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 962 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 994 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 994 M 
+-0.400 0 (  )A 
+; : 600 1026 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1026 M 
+-0.400 0 (  )A 
+; : 652 1026 475 32 rc 0 0 0 sco F4_29
+Ji 
+671 1026 M 
+-0.400 0 (#ifndef BASICLOADER_HXX)A 
+; : 600 1058 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1058 M 
+-0.400 0 (  )A 
+; : 652 1058 475 32 rc 0 0 0 sco F4_29
+Ji 
+671 1058 M 
+-0.400 0 (#define BASICLOADER_HXX)A 
+; : 600 1090 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1090 M 
+-0.400 0 (  )A 
+; : 600 1122 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1122 M 
+-0.400 0 (  )A 
+; : 652 1122 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 1122 M 
+-0.400 0 (#include <string>)A 
+; : 600 1154 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1154 M 
+-0.400 0 (  )A 
+; : 600 1186 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1186 M 
+-0.400 0 (  )A 
+; : 652 1186 323 32 rc 0 0 0 sco F4_29
+Ji 
+671 1186 M 
+-0.400 0 (class BasicCPU;)A 
+; : 600 1219 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1219 M 
+-0.400 0 (  )A 
+; : 600 1251 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1251 M 
+-0.400 0 (  )A 
+; : 652 1251 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 1251 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 1283 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1283 M 
+-0.400 0 (  )A 
+; : 652 1283 646 32 rc 0 0 0 sco F4_29
+Ji 
+671 1283 M 
+-0.400 0 (// BasicLoader class declaration)A 
+; : 600 1315 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1315 M 
+-0.400 0 (  )A 
+; : 652 1315 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 1315 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 1347 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1347 M 
+-0.400 0 (  )A 
+; : 652 1347 399 32 rc 0 0 0 sco F4_29
+Ji 
+671 1347 M 
+-0.400 0 (class BasicLoader {)A 
+; : 600 1379 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1379 M 
+-0.400 0 (  )A 
+; : 652 1379 209 32 rc 0 0 0 sco F4_29
+Ji 
+671 1379 M 
+-0.400 0 (  public:)A 
+; : 600 1411 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1411 M 
+-0.400 0 (  )A 
+; : 652 1411 570 32 rc 0 0 0 sco F4_29
+Ji 
+671 1411 M 
+-0.400 0 (    BasicLoader\(BasicCPU& c\))A 
+; : 600 1443 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1443 M 
+-0.400 0 (  )A 
+; : 652 1443 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 1443 M 
+-0.400 0 (        : myCPU\(c\))A 
+; : 600 1475 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1475 M 
+-0.400 0 (  )A 
+; : 652 1475 152 32 rc 0 0 0 sco F4_29
+Ji 
+671 1475 M 
+-0.400 0 (    {})A 
+; : 600 1507 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1507 M 
+-0.400 0 (  )A 
+; : 600 1539 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1539 M 
+-0.400 0 (  )A 
+; : 652 1539 532 32 rc 0 0 0 sco F4_29
+Ji 
+671 1539 M 
+-0.400 0 (    virtual ~BasicLoader\(\))A 
+; : 600 1571 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1571 M 
+-0.400 0 (  )A 
+; : 652 1571 152 32 rc 0 0 0 sco F4_29
+Ji 
+671 1571 M 
+-0.400 0 (    {})A 
+; : 600 1604 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1604 M 
+-0.400 0 (  )A 
+; : 600 1636 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1636 M 
+-0.400 0 (  )A 
+; : 652 1636 418 32 rc 0 0 0 sco F4_29
+Ji 
+671 1636 M 
+-0.400 0 (    // Answer my CPU)A 
+; : 600 1668 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1668 M 
+-0.400 0 (  )A 
+; : 652 1668 741 32 rc 0 0 0 sco F4_29
+Ji 
+671 1668 M 
+-0.400 0 (    BasicCPU& CPU\(\) { return myCPU; })A 
+; : 600 1700 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1700 M 
+-0.400 0 (  )A 
+; : 600 1732 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1732 M 
+-0.400 0 (  )A 
+; : 652 1732 1482 32 rc 0 0 0 sco F4_29
+Ji 
+671 1732 M 
+-0.400 0 (    // Loads the named file and answers an error message or the empty string)A 
+; : 600 1764 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1764 M 
+-0.400 0 (  )A 
+; : 652 1764 1330 32 rc 0 0 0 sco F4_29
+Ji 
+671 1764 M 
+-0.400 0 (    virtual string Load\(const char *filename, int addressSpace\) = 0;)A 
+; : 600 1796 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1796 M 
+-0.400 0 (  )A 
+; : 600 1828 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1828 M 
+-0.400 0 (  )A 
+; : 652 1828 266 32 rc 0 0 0 sco F4_29
+Ji 
+671 1828 M 
+-0.400 0 (  protected:)A 
+; : 600 1860 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1860 M 
+-0.400 0 (  )A 
+; : 652 1860 418 32 rc 0 0 0 sco F4_29
+Ji 
+671 1860 M 
+-0.400 0 (    BasicCPU& myCPU;)A 
+; : 600 1892 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1892 M 
+-0.400 0 (  )A 
+; : 652 1892 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 1892 M 
+-0.400 0 (};)A 
+; : 600 1924 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1924 M 
+-0.400 0 (  )A 
+; : 652 1924 152 32 rc 0 0 0 sco F4_29
+Ji 
+671 1924 M 
+-0.400 0 (#endif)A 
+; : 600 1956 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1956 M 
+-0.400 0 (  )A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F6) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F6_50) cvn
+F6
+50 
+xF 
+F6_50
+Ji 
+2121 2942 M 
+(37)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 8 ]%%)  =
+%%PageTrailer
+
+%%Page: 9 9
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 601 227 1795 78 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F0) cvn
+0.925 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F0_67) cvn
+F0
+67 
+xF 
+F0_67
+Ji 
+671 227 M 
+-0.059 0 (EventHandler Class Declaration)A 
+; 
+671 305 N M 1500 2 rr : 0 0 0 sco O ; : 600 352 80 33 rc 0 0 0 sco %%IncludeFont: Courier-Bold
+(F2) cvn
+0.828 
+ (Courier-Bold) cvn /Type1 
+T 
+(Courier-Bold) cvn
+mF 
+(F2_29) cvn
+F2
+29 
+xF 
+F2_29
+Ji 
+620 352 M 
+-0.400 0 (  )A 
+; : 652 352 1539 32 rc 0 0 0 sco %%IncludeFont: Courier
+(F4) cvn
+0.828 
+ (Courier) cvn /Type1 
+T 
+(Courier) cvn
+mF 
+(F4_29) cvn
+F4
+29 
+xF 
+F4_29
+Ji 
+671 352 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 384 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 384 M 
+-0.400 0 (  )A 
+; : 652 384 1102 32 rc 0 0 0 sco F4_29
+Ji 
+671 384 M 
+-0.400 0 (// $Id: Event.hxx,v 1.1 1996/08/02 14:51:50 bwmott Exp $)A 
+; : 600 416 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 416 M 
+-0.400 0 (  )A 
+; : 652 416 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 416 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 449 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 449 M 
+-0.400 0 (  )A 
+; : 652 449 266 32 rc 0 0 0 sco F4_29
+Ji 
+671 449 M 
+-0.400 0 (// Event.hxx)A 
+; : 600 481 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 481 M 
+-0.400 0 (  )A 
+; : 652 481 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 481 M 
+-0.400 0 (//)A 
+; : 600 513 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 513 M 
+-0.400 0 (  )A 
+; : 652 513 1444 32 rc 0 0 0 sco F4_29
+Ji 
+671 513 M 
+-0.400 0 (//   This class maintains a queue of events requested by EventBase derived)A 
+; : 600 545 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 545 M 
+-0.400 0 (  )A 
+; : 652 545 247 32 rc 0 0 0 sco F4_29
+Ji 
+671 545 M 
+-0.400 0 (// objects.)A 
+; : 600 577 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 577 M 
+-0.400 0 (  )A 
+; : 652 577 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 577 M 
+-0.400 0 (//)A 
+; : 600 609 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 609 M 
+-0.400 0 (  )A 
+; : 652 609 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 609 M 
+-0.400 0 (//)A 
+; : 600 641 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 641 M 
+-0.400 0 (  )A 
+; : 652 641 931 32 rc 0 0 0 sco F4_29
+Ji 
+671 641 M 
+-0.400 0 (// BSVC "A Microprocessor Simulation Framework")A 
+; : 600 673 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 673 M 
+-0.400 0 (  )A 
+; : 652 673 437 32 rc 0 0 0 sco F4_29
+Ji 
+671 673 M 
+-0.400 0 (// Copyright \(c\) 1993)A 
+; : 600 705 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 705 M 
+-0.400 0 (  )A 
+; : 652 705 475 32 rc 0 0 0 sco F4_29
+Ji 
+671 705 M 
+-0.400 0 (// By: Bradford W. Mott)A 
+; : 600 737 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 737 M 
+-0.400 0 (  )A 
+; : 652 737 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 737 M 
+-0.400 0 (// August 11,1993)A 
+; : 600 769 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 769 M 
+-0.400 0 (  )A 
+; : 652 769 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 769 M 
+-0.400 0 (//)A 
+; : 600 801 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 801 M 
+-0.400 0 (  )A 
+; : 652 801 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 801 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 834 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 834 M 
+-0.400 0 (  )A 
+; : 652 834 456 32 rc 0 0 0 sco F4_29
+Ji 
+671 834 M 
+-0.400 0 (// $Log: Event.hxx,v $)A 
+; : 600 866 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 866 M 
+-0.400 0 (  )A 
+; : 652 866 874 32 rc 0 0 0 sco F4_29
+Ji 
+671 866 M 
+-0.400 0 (// Revision 1.1  1996/08/02 14:51:50  bwmott)A 
+; : 600 898 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 898 M 
+-0.400 0 (  )A 
+; : 652 898 399 32 rc 0 0 0 sco F4_29
+Ji 
+671 898 M 
+-0.400 0 (// Initial revision)A 
+; : 600 930 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 930 M 
+-0.400 0 (  )A 
+; : 652 930 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 930 M 
+-0.400 0 (//)A 
+; : 600 962 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 962 M 
+-0.400 0 (  )A 
+; : 652 962 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 962 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 994 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 994 M 
+-0.400 0 (  )A 
+; : 600 1026 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1026 M 
+-0.400 0 (  )A 
+; : 652 1026 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 1026 M 
+-0.400 0 (#ifndef EVENT_HXX)A 
+; : 600 1058 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1058 M 
+-0.400 0 (  )A 
+; : 652 1058 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 1058 M 
+-0.400 0 (#define EVENT_HXX)A 
+; : 600 1090 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1090 M 
+-0.400 0 (  )A 
+; : 600 1122 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1122 M 
+-0.400 0 (  )A 
+; : 652 1122 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 1122 M 
+-0.400 0 (#include <string>)A 
+; : 600 1154 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1154 M 
+-0.400 0 (  )A 
+; : 600 1186 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1186 M 
+-0.400 0 (  )A 
+; : 652 1186 399 32 rc 0 0 0 sco F4_29
+Ji 
+671 1186 M 
+-0.400 0 (class EventHandler;)A 
+; : 600 1219 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1219 M 
+-0.400 0 (  )A 
+; : 600 1251 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1251 M 
+-0.400 0 (  )A 
+; : 652 1251 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 1251 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 1283 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1283 M 
+-0.400 0 (  )A 
+; : 652 1283 1311 32 rc 0 0 0 sco F4_29
+Ji 
+671 1283 M 
+-0.400 0 (// Should be the base class for any class that is going to register)A 
+; : 600 1315 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1315 M 
+-0.400 0 (  )A 
+; : 652 1315 646 32 rc 0 0 0 sco F4_29
+Ji 
+671 1315 M 
+-0.400 0 (// events with the event handler)A 
+; : 600 1347 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1347 M 
+-0.400 0 (  )A 
+; : 652 1347 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 1347 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 1379 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1379 M 
+-0.400 0 (  )A 
+; : 652 1379 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 1379 M 
+-0.400 0 (class EventBase {)A 
+; : 600 1411 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1411 M 
+-0.400 0 (  )A 
+; : 652 1411 209 32 rc 0 0 0 sco F4_29
+Ji 
+671 1411 M 
+-0.400 0 (  public:)A 
+; : 600 1443 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1443 M 
+-0.400 0 (  )A 
+; : 652 1443 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 1443 M 
+-0.400 0 (    // Constructor)A 
+; : 600 1475 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1475 M 
+-0.400 0 (  )A 
+; : 652 1475 722 32 rc 0 0 0 sco F4_29
+Ji 
+671 1475 M 
+-0.400 0 (    EventBase\(EventHandler& handler\))A 
+; : 600 1507 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1507 M 
+-0.400 0 (  )A 
+; : 652 1507 684 32 rc 0 0 0 sco F4_29
+Ji 
+671 1507 M 
+-0.400 0 (        : myEventHandler\(handler\) )A 
+; : 600 1539 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1539 M 
+-0.400 0 (  )A 
+; : 652 1539 152 32 rc 0 0 0 sco F4_29
+Ji 
+671 1539 M 
+-0.400 0 (    {})A 
+; : 600 1571 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1571 M 
+-0.400 0 (  )A 
+; : 600 1604 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1604 M 
+-0.400 0 (  )A 
+; : 652 1604 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 1604 M 
+-0.400 0 (    // Destructor)A 
+; : 600 1636 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1636 M 
+-0.400 0 (  )A 
+; : 652 1636 513 32 rc 0 0 0 sco F4_29
+Ji 
+671 1636 M 
+-0.400 0 (    virtual ~EventBase\(\);)A 
+; : 600 1668 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1668 M 
+-0.400 0 (  )A 
+; : 600 1700 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1700 M 
+-0.400 0 (  )A 
+; : 652 1700 1007 32 rc 0 0 0 sco F4_29
+Ji 
+671 1700 M 
+-0.400 0 (    // Called when a registered event is dispatched)A 
+; : 600 1732 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1732 M 
+-0.400 0 (  )A 
+; : 652 1732 1197 32 rc 0 0 0 sco F4_29
+Ji 
+671 1732 M 
+-0.400 0 (    virtual void EventCallback\(long data, void* pointer\) = 0;)A 
+; : 600 1764 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1764 M 
+-0.400 0 (  )A 
+; : 600 1796 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1796 M 
+-0.400 0 (  )A 
+; : 652 1796 228 32 rc 0 0 0 sco F4_29
+Ji 
+671 1796 M 
+-0.400 0 (  private:)A 
+; : 600 1828 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1828 M 
+-0.400 0 (  )A 
+; : 652 1828 665 32 rc 0 0 0 sco F4_29
+Ji 
+671 1828 M 
+-0.400 0 (    EventHandler& myEventHandler;)A 
+; : 600 1860 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1860 M 
+-0.400 0 (  )A 
+; : 652 1860 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 1860 M 
+-0.400 0 (};)A 
+; : 600 1892 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1892 M 
+-0.400 0 (  )A 
+; : 600 1924 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1924 M 
+-0.400 0 (  )A 
+; : 600 1956 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1956 M 
+-0.400 0 (  )A 
+; : 652 1956 418 32 rc 0 0 0 sco F4_29
+Ji 
+671 1956 M 
+-0.400 0 (class EventHandler {)A 
+; : 600 1989 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1989 M 
+-0.400 0 (  )A 
+; : 652 1989 209 32 rc 0 0 0 sco F4_29
+Ji 
+671 1989 M 
+-0.400 0 (  public:)A 
+; : 600 2021 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2021 M 
+-0.400 0 (  )A 
+; : 652 2021 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 2021 M 
+-0.400 0 (    // Constructor)A 
+; : 600 2053 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2053 M 
+-0.400 0 (  )A 
+; : 652 2053 399 32 rc 0 0 0 sco F4_29
+Ji 
+671 2053 M 
+-0.400 0 (    EventHandler\(\);)A 
+; : 600 2085 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2085 M 
+-0.400 0 (  )A 
+; : 600 2117 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2117 M 
+-0.400 0 (  )A 
+; : 652 2117 703 32 rc 0 0 0 sco F4_29
+Ji 
+671 2117 M 
+-0.400 0 (    // Check for any expired events)A 
+; : 600 2149 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2149 M 
+-0.400 0 (  )A 
+; : 652 2149 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 2149 M 
+-0.400 0 (    void Check\(\);)A 
+; : 600 2181 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2181 M 
+-0.400 0 (  )A 
+; : 600 2213 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2213 M 
+-0.400 0 (  )A 
+; : 652 2213 741 32 rc 0 0 0 sco F4_29
+Ji 
+671 2213 M 
+-0.400 0 (    // Add an event to the event list)A 
+; : 600 2245 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2245 M 
+-0.400 0 (  )A 
+; : 652 2245 1349 32 rc 0 0 0 sco F4_29
+Ji 
+671 2245 M 
+-0.400 0 (    void Add\(EventBase* object, long data, void* pointer, long time\);)A 
+; : 600 2277 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2277 M 
+-0.400 0 (  )A 
+; : 600 2309 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2309 M 
+-0.400 0 (  )A 
+; : 652 2309 817 32 rc 0 0 0 sco F4_29
+Ji 
+671 2309 M 
+-0.400 0 (    // Remove events for the given object)A 
+; : 600 2341 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2341 M 
+-0.400 0 (  )A 
+; : 652 2341 722 32 rc 0 0 0 sco F4_29
+Ji 
+671 2341 M 
+-0.400 0 (    void Remove\(EventBase* object\); )A 
+; : 600 2374 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2374 M 
+-0.400 0 (  )A 
+; : 600 2406 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2406 M 
+-0.400 0 (  )A 
+; : 652 2406 228 32 rc 0 0 0 sco F4_29
+Ji 
+671 2406 M 
+-0.400 0 (  private:)A 
+; : 600 2438 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2438 M 
+-0.400 0 (  )A 
+; : 652 2438 456 32 rc 0 0 0 sco F4_29
+Ji 
+671 2438 M 
+-0.400 0 (    // The event class)A 
+; : 600 2470 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2470 M 
+-0.400 0 (  )A 
+; : 652 2470 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 2470 M 
+-0.400 0 (    class Event {)A 
+; : 600 2502 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2502 M 
+-0.400 0 (  )A 
+; : 652 2502 285 32 rc 0 0 0 sco F4_29
+Ji 
+671 2502 M 
+-0.400 0 (      public:)A 
+; : 600 2534 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2534 M 
+-0.400 0 (  )A 
+; : 652 2534 1482 32 rc 0 0 0 sco F4_29
+Ji 
+671 2534 M 
+-0.400 0 (        Event\(EventBase* object, long data, void* pointer, unsigned long t\) )A 
+; : 600 2566 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2566 M 
+-0.400 0 (  )A 
+; : 652 2566 741 32 rc 0 0 0 sco F4_29
+Ji 
+671 2566 M 
+-0.400 0 (            : total_time\(t\), next\(0\),)A 
+; : 600 2598 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2598 M 
+-0.400 0 (  )A 
+; : 652 2598 1254 32 rc 0 0 0 sco F4_29
+Ji 
+671 2598 M 
+-0.400 0 (              myObject\(object\), myPointer\(pointer\), myData\(data\))A 
+; : 600 2630 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2630 M 
+-0.400 0 (  )A 
+; : 652 2630 247 32 rc 0 0 0 sco F4_29
+Ji 
+671 2630 M 
+-0.400 0 (        {};)A 
+; : 600 2662 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2662 M 
+-0.400 0 (  )A 
+; : 600 2694 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2694 M 
+-0.400 0 (  )A 
+; : 652 2694 1368 32 rc 0 0 0 sco F4_29
+Ji 
+671 2694 M 
+-0.400 0 (        // Dispatch the event by calling the object's callback routine)A 
+; : 600 2726 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2726 M 
+-0.400 0 (  )A 
+; : 652 2726 1387 32 rc 0 0 0 sco F4_29
+Ji 
+671 2726 M 
+-0.400 0 (        void Dispatch\(\) { myObject->EventCallback\(myData, myPointer\); })A 
+; : 600 2759 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2759 M 
+-0.400 0 (  )A 
+; : 600 2791 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2791 M 
+-0.400 0 (  )A 
+; : 652 2791 703 32 rc 0 0 0 sco F4_29
+Ji 
+671 2791 M 
+-0.400 0 (        // Return the owning object)A 
+; : 600 2823 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2823 M 
+-0.400 0 (  )A 
+; : 652 2823 931 32 rc 0 0 0 sco F4_29
+Ji 
+671 2823 M 
+-0.400 0 (        EventBase* Owner\(\) { return myObject; })A 
+; : 600 2855 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2855 M 
+-0.400 0 (  )A 
+; : 600 2887 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2887 M 
+-0.400 0 (  )A 
+; : 652 2887 1140 32 rc 0 0 0 sco F4_29
+Ji 
+671 2887 M 
+-0.400 0 (        // Total amount of time to elapse before the event)A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F6) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F6_50) cvn
+F6
+50 
+xF 
+F6_50
+Ji 
+2121 2942 M 
+(38)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 9 ]%%)  =
+%%PageTrailer
+
+%%Page: 10 10
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 600 225 80 33 rc 0 0 0 sco %%IncludeFont: Courier-Bold
+(F0) cvn
+0.828 
+ (Courier-Bold) cvn /Type1 
+T 
+(Courier-Bold) cvn
+mF 
+(F0_29) cvn
+F0
+29 
+xF 
+F0_29
+Ji 
+620 225 M 
+-0.400 0 (  )A 
+; : 652 225 608 32 rc 0 0 0 sco %%IncludeFont: Courier
+(F2) cvn
+0.828 
+ (Courier) cvn /Type1 
+T 
+(Courier) cvn
+mF 
+(F2_29) cvn
+F2
+29 
+xF 
+F2_29
+Ji 
+671 225 M 
+-0.400 0 (        const long total_time;)A 
+; : 600 257 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 257 M 
+-0.400 0 (  )A 
+; : 600 289 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 289 M 
+-0.400 0 (  )A 
+; : 652 289 874 32 rc 0 0 0 sco F2_29
+Ji 
+671 289 M 
+-0.400 0 (        // Time left before the event occurs)A 
+; : 600 321 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 321 M 
+-0.400 0 (  )A 
+; : 652 321 494 32 rc 0 0 0 sco F2_29
+Ji 
+671 321 M 
+-0.400 0 (        long delta_time;)A 
+; : 600 354 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 354 M 
+-0.400 0 (  )A 
+; : 600 386 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 386 M 
+-0.400 0 (  )A 
+; : 652 386 722 32 rc 0 0 0 sco F2_29
+Ji 
+671 386 M 
+-0.400 0 (        // Pointer to the next event)A 
+; : 600 418 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 418 M 
+-0.400 0 (  )A 
+; : 652 418 418 32 rc 0 0 0 sco F2_29
+Ji 
+671 418 M 
+-0.400 0 (        Event *next;)A 
+; : 600 450 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 450 M 
+-0.400 0 (  )A 
+; : 600 482 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 482 M 
+-0.400 0 (  )A 
+; : 652 482 304 32 rc 0 0 0 sco F2_29
+Ji 
+671 482 M 
+-0.400 0 (      private:)A 
+; : 600 514 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 514 M 
+-0.400 0 (  )A 
+; : 652 514 836 32 rc 0 0 0 sco F2_29
+Ji 
+671 514 M 
+-0.400 0 (        // The object that owns this event)A 
+; : 600 546 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 546 M 
+-0.400 0 (  )A 
+; : 652 546 570 32 rc 0 0 0 sco F2_29
+Ji 
+671 546 M 
+-0.400 0 (        EventBase* myObject;)A 
+; : 600 578 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 578 M 
+-0.400 0 (  )A 
+; : 600 610 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 610 M 
+-0.400 0 (  )A 
+; : 652 610 1007 32 rc 0 0 0 sco F2_29
+Ji 
+671 610 M 
+-0.400 0 (        // Data to be passed to the callback method)A 
+; : 600 642 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 642 M 
+-0.400 0 (  )A 
+; : 652 642 513 32 rc 0 0 0 sco F2_29
+Ji 
+671 642 M 
+-0.400 0 (        void* myPointer; )A 
+; : 600 674 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 674 M 
+-0.400 0 (  )A 
+; : 652 674 437 32 rc 0 0 0 sco F2_29
+Ji 
+671 674 M 
+-0.400 0 (        long  myData;)A 
+; : 600 706 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 706 M 
+-0.400 0 (  )A 
+; : 652 706 152 32 rc 0 0 0 sco F2_29
+Ji 
+671 706 M 
+-0.400 0 (    };)A 
+; : 600 739 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 739 M 
+-0.400 0 (  )A 
+; : 652 739 57 32 rc 0 0 0 sco F2_29
+Ji 
+671 739 M 
+-0.400 0 ( )A 
+; : 600 771 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 771 M 
+-0.400 0 (  )A 
+; : 652 771 570 32 rc 0 0 0 sco F2_29
+Ji 
+671 771 M 
+-0.400 0 (    // Linked list of events)A 
+; : 600 803 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 803 M 
+-0.400 0 (  )A 
+; : 652 803 418 32 rc 0 0 0 sco F2_29
+Ji 
+671 803 M 
+-0.400 0 (    Event* myEvents;)A 
+; : 600 835 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 835 M 
+-0.400 0 (  )A 
+; : 600 867 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 867 M 
+-0.400 0 (  )A 
+; : 652 867 893 32 rc 0 0 0 sco F2_29
+Ji 
+671 867 M 
+-0.400 0 (    // Number of calls since last time update)A 
+; : 600 899 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 899 M 
+-0.400 0 (  )A 
+; : 652 899 456 32 rc 0 0 0 sco F2_29
+Ji 
+671 899 M 
+-0.400 0 (    long myIterations;)A 
+; : 600 931 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 931 M 
+-0.400 0 (  )A 
+; : 600 963 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 963 M 
+-0.400 0 (  )A 
+; : 652 963 760 32 rc 0 0 0 sco F2_29
+Ji 
+671 963 M 
+-0.400 0 (    // Last usec_per_check update time)A 
+; : 600 995 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 995 M 
+-0.400 0 (  )A 
+; : 652 995 399 32 rc 0 0 0 sco F2_29
+Ji 
+671 995 M 
+-0.400 0 (    long myOldTime;)A 
+; : 600 1027 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1027 M 
+-0.400 0 (  )A 
+; : 600 1059 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1059 M 
+-0.400 0 (  )A 
+; : 652 1059 912 32 rc 0 0 0 sco F2_29
+Ji 
+671 1059 M 
+-0.400 0 (    // Average micro-seconds per call to Check)A 
+; : 600 1091 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1091 M 
+-0.400 0 (  )A 
+; : 652 1091 646 32 rc 0 0 0 sco F2_29
+Ji 
+671 1091 M 
+-0.400 0 (    long myMicrosecondsPerCheck;)A 
+; : 600 1124 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1124 M 
+-0.400 0 (  )A 
+; : 652 1124 76 32 rc 0 0 0 sco F2_29
+Ji 
+671 1124 M 
+-0.400 0 (};)A 
+; : 600 1156 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1156 M 
+-0.400 0 (  )A 
+; : 652 1156 152 32 rc 0 0 0 sco F2_29
+Ji 
+671 1156 M 
+-0.400 0 (#endif)A 
+; : 600 1188 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1188 M 
+-0.400 0 (  )A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F4) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F4_50) cvn
+F4
+50 
+xF 
+F4_50
+Ji 
+2121 2942 M 
+(39)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 10 ]%%)  =
+%%PageTrailer
+
+%%Page: 11 11
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 601 227 1795 78 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F0) cvn
+0.925 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F0_67) cvn
+F0
+67 
+xF 
+F0_67
+Ji 
+671 227 M 
+-0.039 0 (RegisterInformationList Class Declaration)A 
+; 
+671 305 N M 1500 2 rr : 0 0 0 sco O ; : 600 352 80 33 rc 0 0 0 sco %%IncludeFont: Courier-Bold
+(F2) cvn
+0.828 
+ (Courier-Bold) cvn /Type1 
+T 
+(Courier-Bold) cvn
+mF 
+(F2_29) cvn
+F2
+29 
+xF 
+F2_29
+Ji 
+620 352 M 
+-0.400 0 (  )A 
+; : 652 352 1539 32 rc 0 0 0 sco %%IncludeFont: Courier
+(F4) cvn
+0.828 
+ (Courier) cvn /Type1 
+T 
+(Courier) cvn
+mF 
+(F4_29) cvn
+F4
+29 
+xF 
+F4_29
+Ji 
+671 352 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 384 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 384 M 
+-0.400 0 (  )A 
+; : 652 384 1140 32 rc 0 0 0 sco F4_29
+Ji 
+671 384 M 
+-0.400 0 (// $Id: RegInfo.hxx,v 1.1 1996/08/02 14:52:55 bwmott Exp $)A 
+; : 600 416 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 416 M 
+-0.400 0 (  )A 
+; : 652 416 1596 32 rc 0 0 0 sco F4_29
+Ji 
+671 416 M 
+-0.400 0 (/////////////////////////////////////////////////////////////////////////////// //)A 
+; : 600 449 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 449 M 
+-0.400 0 (  )A 
+; : 652 449 304 32 rc 0 0 0 sco F4_29
+Ji 
+671 449 M 
+-0.400 0 (// RegInfo.hxx)A 
+; : 600 481 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 481 M 
+-0.400 0 (  )A 
+; : 652 481 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 481 M 
+-0.400 0 (//)A 
+; : 600 513 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 513 M 
+-0.400 0 (  )A 
+; : 652 513 1501 32 rc 0 0 0 sco F4_29
+Ji 
+671 513 M 
+-0.400 0 (//   This class is used by BasicCPU \(and derived classes\) to manage a list of)A 
+; : 600 545 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 545 M 
+-0.400 0 (  )A 
+; : 652 545 551 32 rc 0 0 0 sco F4_29
+Ji 
+671 545 M 
+-0.400 0 (// of register structures. )A 
+; : 600 577 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 577 M 
+-0.400 0 (  )A 
+; : 652 577 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 577 M 
+-0.400 0 (//)A 
+; : 600 609 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 609 M 
+-0.400 0 (  )A 
+; : 652 609 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 609 M 
+-0.400 0 (//)A 
+; : 600 641 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 641 M 
+-0.400 0 (  )A 
+; : 652 641 931 32 rc 0 0 0 sco F4_29
+Ji 
+671 641 M 
+-0.400 0 (// BSVC "A Microprocessor Simulation Framework")A 
+; : 600 673 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 673 M 
+-0.400 0 (  )A 
+; : 652 673 437 32 rc 0 0 0 sco F4_29
+Ji 
+671 673 M 
+-0.400 0 (// Copyright \(c\) 1993)A 
+; : 600 705 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 705 M 
+-0.400 0 (  )A 
+; : 652 705 475 32 rc 0 0 0 sco F4_29
+Ji 
+671 705 M 
+-0.400 0 (// By: Bradford W. Mott)A 
+; : 600 737 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 737 M 
+-0.400 0 (  )A 
+; : 652 737 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 737 M 
+-0.400 0 (// October 25,1993)A 
+; : 600 769 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 769 M 
+-0.400 0 (  )A 
+; : 652 769 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 769 M 
+-0.400 0 (//)A 
+; : 600 801 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 801 M 
+-0.400 0 (  )A 
+; : 652 801 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 801 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 834 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 834 M 
+-0.400 0 (  )A 
+; : 652 834 494 32 rc 0 0 0 sco F4_29
+Ji 
+671 834 M 
+-0.400 0 (// $Log: RegInfo.hxx,v $)A 
+; : 600 866 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 866 M 
+-0.400 0 (  )A 
+; : 652 866 874 32 rc 0 0 0 sco F4_29
+Ji 
+671 866 M 
+-0.400 0 (// Revision 1.1  1996/08/02 14:52:55  bwmott)A 
+; : 600 898 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 898 M 
+-0.400 0 (  )A 
+; : 652 898 399 32 rc 0 0 0 sco F4_29
+Ji 
+671 898 M 
+-0.400 0 (// Initial revision)A 
+; : 600 930 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 930 M 
+-0.400 0 (  )A 
+; : 652 930 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 930 M 
+-0.400 0 (//)A 
+; : 600 962 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 962 M 
+-0.400 0 (  )A 
+; : 652 962 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 962 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 994 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 994 M 
+-0.400 0 (  )A 
+; : 600 1026 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1026 M 
+-0.400 0 (  )A 
+; : 652 1026 399 32 rc 0 0 0 sco F4_29
+Ji 
+671 1026 M 
+-0.400 0 (#ifndef REGINFO_HXX)A 
+; : 600 1058 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1058 M 
+-0.400 0 (  )A 
+; : 652 1058 399 32 rc 0 0 0 sco F4_29
+Ji 
+671 1058 M 
+-0.400 0 (#define REGINFO_HXX)A 
+; : 600 1090 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1090 M 
+-0.400 0 (  )A 
+; : 600 1122 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1122 M 
+-0.400 0 (  )A 
+; : 652 1122 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 1122 M 
+-0.400 0 (#include <string>)A 
+; : 600 1154 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1154 M 
+-0.400 0 (  )A 
+; : 652 1154 323 32 rc 0 0 0 sco F4_29
+Ji 
+671 1154 M 
+-0.400 0 (#include <list>)A 
+; : 600 1186 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1186 M 
+-0.400 0 (  )A 
+; : 600 1219 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1219 M 
+-0.400 0 (  )A 
+; : 652 1219 323 32 rc 0 0 0 sco F4_29
+Ji 
+671 1219 M 
+-0.400 0 (class BasicCPU;)A 
+; : 600 1251 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1251 M 
+-0.400 0 (  )A 
+; : 600 1283 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1283 M 
+-0.400 0 (  )A 
+; : 652 1283 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 1283 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 1315 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1315 M 
+-0.400 0 (  )A 
+; : 652 1315 798 32 rc 0 0 0 sco F4_29
+Ji 
+671 1315 M 
+-0.400 0 (// RegisterInformation class declaration)A 
+; : 600 1347 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1347 M 
+-0.400 0 (  )A 
+; : 652 1347 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 1347 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 1379 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1379 M 
+-0.400 0 (  )A 
+; : 652 1379 551 32 rc 0 0 0 sco F4_29
+Ji 
+671 1379 M 
+-0.400 0 (class RegisterInformation {)A 
+; : 600 1411 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1411 M 
+-0.400 0 (  )A 
+; : 652 1411 209 32 rc 0 0 0 sco F4_29
+Ji 
+671 1411 M 
+-0.400 0 (  public:)A 
+; : 600 1443 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1443 M 
+-0.400 0 (  )A 
+; : 652 1443 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 1443 M 
+-0.400 0 (    // Constructor)A 
+; : 600 1475 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1475 M 
+-0.400 0 (  )A 
+; : 652 1475 1311 32 rc 0 0 0 sco F4_29
+Ji 
+671 1475 M 
+-0.400 0 (    RegisterInformation\(const string& name, const string& hexValue,)A 
+; : 600 1507 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1507 M 
+-0.400 0 (  )A 
+; : 652 1507 684 32 rc 0 0 0 sco F4_29
+Ji 
+671 1507 M 
+-0.400 0 (        const string& description\))A 
+; : 600 1539 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1539 M 
+-0.400 0 (  )A 
+; : 652 1539 475 32 rc 0 0 0 sco F4_29
+Ji 
+671 1539 M 
+-0.400 0 (        : myName\(name\),)A 
+; : 600 1571 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1571 M 
+-0.400 0 (  )A 
+; : 652 1571 627 32 rc 0 0 0 sco F4_29
+Ji 
+671 1571 M 
+-0.400 0 (          myHexValue\(hexValue\),)A 
+; : 600 1604 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1604 M 
+-0.400 0 (  )A 
+; : 652 1604 722 32 rc 0 0 0 sco F4_29
+Ji 
+671 1604 M 
+-0.400 0 (          myDescription\(description\))A 
+; : 600 1636 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1636 M 
+-0.400 0 (  )A 
+; : 652 1636 152 32 rc 0 0 0 sco F4_29
+Ji 
+671 1636 M 
+-0.400 0 (    {})A 
+; : 600 1668 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1668 M 
+-0.400 0 (  )A 
+; : 600 1700 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1700 M 
+-0.400 0 (  )A 
+; : 652 1700 513 32 rc 0 0 0 sco F4_29
+Ji 
+671 1700 M 
+-0.400 0 (    // Default Construtor)A 
+; : 600 1732 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1732 M 
+-0.400 0 (  )A 
+; : 652 1732 513 32 rc 0 0 0 sco F4_29
+Ji 
+671 1732 M 
+-0.400 0 (    RegisterInformation\(\))A 
+; : 600 1764 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1764 M 
+-0.400 0 (  )A 
+; : 652 1764 152 32 rc 0 0 0 sco F4_29
+Ji 
+671 1764 M 
+-0.400 0 (    {})A 
+; : 600 1796 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1796 M 
+-0.400 0 (  )A 
+; : 600 1828 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1828 M 
+-0.400 0 (  )A 
+; : 652 1828 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 1828 M 
+-0.400 0 (    // Destructor)A 
+; : 600 1860 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1860 M 
+-0.400 0 (  )A 
+; : 652 1860 532 32 rc 0 0 0 sco F4_29
+Ji 
+671 1860 M 
+-0.400 0 (    ~RegisterInformation\(\))A 
+; : 600 1892 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1892 M 
+-0.400 0 (  )A 
+; : 652 1892 152 32 rc 0 0 0 sco F4_29
+Ji 
+671 1892 M 
+-0.400 0 (    {})A 
+; : 600 1924 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1924 M 
+-0.400 0 (  )A 
+; : 600 1956 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1956 M 
+-0.400 0 (  )A 
+; : 652 1956 1140 32 rc 0 0 0 sco F4_29
+Ji 
+671 1956 M 
+-0.400 0 (    // Set the name, hex value, and the description fields)A 
+; : 600 1989 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1989 M 
+-0.400 0 (  )A 
+; : 652 1989 1102 32 rc 0 0 0 sco F4_29
+Ji 
+671 1989 M 
+-0.400 0 (    void Set\(const string& name, const string& hexValue,)A 
+; : 600 2021 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2021 M 
+-0.400 0 (  )A 
+; : 652 2021 684 32 rc 0 0 0 sco F4_29
+Ji 
+671 2021 M 
+-0.400 0 (        const string& description\))A 
+; : 600 2053 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2053 M 
+-0.400 0 (  )A 
+; : 652 2053 1444 32 rc 0 0 0 sco F4_29
+Ji 
+671 2053 M 
+-0.400 0 (    { myName = name; myHexValue = hexValue; myDescription = description; })A 
+; : 600 2085 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2085 M 
+-0.400 0 (  )A 
+; : 600 2117 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2117 M 
+-0.400 0 (  )A 
+; : 652 2117 836 32 rc 0 0 0 sco F4_29
+Ji 
+671 2117 M 
+-0.400 0 (    string Name\(\) const { return myName; })A 
+; : 600 2149 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2149 M 
+-0.400 0 (  )A 
+; : 652 2149 988 32 rc 0 0 0 sco F4_29
+Ji 
+671 2149 M 
+-0.400 0 (    string HexValue\(\) const { return myHexValue; })A 
+; : 600 2181 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2181 M 
+-0.400 0 (  )A 
+; : 652 2181 1102 32 rc 0 0 0 sco F4_29
+Ji 
+671 2181 M 
+-0.400 0 (    string Description\(\) const { return myDescription; })A 
+; : 600 2213 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2213 M 
+-0.400 0 (  )A 
+; : 600 2245 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2245 M 
+-0.400 0 (  )A 
+; : 652 2245 228 32 rc 0 0 0 sco F4_29
+Ji 
+671 2245 M 
+-0.400 0 (  private:)A 
+; : 600 2277 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2277 M 
+-0.400 0 (  )A 
+; : 652 2277 1558 32 rc 0 0 0 sco F4_29
+Ji 
+671 2277 M 
+-0.400 0 (    string myName;           // The name given to the register \("D0", "PC", etc\))A 
+; : 600 2309 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2309 M 
+-0.400 0 (  )A 
+; : 652 2309 1406 32 rc 0 0 0 sco F4_29
+Ji 
+671 2309 M 
+-0.400 0 (    string myHexValue;       // The value of the register in hexidecimal)A 
+; : 600 2341 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2341 M 
+-0.400 0 (  )A 
+; : 652 2341 1311 32 rc 0 0 0 sco F4_29
+Ji 
+671 2341 M 
+-0.400 0 (    string myDescription;    // A short description of the register)A 
+; : 600 2374 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2374 M 
+-0.400 0 (  )A 
+; : 652 2374 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 2374 M 
+-0.400 0 (};)A 
+; : 600 2406 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2406 M 
+-0.400 0 (  )A 
+; : 600 2438 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2438 M 
+-0.400 0 (  )A 
+; : 600 2470 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2470 M 
+-0.400 0 (  )A 
+; : 652 2470 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 2470 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 2502 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2502 M 
+-0.400 0 (  )A 
+; : 652 2502 874 32 rc 0 0 0 sco F4_29
+Ji 
+671 2502 M 
+-0.400 0 (// RegisterInformationList class declaration)A 
+; : 600 2534 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2534 M 
+-0.400 0 (  )A 
+; : 652 2534 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 2534 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 2566 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2566 M 
+-0.400 0 (  )A 
+; : 652 2566 627 32 rc 0 0 0 sco F4_29
+Ji 
+671 2566 M 
+-0.400 0 (class RegisterInformationList {)A 
+; : 600 2598 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2598 M 
+-0.400 0 (  )A 
+; : 652 2598 209 32 rc 0 0 0 sco F4_29
+Ji 
+671 2598 M 
+-0.400 0 (  public:)A 
+; : 600 2630 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2630 M 
+-0.400 0 (  )A 
+; : 652 2630 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 2630 M 
+-0.400 0 (    // Constructor)A 
+; : 600 2662 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2662 M 
+-0.400 0 (  )A 
+; : 652 2662 855 32 rc 0 0 0 sco F4_29
+Ji 
+671 2662 M 
+-0.400 0 (    RegisterInformationList\(BasicCPU& cpu\);)A 
+; : 600 2694 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2694 M 
+-0.400 0 (  )A 
+; : 600 2726 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2726 M 
+-0.400 0 (  )A 
+; : 652 2726 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 2726 M 
+-0.400 0 (    // Destructor)A 
+; : 600 2759 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2759 M 
+-0.400 0 (  )A 
+; : 652 2759 627 32 rc 0 0 0 sco F4_29
+Ji 
+671 2759 M 
+-0.400 0 (    ~RegisterInformationList\(\);)A 
+; : 600 2791 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2791 M 
+-0.400 0 (  )A 
+; : 600 2823 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2823 M 
+-0.400 0 (  )A 
+; : 652 2823 931 32 rc 0 0 0 sco F4_29
+Ji 
+671 2823 M 
+-0.400 0 (    // Append an element to the end of the list)A 
+; : 600 2855 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2855 M 
+-0.400 0 (  )A 
+; : 652 2855 1558 32 rc 0 0 0 sco F4_29
+Ji 
+671 2855 M 
+-0.400 0 (    void Append\(const string& name, const string& hexValue, const string& desc\);)A 
+; : 600 2887 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2887 M 
+-0.400 0 (  )A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F6) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F6_50) cvn
+F6
+50 
+xF 
+F6_50
+Ji 
+2121 2942 M 
+(40)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 11 ]%%)  =
+%%PageTrailer
+
+%%Page: 12 12
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 600 225 80 33 rc 0 0 0 sco %%IncludeFont: Courier-Bold
+(F0) cvn
+0.828 
+ (Courier-Bold) cvn /Type1 
+T 
+(Courier-Bold) cvn
+mF 
+(F0_29) cvn
+F0
+29 
+xF 
+F0_29
+Ji 
+620 225 M 
+-0.400 0 (  )A 
+; : 652 225 950 32 rc 0 0 0 sco %%IncludeFont: Courier
+(F2) cvn
+0.828 
+ (Courier) cvn /Type1 
+T 
+(Courier) cvn
+mF 
+(F2_29) cvn
+F2
+29 
+xF 
+F2_29
+Ji 
+671 225 M 
+-0.400 0 (    // Return the number of elements in the list)A 
+; : 600 257 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 257 M 
+-0.400 0 (  )A 
+; : 652 257 1311 32 rc 0 0 0 sco F2_29
+Ji 
+671 257 M 
+-0.400 0 (    unsigned int NumberOfElements\(\) const { return myList.size\(\); })A 
+; : 600 289 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 289 M 
+-0.400 0 (  )A 
+; : 600 321 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 321 M 
+-0.400 0 (  )A 
+; : 652 321 1387 32 rc 0 0 0 sco F2_29
+Ji 
+671 321 M 
+-0.400 0 (    // Get the element with the given index. Answer true iff successful)A 
+; : 600 354 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 354 M 
+-0.400 0 (  )A 
+; : 652 354 1254 32 rc 0 0 0 sco F2_29
+Ji 
+671 354 M 
+-0.400 0 (    bool Element\(unsigned int index, RegisterInformation& info\);)A 
+; : 600 386 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 386 M 
+-0.400 0 (  )A 
+; : 600 418 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 418 M 
+-0.400 0 (  )A 
+; : 652 418 228 32 rc 0 0 0 sco F2_29
+Ji 
+671 418 M 
+-0.400 0 (  private:)A 
+; : 600 450 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 450 M 
+-0.400 0 (  )A 
+; : 652 450 760 32 rc 0 0 0 sco F2_29
+Ji 
+671 450 M 
+-0.400 0 (    list<RegisterInformation*> myList;)A 
+; : 600 482 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 482 M 
+-0.400 0 (  )A 
+; : 652 482 76 32 rc 0 0 0 sco F2_29
+Ji 
+671 482 M 
+-0.400 0 (};)A 
+; : 600 514 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 514 M 
+-0.400 0 (  )A 
+; : 652 514 152 32 rc 0 0 0 sco F2_29
+Ji 
+671 514 M 
+-0.400 0 (#endif)A 
+; : 600 546 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 546 M 
+-0.400 0 (  )A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F4) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F4_50) cvn
+F4
+50 
+xF 
+F4_50
+Ji 
+2121 2942 M 
+(41)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 12 ]%%)  =
+%%PageTrailer
+
+%%Page: 13 13
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 601 227 1795 78 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F0) cvn
+0.925 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F0_67) cvn
+F0
+67 
+xF 
+F0_67
+Ji 
+671 227 M 
+-0.023 0 (StatisticalInformationList Class Declaration)A 
+; 
+671 305 N M 1500 2 rr : 0 0 0 sco O ; : 600 352 80 33 rc 0 0 0 sco %%IncludeFont: Courier-Bold
+(F2) cvn
+0.828 
+ (Courier-Bold) cvn /Type1 
+T 
+(Courier-Bold) cvn
+mF 
+(F2_29) cvn
+F2
+29 
+xF 
+F2_29
+Ji 
+620 352 M 
+-0.400 0 (  )A 
+; : 652 352 1539 32 rc 0 0 0 sco %%IncludeFont: Courier
+(F4) cvn
+0.828 
+ (Courier) cvn /Type1 
+T 
+(Courier) cvn
+mF 
+(F4_29) cvn
+F4
+29 
+xF 
+F4_29
+Ji 
+671 352 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 384 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 384 M 
+-0.400 0 (  )A 
+; : 652 384 1159 32 rc 0 0 0 sco F4_29
+Ji 
+671 384 M 
+-0.400 0 (// $Id: StatInfo.hxx,v 1.1 1996/08/02 14:53:12 bwmott Exp $)A 
+; : 600 416 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 416 M 
+-0.400 0 (  )A 
+; : 652 416 1596 32 rc 0 0 0 sco F4_29
+Ji 
+671 416 M 
+-0.400 0 (/////////////////////////////////////////////////////////////////////////////// //)A 
+; : 600 449 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 449 M 
+-0.400 0 (  )A 
+; : 652 449 323 32 rc 0 0 0 sco F4_29
+Ji 
+671 449 M 
+-0.400 0 (// StatInfo.hxx)A 
+; : 600 481 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 481 M 
+-0.400 0 (  )A 
+; : 652 481 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 481 M 
+-0.400 0 (//)A 
+; : 600 513 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 513 M 
+-0.400 0 (  )A 
+; : 652 513 1501 32 rc 0 0 0 sco F4_29
+Ji 
+671 513 M 
+-0.400 0 (//   This class is used by BasicCPU \(and derived classes\) to manage a list of)A 
+; : 600 545 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 545 M 
+-0.400 0 (  )A 
+; : 652 545 513 32 rc 0 0 0 sco F4_29
+Ji 
+671 545 M 
+-0.400 0 (// of statistics objects.)A 
+; : 600 577 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 577 M 
+-0.400 0 (  )A 
+; : 652 577 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 577 M 
+-0.400 0 (//)A 
+; : 600 609 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 609 M 
+-0.400 0 (  )A 
+; : 652 609 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 609 M 
+-0.400 0 (//)A 
+; : 600 641 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 641 M 
+-0.400 0 (  )A 
+; : 652 641 931 32 rc 0 0 0 sco F4_29
+Ji 
+671 641 M 
+-0.400 0 (// BSVC "A Microprocessor Simulation Framework")A 
+; : 600 673 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 673 M 
+-0.400 0 (  )A 
+; : 652 673 437 32 rc 0 0 0 sco F4_29
+Ji 
+671 673 M 
+-0.400 0 (// Copyright \(c\) 1993)A 
+; : 600 705 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 705 M 
+-0.400 0 (  )A 
+; : 652 705 475 32 rc 0 0 0 sco F4_29
+Ji 
+671 705 M 
+-0.400 0 (// By: Bradford W. Mott)A 
+; : 600 737 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 737 M 
+-0.400 0 (  )A 
+; : 652 737 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 737 M 
+-0.400 0 (// December 5,1993)A 
+; : 600 769 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 769 M 
+-0.400 0 (  )A 
+; : 652 769 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 769 M 
+-0.400 0 (//)A 
+; : 600 801 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 801 M 
+-0.400 0 (  )A 
+; : 652 801 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 801 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 834 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 834 M 
+-0.400 0 (  )A 
+; : 652 834 513 32 rc 0 0 0 sco F4_29
+Ji 
+671 834 M 
+-0.400 0 (// $Log: StatInfo.hxx,v $)A 
+; : 600 866 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 866 M 
+-0.400 0 (  )A 
+; : 652 866 874 32 rc 0 0 0 sco F4_29
+Ji 
+671 866 M 
+-0.400 0 (// Revision 1.1  1996/08/02 14:53:12  bwmott)A 
+; : 600 898 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 898 M 
+-0.400 0 (  )A 
+; : 652 898 399 32 rc 0 0 0 sco F4_29
+Ji 
+671 898 M 
+-0.400 0 (// Initial revision)A 
+; : 600 930 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 930 M 
+-0.400 0 (  )A 
+; : 652 930 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 930 M 
+-0.400 0 (//)A 
+; : 600 962 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 962 M 
+-0.400 0 (  )A 
+; : 652 962 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 962 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 994 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 994 M 
+-0.400 0 (  )A 
+; : 600 1026 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1026 M 
+-0.400 0 (  )A 
+; : 652 1026 418 32 rc 0 0 0 sco F4_29
+Ji 
+671 1026 M 
+-0.400 0 (#ifndef STATINFO_HXX)A 
+; : 600 1058 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1058 M 
+-0.400 0 (  )A 
+; : 652 1058 418 32 rc 0 0 0 sco F4_29
+Ji 
+671 1058 M 
+-0.400 0 (#define STATINFO_HXX)A 
+; : 600 1090 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1090 M 
+-0.400 0 (  )A 
+; : 600 1122 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1122 M 
+-0.400 0 (  )A 
+; : 652 1122 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 1122 M 
+-0.400 0 (#include <string>)A 
+; : 600 1154 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1154 M 
+-0.400 0 (  )A 
+; : 652 1154 323 32 rc 0 0 0 sco F4_29
+Ji 
+671 1154 M 
+-0.400 0 (#include <list>)A 
+; : 600 1186 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1186 M 
+-0.400 0 (  )A 
+; : 600 1219 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1219 M 
+-0.400 0 (  )A 
+; : 652 1219 323 32 rc 0 0 0 sco F4_29
+Ji 
+671 1219 M 
+-0.400 0 (class BasicCPU;)A 
+; : 600 1251 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1251 M 
+-0.400 0 (  )A 
+; : 600 1283 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1283 M 
+-0.400 0 (  )A 
+; : 652 1283 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 1283 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 1315 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1315 M 
+-0.400 0 (  )A 
+; : 652 1315 684 32 rc 0 0 0 sco F4_29
+Ji 
+671 1315 M 
+-0.400 0 (// The Statistic Information Class)A 
+; : 600 1347 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1347 M 
+-0.400 0 (  )A 
+; : 652 1347 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 1347 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 1379 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1379 M 
+-0.400 0 (  )A 
+; : 652 1379 570 32 rc 0 0 0 sco F4_29
+Ji 
+671 1379 M 
+-0.400 0 (class StatisticInformation {)A 
+; : 600 1411 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1411 M 
+-0.400 0 (  )A 
+; : 652 1411 209 32 rc 0 0 0 sco F4_29
+Ji 
+671 1411 M 
+-0.400 0 (  public:)A 
+; : 600 1443 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1443 M 
+-0.400 0 (  )A 
+; : 652 1443 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 1443 M 
+-0.400 0 (    // Constructor)A 
+; : 600 1475 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1475 M 
+-0.400 0 (  )A 
+; : 652 1475 969 32 rc 0 0 0 sco F4_29
+Ji 
+671 1475 M 
+-0.400 0 (    StatisticInformation\(const string& statistic\))A 
+; : 600 1507 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1507 M 
+-0.400 0 (  )A 
+; : 652 1507 646 32 rc 0 0 0 sco F4_29
+Ji 
+671 1507 M 
+-0.400 0 (        : myStatistic\(statistic\))A 
+; : 600 1539 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1539 M 
+-0.400 0 (  )A 
+; : 652 1539 152 32 rc 0 0 0 sco F4_29
+Ji 
+671 1539 M 
+-0.400 0 (    {})A 
+; : 600 1571 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1571 M 
+-0.400 0 (  )A 
+; : 600 1604 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1604 M 
+-0.400 0 (  )A 
+; : 652 1604 532 32 rc 0 0 0 sco F4_29
+Ji 
+671 1604 M 
+-0.400 0 (    // Default constructor)A 
+; : 600 1636 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1636 M 
+-0.400 0 (  )A 
+; : 652 1636 532 32 rc 0 0 0 sco F4_29
+Ji 
+671 1636 M 
+-0.400 0 (    StatisticInformation\(\))A 
+; : 600 1668 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1668 M 
+-0.400 0 (  )A 
+; : 652 1668 152 32 rc 0 0 0 sco F4_29
+Ji 
+671 1668 M 
+-0.400 0 (    {})A 
+; : 600 1700 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1700 M 
+-0.400 0 (  )A 
+; : 600 1732 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1732 M 
+-0.400 0 (  )A 
+; : 652 1732 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 1732 M 
+-0.400 0 (    // Destructor)A 
+; : 600 1764 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1764 M 
+-0.400 0 (  )A 
+; : 652 1764 551 32 rc 0 0 0 sco F4_29
+Ji 
+671 1764 M 
+-0.400 0 (    ~StatisticInformation\(\))A 
+; : 600 1796 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1796 M 
+-0.400 0 (  )A 
+; : 652 1796 152 32 rc 0 0 0 sco F4_29
+Ji 
+671 1796 M 
+-0.400 0 (    {})A 
+; : 600 1828 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1828 M 
+-0.400 0 (  )A 
+; : 600 1860 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1860 M 
+-0.400 0 (  )A 
+; : 652 1860 627 32 rc 0 0 0 sco F4_29
+Ji 
+671 1860 M 
+-0.400 0 (    // Set the statistic fields)A 
+; : 600 1892 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1892 M 
+-0.400 0 (  )A 
+; : 652 1892 741 32 rc 0 0 0 sco F4_29
+Ji 
+671 1892 M 
+-0.400 0 (    void Set\(const string& statistic\))A 
+; : 600 1924 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1924 M 
+-0.400 0 (  )A 
+; : 652 1924 646 32 rc 0 0 0 sco F4_29
+Ji 
+671 1924 M 
+-0.400 0 (    { myStatistic = statistic; })A 
+; : 600 1956 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1956 M 
+-0.400 0 (  )A 
+; : 600 1989 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1989 M 
+-0.400 0 (  )A 
+; : 652 1989 532 32 rc 0 0 0 sco F4_29
+Ji 
+671 1989 M 
+-0.400 0 (    // Answer my statistic)A 
+; : 600 2021 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2021 M 
+-0.400 0 (  )A 
+; : 652 2021 1026 32 rc 0 0 0 sco F4_29
+Ji 
+671 2021 M 
+-0.400 0 (    string Statistic\(\) const { return myStatistic; })A 
+; : 600 2053 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2053 M 
+-0.400 0 (  )A 
+; : 600 2085 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2085 M 
+-0.400 0 (  )A 
+; : 652 2085 228 32 rc 0 0 0 sco F4_29
+Ji 
+671 2085 M 
+-0.400 0 (  private:)A 
+; : 600 2117 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2117 M 
+-0.400 0 (  )A 
+; : 652 2117 475 32 rc 0 0 0 sco F4_29
+Ji 
+671 2117 M 
+-0.400 0 (    string myStatistic;)A 
+; : 600 2149 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2149 M 
+-0.400 0 (  )A 
+; : 652 2149 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 2149 M 
+-0.400 0 (};)A 
+; : 600 2181 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2181 M 
+-0.400 0 (  )A 
+; : 600 2213 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2213 M 
+-0.400 0 (  )A 
+; : 600 2245 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2245 M 
+-0.400 0 (  )A 
+; : 652 2245 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 2245 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 2277 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2277 M 
+-0.400 0 (  )A 
+; : 652 2277 817 32 rc 0 0 0 sco F4_29
+Ji 
+671 2277 M 
+-0.400 0 (// The Statistical Information List Class)A 
+; : 600 2309 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2309 M 
+-0.400 0 (  )A 
+; : 652 2309 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 2309 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 2341 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2341 M 
+-0.400 0 (  )A 
+; : 652 2341 684 32 rc 0 0 0 sco F4_29
+Ji 
+671 2341 M 
+-0.400 0 (class StatisticalInformationList {)A 
+; : 600 2374 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2374 M 
+-0.400 0 (  )A 
+; : 652 2374 209 32 rc 0 0 0 sco F4_29
+Ji 
+671 2374 M 
+-0.400 0 (  public:)A 
+; : 600 2406 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2406 M 
+-0.400 0 (  )A 
+; : 652 2406 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 2406 M 
+-0.400 0 (    // Constructor)A 
+; : 600 2438 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2438 M 
+-0.400 0 (  )A 
+; : 652 2438 912 32 rc 0 0 0 sco F4_29
+Ji 
+671 2438 M 
+-0.400 0 (    StatisticalInformationList\(BasicCPU& cpu\);)A 
+; : 600 2470 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2470 M 
+-0.400 0 (  )A 
+; : 600 2502 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2502 M 
+-0.400 0 (  )A 
+; : 652 2502 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 2502 M 
+-0.400 0 (    // Destructor)A 
+; : 600 2534 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2534 M 
+-0.400 0 (  )A 
+; : 652 2534 684 32 rc 0 0 0 sco F4_29
+Ji 
+671 2534 M 
+-0.400 0 (    ~StatisticalInformationList\(\);)A 
+; : 600 2566 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2566 M 
+-0.400 0 (  )A 
+; : 600 2598 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2598 M 
+-0.400 0 (  )A 
+; : 652 2598 931 32 rc 0 0 0 sco F4_29
+Ji 
+671 2598 M 
+-0.400 0 (    // Append an element to the end of the list)A 
+; : 600 2630 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2630 M 
+-0.400 0 (  )A 
+; : 652 2630 817 32 rc 0 0 0 sco F4_29
+Ji 
+671 2630 M 
+-0.400 0 (    void Append\(const string& statistic\);)A 
+; : 600 2662 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2662 M 
+-0.400 0 (  )A 
+; : 600 2694 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2694 M 
+-0.400 0 (  )A 
+; : 652 2694 950 32 rc 0 0 0 sco F4_29
+Ji 
+671 2694 M 
+-0.400 0 (    // Answer the number of elements in the list)A 
+; : 600 2726 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2726 M 
+-0.400 0 (  )A 
+; : 652 2726 1311 32 rc 0 0 0 sco F4_29
+Ji 
+671 2726 M 
+-0.400 0 (    unsigned int NumberOfElements\(\) const { return myList.size\(\); })A 
+; : 600 2759 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2759 M 
+-0.400 0 (  )A 
+; : 600 2791 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2791 M 
+-0.400 0 (  )A 
+; : 652 2791 1387 32 rc 0 0 0 sco F4_29
+Ji 
+671 2791 M 
+-0.400 0 (    // Get the element with the given index. Answer true iff successful)A 
+; : 600 2823 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2823 M 
+-0.400 0 (  )A 
+; : 652 2823 1273 32 rc 0 0 0 sco F4_29
+Ji 
+671 2823 M 
+-0.400 0 (    bool Element\(unsigned int index, StatisticInformation& info\);)A 
+; : 600 2855 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2855 M 
+-0.400 0 (  )A 
+; : 600 2887 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2887 M 
+-0.400 0 (  )A 
+; : 652 2887 228 32 rc 0 0 0 sco F4_29
+Ji 
+671 2887 M 
+-0.400 0 (  private:)A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F6) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F6_50) cvn
+F6
+50 
+xF 
+F6_50
+Ji 
+2121 2942 M 
+(42)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 13 ]%%)  =
+%%PageTrailer
+
+%%Page: 14 14
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 600 225 80 33 rc 0 0 0 sco %%IncludeFont: Courier-Bold
+(F0) cvn
+0.828 
+ (Courier-Bold) cvn /Type1 
+T 
+(Courier-Bold) cvn
+mF 
+(F0_29) cvn
+F0
+29 
+xF 
+F0_29
+Ji 
+620 225 M 
+-0.400 0 (  )A 
+; : 652 225 779 32 rc 0 0 0 sco %%IncludeFont: Courier
+(F2) cvn
+0.828 
+ (Courier) cvn /Type1 
+T 
+(Courier) cvn
+mF 
+(F2_29) cvn
+F2
+29 
+xF 
+F2_29
+Ji 
+671 225 M 
+-0.400 0 (    list<StatisticInformation*> myList;)A 
+; : 600 257 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 257 M 
+-0.400 0 (  )A 
+; : 652 257 76 32 rc 0 0 0 sco F2_29
+Ji 
+671 257 M 
+-0.400 0 (};)A 
+; : 600 289 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 289 M 
+-0.400 0 (  )A 
+; : 652 289 152 32 rc 0 0 0 sco F2_29
+Ji 
+671 289 M 
+-0.400 0 (#endif)A 
+; : 600 321 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 321 M 
+-0.400 0 (  )A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F4) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F4_50) cvn
+F4
+50 
+xF 
+F4_50
+Ji 
+2121 2942 M 
+(43)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 14 ]%%)  =
+%%PageTrailer
+
+%%Page: 15 15
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 601 227 1795 78 rc 0 0 0 sco %%IncludeFont: Helvetica-Bold
+(F0) cvn
+0.925 
+ (Helvetica-Bold) cvn /Type1 
+T 
+(Helvetica-Bold) cvn
+mF 
+(F0_67) cvn
+F0
+67 
+xF 
+F0_67
+Ji 
+671 227 M 
+-0.079 0 (Interface Class Declaration)A 
+; 
+671 305 N M 1500 2 rr : 0 0 0 sco O ; : 600 352 80 33 rc 0 0 0 sco %%IncludeFont: Courier-Bold
+(F2) cvn
+0.828 
+ (Courier-Bold) cvn /Type1 
+T 
+(Courier-Bold) cvn
+mF 
+(F2_29) cvn
+F2
+29 
+xF 
+F2_29
+Ji 
+620 352 M 
+-0.400 0 (  )A 
+; : 652 352 1539 32 rc 0 0 0 sco %%IncludeFont: Courier
+(F4) cvn
+0.828 
+ (Courier) cvn /Type1 
+T 
+(Courier) cvn
+mF 
+(F4_29) cvn
+F4
+29 
+xF 
+F4_29
+Ji 
+671 352 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 384 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 384 M 
+-0.400 0 (  )A 
+; : 652 384 1178 32 rc 0 0 0 sco F4_29
+Ji 
+671 384 M 
+-0.400 0 (// $Id: Interface.hxx,v 1.1 1996/08/02 14:52:26 bwmott Exp $)A 
+; : 600 416 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 416 M 
+-0.400 0 (  )A 
+; : 652 416 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 416 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 449 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 449 M 
+-0.400 0 (  )A 
+; : 652 449 342 32 rc 0 0 0 sco F4_29
+Ji 
+671 449 M 
+-0.400 0 (// Interface.hxx)A 
+; : 600 481 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 481 M 
+-0.400 0 (  )A 
+; : 652 481 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 481 M 
+-0.400 0 (//)A 
+; : 600 513 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 513 M 
+-0.400 0 (  )A 
+; : 652 513 1311 32 rc 0 0 0 sco F4_29
+Ji 
+671 513 M 
+-0.400 0 (// This is the user interface command class.  It handles all of the)A 
+; : 600 545 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 545 M 
+-0.400 0 (  )A 
+; : 652 545 817 32 rc 0 0 0 sco F4_29
+Ji 
+671 545 M 
+-0.400 0 (// command's issue by the user interface.)A 
+; : 600 577 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 577 M 
+-0.400 0 (  )A 
+; : 652 577 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 577 M 
+-0.400 0 (//)A 
+; : 600 609 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 609 M 
+-0.400 0 (  )A 
+; : 652 609 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 609 M 
+-0.400 0 (//)A 
+; : 600 641 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 641 M 
+-0.400 0 (  )A 
+; : 652 641 931 32 rc 0 0 0 sco F4_29
+Ji 
+671 641 M 
+-0.400 0 (// BSVC "A Microprocessor Simulation Framework")A 
+; : 600 673 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 673 M 
+-0.400 0 (  )A 
+; : 652 673 437 32 rc 0 0 0 sco F4_29
+Ji 
+671 673 M 
+-0.400 0 (// Copyright \(c\) 1993)A 
+; : 600 705 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 705 M 
+-0.400 0 (  )A 
+; : 652 705 475 32 rc 0 0 0 sco F4_29
+Ji 
+671 705 M 
+-0.400 0 (// By: Bradford W. Mott)A 
+; : 600 737 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 737 M 
+-0.400 0 (  )A 
+; : 652 737 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 737 M 
+-0.400 0 (// October 21,1993)A 
+; : 600 769 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 769 M 
+-0.400 0 (  )A 
+; : 652 769 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 769 M 
+-0.400 0 (//)A 
+; : 600 801 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 801 M 
+-0.400 0 (  )A 
+; : 652 801 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 801 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 834 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 834 M 
+-0.400 0 (  )A 
+; : 652 834 532 32 rc 0 0 0 sco F4_29
+Ji 
+671 834 M 
+-0.400 0 (// $Log: Interface.hxx,v $)A 
+; : 600 866 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 866 M 
+-0.400 0 (  )A 
+; : 652 866 874 32 rc 0 0 0 sco F4_29
+Ji 
+671 866 M 
+-0.400 0 (// Revision 1.1  1996/08/02 14:52:26  bwmott)A 
+; : 600 898 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 898 M 
+-0.400 0 (  )A 
+; : 652 898 399 32 rc 0 0 0 sco F4_29
+Ji 
+671 898 M 
+-0.400 0 (// Initial revision)A 
+; : 600 930 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 930 M 
+-0.400 0 (  )A 
+; : 652 930 76 32 rc 0 0 0 sco F4_29
+Ji 
+671 930 M 
+-0.400 0 (//)A 
+; : 600 962 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 962 M 
+-0.400 0 (  )A 
+; : 652 962 1539 32 rc 0 0 0 sco F4_29
+Ji 
+671 962 M 
+-0.400 0 (///////////////////////////////////////////////////////////////////////////////)A 
+; : 600 994 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 994 M 
+-0.400 0 (  )A 
+; : 600 1026 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1026 M 
+-0.400 0 (  )A 
+; : 652 1026 437 32 rc 0 0 0 sco F4_29
+Ji 
+671 1026 M 
+-0.400 0 (#ifndef INTERFACE_HXX)A 
+; : 600 1058 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1058 M 
+-0.400 0 (  )A 
+; : 652 1058 437 32 rc 0 0 0 sco F4_29
+Ji 
+671 1058 M 
+-0.400 0 (#define INTERFACE_HXX)A 
+; : 600 1090 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1090 M 
+-0.400 0 (  )A 
+; : 600 1122 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1122 M 
+-0.400 0 (  )A 
+; : 652 1122 437 32 rc 0 0 0 sco F4_29
+Ji 
+671 1122 M 
+-0.400 0 (#include <iostream.h>)A 
+; : 600 1154 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1154 M 
+-0.400 0 (  )A 
+; : 600 1186 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1186 M 
+-0.400 0 (  )A 
+; : 652 1186 323 32 rc 0 0 0 sco F4_29
+Ji 
+671 1186 M 
+-0.400 0 (class BasicCPU;)A 
+; : 600 1219 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1219 M 
+-0.400 0 (  )A 
+; : 652 1219 532 32 rc 0 0 0 sco F4_29
+Ji 
+671 1219 M 
+-0.400 0 (class BasicDeviceRegistry;)A 
+; : 600 1251 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1251 M 
+-0.400 0 (  )A 
+; : 652 1251 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 1251 M 
+-0.400 0 (class BasicLoader;)A 
+; : 600 1283 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1283 M 
+-0.400 0 (  )A 
+; : 652 1283 437 32 rc 0 0 0 sco F4_29
+Ji 
+671 1283 M 
+-0.400 0 (class BreakpointList;)A 
+; : 600 1315 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1315 M 
+-0.400 0 (  )A 
+; : 600 1347 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1347 M 
+-0.400 0 (  )A 
+; : 652 1347 361 32 rc 0 0 0 sco F4_29
+Ji 
+671 1347 M 
+-0.400 0 (class Interface {)A 
+; : 600 1379 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1379 M 
+-0.400 0 (  )A 
+; : 652 1379 209 32 rc 0 0 0 sco F4_29
+Ji 
+671 1379 M 
+-0.400 0 (  public:)A 
+; : 600 1411 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1411 M 
+-0.400 0 (  )A 
+; : 652 1411 380 32 rc 0 0 0 sco F4_29
+Ji 
+671 1411 M 
+-0.400 0 (    // Constructor)A 
+; : 600 1443 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1443 M 
+-0.400 0 (  )A 
+; : 652 1443 1178 32 rc 0 0 0 sco F4_29
+Ji 
+671 1443 M 
+-0.400 0 (    Interface\(BasicCPU& cpu, BasicDeviceRegistry& registry, )A 
+; : 600 1475 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1475 M 
+-0.400 0 (  )A 
+; : 652 1475 589 32 rc 0 0 0 sco F4_29
+Ji 
+671 1475 M 
+-0.400 0 (        BasicLoader& loader\);)A 
+; : 600 1507 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1507 M 
+-0.400 0 (  )A 
+; : 600 1539 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1539 M 
+-0.400 0 (  )A 
+; : 652 1539 399 32 rc 0 0 0 sco F4_29
+Ji 
+671 1539 M 
+-0.400 0 (    // Command loop)A 
+; : 600 1571 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1571 M 
+-0.400 0 (  )A 
+; : 652 1571 475 32 rc 0 0 0 sco F4_29
+Ji 
+671 1571 M 
+-0.400 0 (    void CommandLoop\(\);)A 
+; : 600 1604 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1604 M 
+-0.400 0 (  )A 
+; : 652 1604 57 32 rc 0 0 0 sco F4_29
+Ji 
+671 1604 M 
+-0.400 0 ( )A 
+; : 600 1636 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1636 M 
+-0.400 0 (  )A 
+; : 652 1636 228 32 rc 0 0 0 sco F4_29
+Ji 
+671 1636 M 
+-0.400 0 (  private:)A 
+; : 600 1668 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1668 M 
+-0.400 0 (  )A 
+; : 652 1668 988 32 rc 0 0 0 sco F4_29
+Ji 
+671 1668 M 
+-0.400 0 (    // Structure for the interface's command table)A 
+; : 600 1700 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1700 M 
+-0.400 0 (  )A 
+; : 652 1700 513 32 rc 0 0 0 sco F4_29
+Ji 
+671 1700 M 
+-0.400 0 (    struct CommandTable {)A 
+; : 600 1732 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1732 M 
+-0.400 0 (  )A 
+; : 652 1732 475 32 rc 0 0 0 sco F4_29
+Ji 
+671 1732 M 
+-0.400 0 (      const char* name;)A 
+; : 600 1764 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1764 M 
+-0.400 0 (  )A 
+; : 652 1764 722 32 rc 0 0 0 sco F4_29
+Ji 
+671 1764 M 
+-0.400 0 (      void \(Interface::*mfp\)\(char*\);)A 
+; : 600 1796 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1796 M 
+-0.400 0 (  )A 
+; : 652 1796 152 32 rc 0 0 0 sco F4_29
+Ji 
+671 1796 M 
+-0.400 0 (    };)A 
+; : 600 1828 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1828 M 
+-0.400 0 (  )A 
+; : 600 1860 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1860 M 
+-0.400 0 (  )A 
+; : 652 1860 228 32 rc 0 0 0 sco F4_29
+Ji 
+671 1860 M 
+-0.400 0 (  private:)A 
+; : 600 1892 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1892 M 
+-0.400 0 (  )A 
+; : 652 1892 1178 32 rc 0 0 0 sco F4_29
+Ji 
+671 1892 M 
+-0.400 0 (    // Indicates the number of commands in the command table)A 
+; : 600 1924 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1924 M 
+-0.400 0 (  )A 
+; : 652 1924 836 32 rc 0 0 0 sco F4_29
+Ji 
+671 1924 M 
+-0.400 0 (    const unsigned int myNumberOfCommands;)A 
+; : 600 1956 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1956 M 
+-0.400 0 (  )A 
+; : 600 1989 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 1989 M 
+-0.400 0 (  )A 
+; : 652 1989 798 32 rc 0 0 0 sco F4_29
+Ji 
+671 1989 M 
+-0.400 0 (    // Reference to the CPU I'm managing)A 
+; : 600 2021 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2021 M 
+-0.400 0 (  )A 
+; : 652 2021 418 32 rc 0 0 0 sco F4_29
+Ji 
+671 2021 M 
+-0.400 0 (    BasicCPU& myCPU;)A 
+; : 600 2053 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2053 M 
+-0.400 0 (  )A 
+; : 600 2085 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2085 M 
+-0.400 0 (  )A 
+; : 652 2085 779 32 rc 0 0 0 sco F4_29
+Ji 
+671 2085 M 
+-0.400 0 (    // Reference to the device registry)A 
+; : 600 2117 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2117 M 
+-0.400 0 (  )A 
+; : 652 2117 836 32 rc 0 0 0 sco F4_29
+Ji 
+671 2117 M 
+-0.400 0 (    BasicDeviceRegistry& myDeviceRegistry;)A 
+; : 600 2149 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2149 M 
+-0.400 0 (  )A 
+; : 600 2181 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2181 M 
+-0.400 0 (  )A 
+; : 652 2181 608 32 rc 0 0 0 sco F4_29
+Ji 
+671 2181 M 
+-0.400 0 (    // Reference to the loader)A 
+; : 600 2213 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2213 M 
+-0.400 0 (  )A 
+; : 652 2213 532 32 rc 0 0 0 sco F4_29
+Ji 
+671 2213 M 
+-0.400 0 (    BasicLoader& myLoader;)A 
+; : 600 2245 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2245 M 
+-0.400 0 (  )A 
+; : 600 2277 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2277 M 
+-0.400 0 (  )A 
+; : 652 2277 1406 32 rc 0 0 0 sco F4_29
+Ji 
+671 2277 M 
+-0.400 0 (    // Reference to the input stream used to get information from the UI)A 
+; : 600 2309 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2309 M 
+-0.400 0 (  )A 
+; : 652 2309 551 32 rc 0 0 0 sco F4_29
+Ji 
+671 2309 M 
+-0.400 0 (    istream& myInputStream;)A 
+; : 600 2341 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2341 M 
+-0.400 0 (  )A 
+; : 600 2374 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2374 M 
+-0.400 0 (  )A 
+; : 652 2374 1406 32 rc 0 0 0 sco F4_29
+Ji 
+671 2374 M 
+-0.400 0 (    // Reference to the output stream used to send information to the UI)A 
+; : 600 2406 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2406 M 
+-0.400 0 (  )A 
+; : 652 2406 570 32 rc 0 0 0 sco F4_29
+Ji 
+671 2406 M 
+-0.400 0 (    ostream& myOutputStream;)A 
+; : 600 2438 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2438 M 
+-0.400 0 (  )A 
+; : 600 2470 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2470 M 
+-0.400 0 (  )A 
+; : 652 2470 950 32 rc 0 0 0 sco F4_29
+Ji 
+671 2470 M 
+-0.400 0 (    // Breakpoint list to manage the breakpoints)A 
+; : 600 2502 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2502 M 
+-0.400 0 (  )A 
+; : 652 2502 741 32 rc 0 0 0 sco F4_29
+Ji 
+671 2502 M 
+-0.400 0 (    BreakpointList& myBreakpointList;)A 
+; : 600 2534 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2534 M 
+-0.400 0 (  )A 
+; : 600 2566 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2566 M 
+-0.400 0 (  )A 
+; : 652 2566 646 32 rc 0 0 0 sco F4_29
+Ji 
+671 2566 M 
+-0.400 0 (    // Execute the given command)A 
+; : 600 2598 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2598 M 
+-0.400 0 (  )A 
+; : 652 2598 779 32 rc 0 0 0 sco F4_29
+Ji 
+671 2598 M 
+-0.400 0 (    void ExecuteCommand\(char* command\);)A 
+; : 600 2630 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2630 M 
+-0.400 0 (  )A 
+; : 600 2662 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2662 M 
+-0.400 0 (  )A 
+; : 652 2662 494 32 rc 0 0 0 sco F4_29
+Ji 
+671 2662 M 
+-0.400 0 (    // Table of commands)A 
+; : 600 2694 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2694 M 
+-0.400 0 (  )A 
+; : 652 2694 836 32 rc 0 0 0 sco F4_29
+Ji 
+671 2694 M 
+-0.400 0 (    static CommandTable ourCommandTable[];)A 
+; : 600 2726 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2726 M 
+-0.400 0 (  )A 
+; : 600 2759 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2759 M 
+-0.400 0 (  )A 
+; : 652 2759 912 32 rc 0 0 0 sco F4_29
+Ji 
+671 2759 M 
+-0.400 0 (    // Member funtion for each of the commands)A 
+; : 600 2791 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2791 M 
+-0.400 0 (  )A 
+; : 652 2791 703 32 rc 0 0 0 sco F4_29
+Ji 
+671 2791 M 
+-0.400 0 (    void AddBreakpoint\(char* args\);)A 
+; : 600 2823 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2823 M 
+-0.400 0 (  )A 
+; : 652 2823 684 32 rc 0 0 0 sco F4_29
+Ji 
+671 2823 M 
+-0.400 0 (    void AttachDevice\(char* args\);)A 
+; : 600 2855 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2855 M 
+-0.400 0 (  )A 
+; : 652 2855 741 32 rc 0 0 0 sco F4_29
+Ji 
+671 2855 M 
+-0.400 0 (    void ClearStatistics\(char* args\);)A 
+; : 600 2887 80 33 rc 0 0 0 sco F2_29
+Ji 
+620 2887 M 
+-0.400 0 (  )A 
+; : 652 2887 760 32 rc 0 0 0 sco F4_29
+Ji 
+671 2887 M 
+-0.400 0 (    void DeleteBreakpoint\(char* args\);)A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F6) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F6_50) cvn
+F6
+50 
+xF 
+F6_50
+Ji 
+2121 2942 M 
+(44)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 15 ]%%)  =
+%%PageTrailer
+
+%%Page: 16 16
+%%BeginPageSetup
+[{
+%%BeginFeature: *Optional Lower Tray Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 600 225 80 33 rc 0 0 0 sco %%IncludeFont: Courier-Bold
+(F0) cvn
+0.828 
+ (Courier-Bold) cvn /Type1 
+T 
+(Courier-Bold) cvn
+mF 
+(F0_29) cvn
+F0
+29 
+xF 
+F0_29
+Ji 
+620 225 M 
+-0.400 0 (  )A 
+; : 652 225 684 32 rc 0 0 0 sco %%IncludeFont: Courier
+(F2) cvn
+0.828 
+ (Courier) cvn /Type1 
+T 
+(Courier) cvn
+mF 
+(F2_29) cvn
+F2
+29 
+xF 
+F2_29
+Ji 
+671 225 M 
+-0.400 0 (    void DetachDevice\(char* args\);)A 
+; : 600 257 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 257 M 
+-0.400 0 (  )A 
+; : 652 257 741 32 rc 0 0 0 sco F2_29
+Ji 
+671 257 M 
+-0.400 0 (    void FillMemoryBlock\(char* args\);)A 
+; : 600 289 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 289 M 
+-0.400 0 (  )A 
+; : 652 289 817 32 rc 0 0 0 sco F2_29
+Ji 
+671 289 M 
+-0.400 0 (    void ListAttachedDevices\(char* args\);)A 
+; : 600 321 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 321 M 
+-0.400 0 (  )A 
+; : 652 321 741 32 rc 0 0 0 sco F2_29
+Ji 
+671 321 M 
+-0.400 0 (    void ListBreakpoints\(char* args\);)A 
+; : 600 354 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 354 M 
+-0.400 0 (  )A 
+; : 652 354 665 32 rc 0 0 0 sco F2_29
+Ji 
+671 354 M 
+-0.400 0 (    void ListDevices\(char* args\);)A 
+; : 600 386 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 386 M 
+-0.400 0 (  )A 
+; : 652 386 760 32 rc 0 0 0 sco F2_29
+Ji 
+671 386 M 
+-0.400 0 (    void ListDeviceScript\(char* args\);)A 
+; : 600 418 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 418 M 
+-0.400 0 (  )A 
+; : 652 418 912 32 rc 0 0 0 sco F2_29
+Ji 
+671 418 M 
+-0.400 0 (    void ListExecutionTraceRecord\(char* args\);)A 
+; : 600 450 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 450 M 
+-0.400 0 (  )A 
+; : 652 450 1064 32 rc 0 0 0 sco F2_29
+Ji 
+671 450 M 
+-0.400 0 (    void ListDefaultExecutionTraceEntries\(char* args\);)A 
+; : 600 482 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 482 M 
+-0.400 0 (  )A 
+; : 652 482 741 32 rc 0 0 0 sco F2_29
+Ji 
+671 482 M 
+-0.400 0 (    void ListGranularity\(char* args\);)A 
+; : 600 514 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 514 M 
+-0.400 0 (  )A 
+; : 652 514 646 32 rc 0 0 0 sco F2_29
+Ji 
+671 514 M 
+-0.400 0 (    void ListMemory\(char* args\);)A 
+; : 600 546 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 546 M 
+-0.400 0 (  )A 
+; : 652 546 798 32 rc 0 0 0 sco F2_29
+Ji 
+671 546 M 
+-0.400 0 (    void ListMaximumAddress\(char* args\);)A 
+; : 600 578 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 578 M 
+-0.400 0 (  )A 
+; : 652 578 931 32 rc 0 0 0 sco F2_29
+Ji 
+671 578 M 
+-0.400 0 (    void ListNumberOfAddressSpaces\(char* args\);)A 
+; : 600 610 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 610 M 
+-0.400 0 (  )A 
+; : 652 610 703 32 rc 0 0 0 sco F2_29
+Ji 
+671 610 M 
+-0.400 0 (    void ListRegisters\(char* args\);)A 
+; : 600 642 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 642 M 
+-0.400 0 (  )A 
+; : 652 642 779 32 rc 0 0 0 sco F2_29
+Ji 
+671 642 M 
+-0.400 0 (    void ListRegisterValue\(char* args\);)A 
+; : 600 674 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 674 M 
+-0.400 0 (  )A 
+; : 652 674 893 32 rc 0 0 0 sco F2_29
+Ji 
+671 674 M 
+-0.400 0 (    void ListRegisterDescription\(char* args\);)A 
+; : 600 706 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 706 M 
+-0.400 0 (  )A 
+; : 652 706 722 32 rc 0 0 0 sco F2_29
+Ji 
+671 706 M 
+-0.400 0 (    void ListStatistics\(char* args\);)A 
+; : 600 739 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 739 M 
+-0.400 0 (  )A 
+; : 652 739 665 32 rc 0 0 0 sco F2_29
+Ji 
+671 739 M 
+-0.400 0 (    void LoadProgram\(char* args\);)A 
+; : 600 771 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 771 M 
+-0.400 0 (  )A 
+; : 652 771 817 32 rc 0 0 0 sco F2_29
+Ji 
+671 771 M 
+-0.400 0 (    void ProgramCounterValue\(char* args\);)A 
+; : 600 803 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 803 M 
+-0.400 0 (  )A 
+; : 652 803 551 32 rc 0 0 0 sco F2_29
+Ji 
+671 803 M 
+-0.400 0 (    void Reset\(char* args\);)A 
+; : 600 835 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 835 M 
+-0.400 0 (  )A 
+; : 652 835 513 32 rc 0 0 0 sco F2_29
+Ji 
+671 835 M 
+-0.400 0 (    void Run\(char* args\);)A 
+; : 600 867 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 867 M 
+-0.400 0 (  )A 
+; : 652 867 665 32 rc 0 0 0 sco F2_29
+Ji 
+671 867 M 
+-0.400 0 (    void SetRegister\(char* args\);)A 
+; : 600 899 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 899 M 
+-0.400 0 (  )A 
+; : 652 899 627 32 rc 0 0 0 sco F2_29
+Ji 
+671 899 M 
+-0.400 0 (    void SetMemory\(char* args\);)A 
+; : 600 931 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 931 M 
+-0.400 0 (  )A 
+; : 652 931 532 32 rc 0 0 0 sco F2_29
+Ji 
+671 931 M 
+-0.400 0 (    void Step\(char* args\);)A 
+; : 600 963 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 963 M 
+-0.400 0 (  )A 
+; : 652 963 76 32 rc 0 0 0 sco F2_29
+Ji 
+671 963 M 
+-0.400 0 (};)A 
+; : 600 995 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 995 M 
+-0.400 0 (  )A 
+; : 652 995 152 32 rc 0 0 0 sco F2_29
+Ji 
+671 995 M 
+-0.400 0 (#endif)A 
+; : 600 1027 80 33 rc 0 0 0 sco F0_29
+Ji 
+620 1027 M 
+-0.400 0 (  )A 
+; : 213 217 1966 2716 rc 
+200 221 N M 1992 2708 rr 8 Lw 0 Lc 0 Lj solid 0 0 0 sco K ; : 2067 2942 216 57 rc 0 0 0 sco %%IncludeFont: Times-Roman
+(F4) cvn
+0.900 
+ (Times-Roman) cvn /Type1 
+T 
+(Times-Roman) cvn
+mF 
+(F4_50) cvn
+F4
+50 
+xF 
+F4_50
+Ji 
+2121 2942 M 
+(45)S 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 16 ]%%)  =
+%%PageTrailer
+
+%%Trailer
+%%DocumentNeededFonts: Helvetica
+%%+ Times-Roman
+%%+ Helvetica-Bold
+%%+ Courier-Bold
+%%+ Courier
+%%DocumentSuppliedFonts: 
+Pscript_Win_Driver_Incr dup /terminate get exec
+savelevel0 restore 
+%%Pages: 16
+(%%[ LastPage ]%%)  =
+%%EOF
+

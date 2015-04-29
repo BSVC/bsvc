@@ -1,0 +1,193 @@
+<HTML>
+<HEAD>
+<TITLE>appa.htm</TITLE>
+<LINK REL="ToC" HREF="httoc.htm">
+<LINK REL="Next" HREF="appb.htm">
+<LINK REL="Previous" HREF="chap3.htm"></HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<HR WIDTH=100% SIZE=6 ALIGN=CENTER>
+<H1 ALIGN="CENTER">
+<CENTER><A ID="I1" NAME="I1">Appendix A  Framework Overview
+<BR></A></CENTER></H1>
+<HR WIDTH=100% SIZE=6 ALIGN=CENTER>
+<P>BSVC provides a framework for writing microprocessor simulators with a set of C++ classes.  This chapter gives an overview of the framework describing the class layout along with the user interface communication protocol.</P><A ID="I2" NAME="I2">
+<BR>
+<FONT SIZE=+2><B>Overview</B></FONT></A>
+<HR SIZE=2 NOSHADE ALIGN=LEFT>
+<P>The framework is as generic as possible to allow simulation of any processor or device. It handles all interaction with the user interface process, provides base classes for common objects, furnishes timed events to simulate interrupts, and manages breakpoints. Figure A-1 shows the framework's layout. All the classes whose names start with 'Basic' are abstract base classes. These base classes are &quot;molds&quot; for the actual classes used in the simulator. For example in the Motorola 68000 simulator the BasicCPU class is the base class for the m68000<B> </B>class. </P>
+<P> 
+<CENTER><IMG SRC="mg29.gif" WIDTH = 633 HEIGHT = 569 ALT="Undisplayed Graphic"></CENTER></P>
+<P ALIGN="CENTER">
+<CENTER><B>FIGURE A-1</B> Framework Layout</CENTER></P><A ID="I3" NAME="I3">
+<BR>
+<FONT SIZE=+2><B>Class Descriptions</B></FONT></A>
+<HR SIZE=2 NOSHADE ALIGN=LEFT>
+<P>This section provides a brief summary describing the purpose of each of the C++ classes in the framework.</P>
+<FONT SIZE=+1><B>AddressSpace</B></FONT>
+<P>This class maintains a collection of attached devices and provides methods to peek and poke into them.  It's not an abstract base class and in most cases used as is. However using it as a super class you could derive a &quot;VirtualAddressSpace&quot; or &quot;CachedAddressSpace&quot; class supporting virtual or cached memory.</P>
+<FONT SIZE=+1><B>BasicCPU</B></FONT>
+<P>This class is the heart of the simulator its main purpose is to execute instructions and handle interrupts.  Most of  the work writing a simulator goes into the &quot;CPU&quot; class derived from this abstract base class.</P>
+<FONT SIZE=+1><B>BasicDevice</B></FONT>
+<P>This abstract base class is the foundation for all devices in the simulator. Its main job is to simulate the device at the register level and provided methods for the AddressSpace to read from and write to the device.</P>
+<FONT SIZE=+1><B>BasicDeviceRegistry</B></FONT>
+<P>This abstract base class is used to derive a class that maintains a list of all the devices in the simulator and allows them to be created.</P>
+<FONT SIZE=+1><B>BasicLoader</B></FONT>
+<P>This abstract base class provides methods to load object files into the simulator. A derived class should load all the object file formats supported by the simulator. The Interface<B> </B>object uses this derived object to load files into the simulator.</P>
+<FONT SIZE=+1><B>BreakpointList</B></FONT>
+<P>The Interface<B> </B>class uses this class to manage a list of breakpoints. This should not have to be modified.</P>
+<FONT SIZE=+1><B>Event</B></FONT>
+<P>This is a nested class in the EventHandler<B> </B>class. Whenever an EventBase derived object (i.e., a device) requests an event an Event<B> </B>object gets added to the EventHandler's<B> </B>delta queue.</P>
+<FONT SIZE=+1><B>EventHandler</B></FONT>
+<P>This class maintains a queue of events requested by EventBase<B> </B>derived objects. Whenever an event times-out the EventBase<B> </B>object's Callback method is executed. Events are useful for simulating regular time interval interrupts. You should not have to modify this class.</P>
+<FONT SIZE=+1><B>Interface</B></FONT>
+<P>This class communicates with the user interface. It provides a standard set of commands allowing the user interface to &quot;wrap&quot; around any simulator written with the BSVC framework. This class should not have to be modified.</P><A ID="I4" NAME="I4">
+<BR>
+<FONT SIZE=+2><B>Communication with the User Interface</B></FONT></A>
+<HR SIZE=2 NOSHADE ALIGN=LEFT>
+<P>The simulator and user interface are two separate processes. The simulator process is a slave process that waits for commands from the user interface process. Whenever the user interacts with the user interface, commands are sent to the simulator to perform the necessary tasks. For example when the &quot;Single Step&quot; button is pressed the user interface sends &quot;Step 1&quot; to the simulator. In response to this command the simulator executes the next instruction.  Listed below in Table A-1 are all the simulator commands.</P>
+<P><B>TABLE A- </B> Simulator Commands</P>
+<TABLE BORDER>
+<TR>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER><B>Command</B></CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER><B>Arguments</B></CENTER></NOTE>
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER><B>Description</B></CENTER></NOTE>
+<TR>
+<TD>AddBreakpoint
+<TD>&lt;addr&gt;
+<TD>Sets a breakpoint at the address
+<TR>
+<TD>AttachDevice
+<TD>&lt;addrspace&gt; &lt;name&gt; &lt;args&gt;
+<TD>Attaches the named device
+<TR>
+<TD>ClearStatistics
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER><I>n/a</I></CENTER></NOTE>
+<TD>Clears any statistics the simulator keeps 
+<TR>
+<TD>DetachDevice
+<TD>&lt;addrspace&gt; &lt;device index&gt;
+<TD>Detaches the indexed device
+<TR>
+<TD>DeleteBreakpoint
+<TD>&lt;addr&gt;
+<TD>Clear the breakpoint at address
+<TR>
+<TD>FillMemoryBlock
+<TD>&lt;addrspace&gt; &lt;addr&gt; &lt;len&gt; &lt;val&gt;
+<TD>Fills the block of memory with the value
+<TR>
+<TD>ListAttachedDevices
+<TD>&lt;addrspace&gt;
+<TD>Lists devices attached to the address space
+<TR>
+<TD>ListBreakpoints
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER><I>n/a</I></CENTER></NOTE>
+<TD>Lists all the breakpoints that are set
+<TR>
+<TD>ListDevices
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER><I>n/a</I></CENTER></NOTE>
+<TD>Lists available devices
+<TR>
+<TD>ListDeviceScript
+<TD>&lt;name&gt;
+<TD>Lists the Tcl script for the named device
+<TR>
+<TD>ListExecutionTraceRecord
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER><I>n/a</I></CENTER></NOTE>
+<TD>Lists the symbolic names in trace records
+<TR>
+<TD>ListDefaultExecutionTraceEntries
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER><I>n/a</I></CENTER></NOTE>
+<TD>Lists the default trace records to display
+<TR>
+<TD>ListGranularity
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER><I>n/a</I></CENTER></NOTE>
+<TD>Granularity in bytes
+<TR>
+<TD>ListMaximumAddress
+<TD>&lt;addrspace&gt;
+<TD>Maximum address of the address space
+<TR>
+<TD>ListMemory
+<TD>&lt;addrspace&gt; &lt;addr&gt; &lt;len&gt;
+<TD>Lists memory contents
+<TR>
+<TD>ListNumberOfAddressSpaces
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER><I>n/a</I></CENTER></NOTE>
+<TD>Number of address spaces
+<TR>
+<TD>ListRegisters
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER><I>n/a</I></CENTER></NOTE>
+<TD>List registers and values
+<TR>
+<TD>ListRegisterValue
+<TD>&lt;register name&gt;
+<TD>Lists value of the named register
+<TR>
+<TD>ListRegisterDescription
+<TD>&lt;register name&gt;
+<TD>Lists a description of the named register
+<TR>
+<TD>ListStatistics
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER>n/a</CENTER></NOTE>
+<TD>Lists any statistics kept by the simulator
+<TR>
+<TD>LoadProgram
+<TD>&lt;addrspace&gt; &lt;filename&gt;
+<TD>Load the named program
+<TR>
+<TD>ProgramCounterValue
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER><I>n/a</I></CENTER></NOTE>
+<TD>Lists the value of the program counter
+<TR>
+<TD>Reset
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER><I>n/a</I></CENTER></NOTE>
+<TD>System reset
+<TR>
+<TD>Run
+<TD>
+<NOTE ALIGN="CENTER">
+<CENTER><I>n/a</I></CENTER></NOTE>
+<TD>Full speed execution
+<TR>
+<TD>SetMemory
+<TD>&lt;addrspace&gt; &lt;addr&gt; &lt;value&gt;
+<TD>Sets the given memory location
+<TR>
+<TD>SetRegister
+<TD>&lt;register name&gt; &lt;value&gt;
+<TD>Sets the named register to the value
+<TR>
+<TD>Step
+<TD>&lt;number&gt;
+<TD>Execute instructions</TABLE>
+<P>This document was produced using an evaluation version of <A HREF="http://www.infoaccess.com/products/transit/httoc.htm">HTML Transit</A></P>
+</BODY></HTML>

@@ -1,0 +1,25 @@
+
+Motorola 68360 Simulator (sim68360)
+===================================
+
+This is Jorand Didier's Motorola 68360 (sim68360) simulator.  It doesn't 
+contain all of the 68360 devices but it does provide a CPU32 based simulator.
+
+Jorand actually uses (used) GCC and GDB to do development work with 
+BSVC.  For more information see the file bsvc/misc/sim68360/gcc-gdb.ps.
+
+Here's a note about using the samples for sim68360:
+
+  Go in the sample/sim68360 directory and play with the tests: IMPORTANT: for 
+  that to work, you need to define 2 environment variables: BSVC20, which 
+  contains the path to the 'bsvc-2.1' directory and 'M68K_LIB' which contains 
+  the path to the vxworks68 libgcc.a directory.  It can look like 
+  '/usr/local/m68k/lib/gcc-lib/vxworks68/2.7.2'. You've got everything to 
+  test gcc and gdb... enjoy.
+
+The following instructions are not currently implemented in sim68360:
+
+CHK
+NBCD
+SBCD
+

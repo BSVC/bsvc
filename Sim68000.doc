@@ -1,0 +1,15 @@
+
+Motorola 68000 Simulator (sim68000)
+===================================
+
+The Windows version of sim68000 does not support the M68681 DUART 
+device.  Hopefully, in a future release M68681 support can be added.
+
+The following instructions are not currently implemented.  I'll be 
+adding support ASAP or if some kind soul sends me some diffs with
+them added it'll probably happen even sooner.
+
+CHK
+NBCD
+SBCD
+

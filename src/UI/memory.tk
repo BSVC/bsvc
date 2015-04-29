@@ -1,0 +1,956 @@
+###############################################################################
+#
+# memory.tk - Routines to handle the memory viewing screen
+#
+# Copyright 1993 
+# Bradford W. Mott
+# November 11,1993
+###############################################################################
+# $Id: memory.tk,v 1.1 1996/08/02 14:57:07 bwmott Exp $
+###############################################################################
+
+###############################################################################
+# Called to (re)initialize the memory viewer system
+###############################################################################
+proc MemoryViewer:Initialize {} {
+  global MemoryViewer
+
+  ## Initialize the address and address space
+  set MemoryViewer(Address) 0
+  set MemoryViewer(AddressSpace) 0
+
+  ## Indicate that the layout information needs to be calculated
+  set MemoryViewer(CalculateLayoutFlag) 1
+
+  ## Refresh myself
+  MemoryViewer:Refresh
+}
+
+###############################################################################
+# Calculates the memory dump's layout
+###############################################################################
+proc MemoryViewer:CalculateLayout {} {
+  global MemoryViewer
+
+  ## Make sure we're not in startup mode
+  if {[GetApplicationMode] != "StartupMode"} {
+
+    ## Find out the largest address and the address length
+    PutLine "ListMaximumAddress $MemoryViewer(AddressSpace)"
+    set MemoryViewer(MaximumAddress) [lindex [GetList] 0]
+    set MemoryViewer(AddressLength) \
+        [string length $MemoryViewer(MaximumAddress)]
+    scan $MemoryViewer(MaximumAddress) "%x" MemoryViewer(MaximumAddress)
+
+    ## Calculate the word length
+    PutLine "ListGranularity"
+    set MemoryViewer(WordLength) [expr [lindex [GetList] 0] * 2]
+
+    ## Get the width and height of the text window
+    set width [.memoryViewer.text cget -width]
+    set height [.memoryViewer.text cget -height]
+
+    ## Calculate the number of words per line
+    set MemoryViewer(WPL) [expr ($width -1 -$MemoryViewer(AddressLength)) \
+        / (1 + $MemoryViewer(WordLength))]
+
+    ## Calculate the number of words per screen
+    set MemoryViewer(WPS) [expr ($height * $MemoryViewer(WPL))]
+
+    ## Indicate that the layout doesn't need to be calculated anymore
+    set MemoryViewer(CalculateLayoutFlag) 0
+  }
+}
+
+###############################################################################
+# Refresh the memory viewer text window
+###############################################################################
+proc MemoryViewer:Refresh {} {
+  global MemoryViewer
+
+  ## Make sure the memory viewer exists
+  if {[winfo exists .memoryViewer] == 0} {return}
+
+  ## If needed calculate the layout information
+  if {$MemoryViewer(CalculateLayoutFlag) == 1} {
+    MemoryViewer:CalculateLayout
+  }
+
+  ## Empty the text widget
+  .memoryViewer.text configure -state normal
+  .memoryViewer.text delete 1.0 end
+  .memoryViewer.text configure -state disabled
+
+  ## Make sure we're not in startup mode
+  if {[GetApplicationMode] == "StartupMode"} {return}
+
+  ## Get the length, address, and words per line in hexidecimal form
+  set length [format "%x" $MemoryViewer(WPS)]
+  set address [format "%x" $MemoryViewer(Address)]
+  set wpl [format "%x" $MemoryViewer(WPL)]
+
+  ## Ask the simulator for the memory dump
+  PutLine "ListMemory $MemoryViewer(AddressSpace) $address $length $wpl"
+
+  ## Put the memory dump in the text widget
+  set address [expr $MemoryViewer(Address)]
+  foreach i [GetList] {
+    set line "[format %0$MemoryViewer(AddressLength)x $address]: $i\n"
+    .memoryViewer.text configure -state normal
+    .memoryViewer.text insert end "$line"
+    .memoryViewer.text configure -state disabled
+    set address [expr $address + $MemoryViewer(WPL)]
+  }
+}
+
+###############################################################################
+# Move the memory viewers address to the given address
+###############################################################################
+proc MemoryViewer:ChangeAddress {address} {
+  global MemoryViewer
+
+  ## Set the memory viewers address to the new address
+  set MemoryViewer(Address) $address
+
+  ## Make sure the new address is within bounds
+  if {[expr $MemoryViewer(Address) + $MemoryViewer(WPS) - 1]  > \
+      $MemoryViewer(MaximumAddress)} {
+    set MemoryViewer(Address) [expr $MemoryViewer(MaximumAddress) - \
+        $MemoryViewer(WPS) + 1]
+  }
+  if {$MemoryViewer(Address) < 0} {
+    set MemoryViewer(Address) 0
+  }
+  MemoryViewer:Refresh
+}
+
+###############################################################################
+# Ask the user for a new address to view 
+###############################################################################
+proc MemoryViewer:ViewFromAddress {} {
+  global MemoryViewer
+
+  ## Ask the user for the new address
+  set value [Tool:EntryDialog .memoryViewer \
+      "Enter address to start viewing from:" {^[0-9a-fA-F]+$}]
+
+  ## If Ok was pressed then change the address
+  if {$value != ""} {
+    scan $value "%x" address
+    MemoryViewer:ChangeAddress $address
+  }
+}
+
+###############################################################################
+# Start viewing memory from the address given by a register the user picks
+###############################################################################
+proc MemoryViewer:ViewFromRegister {} {
+  global MemoryViewer
+
+  ## Set the global return variable to the null string
+  set MemoryViewer(return) ""
+
+  ## Put the application in modal mode
+  set mode [GetApplicationMode]
+  SetApplicationMode "ModalMode"
+
+  ## Make sure the window does not exist
+  catch {destroy .memoryViewer.register}
+
+  ## Create frame to hold register select dialog
+  frame .memoryViewer.register -relief ridge -borderwidth 4
+
+    ## Create a list of registers
+    frame .memoryViewer.register.list
+      scrollbar .memoryViewer.register.list.scroll -relief raised \
+          -command ".memoryViewer.register.list.list yview" \
+          -takefocus 0 -highlightthickness 0
+      listbox .memoryViewer.register.list.list -relief raised \
+          -yscroll ".memoryViewer.register.list.scroll set" \
+          -takefocus 0 -highlightthickness 0
+
+      pack .memoryViewer.register.list.scroll -side left -fill y
+      pack .memoryViewer.register.list.list -side left -fill both -expand 1
+
+      bind .memoryViewer.register.list.list <Double-1> {
+        set MemoryViewer(return) [.memoryViewer.register.list.list get \
+            [lindex [.memoryViewer.register.list.list curselection] 0]]
+        destroy .memoryViewer.register 
+        break 
+      }
+
+    button .memoryViewer.register.ok -text " Ok " -command { 
+          set MemoryViewer(return) [.memoryViewer.register.list.list get \
+              [lindex [.memoryViewer.register.list.list curselection] 0]]
+          destroy .memoryViewer.register  
+        }
+    button .memoryViewer.register.cancel -text "Cancel" -command {
+          set MemoryViewer(return) ""
+          destroy .memoryViewer.register
+        }
+
+    pack .memoryViewer.register.list -side top -expand 1 -fill both \
+        -padx 2 -pady 2
+    pack .memoryViewer.register.ok -side left -expand 1 -fill x
+    pack .memoryViewer.register.cancel -side left -expand 1 -fill x
+
+  ## Tell the simulator to send us the register list
+  PutLine "ListRegisters"
+
+  ## Fill in the listbox and calculate a good size for it
+  set width 8
+  foreach i [GetList] {
+    .memoryViewer.register.list.list insert end $i
+    if {$width < [string length $i]} {
+      set width [expr [string length $i] + 2]
+      .memoryViewer.register.list.list configure -width $width
+    }
+  }
+
+  update idletasks
+  place .memoryViewer.register -relx 0.5 -rely 0.5 \
+      -relheight 0.8 -anchor center
+ 
+  ## Wait for ok or cancel to be pressed
+  tkwait window .memoryViewer.register
+
+  ## If a register was selected then move to the corresponding address
+  if {$MemoryViewer(return) != ""} {
+    ## Get the address to view 
+    scan $MemoryViewer(return) "%s = %x" dummy value 
+
+    ## Change the viewing address
+    MemoryViewer:ChangeAddress $value 
+  }
+
+  ## Reset application mode
+  SetApplicationMode $mode
+} 
+
+###############################################################################
+# Called whenever the user clicks in my text widget.  If they clicked on a
+# memory location then pop up a change memory location dialog on it.
+###############################################################################
+proc MemoryViewer:MouseClickHandler {x y} {
+  global MemoryViewer
+
+  ## Make sure they didn't click on a space
+  if {[.memoryViewer.text get "@$x,$y wordstart" "@$x,$y wordend"] == " "} {
+    return
+  }
+
+  ## Calculate the line and char offset that they clicked on
+  scan [.memoryViewer.text index "@$x,$y"] "%d.%d" line char
+
+  ## See if they clicked on a memory location
+  if {$char > [expr $MemoryViewer(AddressLength) + 1]} {
+
+    set word [expr ($char - $MemoryViewer(AddressLength) - 1) / \
+        (1 + $MemoryViewer(WordLength))]
+
+    set address [expr $MemoryViewer(Address) + \
+        ($MemoryViewer(WPL) * ($line - 1)) + $word]
+    set address [format "%x" $address]
+ 
+    ## Now, call change memory location to handle all of the user input
+    MemoryViewer:ChangeMemoryLocation $address
+  } 
+}
+
+###############################################################################
+# This procedure answers the closest power of two which is less than or equal 
+# to the number of memory words that can be displayed on a line with the
+# given line width
+###############################################################################
+proc MemoryViewer:CalculateWordsPerLine {line_width} {
+  global MemoryViewer
+
+  set usable_width [expr $line_width - 1 - $MemoryViewer(AddressLength)]
+  set wpl [expr floor($usable_width / (1 + $MemoryViewer(WordLength)))]
+ 
+  ## Answer the power of 2 that's less than or equal to the calculated wpl
+  return [expr int(pow(2,floor(log($wpl)/log(2))))]
+}
+
+###############################################################################
+# Allows the user to specify a block of memory to be fill with a value
+###############################################################################
+proc MemoryViewer:FillMemoryLocation {} {
+  global MemoryViewer
+
+  ## Set the global return variable to the null string
+  set MemoryViewer(return) ""
+
+  ## Put application in modal mode
+  set mode [GetApplicationMode]
+  SetApplicationMode ModalMode
+
+  ## Frame to hold the dialog box
+  frame .memoryViewer.fillMemory -relief raised -borderwidth 3 
+
+    label .memoryViewer.fillMemory.title -text "Fill Memory Block:"
+
+    frame .memoryViewer.fillMemory.address -relief sunken -borderwidth 2 
+      label .memoryViewer.fillMemory.address.label -text "Starting Address:"
+      entry .memoryViewer.fillMemory.address.entry -width 10 -relief sunken
+      bind .memoryViewer.fillMemory.address.entry <Return> {
+        focus .memoryViewer.fillMemory.length.entry
+      }
+
+      pack .memoryViewer.fillMemory.address.label -side left -padx 4 -pady 2
+      pack .memoryViewer.fillMemory.address.entry -side left \
+           -fill x -expand 1 -padx 2 -pady 2
+
+    frame .memoryViewer.fillMemory.length -relief sunken -borderwidth 2 
+      label .memoryViewer.fillMemory.length.label -text "Length:"
+      entry .memoryViewer.fillMemory.length.entry -width 10 -relief sunken
+      bind .memoryViewer.fillMemory.length.entry <Return> {
+        focus .memoryViewer.fillMemory.value.entry
+      }
+
+      pack .memoryViewer.fillMemory.length.label -side left -padx 4 -pady 2
+      pack .memoryViewer.fillMemory.length.entry -side left \
+           -fill x -expand 1 -padx 2 -pady 2
+
+    frame .memoryViewer.fillMemory.value -relief sunken -borderwidth 2 
+      label .memoryViewer.fillMemory.value.label -text "Value:"
+      entry .memoryViewer.fillMemory.value.entry -width 10 -relief sunken
+      bind .memoryViewer.fillMemory.value.entry <Return> {
+        set MemoryViewer(return) \
+            "[.memoryViewer.fillMemory.address.entry get] \
+             [.memoryViewer.fillMemory.length.entry get] \
+             [.memoryViewer.fillMemory.value.entry get]"
+        if {[regexp {^[0-9a-fA-F]+[ ]+[0-9a-fA-F]+[ ]+[0-9a-fA-F]+$} \
+            $MemoryViewer(return)] != 0} {
+          destroy .memoryViewer.fillMemory
+        } else {
+          bell
+        }
+      }
+
+      pack .memoryViewer.fillMemory.value.label -side left -padx 4 -pady 2
+      pack .memoryViewer.fillMemory.value.entry -side left \
+           -fill x -expand 1 -padx 2 -pady 2
+
+    frame .memoryViewer.fillMemory.buttons
+      button .memoryViewer.fillMemory.buttons.ok -text "Ok" \
+          -command {
+            set MemoryViewer(return) \
+                "[.memoryViewer.fillMemory.address.entry get] \
+                 [.memoryViewer.fillMemory.length.entry get] \
+                 [.memoryViewer.fillMemory.value.entry get]"
+            if {[regexp {^[0-9a-fA-F]+[ ]+[0-9a-fA-F]+[ ]+[0-9a-fA-F]+$} \
+                $MemoryViewer(return)] != 0} {
+              destroy .memoryViewer.fillMemory
+            } else {
+              bell
+            }
+          }
+      button .memoryViewer.fillMemory.buttons.cancel -text "Cancel" \
+          -command {
+            set MemoryViewer(return) ""
+            destroy .memoryViewer.fillMemory
+          }
+
+      pack .memoryViewer.fillMemory.buttons.ok -side left \
+          -expand 1 -fill x -padx 4
+      pack .memoryViewer.fillMemory.buttons.cancel -side right \
+          -expand 1 -fill x -padx 4
+
+    pack .memoryViewer.fillMemory.title -side top -fill both -pady 4 -padx 4
+    pack .memoryViewer.fillMemory.address -side top -fill both -pady 4 -padx 4
+    pack .memoryViewer.fillMemory.length -side top -fill both -pady 4 -padx 4
+    pack .memoryViewer.fillMemory.value -side top -fill both -pady 4 -padx 4
+    pack .memoryViewer.fillMemory.buttons -side top -fill both -pady 4
+
+  update idletasks
+
+  ## Place the change memory dialog
+  place .memoryViewer.fillMemory -relx 0.5 -rely 0.5 -anchor center
+
+  ## Set the focus to the correct entry widget
+  focus .memoryViewer.fillMemory.address.entry
+
+  ## Wait for Ok or Cancel to be pressed
+  tkwait window .memoryViewer.fillMemory
+
+  ## Reset application mode
+  SetApplicationMode $mode
+
+  ## If Ok was pressed then handle the dump if the addrsses are correct
+  if {$MemoryViewer(return) != ""} {
+
+    ## Parse the starting and ending addresses
+    scan "$MemoryViewer(return)" "%s %s %s" addr length value
+
+    ## Tell the simulator to set the memory location
+    PutLine "FillMemoryBlock $MemoryViewer(AddressSpace) $addr $length $value"
+    set result [GetList]
+
+    ## If an error was returned then report it to the user
+    if {[llength $result] != 0} {
+      Tool:AlertDialog .memoryViewer [lindex $result 0] 
+    }
+
+    ## Refresh myself
+    MemoryViewer:Refresh
+  }
+}
+
+###############################################################################
+# Allows the user to change a specified address to a new value.  You can
+# pass an optional argument to this procedure which will be used as a default
+# for the address entry widget.
+###############################################################################
+proc MemoryViewer:ChangeMemoryLocation args {
+  global MemoryViewer
+
+  ## Make sure the correct number of arguments were passed in
+  if {[llength $args] != 0 && [llength $args] != 1} {
+    tkerror "Incorrect arguments to MemoryViewer:ChangeMemoryLocation!"
+  }
+
+  ## Set address to the optional argument if it exists
+  if {[llength $args] == 1} {
+    set address [lindex $args 0]
+  } else {
+    set address ""
+  }
+
+  ## Set the global return variable to the null string
+  set MemoryViewer(return) ""
+
+  ## Put application in modal mode
+  set mode [GetApplicationMode]
+  SetApplicationMode ModalMode
+
+  ## Frame to hold the dialog box
+  frame .memoryViewer.changeMemory -relief raised -borderwidth 3 
+
+    label .memoryViewer.changeMemory.title -text "Change Memory Location:"
+
+    frame .memoryViewer.changeMemory.address -relief sunken -borderwidth 2 
+      label .memoryViewer.changeMemory.address.label -text "Address:"
+      entry .memoryViewer.changeMemory.address.entry -width 10 -relief sunken
+      bind .memoryViewer.changeMemory.address.entry <Return> {
+        focus .memoryViewer.changeMemory.value.entry
+      }
+
+      ## If an optional address was passed in then make it the default
+      if {$address != ""} {
+        .memoryViewer.changeMemory.address.entry insert end $address
+      }
+
+      pack .memoryViewer.changeMemory.address.label -side left -padx 4 -pady 2
+      pack .memoryViewer.changeMemory.address.entry -side left \
+           -fill x -expand 1 -padx 2 -pady 2
+
+    frame .memoryViewer.changeMemory.value -relief sunken -borderwidth 2 
+      label .memoryViewer.changeMemory.value.label -text "Value:"
+      entry .memoryViewer.changeMemory.value.entry -width 10 -relief sunken
+      bind .memoryViewer.changeMemory.value.entry <Return> {
+        set MemoryViewer(return) \
+            "[.memoryViewer.changeMemory.address.entry get] \
+             [.memoryViewer.changeMemory.value.entry get]"
+        if {[regexp {^[0-9a-fA-F]+[ ]+[0-9a-fA-F]+$} \
+            $MemoryViewer(return)] != 0} {
+          destroy .memoryViewer.changeMemory
+        } else {
+          bell
+        }
+      }
+
+      pack .memoryViewer.changeMemory.value.label -side left -padx 4 -pady 2
+      pack .memoryViewer.changeMemory.value.entry -side left \
+           -fill x -expand 1 -padx 2 -pady 2
+
+    frame .memoryViewer.changeMemory.buttons
+      button .memoryViewer.changeMemory.buttons.ok -text "Ok" \
+          -command {
+            set MemoryViewer(return) \
+                "[.memoryViewer.changeMemory.address.entry get] \
+                 [.memoryViewer.changeMemory.value.entry get]"
+            if {[regexp {^[0-9a-fA-F]+[ ]+[0-9a-fA-F]+$} \
+                $MemoryViewer(return)] != 0} {
+              destroy .memoryViewer.changeMemory
+            } else {
+              bell
+            }
+          }
+      button .memoryViewer.changeMemory.buttons.cancel -text "Cancel" \
+          -command {
+              set MemoryViewer(return) ""
+              destroy .memoryViewer.changeMemory
+          }
+
+      pack .memoryViewer.changeMemory.buttons.ok -side left \
+          -expand 1 -fill x -padx 4
+      pack .memoryViewer.changeMemory.buttons.cancel -side right \
+          -expand 1 -fill x -padx 4
+
+    pack .memoryViewer.changeMemory.title -side top -fill both -pady 4 -padx 4
+    pack .memoryViewer.changeMemory.address -side top -fill both -pady 4 -padx 4
+    pack .memoryViewer.changeMemory.value -side top -fill both -pady 4 -padx 4
+    pack .memoryViewer.changeMemory.buttons -side top -fill both -pady 4
+
+  update idletasks
+
+  ## Place the change memory dialog
+  place .memoryViewer.changeMemory -relx 0.5 -rely 0.5 -anchor center
+
+  ## Set the focus to the correct entry widget
+  if {$address != ""} {
+    focus .memoryViewer.changeMemory.value.entry
+  } else {
+    focus .memoryViewer.changeMemory.address.entry
+  }
+
+  ## Wait for Ok or Cancel to be pressed
+  tkwait window .memoryViewer.changeMemory
+
+  ## Reset application mode
+  SetApplicationMode $mode
+
+  ## If Ok was pressed then handle the dump if the addresses are correct
+  if {$MemoryViewer(return) != ""} {
+
+    ## Parse the starting and ending addresses
+    scan "$MemoryViewer(return)" "%s %s" address value
+
+    ## Tell the simulator to set the memory location
+    PutLine "SetMemory $MemoryViewer(AddressSpace) $address $value"
+    set result [GetList]
+
+    ## If an error was returned then report it to the user
+    if {[llength $result] != 0} {
+      Tool:AlertDialog .memoryViewer [lindex $result 0] 
+    }
+
+    ## Refresh myself
+    MemoryViewer:Refresh
+  }
+}
+
+###############################################################################
+# This procedure asks the user for a range of memory locations to dump
+# to a file that they get to select
+###############################################################################
+proc MemoryViewer:DumpMemoryRange {} {
+  global MemoryViewer
+
+  ## Set the global return variable to the null string
+  set MemoryViewer(return) ""
+
+  ## Put application in modal mode
+  set mode [GetApplicationMode]
+  SetApplicationMode ModalMode
+
+  ## Frame to hold the dialog box
+  frame .memoryViewer.dumpDialog -relief raised -borderwidth 3 
+ 
+    label .memoryViewer.dumpDialog.title -text "Dump Memory to File:"
+
+    frame .memoryViewer.dumpDialog.start -relief sunken -borderwidth 2 
+      label .memoryViewer.dumpDialog.start.label -text "Starting Address:"
+      entry .memoryViewer.dumpDialog.start.entry -width 10 -relief sunken
+      bind .memoryViewer.dumpDialog.start.entry <Return> {
+        focus .memoryViewer.dumpDialog.end.entry
+      }
+
+      pack .memoryViewer.dumpDialog.start.label -side left -padx 4 -pady 2
+      pack .memoryViewer.dumpDialog.start.entry -side left \
+           -fill x -expand 1 -padx 2 -pady 2
+
+    frame .memoryViewer.dumpDialog.end -relief sunken -borderwidth 2 
+      label .memoryViewer.dumpDialog.end.label -text "Ending Address:"
+      entry .memoryViewer.dumpDialog.end.entry -width 10 -relief sunken
+      bind .memoryViewer.dumpDialog.end.entry <Return> {
+        set MemoryViewer(return) \
+            "[.memoryViewer.dumpDialog.start.entry get] \
+             [.memoryViewer.dumpDialog.end.entry get]"
+        if {[regexp {^[0-9a-fA-F]+[ ]+[0-9a-fA-F]+$} \
+            $MemoryViewer(return)] != 0} {
+          destroy .memoryViewer.dumpDialog
+        } else {
+          bell
+        }
+      }
+
+      pack .memoryViewer.dumpDialog.end.label -side left -padx 4 -pady 2
+      pack .memoryViewer.dumpDialog.end.entry -side left \
+           -fill x -expand 1 -padx 2 -pady 2
+
+    frame .memoryViewer.dumpDialog.buttons
+      button .memoryViewer.dumpDialog.buttons.ok -text "Ok" \
+          -command {
+            set MemoryViewer(return) \
+                "[.memoryViewer.dumpDialog.start.entry get] \
+                 [.memoryViewer.dumpDialog.end.entry get]"
+            if {[regexp {^[0-9a-fA-F]+[ ]+[0-9a-fA-F]+$} \
+                $MemoryViewer(return)] != 0} {
+              destroy .memoryViewer.dumpDialog
+            } else {
+              bell
+            }
+          }
+      button .memoryViewer.dumpDialog.buttons.cancel -text "Cancel" \
+          -command {
+              set MemoryViewer(return) ""
+              destroy .memoryViewer.dumpDialog
+          }
+      pack .memoryViewer.dumpDialog.buttons.ok -side left \
+          -expand 1 -fill x -padx 4
+      pack .memoryViewer.dumpDialog.buttons.cancel -side right -expand 1 \
+          -fill x -padx 4
+
+    pack .memoryViewer.dumpDialog.title -side top -fill both -pady 4 -padx 4
+    pack .memoryViewer.dumpDialog.start -side top -fill both -pady 4 -padx 4
+    pack .memoryViewer.dumpDialog.end -side top -fill both -pady 4 -padx 4
+    pack .memoryViewer.dumpDialog.buttons -side top -fill both -pady 4
+
+  update idletasks
+
+  ## Place the dump dialog
+  place .memoryViewer.dumpDialog -relx 0.5 -rely 0.5 -anchor center
+
+  ## Wait for Ok or Cancel to be pressed
+  focus .memoryViewer.dumpDialog.start.entry
+  tkwait window .memoryViewer.dumpDialog
+
+  ## Reset application mode
+  SetApplicationMode $mode
+
+  ## If Ok was pressed then handle the dump if the addresses are correct
+  if {$MemoryViewer(return) != ""} {
+
+    ## Parse the starting and ending addresses
+    scan "$MemoryViewer(return)" "%x %x" start end
+
+    ## Make sure the address range is valid
+    if {($start < 0) || ($end > $MemoryViewer(MaximumAddress)) || \
+        ($start > $end)} {
+      Tool:AlertDialog .memoryViewer \
+          "The address range you specified is not valid!"
+      return
+    }
+
+    ## Let the user enter a filename using the file selector    
+    set name [Tool:SaveFileSelector -parent .memoryViewer \
+        -title "Select file to write the memory dump to:"]
+
+    ## Make sure the user selected a file
+    if {$name != ""} {
+ 
+      ## Make sure they didn't select a directory name
+      if {[file isdirectory $name]} {
+        Tool:AlertDialog .memoryViewer \
+            "ERROR: The specified name is a directory!!!"
+        return
+      }
+
+      set mode "w+"
+
+      ## If tk_getSaveFile not available then ask user what to do about file
+      if {[info commands tk_getSaveFile] == ""} {
+        ## If the file exists ask user for writing mode otherwise use overwrite
+        if {[file exists $name]} {
+          switch -exact [Tool:GetWritingMode .memoryViewer {overwrite append}] {
+            overwrite {set mode "w+"}
+            append    {set mode "a+"}
+            default   {return}
+          } 
+        }
+      }
+ 
+      ## Calculate the words per line for an 80 column text file
+      set words_per_line [MemoryViewer:CalculateWordsPerLine 80]
+
+      ## Get the length, address, and words_per_line in base 16
+      set length [format "%x" [expr $end - $start + 1]]
+      set address [format "%x" $start]
+      set wpl [format "%x" $words_per_line]
+
+      ## Open the output file
+      if {[catch {open $name $mode} file] != 0} {
+        Tool:AlertDialog .memoryViewer \
+            "ERROR: Couldn't open $name for writing!!!"
+        return
+      } 
+
+      ## Ask simulator for memory dump
+      PutLine "ListMemory $MemoryViewer(AddressSpace) $address $length $wpl"
+
+      ## Output a small title to the file
+      puts $file "Memory Dump"
+      puts $file "==========="
+      puts $file ""
+
+      ## Output the memory dump to the file
+      set address $start
+      foreach i [GetList] {
+        set line "[format %0$MemoryViewer(AddressLength)x $address]: $i"
+        puts $file $line
+        set address [expr $address + $words_per_line]
+      }
+      puts $file ""
+
+      close $file 
+    }
+  }
+} 
+
+###############################################################################
+# Move the memory viewer's address up a line
+###############################################################################
+proc MemoryViewer:Up {} {
+  global MemoryViewer
+
+  ## Calculate the new address and change the current address to it
+  MemoryViewer:ChangeAddress [expr $MemoryViewer(Address) - $MemoryViewer(WPL)]
+
+  ## Tell Tk to update the display
+  update idletasks
+}
+
+###############################################################################
+# Move the memory viewer's address down a line
+###############################################################################
+proc MemoryViewer:Down {} {
+  global MemoryViewer
+
+  ## Calculate the new address and change the current address to it
+  MemoryViewer:ChangeAddress [expr $MemoryViewer(Address) + $MemoryViewer(WPL)]
+
+  ## Tell Tk to update the display
+  update idletasks
+}
+
+###############################################################################
+# Move the memory viewer's address up an entire screen
+###############################################################################
+proc MemoryViewer:PageUp {} {
+  global MemoryViewer
+
+  ## Calculate the new address and change the current address to it
+  MemoryViewer:ChangeAddress [expr $MemoryViewer(Address) - $MemoryViewer(WPS)]
+
+  ## Tell Tk to update the display
+  update idletasks
+}
+
+###############################################################################
+# Move the memory viewer's address down an entire screen
+###############################################################################
+proc MemoryViewer:PageDown {} {
+  global MemoryViewer
+
+  ## Calculate the new address and change the current address to it
+  MemoryViewer:ChangeAddress [expr $MemoryViewer(Address) + $MemoryViewer(WPS)]
+
+  ## Tell Tk to update the display
+  update idletasks
+}
+
+###############################################################################
+# Set widgets to the correct application mode
+###############################################################################
+proc MemoryViewer:SetApplicationMode {mode} {
+  global MemoryViewer
+
+  ## Make sure the memory viewer exists
+  if {[winfo exists .memoryViewer] == 0} {return}
+
+  ## The memory viewer can always be closed
+  bind .memoryViewer <Control-w> {MemoryViewer:Close; break}
+
+  ## Set the state of the widgets based on the application mode
+  if {$mode == "SimulationMode"} {
+    .memoryViewer.menubar.file.menu entryconfigure \
+        "Dump...  " -state normal
+    .memoryViewer.menubar.view.menu entryconfigure \
+        "From Address...  " -state normal
+    .memoryViewer.menubar.view.menu entryconfigure \
+        "From Start of Memory  " -state normal
+    .memoryViewer.menubar.view.menu entryconfigure \
+        "From Register...  " -state normal
+    .memoryViewer.menubar.edit.menu entryconfigure \
+        "Change Memory Location...  " -state normal
+    .memoryViewer.menubar.edit.menu entryconfigure \
+        "Fill Memory Block...  " -state normal
+
+    .memoryViewer.text configure -state disabled
+
+    .memoryViewer.menubar.up configure -state normal
+    .memoryViewer.menubar.down configure -state normal
+    .memoryViewer.menubar.pageUp configure -state normal
+    .memoryViewer.menubar.pageDown configure -state normal
+
+    bind .memoryViewer <Control-d> {MemoryViewer:DumpMemoryRange; break}
+    bind .memoryViewer <Control-a> {MemoryViewer:ViewFromAddress; break}
+    bind .memoryViewer <Control-s> {MemoryViewer:ChangeAddress 0; break}
+    bind .memoryViewer <Control-c> {MemoryViewer:ChangeMemoryLocation; break}
+    bind .memoryViewer <Control-r> {MemoryViewer:ViewFromRegister; break}
+    bind .memoryViewer <Control-f> {MemoryViewer:FillMemoryLocation; break}
+
+    bind .memoryViewer <Up> {MemoryViewer:Up; break}
+    bind .memoryViewer <Down> {MemoryViewer:Down; break}
+    bind .memoryViewer <Prior> {MemoryViewer:PageUp; break}
+    bind .memoryViewer <Next> {MemoryViewer:PageDown; break}
+
+    bind .memoryViewer.text <Button-1> \
+        {MemoryViewer:MouseClickHandler %x %y; break}
+  } else { ## StartupMode, ModalMode, and RunningMode
+
+    ## If we're in startup mode then re-initialize
+    if {$mode == "StartupMode"} {
+      MemoryViewer:Initialize
+    }
+
+    .memoryViewer.menubar.file.menu entryconfigure \
+        "Dump...  " -state disabled
+    .memoryViewer.menubar.view.menu entryconfigure \
+        "From Address...  " -state disabled
+    .memoryViewer.menubar.view.menu entryconfigure \
+        "From Start of Memory  " -state disabled
+    .memoryViewer.menubar.view.menu entryconfigure \
+        "From Register...  " -state disabled
+    .memoryViewer.menubar.edit.menu entryconfigure \
+        "Change Memory Location...  " -state disabled
+    .memoryViewer.menubar.edit.menu entryconfigure \
+        "Fill Memory Block...  " -state disabled
+
+    .memoryViewer.text configure -state disabled
+    .memoryViewer.menubar.up configure -state disabled
+    .memoryViewer.menubar.down configure -state disabled
+    .memoryViewer.menubar.pageUp configure -state disabled
+    .memoryViewer.menubar.pageDown configure -state disabled
+
+    bind .memoryViewer <Control-d> {break}
+    bind .memoryViewer <Control-a> {break}
+    bind .memoryViewer <Control-s> {break}
+    bind .memoryViewer <Control-c> {break}
+    bind .memoryViewer <Control-r> {break}
+    bind .memoryViewer <Control-f> {break}
+
+    bind .memoryViewer <Up> {break}
+    bind .memoryViewer <Down> {break}
+    bind .memoryViewer <Prior> {break}
+    bind .memoryViewer <Next> {break}
+
+    bind .memoryViewer.text <Button-1> "break"
+  }
+}
+
+###############################################################################
+# Create and display the memory viewer window
+###############################################################################
+proc MemoryViewer:Open {} {
+  global Program
+  global MemoryViewer
+
+  ## Make sure the memory viewer window does not already exist
+  if {[winfo exists .memoryViewer] == 1} {
+    wm deiconify .memoryViewer
+    return
+  }
+
+  ## Create the top level window
+  toplevel .memoryViewer
+  wm title .memoryViewer "BSVC: Memory Viewer"
+  wm iconname .memoryViewer "Memory Viewer"
+  wm iconbitmap .memoryViewer "@$Program(BitmapDir)/memicon.xbm"
+  wm resizable .memoryViewer 0 0
+
+  ## Create the menu bar
+  frame .memoryViewer.menubar -relief raised -borderwidth 2
+
+    ## File menu
+    menubutton .memoryViewer.menubar.file -text "File" \
+        -menu .memoryViewer.menubar.file.menu
+      menu .memoryViewer.menubar.file.menu -tearoff 0
+        .memoryViewer.menubar.file.menu add command \
+            -label "Dump...  " -accelerator "Ctrl-D" \
+            -command {MemoryViewer:DumpMemoryRange}
+        .memoryViewer.menubar.file.menu add separator
+        .memoryViewer.menubar.file.menu add command \
+            -label "Close  " -accelerator "Ctrl-W" \
+            -command {MemoryViewer:Close}
+
+    ## Edit menu
+    menubutton .memoryViewer.menubar.edit -text "Edit" \
+        -menu .memoryViewer.menubar.edit.menu
+      menu .memoryViewer.menubar.edit.menu -tearoff 0
+        .memoryViewer.menubar.edit.menu add command \
+            -label "Change Memory Location...  " -accelerator "Ctrl-C" \
+            -command {MemoryViewer:ChangeMemoryLocation}
+        .memoryViewer.menubar.edit.menu add command \
+            -label "Fill Memory Block...  " -accelerator "Ctrl-F" \
+            -command {MemoryViewer:FillMemoryLocation}
+
+    ## View menu
+    menubutton .memoryViewer.menubar.view -text "View" \
+        -menu .memoryViewer.menubar.view.menu
+      menu .memoryViewer.menubar.view.menu -tearoff 0
+        .memoryViewer.menubar.view.menu add command \
+            -label "From Address...  " -accelerator "Ctrl-A" \
+            -command {MemoryViewer:ViewFromAddress}
+        .memoryViewer.menubar.view.menu add command \
+            -label "From Start of Memory  " -accelerator "Ctrl-S" \
+            -command {MemoryViewer:ChangeAddress 0}
+        .memoryViewer.menubar.view.menu add command \
+            -label "From Register...  " -accelerator "Ctrl-R" \
+            -command {MemoryViewer:ViewFromRegister}
+
+    ## Movement buttons
+    button .memoryViewer.menubar.up \
+        -bitmap @$Program(BitmapDir)/Up.xbm -borderwidth 1 -width 26 \
+        -command {MemoryViewer:Up}
+    button .memoryViewer.menubar.down \
+        -bitmap @$Program(BitmapDir)/Down.xbm -borderwidth 1 -width 26 \
+        -command {MemoryViewer:Down}
+    button .memoryViewer.menubar.pageUp \
+        -bitmap @$Program(BitmapDir)/PageUp.xbm -borderwidth 1 -width 26 \
+        -command {MemoryViewer:PageUp}
+    button .memoryViewer.menubar.pageDown \
+        -bitmap @$Program(BitmapDir)/PageDown.xbm -borderwidth 1 -width 26 \
+        -command {MemoryViewer:PageDown}
+
+    pack .memoryViewer.menubar.file -side left
+    pack .memoryViewer.menubar.edit -side left
+    pack .memoryViewer.menubar.view -side left
+    pack .memoryViewer.menubar.pageDown -side right
+    pack .memoryViewer.menubar.pageUp -side right
+    pack .memoryViewer.menubar.down -side right
+    pack .memoryViewer.menubar.up -side right
+
+  ## Create the text widget to display memory dump in
+  text .memoryViewer.text -relief raised -borderwidth 2 \
+      -cursor left_ptr -takefocus 0 -highlightthickness 0 -state disabled \
+      -setgrid 1 -wrap none
+
+  bind .memoryViewer.text <Any-KeyPress> "break"
+  bind .memoryViewer.text <Any-ButtonPress> "break"
+  bind .memoryViewer.text <Any-Motion> "break"
+  bind .memoryViewer.text <Any-Leave> "break"
+  bind .memoryViewer.text <Any-Enter> "break"
+
+  pack .memoryViewer.menubar -side top -fill x
+  pack .memoryViewer.text -side top -fill both -expand 1
+
+  ## Set the widget to their correct state
+  MemoryViewer:SetApplicationMode [GetApplicationMode]
+
+  ## Refresh the text widget
+  MemoryViewer:Refresh
+}
+
+###############################################################################
+# Close the memory viewer window
+###############################################################################
+proc MemoryViewer:Close {} {
+  catch {destroy .memoryViewer}
+}
+
+## Go ahead an initialize memory viewer system upon loading
+MemoryViewer:Initialize
+

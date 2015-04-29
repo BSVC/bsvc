@@ -1,0 +1,7 @@
+BSVC Simulator Setup File
+
+UI_VERSION {2.0}
+SIMULATOR {sim68000}
+COMMAND {AttachDevice 0 RAM {BaseAddress = 0 Size = 10000}}
+COMMAND {AttachDevice 0 M68681 {BaseAddress = effc00 OffsetToFirstRegister = 1 OffsetBetweenRegisters = 2 InterruptLevel = 4 PortAStandardInputOutputFlag = 0 PortBStandardInputOutputFlag = 0 PortACommand = xterm -T "Port A" -n "Port A" -fn fixed -e xtermpipe PortBCommand = }}
+COMMAND {AttachDevice 0 GdbSocket {BaseAddress = e0000 PortNumber = 4545}}

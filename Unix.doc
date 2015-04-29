@@ -1,0 +1,71 @@
+
+BSVC "A Microprocessor Simulation Framework"
+============================================
+
+I've tested BSVC under the following operating systems:
+
+    Linux  2.x
+    Solaris (SunOS 5.5.1)
+
+The makefiles for these system should work.  I'm sure there are still 
+bugs in BSVC so if you find any please let me know.
+
+Installation
+============
+
+1) Edit the Makefile.common in the bsvc/src directory
+
+     - Change PROJECT_BASE to where you have untarred the BSVC
+       package
+
+     - Change INSTALL_DIR to where you want the BSVC executables
+       installed. (I usually install them in bsvc/bin)
+
+     - Change WISH to the path/filename of the Tcl/Tk "wish"
+       executable.  If you don't know where wish is then try
+       'which wish' and see if it's in your path anywhere.
+
+     - Change WWW_BROWSER to be your web browser of choice.  If
+       your not on the net then just leave this blank.
+       
+2) Build the BSVC executables:
+
+     - Choose the correct makefile for your system and do:
+
+         make -f Makefile.your_os     (e.g for Linux use Makefile.linux)
+
+     - If there is no makefile for your system then you'll have to make
+       one yourself.  If you do then please send it to me so I can include
+       it in the distribution.
+
+3) Install the BSVC executable:
+
+     - To install the BSVC executables do:
+
+         make -f Makefile.your_os install
+
+
+Testing the installation
+========================
+
+After you have built the programs there are some sample setups and programs
+for the Motorola 68000 simulator in the bsvc/samples/m68000 directory.
+
+Just cd to the bsvc/bin directory and type 'bsvc' to start the user interface.
+Then choose "File / Open Setup..." and select the "serial.setup" in the 
+bsvc/samples/m68000 directory.  After the system starts up choose 
+"File / Load Program..." and load the "tutor.h68" program.  Press "Reset"
+and then press "Run" in about 10 seconds you should see "TUTOR >" in the
+xterm that appeared.
+
+I would suggest adding the bsvc/bin directory to your PATH if you're going
+to be using it very often.
+
+There's a postscript version of the user manual in the bsvc/doc/manual
+directory.
+
+If you have any questions or comments send me email at:
+
+  bwmott@acm.org
+
+

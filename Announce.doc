@@ -1,0 +1,122 @@
+===============================================================================
+
+  BBBBBB   SSSSS  VVV VVV  CCCCC
+   BB  BB SS   SS VV  VV  CC   CC
+   BB  BB SS      VV  VV  CC     
+   BBBBB   SSSSS  VV  VV  CC       -- "A Microprocessor Simulation Framework"
+   BB  BB      SS VV  VV  CC   
+   BB  BB SS   SS  VVVV   CC   CC                  Release 2.1              
+  BBBBBB   SSSSS    VV     CCCCC 
+
+===============================================================================
+
+BSVC is a microprocessor simulation framework written in C++ and Tcl/Tk.
+It was developed as a senior design project at North Carolina State
+University by Bradford W. Mott.  Since its original development many
+professors and students have found BSVC to be a useful tool in courses
+based on the Motorola 68000.  It has also been used as a starting point
+for other senior design projects.
+
+BSVC was originally written for Unix, however, it has been ported to 
+Windows.  The Windows version has the same features as the Unix version 
+except the Motorola 68000 simulator does not support the M68681 Dual UART.
+
+The BSVC distribution contains the following:
+
+  * Motorola 68000 simulator & assembler (Supports the M68681 Dual UART)
+
+  * Motorola 68360 simulator (CPU32 like simulator)
+
+  * BSVC Graphical User Interface (written in Tcl/Tk)
+
+  * BSVC Simulator Framework (C++ classes)
+
+Changes
+=======
+
+The following changes have been made:
+
+ 2.0 to 2.1:
+ 
+    a) Some minor changes were made to the user interface to support
+       Tcl/Tk 8.0
+
+    b) Some minor changes were made to the C++ code to support compiling
+       with GCC 2.8.1
+
+    c) Jorand Didier's Motorola 68360 (sim68360) simulator has been added 
+       to the distribution.  It doesn't contain all of the 68360 devices 
+       but it does provide a CPU32 based simulator.
+
+    d) Xavier Plasencia's timer device has been added to the 68000
+       simulator (modeled after the 68230 PI/T timer)
+
+    e) Fixed a bug with the MOVEA instruction in the Motorola simulators
+
+    f) Added support for the ABCD and MOVEP instructions to the
+       Motorola simulators
+
+    g) Fixed bug in 68000 assembler when using $FFFF as an immediate 
+       operand
+
+    h) Modified user interface so that it works with Windows 95, Windows 98,
+       and Windows NT
+
+ 2.0 Beta 1 to 2.0:
+
+    a) Modified the BSVC C++ framework to use "standard" C++ libraries
+       (STL).  Most of this work was done by Seunghee Lee so the 
+       framework could be ported to Windows 95.  
+
+    b) Some minor changes were made to the user interface to support
+       running it under Tcl/Tk for Windows 95.  This work was done
+       by Seunghee Lee.
+
+    c) Modified Sim68000 to work with the new version of the C++ framework
+
+    d) Removed the Hector 1600 and MIL-STD-1750A simulators until they
+       can be ported to the new framework
+
+    e) Fixed a problem with the predecrement and postincrement addressing
+       modes when the stack pointer and a byte size operation was specified
+       
+Supported Systems
+=================
+
+The BSVC distribution is known to compile on the following systems:
+
+  * Linux 2.x
+  * Solaris
+  * Windows 95, 98, and NT
+
+Required Software
+=================
+
+BSVC requires the following software to compile and run:
+
+  * ANSI C++ compiler with the STL library (gcc 2.7.2)
+
+  * Tcl 7.5 and Tk 4.1
+
+Distribution Site
+================= 
+
+The BSVC distribution can be downloaded from the BSVC home page at:
+
+  http://www2.ncsu.edu/eos/service/ece/project/bsvc/www/
+
+or from:
+
+  ftp://sunsite.unc.edu/pub/Linux/System/Emulators/
+
+Contacts
+========
+
+For more information see the BSVC home page at:
+
+  http://www2.ncsu.edu/eos/service/ece/project/bsvc/www/
+
+If you have any questions regarding BSVC send mail to:
+
+  bwmott@acm.org
+

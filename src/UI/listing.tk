@@ -1,0 +1,546 @@
+###############################################################################
+#
+# listing.tk - Routines to handle the program listing system
+#
+# Copyright (c) 1993,1994,1995,1996
+# Bradford W. Mott
+# November 13,1993
+###############################################################################
+# $Id: listing.tk,v 1.1 1996/08/02 14:56:55 bwmott Exp $
+###############################################################################
+
+###############################################################################
+# Called to (re)initialize the program listing system
+###############################################################################
+proc ProgramListing:Initialize {} {
+  global ProgramListing
+  global ProgramListingAddressTable
+
+  ## Remove the Address Table array if it exists
+  catch {unset ProgramListingAddressTable}
+
+  ## Initialize all of the globals
+  set ProgramListing(Filename) ""
+  set ProgramListing(Contents) ""
+  set ProgramListing(ContentsChanged) 1
+  set ProgramListing(FindString) ""
+
+  ## Refresh myself
+  ProgramListing:Refresh
+}
+
+###############################################################################
+# Refresh the listing 
+###############################################################################
+proc ProgramListing:Refresh {} {
+  global ProgramListing
+  global ProgramListingAddressTable
+
+  ## Make sure the program listing window exists
+  if {[winfo exists .programListing] == 0} {return}
+
+  ## See if we need to refresh the contents of the text widget
+  if {$ProgramListing(ContentsChanged) == 1} {
+
+    ## Update the text widgets contents
+    ProgramListing:RefreshContents
+
+    ## Update the title displayed by the window manager
+    if {$ProgramListing(Filename) != ""} {
+      wm title .programListing \
+          "BSVC: Program Listing - [file tail $ProgramListing(Filename)]"
+    } else {
+      wm title .programListing "BSVC: Program Listing"
+    }
+
+    ## Update the breakpoint tags
+    ProgramListing:RefreshBreakpoints
+
+    ## Tell tk to go ahead an re-display everything
+    update idletasks
+  }
+
+  ## Make sure a simulator is running
+  if {[GetApplicationMode] == "StartupMode"} {return}
+
+  ## Get the Program Counter's value
+  PutLine "ProgramCounterValue"
+  scan [lindex [GetList] 0] "%x" pc
+
+  ## Remove tag from old lines
+  .programListing.pack.text tag remove PCTag 1.0 end
+
+  catch {
+    ## Highlight each of the lines
+    eval ".programListing.pack.text tag add PCTag \
+        $ProgramListingAddressTable($pc)"
+
+    ## Move the view to the last highlighted line
+    .programListing.pack.text see PCTag.last
+  }
+}
+
+###############################################################################
+# Refresh the contents of the text widget
+###############################################################################
+proc ProgramListing:RefreshContents {} {
+  global ProgramListing
+
+  ## Indicate that the contents have not changed (since we're updating them)
+  set ProgramListing(ContentsChanged) 0
+
+  ## Put the text window in normal mode so we can delete and insert info
+  .programListing.pack.text configure -state normal
+
+  ## Empty text widget
+  .programListing.pack.text delete 1.0 end
+
+  ## Insert the program listing contents into the text widget
+  foreach line $ProgramListing(Contents) {
+    .programListing.pack.text insert end [format "%-128s\n" $line]
+  }
+
+  ## Disable the text window so no editing can occur
+  .programListing.pack.text configure -state disabled
+}
+
+###############################################################################
+# Apply the breakpoint tag to every line which has a breakpoint set on it
+###############################################################################
+proc ProgramListing:RefreshBreakpoints {} {
+  global ProgramListing
+  global ProgramListingAddressTable
+
+  ## Make sure a simulator is running before we try anything
+  if {[GetApplicationMode] == "StartupMode"} {return}
+
+  ## Update breakpoint highlighting
+  .programListing.pack.text tag remove BreakpointTag 1.0 end
+
+  ## Get a list of all of the breakpoints and highlight the 
+  ## lines which correspond to them
+  PutLine "ListBreakpoints"
+  foreach breakpoint [GetList] {
+
+    ## Get the decimal value of the breakpoint
+    scan $breakpoint "%x" value
+
+    catch { 
+      eval ".programListing.pack.text tag add BreakpointTag \
+          $ProgramListingAddressTable($value)"
+    }
+  }
+}
+
+###############################################################################
+# Using the given filename see if a listing file exists with one of the
+# "standard" extensions (removes any extension from name before trying)
+###############################################################################
+proc ProgramListing:SetFilename {name} {
+  global ProgramListing
+
+  ## Set of standard program listing extensions
+  set fileEndings {.l .lis .list .L .Lis .List .LIS .LIST \
+      .lst .Lst .LST .Listing .listing}
+
+  ## Initialize filename to nothing
+  set ProgramListing(Filename) ""
+
+  ## See if a listing file exists for the given program
+  foreach i $fileEndings {
+    set listingFile [file rootname $name]$i
+    if {[file exists $listingFile] == 1} {
+      set ProgramListing(Filename) $listingFile
+      break;
+    }
+  }
+
+  ## Load the new listing file
+  ProgramListing:Load
+}
+
+###############################################################################
+# Allow the user to load a file of their choice
+###############################################################################
+proc ProgramListing:ManualLoad {} {
+  global ProgramListing
+
+  ## Get the filename
+  set name [Tool:OpenFileSelector -title "Select file to load:" \
+      -parent .programListing]
+
+  if {$name !=""} {
+    if {[file isdirectory $name]} {
+      Tool:AlertDialog .programListing \
+          "ERROR: The specified file is a directory!"
+    } elseif {[file exists $name]} {
+      set ProgramListing(Filename) $name
+      ProgramListing:Load
+    } else {
+      Tool:AlertDialog .programListing \
+          "ERROR: The specified file does not exists!"
+    }
+  } 
+}
+
+###############################################################################
+# Load program listing file specified by ProgramListing(Filename)
+###############################################################################
+proc ProgramListing:Load {} {
+  global ProgramListing
+  global ProgramListingAddressTable
+
+  ## Remove the Address Table array 
+  catch {unset ProgramListingAddressTable}
+
+  ## Empty the program listing contents
+  set ProgramListing(Contents) ""
+
+  ## Indicate that the contents have changed
+  set ProgramListing(ContentsChanged) 1
+
+  ## Make sure there's really a file to load
+  if {$ProgramListing(Filename) != ""} {
+
+    ## Open the file or return if we can't
+    if {[catch {set file [open $ProgramListing(Filename)]}] != 0} {
+      set ProgramListing(Filename) ""
+      ProgramListing:Refresh
+      return
+    }
+
+    ## Load the program listing contents
+    set ProgramListing(Contents) [split [read $file] "\n"]
+    close $file
+
+    ## Calculate the address to line number table
+    set lineNumber 1
+    foreach line $ProgramListing(Contents) {
+      if {[regexp {^[0-9a-fA-F]+} $line] == 1} {
+        scan $line "%x" address
+        append ProgramListingAddressTable($address) \
+            "$lineNumber.0 \"$lineNumber.0 lineend + 1 char\" "
+        incr lineNumber
+      } else {
+        incr lineNumber
+      }
+    }
+  }
+  ProgramListing:Refresh
+}
+
+###############################################################################
+# Prompt user for a string to find and highlight the first occurance if found
+###############################################################################
+proc ProgramListing:Find {} {
+  global ProgramListing
+
+  ## Ask user for search pattern
+  set input [Tool:EntryDialog .programListing \
+      "Enter pattern to search for:" {.+}]
+
+  ## Make sure something was entered
+  if {$input == ""} {return}
+
+  set ProgramListing(FindString) $input
+
+  ## Find the first thing that matches the pattern
+  set index [.programListing.pack.text search -count length \
+      -forwards -nocase -regexp -- $ProgramListing(FindString) 1.0]
+
+  ## See if there was a match
+  if {$index != ""} {
+    .programListing.pack.text tag remove SearchTag 1.0 end
+
+    .programListing.pack.text tag add SearchTag \
+        "$index" "$index + $length char"
+
+    .programListing.pack.text see \
+        [.programListing.pack.text index "SearchTag.last linestart"]
+    update idletasks
+    .programListing.pack.text see \
+        [.programListing.pack.text index "SearchTag.last"]
+
+    ## Turn on find again
+    .programListing.menubar.edit.menu entryconfigure "Find Again  " \
+         -state normal
+    bind .programListing <Control-g> {ProgramListing:FindAgain; break}
+  } else {
+    set ProgramListing(FindString) ""
+    Tool:AlertDialog .programListing "No matches were found!"
+  }
+}
+
+###############################################################################
+# Highlight the next occurance of FindString if found
+###############################################################################
+proc ProgramListing:FindAgain {} {
+  global ProgramListing
+
+  ## Find the place to start the search
+  if {[.programListing.pack.text tag nextrange SearchTag 1.0 end] == ""} {
+    set current 1.0
+  } else {
+    set current [.programListing.pack.text index "SearchTag.last + 1 char"]
+  }
+
+  ## Remove old tags
+  .programListing.pack.text tag remove SearchTag 1.0 end
+
+  ## Search for new match
+  set index [.programListing.pack.text search -count length \
+      -forwards -nocase -regexp -- $ProgramListing(FindString) $current]
+
+  ## See if we were able to find a match
+  if {$index != ""} {
+    .programListing.pack.text tag add SearchTag \
+        "$index" "$index + $length char"
+
+    .programListing.pack.text see \
+        [.programListing.pack.text index "SearchTag.last linestart"]
+    update idletasks
+    .programListing.pack.text see \
+        [.programListing.pack.text index "SearchTag.last"]
+  }
+} 
+
+###############################################################################
+# Remove all of the breakpoints that are currently set
+###############################################################################
+proc ProgramListing:ClearBreakpoints {} {
+ 
+  ## Tell the simulator to list the breakpoints 
+  PutLine "ListBreakpoints"
+
+  ## Tell the simulator to delete each of the breakpoints
+  foreach i [GetList] {
+    PutLine "DeleteBreakpoint $i"
+    GetList
+  }
+
+  ## Refresh the breakpoint tags
+  ProgramListing:RefreshBreakpoints
+}
+
+###############################################################################
+# Toggle breakpoint state for the address in the line at coordinate (x,y)
+###############################################################################
+proc ProgramListing:ToggleBreakpoint {x y} {
+  global ProgramListing
+  global ProgramListingAddressTable
+
+  ## Get the line where the mouse button was pressed
+  set line [.programListing.pack.text get "@$x,$y linestart" "@$x,$y lineend"]
+
+  ## See if a hexadecimal address is the first element on the line
+  if {[regexp {^[0-9a-fA-F]+} $line] == 1} {
+
+    scan $line "%x" address
+    set address [format "%x" $address]
+
+    ## Should we be adding or removing
+    if {[lsearch -exact [.programListing.pack.text tag names "@$x,$y"] \
+         BreakpointTag] == -1} {
+      ## Tell the simulator to add the breakpoint
+      PutLine "AddBreakpoint $address"
+      GetList
+    } else { 
+      ## Tell the simulator to delete the breakpoint
+      PutLine "DeleteBreakpoint $address"
+      GetList
+    }
+
+    ## Refresh the breakpoint tags
+    ProgramListing:RefreshBreakpoints
+  }
+}
+
+###############################################################################
+# Set widgets to the correct application mode
+###############################################################################
+proc ProgramListing:SetApplicationMode {mode} {
+  global ProgramListing
+
+  ## Return if the program listing window does not exist
+  if {[winfo exists .programListing] == 0} {return}
+
+  ## The program listing can always be closed 
+  bind .programListing <Control-w> {ProgramListing:Close; break}
+
+  ## Handle "Find Again" option 
+  if {$ProgramListing(FindString) != "" && $mode == "SimulationMode"} {
+    .programListing.menubar.edit.menu entryconfigure "Find Again  " \
+        -state normal
+    bind .programListing <Control-g> {ProgramListing:FindAgain; break}
+  } else {
+    .programListing.menubar.edit.menu entryconfigure "Find Again  " \
+        -state disabled
+    bind .programListing <Control-g> {break}
+  }
+
+  ## Handle other options
+  if {$mode == "SimulationMode"} {
+    .programListing.menubar.file.menu entryconfigure "Load...  " -state normal
+    .programListing.menubar.edit.menu entryconfigure "Find...  " -state normal
+    .programListing.menubar.edit.menu entryconfigure "Clear Breakpoints  " \
+        -state normal
+
+    bind .programListing <Control-f> {ProgramListing:Find; break}
+    bind .programListing <Control-l> {ProgramListing:ManualLoad; break}
+
+    bind .programListing.pack.text <Any-ButtonRelease> \
+        {ProgramListing:ToggleBreakpoint %x %y}
+
+  } elseif {$mode == "StartupMode"} {
+
+    ## Reinitialize the program listing system
+    ProgramListing:Initialize
+
+    .programListing.menubar.file.menu entryconfigure "Load...  " \
+        -state disabled
+    .programListing.menubar.edit.menu entryconfigure "Find...  " \
+        -state disabled
+    .programListing.menubar.edit.menu entryconfigure "Clear Breakpoints  " \
+        -state disabled
+
+    bind .programListing <Control-l> {break}
+    bind .programListing <Control-f> {break}
+
+    bind .programListing.pack.text <Any-ButtonRelease> "break"
+
+  } else { ## ModalMode and RunningMode
+
+    .programListing.menubar.file.menu entryconfigure "Load...  " \
+        -state disabled
+    .programListing.menubar.edit.menu entryconfigure "Find...  " \
+        -state disabled
+    .programListing.menubar.edit.menu entryconfigure "Clear Breakpoints  " \
+        -state disabled
+
+    bind .programListing <Control-l> {break}
+    bind .programListing <Control-f> {break}
+
+    bind .programListing.pack.text <Any-ButtonRelease> "break"
+  }
+}
+
+###############################################################################
+# Display the program listing window
+###############################################################################
+proc ProgramListing:Open {} {
+  global Program
+  global ProgramListing
+
+  ## Make sure the program listing window does not already exist
+  if {[winfo exists .programListing] == 1} {
+
+    ## It exists so deiconify it
+    wm deiconify .programListing
+    return
+  }
+
+  ## Create the top level window
+  toplevel .programListing
+  wm iconname .programListing "Program Listing"
+  wm iconbitmap .programListing "@$Program(BitmapDir)/listicon.xbm"
+  wm minsize .programListing 80 14
+
+  ## Create the menu bar
+  frame .programListing.menubar -relief raised -borderwidth 2
+
+    menubutton .programListing.menubar.file -text "File" \
+        -menu .programListing.menubar.file.menu
+      menu .programListing.menubar.file.menu -tearoff 0
+        .programListing.menubar.file.menu add command \
+            -label "Load...  " -accelerator "Ctrl-L" \
+            -command {ProgramListing:ManualLoad}
+        .programListing.menubar.file.menu add separator
+        .programListing.menubar.file.menu add command \
+            -label "Close  " -accelerator "Ctrl-W" \
+            -command {ProgramListing:Close}
+
+    menubutton .programListing.menubar.edit -text "Edit" \
+        -menu .programListing.menubar.edit.menu
+      menu .programListing.menubar.edit.menu -tearoff 0
+        .programListing.menubar.edit.menu add command \
+            -label "Find...  " -accelerator "Ctrl-F" \
+            -command {ProgramListing:Find}
+        .programListing.menubar.edit.menu add command \
+            -label "Find Again  " -accelerator "Ctrl-G" \
+            -command {ProgramListing:FindAgain} 
+        .programListing.menubar.edit.menu add separator
+        .programListing.menubar.edit.menu add command \
+            -label "Clear Breakpoints  " \
+            -command {ProgramListing:ClearBreakpoints}
+
+    pack .programListing.menubar.file -side left
+    pack .programListing.menubar.edit -side left
+
+  ## Create the text widget to display the program listing in
+  frame .programListing.pack
+    text .programListing.pack.text -relief sunken \
+        -cursor left_ptr -wrap none \
+        -yscrollcommand ".programListing.pack.yscroll set" \
+        -xscrollcommand ".programListing.pack.xscroll set" \
+        -setgrid 1 -state disabled \
+        -takefocus 0 -highlightthickness 0 
+
+    if {[winfo depth .programListing.pack.text] > 1} {
+      .programListing.pack.text tag configure PCTag \
+          -foreground Black -background SkyBlue -relief raised -borderwidth 1
+      .programListing.pack.text tag configure BreakpointTag -foreground #ff0000 
+      .programListing.pack.text tag configure SearchTag \
+          -background #ce5555 -foreground white
+    } else {
+      .programListing.pack.text tag configure PCTag \
+          -foreground White -background Black
+      .programListing.pack.text tag configure BreakpointTag -font 6x13bold
+      .programListing.pack.text tag configure SearchTag -underline 1
+    }
+
+    bind .programListing.pack.text <Any-KeyPress> "break"
+    bind .programListing.pack.text <Any-Motion> "break"
+    bind .programListing.pack.text <Any-Double-ButtonPress> "break"
+    bind .programListing.pack.text <Any-Enter> "break"
+    bind .programListing.pack.text <Any-Leave> "break"
+    bind .programListing.pack.text <Any-ButtonRelease> "break"
+
+    ## Create scroll bars for text window
+    scrollbar .programListing.pack.yscroll -relief sunken \
+        -takefocus 0 -highlightthickness 0 \
+        -command ".programListing.pack.text yview" 
+    scrollbar .programListing.pack.xscroll -relief sunken \
+        -takefocus 0 -highlightthickness 0 \
+        -orient horizontal \
+        -command ".programListing.pack.text xview" 
+
+    pack .programListing.pack.xscroll -side bottom -fill x
+    pack .programListing.pack.yscroll -side left -fill y
+    pack .programListing.pack.text -side left -fill both -expand 1
+
+  pack .programListing.menubar -side top -fill x
+  pack .programListing.pack -side top -fill both -expand 1 -padx 2 
+
+  ## Indicate that there is no find string yet
+  set ProgramListing(FindString) ""
+
+  ## Configure all of the widgets to their correct state
+  ProgramListing:SetApplicationMode [GetApplicationMode]
+
+  ## Indicate that the contents need to be refreshed
+  set ProgramListing(ContentsChanged) 1
+
+  ## Refresh the program listing
+  ProgramListing:Refresh
+}
+
+###############################################################################
+# Close the program listing window
+###############################################################################
+proc ProgramListing:Close {} {
+  catch {destroy .programListing}
+}
+
+## Go ahead an initialize program listing system upon loading
+ProgramListing:Initialize
+

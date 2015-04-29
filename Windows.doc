@@ -1,0 +1,58 @@
+===============================================================================
+
+  BBBBBB   SSSSS  VVV VVV  CCCCC
+   BB  BB SS   SS VV  VV  CC   CC
+   BB  BB SS      VV  VV  CC
+   BBBBB   SSSSS  VV  VV  CC       -- "A Microprocessor Simulation Framework"
+   BB  BB      SS VV  VV  CC
+   BB  BB SS   SS  VVVV   CC   CC              Release 2.1 for Windows
+  BBBBBB   SSSSS    VV     CCCCC
+
+===============================================================================
+
+This is the second release of the Windows version of BSVC.  If you find 
+any problems please send mail to bwmott@acm.org.  You should probably
+consider this BETA level software.  Tcl/Tk for Windows is still in its
+early phases and a little slow.
+
+Installation
+============
+
+After you've downloaded the Windows BSVC distribution and the Tcl/Tk
+distribution for Windows you can install BSVC on your system by:
+
+  1) Double-clicking on 'tcl803.exe' to install the Tcl/Tk distribution
+     (Follow the on-screen instructions to finish the Tcl/Tk installation)
+
+  2) Execute the self-extracting archive, bsvc-2.1-win32.exe, by 
+     double-clicking on it (this creates the subdirectory BSVC-Setup)
+
+  3) Open the BSVC-Setup directory and double-click on 'setup.exe'
+
+  4) Follow the on-screen instructions to install BSVC
+
+  5) You can delete the BSVC-Setup directory and all its contents
+
+
+Testing the Installation
+========================
+
+After you've installed BSVC you can invoke the BSVC user interface by
+selecting the BSVC entry that was added to the Start/Program menu.  
+
+Once you've started the user interface choose "File / Open Setup..." and 
+select the "simple.setup" in the "Samples/m68000" directory.  After the system
+starts up choose "File / Load Program..." and load the "example.h68" program.
+Open the program listing window by choosing "Window / Program Listing" and 
+then press "Reset".  You should notice that the first line of the program
+is highlighted.  Press "Run" and the simple program will be run to completion.
+
+When you installed BSVC the 68000 assembler (68kasm) was also installed.  You
+can execute it from an MS-DOS Prompt as follows:
+
+C:\ 68kasm -l example.s
+
+This assembles the program 'example.s' and produces a listing (.lis) file 
+and an object file (.h68).
+
+

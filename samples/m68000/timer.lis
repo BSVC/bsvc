@@ -1,0 +1,282 @@
+00000000                                     1  *----------------------------------------------------------------------
+00000000                                     2  *
+00000000                                     3  * This file contains the following:
+00000000                                     4  *
+00000000                                     5  *    1) main     - program which tests the timer
+00000000                                     6  *    2) tstart   - subroutine which sets the timer
+00000000                                     7  *    3) thandler - timer interrupt handler
+00000000                                     8  *    4) delay    - delay function based on polling, but uses the timer 
+00000000                                     9  *    5) functions for basic character I/O 
+00000000                                    10  *
+00000000                                    11  *		M. Vuskovic, July 20, 1998
+00000000                                    12  *----------------------------------------------------------------------
+00000000                                    13  
+00000000                                    14  		ORG     $0
+00000000  00008000                          15  		DC.L    $8000           Stack pointer value after a reset 
+00000004  00002000                          16  		DC.L    main            Program counter value after a reset
+00000008                                    17  
+00000008                                    18  *  ______________________________________________________________
+00000008                                    19  * | DUART Port Constants.  These are required to use the
+00000008                                    20  * | DUART port.
+00000008                                    21  * |______________________________________________________________
+00000008                                    22  
+00000008  =00EFFC01                         23  DUART   equ $effc01             DUART address for XTerm sim board
+00000008  =00000000                         24  MR1A    EQU 0
+00000008  =00000000                         25  MR2A    EQU 0
+00000008  =00000002                         26  SRA     EQU 2
+00000008  =00000004                         27  CRA     EQU 4
+00000008  =00000002                         28  CSRA    EQU 2
+00000008  =00000006                         29  TBA     EQU 6
+00000008  =00000006                         30  RBA     EQU 6
+00000008  =0000000A                         31  IMR     EQU 10
+00000008  =00000016                         32  TBB     EQU $16
+00000008  =00000014                         33  CRB     EQU $14
+00000008                                    34  
+00000008                                    35  * This program tests the timer. It starts the timer by calling "tstart"
+00000008                                    36  * then enters an idle loop, which is interrupted every 1 second
+00000008                                    37  * The timer interrupt handler is given in "tih.sa"
+00000008                                    38  
+00002000                                    39  		ORG     $2000           Start at location 2000 Hex
+00002000                                    40  
+00002000                                    41  main:						
+00002000  2E7C 00008000                     42  		movea.l	#$8000,sp	 	 ; Allocate the stack	
+00002006                                    43  
+00002006                                    44  * Rquired steps to print to the DUART port
+00002006                                    45  * ______________________________________________________________
+00002006  43F9 00EFFC01                     46  		LEA     DUART,A1
+0000200C  137C 0010 0004                    47  		MOVE.B  #%00010000,CRA(A1)     Reset MR?A pointer
+00002012  137C 0023 0000                    48  		MOVE.B  #%00100011,MR1A(A1)    8 data bits
+00002018  137C 0017 0000                    49  		MOVE.B  #%00010111,MR2A(A1)    Normal Mode
+0000201E  137C 00BB 0002                    50  		MOVE.B  #%10111011,CSRA(A1)    Set clock to 9600
+00002024  137C 0005 0004                    51  		MOVE.B  #%00000101,CRA(A1)     Enable Rx and Tx
+0000202A                                    52  * ______________________________________________________________
+0000202A                                    53  
+0000202A  46FC 2400                         54  		move.w	#$2400,SR
+0000202E  4EB9 00002046                     55  		jsr     tstart       	 ; Set up the timer
+00002034  C3C1                              56  loop:		muls.w	d1,d1		 ; Idle loop
+00002036  0828 0000 0000                    57  		btst	#0,TCR(A0)
+0000203C  66F6                              58  		bne	loop
+0000203E  08E8 0000 0000                    59  		bset	#0,TCR(A0)
+00002044  60EE                              60  		bra	loop
+00002046                                    61  		  
+00002046                                    62  
+00002046                                    63  * Timer constants:
+00002046                                    64  
+00002046  =00010021                         65  TIMER		equ	$10021		; Timer base address
+00002046  =00000000                         66  TCR		equ	0		; Offset to Timer Control Register
+00002046  =00000002                         67  TIVR		equ	2		; Offset to Timer Interrupt Vector Reg
+00002046  =00000004                         68  CPR		equ	4		; Offset to Counter Preload Register
+00002046  =00000014                         69  TSR		equ	20		; Offset to Timer Status Register
+00002046  =00000054                         70  TIVN		equ	84		; Timer Interrupt Vector Number
+00002046  =00000150                         71  TIVA 		equ	TIVN*4		; Timer Interrupt Vector Address
+00002046  =0001E848                         72  TICSEC		equ	125000		; Number of ticks per 1 second
+00002046                                    73  
+00002046                                    74  
+00002046                                    75  *					; Set up the timer and start it
+00002046                                    76  tstart:						
+00002046  21FC 00002072 0150                77  	 	move.l	#thandler,TIVA	; Setup i/r vector
+0000204E  41F9 00010021                     78  		lea	TIMER,a0	; Get pointer to timer data
+00002054  117C 0054 0002                    79  		move.b	#TIVN,TIVR(a0)	; Tell timer the i/r vector number	
+0000205A  203C 0001E848                     80  		move.l	#TICSEC,d0	; Compute number of ticks
+00002060  01C8 0004                         81  		movep.l	d0,CPR(a0)	; Load CPR 
+00002064  117C 00A0 0000                    82  		move.b	#$A0,TCR(a0)	; Initialize timer (timer disabled)
+0000206A  08E8 0000 0000                    83  		bset	#0,TCR(a0)	; Enable timer
+00002070  4E75                              84  		rts
+00002072                                    85  	
+00002072                                    86  	
+00002072                                    87  * 					; Timer interrupt handler
+00002072                                    88  *					; Outputs a wakeup message	
+00002072                                    89  thandler:
+00002072  2F08                              90  		move.l	a0,-(SP)
+00002074  46FC 2700                         91  		move.w	#$2700,SR	; Disable interrupts
+00002078  4EB9 0000219E                     92  		jsr	newline
+0000207E                                    93  
+0000207E  4879 000020CC                     94  		pea	TIMERMESS
+00002084  4EB9 00002172                     95  		jsr 	outstr
+0000208A                                    96  
+0000208A  4EB9 0000219E                     97  		jsr	newline
+00002090  41F9 00010021                     98  		lea	TIMER,A0	; Get the timer address
+00002096  08A8 0000 0014                    99  		bclr	#0,TSR(A0)	; Negate timer interrupt request
+0000209C  205F                             100  		move.l	(SP)+,a0
+0000209E  4E73                             101  		rte			; Return from interrupt
+000020A0                                   102  
+000020A0                                   103  
+000020A0                                   104  *----------------------------------------------------------------------
+000020A0                                   105  * Entry point:	delay
+000020A0                                   106  * Description:	Delays execution of the caller for T seconds
+000020A0                                   107  * Input:		T - number of seconds (register d0)
+000020A0                                   108  * Output:		None
+000020A0                                   109  * Comment:		Subroutine is based on polling instead of timer interrupt
+000020A0                                   110  * Side effects:	None
+000020A0                                   111  *----------------------------------------------------------------------
+000020A0                                   112  
+000020A0                                   113  delay:	
+000020A0  41F9 00010021                    114  		lea	TIMER,a0 	; Pointer to timer data structure
+000020A6  117C 0080 0000                   115  		move.b	#$80,TCR(a0)	; Initialize timer:
+000020AC                                   116  *				  	; ...no vectored interrupt
+000020AC                                   117  *				   	; ...reset condition
+000020AC                                   118  *				   	; ...clock control (=div 32)
+000020AC                                   119  *				   	; ...timer off
+000020AC  203C 0001E848                    120   		move.l	#TICSEC,d0	; Get number of ticks 
+000020B2                                   121  *		asl.l	#3,d0		; "
+000020B2  01C8 0004                        122  		movep.l	d0,CPR(a0) 	; Load CPR with number of ticks
+000020B6  08E8 0000 0000                   123  		bset	#0,TCR(a0)	; Start the timer
+000020BC                                   124  wait:
+000020BC  0828 0000 0014                   125  		btst	#0,TSR(a0)	; Wait for zero count
+000020C2  67F8                             126  		beq	wait
+000020C4  08A8 0000 0014                   127  		bclr	#0,TSR(a0)	; Stop the timer
+000020CA  4E75                             128  		rts
+000020CC                                   129  
+000020CC  54 69 6D 65 72 3A 20 54 69 ...   130  TIMERMESS	dc.b	'Timer: Time to wake up!',$07,0
+000020E5  4D 61 69 6E 42 6F 64 79 3A ...   131  NOTYET		dc.b	'MainBody: Doing the Do',$07,0
+000020FD                                   132  
+000020FD                                   133  
+000020FD                                   134  *----------------------------------------------------------------------
+000020FD                                   135  *
+000020FD                                   136  *  Basic I/O functions:	
+000020FD                                   137  *					  
+000020FD                                   138  *----------------------------------------------------------------------
+000020FD                                   139  
+000020FD                                   140  * Global symbols:
+000020FD                                   141  * Make sure ACIA is the same addrss of the M6... terminal.
+000020FD                                   142  *ACIA	equ	$50040			ACIA address for FORCE board
+000020FD                                   143  *ACIA   equ	$1000			ACIA address for MOTOROLA board
+000020FD  =00EFFC01                        144  DUART	equ	$effc01			ACIA address for XTerm sim board
+000020FD  =00000006                        145  TBA		equ	6
+000020FD  =00000006                        146  RBA		equ 6
+000020FD  =0000000D                        147  CR		equ	$0d		Carriage Return
+000020FD  =0000000A                        148  LF		equ	$0a		Line Feed
+000020FD  =00000020                        149  BLNK	equ	$20			Blank character
+000020FD  =00000000                        150  NULL	equ	$0			NULL character for string termination
+000020FD                                   151  
+000020FD                                   152  *----------------------------------------------------------------------
+000020FD                                   153  * Entry point:	inch
+000020FD                                   154  * Description:	Inputs character from the keyboard
+000020FD                                   155  * Input:		None
+000020FD                                   156  * Output:		Character from the keyboard (in register d0)
+000020FD                                   157  * Comment:		Subroutine is based on busy-wait (polling)
+000020FD                                   158  * Side effects:	None
+000020FD                                   159  *----------------------------------------------------------------------
+000020FE  2F08                             160  inch   	move.l  a0,-(a7)
+00002100  207C 00EFFC01                    161          move.l  #DUART,a0      	Point a0 at the DUART control and status reg
+00002106  0828 0000 0002                   162  inlp    btst    #0,SRA(a0)
+0000210C  67F8                             163          beq     inlp          	Wait for next character to arrive
+0000210E  1039 00EFFC07                    164          move.b  RBA+DUART,d0    Move char from DUART receiver buffer into d0
+00002114                                   165  *        and.l   #$0000007f,d0 	Clear parity bit and high bytes of d0
+00002114  205F                             166          move.l  (a7)+,a0
+00002116  4E75                             167          rts
+00002118                                   168  
+00002118                                   169  *----------------------------------------------------------------------
+00002118                                   170  * Entry point:	outch
+00002118                                   171  * Description:	Outputs character to the terminal screen
+00002118                                   172  * Input:		Pointer to the character (longword on stack)
+00002118                                   173  * Output:		None
+00002118                                   174  * Comment:		Subroutine is based on busy-wait (polling)
+00002118                                   175  * Side effects:	None
+00002118                                   176  *----------------------------------------------------------------------
+00002118  =00000008                        177  c_byte	equ	8
+00002118  =00000002                        178  c_size	equ 2
+00002118                                   179  
+00002118  4E56 0000                        180  outch:	 link	a6,#0
+0000211C  48E7 8080                        181  		 movem.l d0/a0,-(sp)
+00002120                                   182  
+00002120                                   183  *         move.l #DUART,a0	* Point a0 at the ACIA control and status reg
+00002120  0839 0002 00EFFC03               184  outlp:   btst   #2,SRA+DUART	* Test Transmit data register empty.
+00002128  67F6                             185           beq.s  outlp         	* If not keep polling.
+0000212A  102E 0008                        186           move.b c_byte(a6),d0   * Move stack parameter to d0.
+0000212E  13C0 00EFFC07                    187           move.b  d0,TBA+DUART   * Transmit the paramiter in d0.
+00002134                                   188  
+00002134  4CDF 0101                        189           movem.l  (sp)+,d0/a0   * Restore registers
+00002138  4E5E                             190           unlk	 a6
+0000213A  2F57 0002                        191           move.l	 (sp),c_size(sp)
+0000213E  548F                             192           addq.l	 #2,sp
+00002140  4E75                             193           rts
+00002142                                   194  
+00002142                                   195  
+00002142                                   196  *----------------------------------------------------------------------
+00002142                                   197  * Entry point:	inpstr
+00002142                                   198  * Description:	Reads and echoes a string from the terminal
+00002142                                   199  * Input:		Pointer to the beginning of the buffer where the
+00002142                                   200  *			string should be placed (longword on stack)
+00002142                                   201  * Output:		None			
+00002142                                   202  * Comment:		Input string is any sequence of printable characters
+00002142                                   203  *			delimited by blank or carriage return.
+00002142                                   204  *			Subroutine is attaching a NULL character to the end of
+00002142                                   205  *			the string.
+00002142                                   206  *----------------------------------------------------------------------
+00002142                                   207  inpstr:
+00002142  48E7 8080                        208  	movem.l	d0/a0,-(sp)		Save registers
+00002146  206F 000C                        209  	move.l	12(sp),a0		Get pointer to the string buffer
+0000214A                                   210  inplp:
+0000214A  4EB8 20FE                        211  	jsr		inch		Get character from terminal
+0000214E  1F00                             212  	move.b	d0,-(sp)		Call outch (echo character)
+00002150  4EB8 2118                        213  	jsr 	outch			"
+00002154                                   214  *	add.l	#4,sp			"NOT NEEDED OUTCH pops VALUES.
+00002154  B03C 0020                        215  	cmp.b	#BLNK,d0		If end of input string
+00002158  6700 000E                        216  	beq		finish		... exit the loop
+0000215C  B03C 000D                        217  	cmp.b	#CR,d0      		"
+00002160  6700 0006                        218  	beq		finish 		"
+00002164  10C0                             219  	move.b	d0,(a0)+		Put character into buffer
+00002166  60E2                             220  	bra		inplp		Iterate
+00002168                                   221  finish:
+00002168  10BC 0000                        222  	move.b	#NULL,(a0)		Put string terminator into buffer
+0000216C  4CDF 0101                        223  	movem.l	(sp)+,d0/a0		Restore registers
+00002170  4E75                             224  	rts
+00002172                                   225  
+00002172                                   226  *----------------------------------------------------------------------
+00002172                                   227  * Entry point:	outstr
+00002172                                   228  * Description:	Outputs string of characters to the terminal screen
+00002172                                   229  * Input:		Pointer to the string (longword on stack)
+00002172                                   230  * Output:		None
+00002172                                   231  * Comment:		String terminator is NULL character
+00002172                                   232  * Side effects:	None
+00002172                                   233  *----------------------------------------------------------------------
+00002172  =00000008                        234  STRING		equ	8
+00002172  =00000004                        235  STRSIZE		equ 4
+00002172                                   236  
+00002172  4E56 0000                        237  outstr:  link	 a6,#0
+00002176  48E7 8080                        238  		 movem.l d0/a0,-(sp)
+0000217A                                   239  
+0000217A  206E 0008                        240           move.l  STRING(A6),A0     	Get pointer to string
+0000217E  4A10                             241  strlp:   tst.b   (a0)
+00002180  6700 000E                        242           beq     strout        	Quit when we see NULL
+00002184                                   243  
+00002184  1010                             244           move.b  (a0),d0       	Get next byte into d0.lowbyte
+00002186  1F00                             245           move.b  d0,-(sp)     	Call outch
+00002188  4EB8 2118                        246           jsr     outch
+0000218C                                   247  
+0000218C  5288                             248           add.l   #1,a0         	Advance pointer
+0000218E  60EE                             249           bra     strlp         	End of loop
+00002190                                   250  
+00002190  4CDF 0101                        251  strout:  movem.l (sp)+,d0/a0
+00002194  4E5E                             252  		 unlk	a6
+00002196  2F57 0004                        253  		 move.l	 (sp),STRSIZE(sp)
+0000219A  588F                             254  		 addq.l	 #STRSIZE,sp
+0000219C  4E75                             255           rts
+0000219E                                   256  
+0000219E                                   257  *----------------------------------------------------------------------
+0000219E                                   258  * Entry point:	newline
+0000219E                                   259  * Description:	Outputs new line to the terminal and the host
+0000219E                                   260  * Input:		None
+0000219E                                   261  * Output:		None
+0000219E                                   262  * Comment:		CR and LF are sent to the terminal, while only CR
+0000219E                                   263  *				is sent to the host. Subroutine then synchronizes 
+0000219E                                   264  *				communication between the host and the single board.
+0000219E                                   265  * Side effects:	None
+0000219E                                   266  *----------------------------------------------------------------------
+0000219E                                   267  newline:
+0000219E  48E7 8080                        268  	movem.l	a0/d0,-(sp)
+000021A2  1F3C 000D                        269  	move.b  #CR,-(sp)		Call outch (send CR to terminal)	
+000021A6  4EB8 2118                        270  	jsr	outch				"
+000021AA                                   271  *	move.l  #DUART,a0    		Pointer to ACIA
+000021AA                                   272  outlp2:
+000021AA  0839 0002 00EFFC03               273  	btst    #2,SRA+DUART		Send line feed to terminal 
+000021B2  67F6                             274  	beq     outlp2      		"
+000021B4  13FC 000A 00EFFC07               275  	move.b  #LF,TBA+DUART 		Transmit the paramiter in d0.
+000021BC  4CDF 0101                        276  	movem.l	(sp)+,a0/d0
+000021C0  4E75                             277  	rts
+000021C2                                   278  
+000021C2                                   279  	end
+
+No errors detected
+No warnings generated

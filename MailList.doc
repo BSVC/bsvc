@@ -1,0 +1,35 @@
+===============================================================================
+
+  BBBBBB   SSSSS  VVV VVV  CCCCC
+   BB  BB SS   SS VV  VV  CC   CC
+   BB  BB SS      VV  VV  CC
+   BBBBB   SSSSS  VV  VV  CC       -- "A Microprocessor Simulation Framework"
+   BB  BB      SS VV  VV  CC
+   BB  BB SS   SS  VVVV   CC   CC                  Release 2.1
+  BBBBBB   SSSSS    VV     CCCCC
+
+===============================================================================
+                             Mailing List (Majordomo)
+-------------------------------------------------------------------------------
+
+A mailing list for BSVC has been setup.  The mailing list will be used
+for discussions concerning BSVC including bug reports, enhancements reports,
+and general usage tips.  Anyone who uses BSVC regularly should probably
+subscribe to the mailing list.
+
+To subscribe to the BSVC mailing list send the following message
+to majordomo@csc.ncsu.edu:
+
+  subscribe bsvc
+  end
+
+Once you've subscribed you can send messages to everyone on the mailing
+list by mailing them to bsvc@csc.ncsu.edu.
+
+For more information on using the majordomo mailing list server send the
+following message to majordomo@csc.ncsu.edu:
+
+  help
+  end
+
+

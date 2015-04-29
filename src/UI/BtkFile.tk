@@ -1,0 +1,469 @@
+###############################################################################
+#
+# BtkFile.tk - File Selector Widget for Tk
+#
+#   Use the procedure BtkFileSelector to open a file selector widget.  The
+#   procedure accepts the following switches:
+#
+#     -in <window>      creates file selector as a child of the window
+#     -parent <window>  creates file selector as a transient window
+#     -filter <*.setup> Sets the filter to the given string
+#     -filetypes <lst>  Ignored (doesn't cause an error)
+#     -title <message>  Message displayed at the top of the file selector 
+#
+# Copyright (c) 1994 
+# Bradford W. Mott
+# September 1,1994
+###############################################################################
+# $Id: BtkFile.tk,v 1.1 1996/08/02 14:55:46 bwmott Exp $
+###############################################################################
+
+###############################################################################
+# Called to initialize the BtkFileSelector (when sourced)
+###############################################################################
+proc BtkFileSelector:Initialize {} {
+  global BtkFileSelector
+
+  ## Initialize all of the globals 
+  set BtkFileSelector(path)      [pwd]
+  set BtkFileSelector(filter)    "*"
+  set BtkFileSelector(allFiles)  "yes"
+  set BtkFileSelector(filespec)  ""
+
+  ## Add the file selector's resources to the option database
+  option add "*btkFileSelector*Font" \
+      "-*-helvetica-medium-r-normal--*-120-*-*-*-*-iso8859-*" 40
+  option add "*btkFileSelector*label*Font" \
+      "-*-helvetica-bold-r-normal--*-120-*-*-*-*-iso8859-*" 40
+  option add "*btkFileSelector*Foreground" "black" 40
+  option add "*btkFileSelector*Background" "gray80" 40
+  option add "*btkFileSelector*highlightBackground" "gray80" 40
+  option add "*btkFileSelector*activeForeground" "black" 40
+  option add "*btkFileSelector*activeBackground" "gray65" 40
+  option add "*btkFileSelector*scrollbar*foreground" "gray80" 40
+  option add "*btkFileSelector*scrollbar*activeForeground" "gray65" 40
+  option add "*btkFileSelector*selectForeground" "black" 40
+  option add "*btkFileSelector*selectBackground" "gray65" 40
+}
+
+###############################################################################
+# Update the contents of the file selector's listbox with the files 
+# in the current directory
+###############################################################################
+proc BtkFileSelector:Update {window} {
+  global BtkFileSelector
+
+  ## Change mouse pointer to the watch
+  $window configure -cursor watch
+
+  ## Tell tk to update the screen
+  update idletasks
+
+  ## Get the filter and path
+  set filter $BtkFileSelector(filter)
+  set path $BtkFileSelector(path)
+
+  ## Update the filter entry field
+  $window.filter.entry delete 0 end
+  $window.filter.entry insert end $filter
+  $window.filter.entry xview moveto 1
+
+  ## Update the path entry field
+  $window.path.entry delete 0 end
+  $window.path.entry insert end $path
+  $window.path.entry xview moveto 1
+
+  ## Get a list of all the files in the current directory
+  if {$BtkFileSelector(allFiles) == "yes"} {
+    set files [glob -nocomplain $path/.* $path/*]
+    set files [lrange $files 2 end]
+  } else {
+    set files [glob -nocomplain $path/*]
+  }
+
+  ## Start with an empty file list
+  set filelist ""
+
+  ## Build the rest of the file list
+  foreach i $files {
+    ## Remove the path from the file
+    set file [file tail $i]
+
+    ## Make sure file really exists (This is for wierd file systems like AFS)
+    if {[file exists "$i"] == 1} {
+      if {[file isdirectory "$i"] == 1} { 
+        lappend filelist "$file/"
+      } else { 
+        if {[string match $filter $file] == 1} {
+          lappend filelist "$file"
+        }
+      }
+    }
+  }
+
+  ## Sort the file list
+  set filelist [lsort $filelist] 
+
+  ## Add the parent directory to the top of the list if we're not at the root
+  if {$BtkFileSelector(path) != ""} {
+    set filelist [linsert $filelist 0 "../"]
+  }
+
+  ## Clear the listbox
+  $window.selection.listbox delete 0 end
+
+  ## Put the file list in the listbox
+  foreach i $filelist {
+    $window.selection.listbox insert end "$i"
+  }
+
+  ## Change the mouse pointer back to the default
+  $window configure -cursor {}
+
+  ## Tell tk to update the screen
+  update idletasks
+}
+
+
+###############################################################################
+## Process a click event on a file
+###############################################################################
+proc BtkFileSelector:FileClicked {window y} {
+  global BtkFileSelector
+
+  ## Get the listbox item nearest the y coordinate
+  set nearest [$window nearest $y]
+
+  ## See if a file was really selected
+  if {$nearest >= 0} {
+
+    ## Highlight the selected file in the listbox
+    $window selection clear 0 end
+    $window selection set $nearest $nearest
+
+    ## Ask listbox for the actual filename
+    set file [$window get $nearest]
+
+    ## See if the file is a regular file
+    if {[regexp {^.*/$} $file] == 0} {
+
+      ## Update the filename entry field
+      $BtkFileSelector(baseWindow).filename.entry delete 0 end
+      $BtkFileSelector(baseWindow).filename.entry insert end $file
+    }
+  }
+}
+
+###############################################################################
+## Process a double click event on a file
+###############################################################################
+proc BtkFileSelector:FileDoubleClicked {window y} {
+  global BtkFileSelector
+
+  ## Get the path
+  set path $BtkFileSelector(path)
+
+  ## Get the listbox item nearest the y coordinate
+  set nearest [$window nearest $y]
+
+  ## See if a file was really selected
+  if {$nearest >= 0} {
+
+    ## Get the filename from the listbox
+    set file [$window get $nearest]
+
+    ## Create the complete filespec for the file
+    set filespec $path/$file
+  
+    ## If the file is a directory then try to change directories
+    if {[regexp {^.*/$} $file] == 1} {
+
+      ## See if we should move to the parent directory
+      if {$file == "../"} {
+        set filespec [file dirname [string trimright $path '/']]/
+      } 
+
+      ## Make sure we can 'cd' into the directory
+      if {([file executable $path/$file]==1) \
+          && ([file readable $path/$file]==1)} {
+        ## Update the path
+        set BtkFileSelector(path) [string trimright $filespec '/']
+        BtkFileSelector:Update $BtkFileSelector(baseWindow)
+      } else {
+        ## Sound the bell
+        bell
+      }
+    } else {
+      ## Regular file so handle the selection
+      BtkFileSelector:FileSelected
+    }
+  }
+}
+
+###############################################################################
+## Handle when a regular file is selected (i.e. either Ok or a Double-Click)
+###############################################################################
+proc BtkFileSelector:FileSelected {} {
+  global BtkFileSelector
+
+  ## Get the selected file from the listbox
+  set file [$BtkFileSelector(baseWindow).filename.entry get]
+  if {$file == ""} { return }
+
+  ## Set the filespec and destroy the file selector widget
+  set BtkFileSelector(filespec) $BtkFileSelector(path)/$file
+  destroy $BtkFileSelector(baseWindow)
+}
+
+###############################################################################
+## Handle the Cancel button
+###############################################################################
+proc BtkFileSelector:Cancel {} {
+  global BtkFileSelector
+
+  ## Return an empty string since cancel was pressed
+  set BtkFileSelector(filespec) ""
+  destroy $BtkFileSelector(baseWindow)
+}
+
+###############################################################################
+## Try to change the path to whatever is in the path entry widget
+###############################################################################
+proc BtkFileSelector:SetPath {} {
+  global BtkFileSelector
+
+  ## Get the path from the entry widget
+  set path [string trimright [$BtkFileSelector(baseWindow).path.entry get] '/']
+
+  ## Make sure it's a valid path
+  if {([file executable $path/]==1) && ([file readable $path/]==1)} {
+    set BtkFileSelector(path) $path
+    BtkFileSelector:Update $BtkFileSelector(baseWindow)
+  } else {
+    ## Update the path entry field
+    $BtkFileSelector(baseWindow).path.entry delete 0 end
+    $BtkFileSelector(baseWindow).path.entry insert end $BtkFileSelector(path)
+
+    ## Right align the view
+    $BtkFileSelector(baseWindow).path.entry xview moveto 1
+  }
+}
+
+###############################################################################
+## Try to change the filter to whatever is in the filter entry widget
+###############################################################################
+proc BtkFileSelector:SetFilter {} {
+  global BtkFileSelector
+
+  ## Get the path from the entry widget
+  set filter [$BtkFileSelector(baseWindow).filter.entry get]
+
+  ## Make sure there is a filter
+  if {$filter == ""} { set filter "*" }
+
+  set BtkFileSelector(filter) $filter
+
+  BtkFileSelector:Update $BtkFileSelector(baseWindow)
+}
+
+###############################################################################
+# Popup a file selector and wait for the user to select something
+###############################################################################
+proc BtkFileSelector args {
+  global BtkFileSelector
+
+  ## Set defaults
+  set BtkFileSelector(filespec) ""
+  set BtkFileSelector(message) "Files:"
+  set BtkFileSelector(filter) "*"
+  set BtkFileSelector(parentWindow) "root"
+  set BtkFileSelector(masterWindow) ""
+
+  ## Parse the argument list
+  for {set t 0} {$t < [llength $args]} {incr t} {
+    set arg [lindex $args $t]
+    if {$arg == "-title"} {
+      incr t
+      set BtkFileSelector(message) [lindex $args $t]
+    } elseif {$arg == "-in"} {
+      incr t
+      if {[lindex $args $t] == "."} {
+        set BtkFileSelector(parentWindow) ""
+      } else {
+        set BtkFileSelector(parentWindow) [lindex $args $t]
+      }
+    } elseif {$arg == "-parent"} {
+      incr t
+      set BtkFileSelector(masterWindow) [lindex $args $t]
+    } elseif {$arg == "-filter"} {
+      incr t
+      set BtkFileSelector(filter) [lindex $args $t]
+    } elseif {$arg == "-filetypes"} {
+      incr t
+    } else {
+      bgerror "Incorrect Arguments to BtkFileSelector!"
+      return
+    }
+  } 
+
+  ## Create a toplevel window or a frame to hold the selector in
+  if {$BtkFileSelector(parentWindow) == "root"} {
+    set BtkFileSelector(baseWindow) ".btkFileSelector"
+    set BtkFileSelector(parentWindow) ".btkFileSelector"
+
+    toplevel $BtkFileSelector(baseWindow) -borderwidth 4
+    wm title $BtkFileSelector(baseWindow) "File Selector"
+
+    ## Should it be a transient window?
+    if {$BtkFileSelector(masterWindow) != ""} {
+      wm transient $BtkFileSelector(baseWindow) $BtkFileSelector(masterWindow)
+      scan [winfo geometry $BtkFileSelector(masterWindow)] \
+          "%dx%d+%d+%d" mw mh mx my
+      set x [expr (($mw / 2) + $mx) - (375 / 2)]
+      set y [expr (($mh / 2) + $my) - (342 / 2)]
+ 
+      if {$x < 0} {set x 0}
+      if {$y < 0} {set y 0}
+
+      wm geometry $BtkFileSelector(baseWindow) 375x342+$x+$y
+    } else {
+      wm geometry $BtkFileSelector(baseWindow) 375x342
+    }
+
+  } else {
+    ## Get my parent's width and height
+    if {$BtkFileSelector(parentWindow) == ""} {
+      scan [winfo geometry .] "%dx%d" parentWidth parentHeight
+    } else {
+      scan [winfo geometry $BtkFileSelector(parentWindow)] \
+          "%dx%d" parentWidth parentHeight
+    }
+
+    ## Calculate size of my frame based on my parent's size
+    if {$parentWidth > 375} {
+      set myWidth 375
+    } else {                                                                    
+      set myWidth [expr $parentWidth - 20]                                      
+    }                                                                           
+
+    if {$parentHeight > 350} {                                                
+      set myHeight 350                                                          
+    } else {                                                                    
+      set myHeight [expr $parentHeight - 20]                                    
+    }                                                                           
+
+    ## Create my frame
+    set BtkFileSelector(baseWindow) \
+        "$BtkFileSelector(parentWindow).btkFileSelector"
+
+    frame $BtkFileSelector(baseWindow) -borderwidth 5 -relief ridge \
+      -height $myHeight -width $myWidth
+    place $BtkFileSelector(baseWindow) -relx 0.5 -rely 0.5 -anchor center 
+
+    ## Turn off geometry propagation for the packer
+    pack propagate $BtkFileSelector(baseWindow) 0
+  }
+
+  frame $BtkFileSelector(baseWindow).path 
+    label $BtkFileSelector(baseWindow).path.label -text "Path:" -anchor w
+    entry $BtkFileSelector(baseWindow).path.entry -relief sunken 
+    bind $BtkFileSelector(baseWindow).path.entry \
+        <Return> "BtkFileSelector:SetPath"
+    pack $BtkFileSelector(baseWindow).path.label -side left 
+    pack $BtkFileSelector(baseWindow).path.entry -side left -fill x -expand 1 
+
+  frame $BtkFileSelector(baseWindow).filename 
+    label $BtkFileSelector(baseWindow).filename.label \
+        -text "File name:" -anchor w
+    entry $BtkFileSelector(baseWindow).filename.entry -relief sunken 
+    bind $BtkFileSelector(baseWindow).filename.entry \
+        <Return> "BtkFileSelector:FileSelected"
+    pack $BtkFileSelector(baseWindow).filename.label -side left 
+    pack $BtkFileSelector(baseWindow).filename.entry -side left \
+        -fill x -expand 1 
+
+  frame $BtkFileSelector(baseWindow).filter 
+    label $BtkFileSelector(baseWindow).filter.label -text "Filter:" -anchor w
+    entry $BtkFileSelector(baseWindow).filter.entry -relief sunken -width 10
+    bind $BtkFileSelector(baseWindow).filter.entry \
+        <Return> "BtkFileSelector:SetFilter"
+    checkbutton $BtkFileSelector(baseWindow).filter.all \
+        -text "Show all files" -offvalue "no" -onvalue "yes"  \
+        -variable BtkFileSelector(allFiles) \
+        -command {BtkFileSelector:Update $BtkFileSelector(baseWindow)} 
+
+    pack $BtkFileSelector(baseWindow).filter.label -side left 
+    pack $BtkFileSelector(baseWindow).filter.entry -side left -fill x \
+        -expand 1 -padx 4
+    pack $BtkFileSelector(baseWindow).filter.all -side left
+
+  frame $BtkFileSelector(baseWindow).selection
+    label $BtkFileSelector(baseWindow).selection.label \
+        -text $BtkFileSelector(message)
+    scrollbar $BtkFileSelector(baseWindow).selection.scrollbar \
+        -relief sunken -orient vertical \
+        -command "$BtkFileSelector(baseWindow).selection.listbox yview" \
+        -takefocus 0
+    listbox $BtkFileSelector(baseWindow).selection.listbox \
+        -relief sunken -width 20 -height 4 \
+        -yscroll "$BtkFileSelector(baseWindow).selection.scrollbar set" \
+        -takefocus 0
+
+    bind $BtkFileSelector(baseWindow).selection.listbox \
+        <Double-ButtonRelease-1> \
+        "BtkFileSelector:FileDoubleClicked %W %y; break"
+    bind $BtkFileSelector(baseWindow).selection.listbox <ButtonPress-1> \
+        "BtkFileSelector:FileClicked %W %y; break" 
+    bind $BtkFileSelector(baseWindow).selection.listbox <Button1-Motion> \
+        "BtkFileSelector:FileClicked %W %y; break" 
+
+    pack $BtkFileSelector(baseWindow).selection.label \
+        -side top -anchor w -fill x
+    pack $BtkFileSelector(baseWindow).selection.scrollbar \
+        -side left -fill y
+    pack $BtkFileSelector(baseWindow).selection.listbox \
+        -side left -fill both -expand 1
+
+  frame $BtkFileSelector(baseWindow).button
+    button $BtkFileSelector(baseWindow).button.okay \
+        -text "Ok" -command "BtkFileSelector:FileSelected"
+    button $BtkFileSelector(baseWindow).button.filter \
+        -text "Filter" -command "BtkFileSelector:SetFilter"
+    button $BtkFileSelector(baseWindow).button.cancel \
+        -text "Cancel" -command "BtkFileSelector:Cancel"
+
+    pack $BtkFileSelector(baseWindow).button.okay \
+        -side left -fill x -expand 1
+    pack $BtkFileSelector(baseWindow).button.filter \
+        -side left -fill x -expand 1 -padx 4
+    pack $BtkFileSelector(baseWindow).button.cancel \
+        -side left -fill x -expand 1
+
+  pack $BtkFileSelector(baseWindow).selection \
+      -side top -padx 4 -pady 2 -fill both -expand 1
+  pack $BtkFileSelector(baseWindow).path \
+      -side top -padx 4 -fill x
+  pack $BtkFileSelector(baseWindow).filename \
+      -side top -padx 4 -fill x
+  pack $BtkFileSelector(baseWindow).filter \
+      -side top -padx 4 -fill x
+  pack $BtkFileSelector(baseWindow).button \
+      -side top -padx 4 -pady 7 -fill x
+
+  ## Update the file selector's file list
+  BtkFileSelector:Update $BtkFileSelector(baseWindow)
+
+  ## Make this a modal dialog
+  tkwait visibility $BtkFileSelector(baseWindow)
+  while {[catch {grab set $BtkFileSelector(baseWindow)}] == 1} {}
+  tkwait window $BtkFileSelector(baseWindow)
+
+  ## Tell tk to update the screen (i.e. remove the file selector window)
+  update idletasks
+
+  return $BtkFileSelector(filespec)
+}
+
+## Go ahead an initialize file selector upon loading
+BtkFileSelector:Initialize
+
