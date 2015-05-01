@@ -785,10 +785,10 @@ proc MemoryViewer:SetApplicationMode {mode} {
     bind .memoryViewer <Control-r> {MemoryViewer:ViewFromRegister; break}
     bind .memoryViewer <Control-f> {MemoryViewer:FillMemoryLocation; break}
 
-    bind .memoryViewer <Up> {MemoryViewer:Up; break}
-    bind .memoryViewer <Down> {MemoryViewer:Down; break}
     bind .memoryViewer <Prior> {MemoryViewer:PageUp; break}
     bind .memoryViewer <Next> {MemoryViewer:PageDown; break}
+    bind .memoryViewer <Up> {MemoryViewer:Up; break}
+    bind .memoryViewer <Down> {MemoryViewer:Down; break}
 
     bind .memoryViewer.text <Button-1> \
         {MemoryViewer:MouseClickHandler %x %y; break}
