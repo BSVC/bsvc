@@ -8,7 +8,7 @@
 #     -parent <window>  creates file selector as a transient window
 #     -filter <*.setup> Sets the filter to the given string
 #     -filetypes <lst>  Ignored (doesn't cause an error)
-#     -title <message>  Message displayed at the top of the file selector 
+#     -title <message>  Message displayed at the top of the file selector
 #
 
 ###############################################################################
@@ -17,7 +17,7 @@
 proc BtkFileSelector:Initialize {} {
   global BtkFileSelector
 
-  ## Initialize all of the globals 
+  ## Initialize all of the globals
   set BtkFileSelector(path)      [pwd]
   set BtkFileSelector(filter)    "*"
   set BtkFileSelector(allFiles)  "yes"
@@ -40,7 +40,7 @@ proc BtkFileSelector:Initialize {} {
 }
 
 ###############################################################################
-# Update the contents of the file selector's listbox with the files 
+# Update the contents of the file selector's listbox with the files
 # in the current directory
 ###############################################################################
 proc BtkFileSelector:Update {window} {
@@ -84,9 +84,9 @@ proc BtkFileSelector:Update {window} {
 
     ## Make sure file really exists (This is for wierd file systems like AFS)
     if {[file exists "$i"] == 1} {
-      if {[file isdirectory "$i"] == 1} { 
+      if {[file isdirectory "$i"] == 1} {
         lappend filelist "$file/"
-      } else { 
+      } else {
         if {[string match $filter $file] == 1} {
           lappend filelist "$file"
         }
@@ -95,7 +95,7 @@ proc BtkFileSelector:Update {window} {
   }
 
   ## Sort the file list
-  set filelist [lsort $filelist] 
+  set filelist [lsort $filelist]
 
   ## Add the parent directory to the top of the list if we're not at the root
   if {$BtkFileSelector(path) != ""} {
@@ -167,14 +167,14 @@ proc BtkFileSelector:FileDoubleClicked {window y} {
 
     ## Create the complete filespec for the file
     set filespec $path/$file
-  
+
     ## If the file is a directory then try to change directories
     if {[regexp {^.*/$} $file] == 1} {
 
       ## See if we should move to the parent directory
       if {$file == "../"} {
         set filespec [file dirname [string trimright $path '/']]/
-      } 
+      }
 
       ## Make sure we can 'cd' into the directory
       if {([file executable $path/$file]==1) \
@@ -297,7 +297,7 @@ proc BtkFileSelector args {
       bgerror "Incorrect Arguments to BtkFileSelector!"
       return
     }
-  } 
+  }
 
   ## Create a toplevel window or a frame to hold the selector in
   if {$BtkFileSelector(parentWindow) == "root"} {
@@ -314,7 +314,7 @@ proc BtkFileSelector args {
           "%dx%d+%d+%d" mw mh mx my
       set x [expr (($mw / 2) + $mx) - (375 / 2)]
       set y [expr (($mh / 2) + $my) - (342 / 2)]
- 
+
       if {$x < 0} {set x 0}
       if {$y < 0} {set y 0}
 
@@ -335,15 +335,15 @@ proc BtkFileSelector args {
     ## Calculate size of my frame based on my parent's size
     if {$parentWidth > 375} {
       set myWidth 375
-    } else {                                                                    
-      set myWidth [expr $parentWidth - 20]                                      
-    }                                                                           
+    } else {
+      set myWidth [expr $parentWidth - 20]
+    }
 
-    if {$parentHeight > 350} {                                                
-      set myHeight 350                                                          
-    } else {                                                                    
-      set myHeight [expr $parentHeight - 20]                                    
-    }                                                                           
+    if {$parentHeight > 350} {
+      set myHeight 350
+    } else {
+      set myHeight [expr $parentHeight - 20]
+    }
 
     ## Create my frame
     set BtkFileSelector(baseWindow) \
@@ -351,31 +351,31 @@ proc BtkFileSelector args {
 
     frame $BtkFileSelector(baseWindow) -borderwidth 5 -relief ridge \
       -height $myHeight -width $myWidth
-    place $BtkFileSelector(baseWindow) -relx 0.5 -rely 0.5 -anchor center 
+    place $BtkFileSelector(baseWindow) -relx 0.5 -rely 0.5 -anchor center
 
     ## Turn off geometry propagation for the packer
     pack propagate $BtkFileSelector(baseWindow) 0
   }
 
-  frame $BtkFileSelector(baseWindow).path 
+  frame $BtkFileSelector(baseWindow).path
     label $BtkFileSelector(baseWindow).path.label -text "Path:" -anchor w
-    entry $BtkFileSelector(baseWindow).path.entry -relief sunken 
+    entry $BtkFileSelector(baseWindow).path.entry -relief sunken
     bind $BtkFileSelector(baseWindow).path.entry \
         <Return> "BtkFileSelector:SetPath"
-    pack $BtkFileSelector(baseWindow).path.label -side left 
-    pack $BtkFileSelector(baseWindow).path.entry -side left -fill x -expand 1 
+    pack $BtkFileSelector(baseWindow).path.label -side left
+    pack $BtkFileSelector(baseWindow).path.entry -side left -fill x -expand 1
 
-  frame $BtkFileSelector(baseWindow).filename 
+  frame $BtkFileSelector(baseWindow).filename
     label $BtkFileSelector(baseWindow).filename.label \
         -text "File name:" -anchor w
-    entry $BtkFileSelector(baseWindow).filename.entry -relief sunken 
+    entry $BtkFileSelector(baseWindow).filename.entry -relief sunken
     bind $BtkFileSelector(baseWindow).filename.entry \
         <Return> "BtkFileSelector:FileSelected"
-    pack $BtkFileSelector(baseWindow).filename.label -side left 
+    pack $BtkFileSelector(baseWindow).filename.label -side left
     pack $BtkFileSelector(baseWindow).filename.entry -side left \
-        -fill x -expand 1 
+        -fill x -expand 1
 
-  frame $BtkFileSelector(baseWindow).filter 
+  frame $BtkFileSelector(baseWindow).filter
     label $BtkFileSelector(baseWindow).filter.label -text "Filter:" -anchor w
     entry $BtkFileSelector(baseWindow).filter.entry -relief sunken -width 10
     bind $BtkFileSelector(baseWindow).filter.entry \
@@ -383,9 +383,9 @@ proc BtkFileSelector args {
     checkbutton $BtkFileSelector(baseWindow).filter.all \
         -text "Show all files" -offvalue "no" -onvalue "yes"  \
         -variable BtkFileSelector(allFiles) \
-        -command {BtkFileSelector:Update $BtkFileSelector(baseWindow)} 
+        -command {BtkFileSelector:Update $BtkFileSelector(baseWindow)}
 
-    pack $BtkFileSelector(baseWindow).filter.label -side left 
+    pack $BtkFileSelector(baseWindow).filter.label -side left
     pack $BtkFileSelector(baseWindow).filter.entry -side left -fill x \
         -expand 1 -padx 4
     pack $BtkFileSelector(baseWindow).filter.all -side left
@@ -406,9 +406,9 @@ proc BtkFileSelector args {
         <Double-ButtonRelease-1> \
         "BtkFileSelector:FileDoubleClicked %W %y; break"
     bind $BtkFileSelector(baseWindow).selection.listbox <ButtonPress-1> \
-        "BtkFileSelector:FileClicked %W %y; break" 
+        "BtkFileSelector:FileClicked %W %y; break"
     bind $BtkFileSelector(baseWindow).selection.listbox <Button1-Motion> \
-        "BtkFileSelector:FileClicked %W %y; break" 
+        "BtkFileSelector:FileClicked %W %y; break"
 
     pack $BtkFileSelector(baseWindow).selection.label \
         -side top -anchor w -fill x

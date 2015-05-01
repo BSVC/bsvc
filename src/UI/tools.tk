@@ -3,7 +3,7 @@
 #
 
 ###############################################################################
-# Simple dialog to get a value from the user 
+# Simple dialog to get a value from the user
 ###############################################################################
 proc Tool:EntryDialog {parent_window label regular_expression} {
   global ReturnValue
@@ -33,7 +33,7 @@ proc Tool:EntryDialog {parent_window label regular_expression} {
   bind $EntryDialogParent.entryDialog.entry <Return> {
         set ReturnValue [$EntryDialogParent.entryDialog.entry get]
         if {[regexp $EntryDialogRegExp $ReturnValue]} {
-          destroy $EntryDialogParent.entryDialog 
+          destroy $EntryDialogParent.entryDialog
         } else {
           bell
         }
@@ -44,7 +44,7 @@ proc Tool:EntryDialog {parent_window label regular_expression} {
     button $EntryDialogParent.entryDialog.buttons.ok -text "Ok" \
         -command { set ReturnValue [$EntryDialogParent.entryDialog.entry get]
                    if {[regexp $EntryDialogRegExp $ReturnValue]} {
-                     destroy $EntryDialogParent.entryDialog 
+                     destroy $EntryDialogParent.entryDialog
                    } else {
                      bell
                    }
@@ -89,7 +89,7 @@ proc Tool:GetWritingMode {window mode_list} {
 
   frame $Tool(window).writeModeDialog -relief raised -borderwidth 3
 
-    frame $Tool(window).writeModeDialog.title 
+    frame $Tool(window).writeModeDialog.title
       label $Tool(window).writeModeDialog.title.label -bitmap question \
           -relief ridge -height 0.6i -width 0.5i -borderwidth 3
       message $Tool(window).writeModeDialog.title.message -text \
@@ -171,14 +171,14 @@ proc Tool:AlertDialog {parent_window the_message} {
   place $AlertDialogParent.alertDialog -relx 0.5 -rely 0.5 -anchor center
 
   ## Wait for ok to be pressed
-  tkwait window $AlertDialogParent.alertDialog 
+  tkwait window $AlertDialogParent.alertDialog
 
   ## Restore application mode
   SetApplicationMode $mode
 }
 
 ###############################################################################
-# Popup a modal open file selector using either the built-in Tcl/Tk selector 
+# Popup a modal open file selector using either the built-in Tcl/Tk selector
 # or the BtkFileSelector
 ###############################################################################
 proc Tool:OpenFileSelector {args} {
@@ -203,7 +203,7 @@ proc Tool:OpenFileSelector {args} {
 }
 
 ###############################################################################
-# Popup a modal save file selector using either the built-in Tcl/Tk selector 
+# Popup a modal save file selector using either the built-in Tcl/Tk selector
 # or the BtkFileSelector
 ###############################################################################
 proc Tool:SaveFileSelector {args} {

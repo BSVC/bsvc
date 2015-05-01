@@ -28,7 +28,7 @@ proc License:Open {} {
       -takefocus 0 -highlightthickness 0
   button .license.dismiss -text "Dismiss" \
       -command "destroy .license"
- 
+
   pack .license.dismiss -side bottom -fill x
   pack .license.scroll -side left -fill y
   pack .license.text -side left -fill both -expand 1
@@ -47,6 +47,6 @@ proc License:Open {} {
   close $file
 
   .license.text insert end $info
-  .license.text configure -state disabled 
+  .license.text configure -state disabled
 }
 

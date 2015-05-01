@@ -87,7 +87,7 @@ proc Simulator:Execute {command} {
   global tcl_platform
   global env
 
-  ## Get the executable name of the simulator 
+  ## Get the executable name of the simulator
   scan $command "%s" name
 
   ## Get the name of the simulator in conical form
@@ -124,7 +124,7 @@ proc Simulator:Execute {command} {
   if {[catch {open "|\"$pipe_command\"" "r+"} Simulator(Pipe)]} {
     catch {close $Simulator(Pipe)}
     Tool:AlertDialog {} "Problem opening pipe to the simulator!"
-    return 0 
+    return 0
   }
 
   ## Make sure the program is a BSVC Simulator!!!
@@ -226,7 +226,7 @@ proc Registers:Alter {} {
 # Clear all of the registers (set them to zero)
 ###############################################################################
 proc Registers:ClearAll {} {
-  
+
   ## Set each of the registers to 0
   PutLine "ListRegisters"
   foreach i [GetList] {
@@ -234,10 +234,10 @@ proc Registers:ClearAll {} {
     PutLine "SetRegister $name 0"
 
     ## Remove any simulator output (should be just a Ready)
-    GetList 
+    GetList
   }
 
-  Statistics:Refresh 
+  Statistics:Refresh
   Registers:Refresh
   ProgramListing:Refresh
 }
@@ -253,7 +253,7 @@ proc Registers:Refresh {} {
   ## Get the list of registers and values from the simulator
   PutLine {ListRegisters}
 
-  .systemResources.registers.list delete 0 end 
+  .systemResources.registers.list delete 0 end
   foreach i [GetList] {
     .systemResources.registers.list insert end "$i"
 
@@ -264,7 +264,7 @@ proc Registers:Refresh {} {
     }
   }
 }
-  
+
 ###############################################################################
 # Clear the simulator's statistics
 ###############################################################################
@@ -293,7 +293,7 @@ proc Statistics:Refresh {} {
   set stat_list [GetList]
   if {[llength $stat_list] == 0} { return 0 }
 
-  .systemResources.statistics.list delete 0 end 
+  .systemResources.statistics.list delete 0 end
   foreach i $stat_list {
     .systemResources.statistics.list insert end "$i"
 
@@ -320,10 +320,10 @@ proc Trace:InsertRegisters {} {
   foreach i [GetList] {
     if {[expr [string length $i] + [string length $line]] > $width} {
       .systemOutput.text configure -state normal
-      .systemOutput.text insert end "$line\n" 
+      .systemOutput.text insert end "$line\n"
       .systemOutput.text yview -pickplace end
       .systemOutput.text configure -state disabled
-      set line "$i"  
+      set line "$i"
     } else {
       if {[string length $line] != 0} {
         set line "$line $i"
@@ -333,10 +333,10 @@ proc Trace:InsertRegisters {} {
     }
   }
 
-  ## Add the last line if there is one  
+  ## Add the last line if there is one
   if {[string length $line] != 0} {
     .systemOutput.text configure -state normal
-    .systemOutput.text insert end "$line\n\n" 
+    .systemOutput.text insert end "$line\n\n"
     .systemOutput.text yview -pickplace end
     .systemOutput.text configure -state disabled
   } else {
@@ -357,13 +357,13 @@ proc Trace:InsertStatistics {} {
 
   .systemOutput.text configure -state normal
   foreach i [GetList] {
-    .systemOutput.text insert end "$i\n" 
+    .systemOutput.text insert end "$i\n"
     .systemOutput.text yview -pickplace end
-  } 
-  .systemOutput.text insert end "\n" 
+  }
+  .systemOutput.text insert end "\n"
   .systemOutput.text configure -state disabled
 }
-  
+
 ###############################################################################
 # Insert the execution trace record into the output window
 ###############################################################################
@@ -375,7 +375,7 @@ proc Trace:InsertTraceRecord {record} {
   set entries "SimulatorMessage $Simulator(TraceEntries)"
 
   foreach i $trace_records {
-    if {[scan $i "%s %d" name width] == 2} { 
+    if {[scan $i "%s %d" name width] == 2} {
       if {[lsearch $entries $name] != -1} {
         set i [lsearch -regexp $record "^$name"]
         if {$i != -1} {
@@ -387,7 +387,7 @@ proc Trace:InsertTraceRecord {record} {
           .systemOutput.text configure -state disabled
         }
       }
-    } 
+    }
   }
   .systemOutput.text configure -state normal
   .systemOutput.text insert end "\n"
@@ -396,7 +396,7 @@ proc Trace:InsertTraceRecord {record} {
 }
 
 ###############################################################################
-# Set the execution trace prefrences 
+# Set the execution trace prefrences
 ###############################################################################
 proc Trace:Preferences {} {
   global Simulator
@@ -440,7 +440,7 @@ proc Trace:Preferences {} {
   place .tracePreferences -relx 0.5 -rely 0.5 -anchor center
 
   ## Wait for ok or cancel to be pressed
-  tkwait window .tracePreferences 
+  tkwait window .tracePreferences
 
   ## Reset application mode
   SetApplicationMode $mode
@@ -455,7 +455,7 @@ proc Trace:Preferences {} {
         }
       }
     }
-  } 
+  }
   unset TraceCheckButton
 }
 
@@ -557,7 +557,7 @@ proc Run:HandleStop {} {
   global Simulator
   global tcl_version
   global tcl_platform
-  
+
   ## Stop running only if we are running
   if {[GetApplicationMode] == "RunningMode"} {
 
@@ -570,7 +570,7 @@ proc Run:HandleStop {} {
       .systemOutput.text insert end "$i\n"
       .systemOutput.text yview -pickplace end
       .systemOutput.text configure -state disabled
-    }    
+    }
 
     ## Stop the "running" animation
     Run:StopAnimation
@@ -764,8 +764,8 @@ proc LoadSetup {name} {
         return
       }
     }
-       
-    ## Make sure the file names a simulator to use 
+
+    ## Make sure the file names a simulator to use
     if {[lsearch -exact "$contents" SIMULATOR] == "-1"} {
       Tool:AlertDialog {} "The Setup file seems to be corrupt!"
       return
@@ -803,7 +803,7 @@ proc LoadSetup {name} {
     MemoryViewer:Refresh
   }
 }
-    
+
 ###############################################################################
 ## Ask the user for the simulator command line and startup the simulator
 ###############################################################################
@@ -881,7 +881,7 @@ proc SaveSetup {} {
       Tool:AlertDialog {} "ERROR: The specified file is a directory!"
       return
     }
- 
+
     set mode "w"
 
     ## If we're tk_getSaveFile not available then ask user what to do about file
@@ -905,12 +905,12 @@ proc SaveSetup {} {
       ## Get a list of devices attached to this address space
       PutLine "ListAttachedDevices $t"
       foreach i [GetList] {
-        puts $file "COMMAND \{AttachDevice $t $i\}" 
+        puts $file "COMMAND \{AttachDevice $t $i\}"
       }
     }
     close $file
   }
-} 
+}
 
 ###############################################################################
 # Step through some number of instructions
@@ -1090,7 +1090,7 @@ proc GetApplicationMode {} {
 # Build the main drop down menu for the application
 ###############################################################################
 frame .mainMenu -relief raised -borderwidth 2
-  menubutton .mainMenu.file -text "File" -menu .mainMenu.file.menu 
+  menubutton .mainMenu.file -text "File" -menu .mainMenu.file.menu
     menu .mainMenu.file.menu -tearoff 0
       .mainMenu.file.menu add command -label "Load Program...  " \
           -accelerator "Ctrl-L" -command {LoadProgram}
@@ -1144,8 +1144,8 @@ frame .systemResources
   frame .systemResources.registers
     frame .systemResources.registers.popslot -relief raised -borderwidth 2
     menubutton .systemResources.registers.popup -text "Registers" \
-        -menu .systemResources.registers.popup.menu 
-      menu .systemResources.registers.popup.menu -tearoff 0 
+        -menu .systemResources.registers.popup.menu
+      menu .systemResources.registers.popup.menu -tearoff 0
       .systemResources.registers.popup.menu add command -label "Alter...  " \
           -command {Registers:Alter}
       .systemResources.registers.popup.menu add command -label "Clear All  " \
@@ -1161,13 +1161,13 @@ frame .systemResources
         -in .systemResources.registers.popslot
     pack .systemResources.registers.popslot -side top -fill x
     pack .systemResources.registers.scroll -side left -fill y
-    pack .systemResources.registers.list -side left -fill y 
+    pack .systemResources.registers.list -side left -fill y
 
 
   frame .systemResources.statistics
     frame .systemResources.statistics.popslot -relief raised -borderwidth 2
     menubutton .systemResources.statistics.popup -text "Statistics" \
-        -menu .systemResources.statistics.popup.menu 
+        -menu .systemResources.statistics.popup.menu
       menu .systemResources.statistics.popup.menu -tearoff 0
       .systemResources.statistics.popup.menu add command \
           -label "Clear All  " -command {Statistics:Clear}
@@ -1196,26 +1196,26 @@ frame .systemControl
   button .systemControl.singleStep -text "Single Step" \
       -command {Step "1"}
   button .systemControl.run -text "Run" \
-      -command {Run:Start} -width 5 
+      -command {Run:Start} -width 5
   button .systemControl.reset -text "Reset" \
       -command {Reset}
 
-  pack .systemControl.breakpoints -side left -expand 1 -fill x 
-  pack .systemControl.singleStep -side left -expand 1 -fill x 
-  pack .systemControl.run -side left -expand 1 -fill x 
-  pack .systemControl.reset -side left -expand 1 -fill x 
+  pack .systemControl.breakpoints -side left -expand 1 -fill x
+  pack .systemControl.singleStep -side left -expand 1 -fill x
+  pack .systemControl.run -side left -expand 1 -fill x
+  pack .systemControl.reset -side left -expand 1 -fill x
 
 ###############################################################################
 # Build the Output/Trace area
 ###############################################################################
 frame .systemOutput
   frame .systemOutput.popslot -relief raised -borderwidth 2
-  menubutton .systemOutput.popup -text "Trace" -menu .systemOutput.popup.menu 
+  menubutton .systemOutput.popup -text "Trace" -menu .systemOutput.popup.menu
     menu .systemOutput.popup.menu -tearoff 0
     .systemOutput.popup.menu add command -label "Save Contents...    " \
         -command {Trace:SaveContents}
     .systemOutput.popup.menu add command -label "Clear Contents    " \
-        -command {  
+        -command {
             .systemOutput.text configure -state normal
             .systemOutput.text delete 1.0 end
             .systemOutput.text configure -state disabled }
@@ -1242,7 +1242,7 @@ frame .systemOutput
 pack .mainMenu -side top -fill x
 pack .systemResources -side left -fill y
 pack .systemControl -side bottom -fill x
-pack .systemOutput -side bottom -expand 1 -fill both 
+pack .systemOutput -side bottom -expand 1 -fill both
 
 SetApplicationMode "StartupMode"
 ParseCommandLineArguments

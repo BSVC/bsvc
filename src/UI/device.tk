@@ -3,7 +3,7 @@
 #
 
 ###############################################################################
-# Attach the named device to the simulator 
+# Attach the named device to the simulator
 ###############################################################################
 proc DeviceSetup:Attach {name} {
   global DeviceSetup
@@ -38,7 +38,7 @@ proc DeviceSetup:Attach {name} {
 }
 
 ###############################################################################
-# Detach the indexed device from the simulator 
+# Detach the indexed device from the simulator
 ###############################################################################
 proc DeviceSetup:Detach {index} {
   global DeviceSetup
@@ -53,7 +53,7 @@ proc DeviceSetup:Detach {index} {
   DeviceSetup:Refresh
   MemoryViewer:Refresh
 
-  ## Output error to the user if there was one 
+  ## Output error to the user if there was one
   if {$errs != ""} {
     Tool:AlertDialog {} $errs
   }
@@ -95,7 +95,7 @@ proc DeviceSetup:Refresh {} {
   ## Empty available list
   .deviceSetup.available.list delete 0 end
 
-  ## Fill in the available device list  
+  ## Fill in the available device list
   PutLine {ListDevices}
   foreach i [GetList] {
     .deviceSetup.available.list insert end $i
@@ -112,7 +112,7 @@ proc DeviceSetup:Refresh {} {
 }
 
 ###############################################################################
-# Change the edit setup address space 
+# Change the edit setup address space
 ###############################################################################
 proc DeviceSetup:SetAddressSpace {value} {
   global DeviceSetup
@@ -210,7 +210,7 @@ proc DeviceSetup:Open {} {
 
   pack .deviceSetup.title -side top -fill x -expand 1 -padx 4 -ipady 2 -pady 2
   pack .deviceSetup.dismiss -side bottom -fill x -padx 2
-  pack .deviceSetup.attached -side left -padx 4 
+  pack .deviceSetup.attached -side left -padx 4
   pack .deviceSetup.available -side left -padx 4 -pady 2
 
   ## If there are multiple address spaces then create a scale
@@ -231,7 +231,7 @@ proc DeviceSetup:Open {} {
   }
 
   ## Let tk size the window and place it on the screen
-  update idletasks 
+  update idletasks
   place .deviceSetup -relx 0.5 -rely 0.5 -anchor center
 
   ## Update the edit dialog

@@ -23,7 +23,7 @@ proc ProgramListing:Initialize {} {
 }
 
 ###############################################################################
-# Refresh the listing 
+# Refresh the listing
 ###############################################################################
 proc ProgramListing:Refresh {} {
   global ProgramListing
@@ -108,19 +108,21 @@ proc ProgramListing:RefreshBreakpoints {} {
   if {[GetApplicationMode] == "StartupMode"} {return}
 
   ## Update breakpoint highlighting
-  .programListing.pack.text tag remove BreakpointTag 1.0 end
+  catch {
+    .programListing.pack.text tag remove BreakpointTag 1.0 end
 
-  ## Get a list of all of the breakpoints and highlight the 
-  ## lines which correspond to them
-  PutLine "ListBreakpoints"
-  foreach breakpoint [GetList] {
+    ## Get a list of all of the breakpoints and highlight the
+    ## lines which correspond to them
+    PutLine "ListBreakpoints"
+    foreach breakpoint [GetList] {
 
-    ## Get the decimal value of the breakpoint
-    scan $breakpoint "%x" value
+      ## Get the decimal value of the breakpoint
+      scan $breakpoint "%x" value
 
-    catch { 
-      eval ".programListing.pack.text tag add BreakpointTag \
-          $ProgramListingAddressTable($value)"
+      catch {
+        eval ".programListing.pack.text tag add BreakpointTag \
+            $ProgramListingAddressTable($value)"
+      }
     }
   }
 }
@@ -173,7 +175,7 @@ proc ProgramListing:ManualLoad {} {
       Tool:AlertDialog .programListing \
           "ERROR: The specified file does not exists!"
     }
-  } 
+  }
 }
 
 ###############################################################################
@@ -183,7 +185,7 @@ proc ProgramListing:Load {} {
   global ProgramListing
   global ProgramListingAddressTable
 
-  ## Remove the Address Table array 
+  ## Remove the Address Table array
   catch {unset ProgramListingAddressTable}
 
   ## Empty the program listing contents
@@ -295,14 +297,14 @@ proc ProgramListing:FindAgain {} {
     .programListing.pack.text see \
         [.programListing.pack.text index "SearchTag.last"]
   }
-} 
+}
 
 ###############################################################################
 # Remove all of the breakpoints that are currently set
 ###############################################################################
 proc ProgramListing:ClearBreakpoints {} {
- 
-  ## Tell the simulator to list the breakpoints 
+
+  ## Tell the simulator to list the breakpoints
   PutLine "ListBreakpoints"
 
   ## Tell the simulator to delete each of the breakpoints
@@ -337,7 +339,7 @@ proc ProgramListing:ToggleBreakpoint {x y} {
       ## Tell the simulator to add the breakpoint
       PutLine "AddBreakpoint $address"
       GetList
-    } else { 
+    } else {
       ## Tell the simulator to delete the breakpoint
       PutLine "DeleteBreakpoint $address"
       GetList
@@ -357,10 +359,10 @@ proc ProgramListing:SetApplicationMode {mode} {
   ## Return if the program listing window does not exist
   if {[winfo exists .programListing] == 0} {return}
 
-  ## The program listing can always be closed 
+  ## The program listing can always be closed
   bind .programListing <Control-w> {ProgramListing:Close; break}
 
-  ## Handle "Find Again" option 
+  ## Handle "Find Again" option
   if {$ProgramListing(FindString) != "" && $mode == "SimulationMode"} {
     .programListing.menubar.edit.menu entryconfigure "Find Again  " \
         -state normal
@@ -460,7 +462,7 @@ proc ProgramListing:Open {} {
             -command {ProgramListing:Find}
         .programListing.menubar.edit.menu add command \
             -label "Find Again  " -accelerator "Ctrl-G" \
-            -command {ProgramListing:FindAgain} 
+            -command {ProgramListing:FindAgain}
         .programListing.menubar.edit.menu add separator
         .programListing.menubar.edit.menu add command \
             -label "Clear Breakpoints  " \
@@ -476,12 +478,12 @@ proc ProgramListing:Open {} {
         -yscrollcommand ".programListing.pack.yscroll set" \
         -xscrollcommand ".programListing.pack.xscroll set" \
         -setgrid 1 -state disabled \
-        -takefocus 0 -highlightthickness 0 
+        -takefocus 0 -highlightthickness 0
 
     if {[winfo depth .programListing.pack.text] > 1} {
       .programListing.pack.text tag configure PCTag \
           -foreground Black -background SkyBlue -relief raised -borderwidth 1
-      .programListing.pack.text tag configure BreakpointTag -foreground #ff0000 
+      .programListing.pack.text tag configure BreakpointTag -foreground #ff0000
       .programListing.pack.text tag configure SearchTag \
           -background #ce5555 -foreground white
     } else {
@@ -501,18 +503,18 @@ proc ProgramListing:Open {} {
     ## Create scroll bars for text window
     scrollbar .programListing.pack.yscroll -relief sunken \
         -takefocus 0 -highlightthickness 0 \
-        -command ".programListing.pack.text yview" 
+        -command ".programListing.pack.text yview"
     scrollbar .programListing.pack.xscroll -relief sunken \
         -takefocus 0 -highlightthickness 0 \
         -orient horizontal \
-        -command ".programListing.pack.text xview" 
+        -command ".programListing.pack.text xview"
 
     pack .programListing.pack.xscroll -side bottom -fill x
     pack .programListing.pack.yscroll -side left -fill y
     pack .programListing.pack.text -side left -fill both -expand 1
 
   pack .programListing.menubar -side top -fill x
-  pack .programListing.pack -side top -fill both -expand 1 -padx 2 
+  pack .programListing.pack -side top -fill both -expand 1 -padx 2
 
   ## Indicate that there is no find string yet
   set ProgramListing(FindString) ""

@@ -118,7 +118,7 @@ proc MemoryViewer:ChangeAddress {address} {
 }
 
 ###############################################################################
-# Ask the user for a new address to view 
+# Ask the user for a new address to view
 ###############################################################################
 proc MemoryViewer:ViewFromAddress {} {
   global MemoryViewer
@@ -168,14 +168,14 @@ proc MemoryViewer:ViewFromRegister {} {
       bind .memoryViewer.register.list.list <Double-1> {
         set MemoryViewer(return) [.memoryViewer.register.list.list get \
             [lindex [.memoryViewer.register.list.list curselection] 0]]
-        destroy .memoryViewer.register 
-        break 
+        destroy .memoryViewer.register
+        break
       }
 
-    button .memoryViewer.register.ok -text " Ok " -command { 
+    button .memoryViewer.register.ok -text " Ok " -command {
           set MemoryViewer(return) [.memoryViewer.register.list.list get \
               [lindex [.memoryViewer.register.list.list curselection] 0]]
-          destroy .memoryViewer.register  
+          destroy .memoryViewer.register
         }
     button .memoryViewer.register.cancel -text "Cancel" -command {
           set MemoryViewer(return) ""
@@ -203,22 +203,22 @@ proc MemoryViewer:ViewFromRegister {} {
   update idletasks
   place .memoryViewer.register -relx 0.5 -rely 0.5 \
       -relheight 0.8 -anchor center
- 
+
   ## Wait for ok or cancel to be pressed
   tkwait window .memoryViewer.register
 
   ## If a register was selected then move to the corresponding address
   if {$MemoryViewer(return) != ""} {
-    ## Get the address to view 
-    scan $MemoryViewer(return) "%s = %x" dummy value 
+    ## Get the address to view
+    scan $MemoryViewer(return) "%s = %x" dummy value
 
     ## Change the viewing address
-    MemoryViewer:ChangeAddress $value 
+    MemoryViewer:ChangeAddress $value
   }
 
   ## Reset application mode
   SetApplicationMode $mode
-} 
+}
 
 ###############################################################################
 # Called whenever the user clicks in my text widget.  If they clicked on a
@@ -244,14 +244,14 @@ proc MemoryViewer:MouseClickHandler {x y} {
     set address [expr $MemoryViewer(Address) + \
         ($MemoryViewer(WPL) * ($line - 1)) + $word]
     set address [format "%x" $address]
- 
+
     ## Now, call change memory location to handle all of the user input
     MemoryViewer:ChangeMemoryLocation $address
-  } 
+  }
 }
 
 ###############################################################################
-# This procedure answers the closest power of two which is less than or equal 
+# This procedure answers the closest power of two which is less than or equal
 # to the number of memory words that can be displayed on a line with the
 # given line width
 ###############################################################################
@@ -260,7 +260,7 @@ proc MemoryViewer:CalculateWordsPerLine {line_width} {
 
   set usable_width [expr $line_width - 1 - $MemoryViewer(AddressLength)]
   set wpl [expr floor($usable_width / (1 + $MemoryViewer(WordLength)))]
- 
+
   ## Answer the power of 2 that's less than or equal to the calculated wpl
   return [expr int(pow(2,floor(log($wpl)/log(2))))]
 }
@@ -279,11 +279,11 @@ proc MemoryViewer:FillMemoryLocation {} {
   SetApplicationMode ModalMode
 
   ## Frame to hold the dialog box
-  frame .memoryViewer.fillMemory -relief raised -borderwidth 3 
+  frame .memoryViewer.fillMemory -relief raised -borderwidth 3
 
     label .memoryViewer.fillMemory.title -text "Fill Memory Block:"
 
-    frame .memoryViewer.fillMemory.address -relief sunken -borderwidth 2 
+    frame .memoryViewer.fillMemory.address -relief sunken -borderwidth 2
       label .memoryViewer.fillMemory.address.label -text "Starting Address:"
       entry .memoryViewer.fillMemory.address.entry -width 10 -relief sunken
       bind .memoryViewer.fillMemory.address.entry <Return> {
@@ -294,7 +294,7 @@ proc MemoryViewer:FillMemoryLocation {} {
       pack .memoryViewer.fillMemory.address.entry -side left \
            -fill x -expand 1 -padx 2 -pady 2
 
-    frame .memoryViewer.fillMemory.length -relief sunken -borderwidth 2 
+    frame .memoryViewer.fillMemory.length -relief sunken -borderwidth 2
       label .memoryViewer.fillMemory.length.label -text "Length:"
       entry .memoryViewer.fillMemory.length.entry -width 10 -relief sunken
       bind .memoryViewer.fillMemory.length.entry <Return> {
@@ -305,7 +305,7 @@ proc MemoryViewer:FillMemoryLocation {} {
       pack .memoryViewer.fillMemory.length.entry -side left \
            -fill x -expand 1 -padx 2 -pady 2
 
-    frame .memoryViewer.fillMemory.value -relief sunken -borderwidth 2 
+    frame .memoryViewer.fillMemory.value -relief sunken -borderwidth 2
       label .memoryViewer.fillMemory.value.label -text "Value:"
       entry .memoryViewer.fillMemory.value.entry -width 10 -relief sunken
       bind .memoryViewer.fillMemory.value.entry <Return> {
@@ -382,7 +382,7 @@ proc MemoryViewer:FillMemoryLocation {} {
 
     ## If an error was returned then report it to the user
     if {[llength $result] != 0} {
-      Tool:AlertDialog .memoryViewer [lindex $result 0] 
+      Tool:AlertDialog .memoryViewer [lindex $result 0]
     }
 
     ## Refresh myself
@@ -418,11 +418,11 @@ proc MemoryViewer:ChangeMemoryLocation args {
   SetApplicationMode ModalMode
 
   ## Frame to hold the dialog box
-  frame .memoryViewer.changeMemory -relief raised -borderwidth 3 
+  frame .memoryViewer.changeMemory -relief raised -borderwidth 3
 
     label .memoryViewer.changeMemory.title -text "Change Memory Location:"
 
-    frame .memoryViewer.changeMemory.address -relief sunken -borderwidth 2 
+    frame .memoryViewer.changeMemory.address -relief sunken -borderwidth 2
       label .memoryViewer.changeMemory.address.label -text "Address:"
       entry .memoryViewer.changeMemory.address.entry -width 10 -relief sunken
       bind .memoryViewer.changeMemory.address.entry <Return> {
@@ -438,7 +438,7 @@ proc MemoryViewer:ChangeMemoryLocation args {
       pack .memoryViewer.changeMemory.address.entry -side left \
            -fill x -expand 1 -padx 2 -pady 2
 
-    frame .memoryViewer.changeMemory.value -relief sunken -borderwidth 2 
+    frame .memoryViewer.changeMemory.value -relief sunken -borderwidth 2
       label .memoryViewer.changeMemory.value.label -text "Value:"
       entry .memoryViewer.changeMemory.value.entry -width 10 -relief sunken
       bind .memoryViewer.changeMemory.value.entry <Return> {
@@ -516,7 +516,7 @@ proc MemoryViewer:ChangeMemoryLocation args {
 
     ## If an error was returned then report it to the user
     if {[llength $result] != 0} {
-      Tool:AlertDialog .memoryViewer [lindex $result 0] 
+      Tool:AlertDialog .memoryViewer [lindex $result 0]
     }
 
     ## Refresh myself
@@ -539,11 +539,11 @@ proc MemoryViewer:DumpMemoryRange {} {
   SetApplicationMode ModalMode
 
   ## Frame to hold the dialog box
-  frame .memoryViewer.dumpDialog -relief raised -borderwidth 3 
- 
+  frame .memoryViewer.dumpDialog -relief raised -borderwidth 3
+
     label .memoryViewer.dumpDialog.title -text "Dump Memory to File:"
 
-    frame .memoryViewer.dumpDialog.start -relief sunken -borderwidth 2 
+    frame .memoryViewer.dumpDialog.start -relief sunken -borderwidth 2
       label .memoryViewer.dumpDialog.start.label -text "Starting Address:"
       entry .memoryViewer.dumpDialog.start.entry -width 10 -relief sunken
       bind .memoryViewer.dumpDialog.start.entry <Return> {
@@ -554,7 +554,7 @@ proc MemoryViewer:DumpMemoryRange {} {
       pack .memoryViewer.dumpDialog.start.entry -side left \
            -fill x -expand 1 -padx 2 -pady 2
 
-    frame .memoryViewer.dumpDialog.end -relief sunken -borderwidth 2 
+    frame .memoryViewer.dumpDialog.end -relief sunken -borderwidth 2
       label .memoryViewer.dumpDialog.end.label -text "Ending Address:"
       entry .memoryViewer.dumpDialog.end.entry -width 10 -relief sunken
       bind .memoryViewer.dumpDialog.end.entry <Return> {
@@ -627,13 +627,13 @@ proc MemoryViewer:DumpMemoryRange {} {
       return
     }
 
-    ## Let the user enter a filename using the file selector    
+    ## Let the user enter a filename using the file selector
     set name [Tool:SaveFileSelector -parent .memoryViewer \
         -title "Select file to write the memory dump to:"]
 
     ## Make sure the user selected a file
     if {$name != ""} {
- 
+
       ## Make sure they didn't select a directory name
       if {[file isdirectory $name]} {
         Tool:AlertDialog .memoryViewer \
@@ -651,10 +651,10 @@ proc MemoryViewer:DumpMemoryRange {} {
             overwrite {set mode "w+"}
             append    {set mode "a+"}
             default   {return}
-          } 
+          }
         }
       }
- 
+
       ## Calculate the words per line for an 80 column text file
       set words_per_line [MemoryViewer:CalculateWordsPerLine 80]
 
@@ -668,7 +668,7 @@ proc MemoryViewer:DumpMemoryRange {} {
         Tool:AlertDialog .memoryViewer \
             "ERROR: Couldn't open $name for writing!!!"
         return
-      } 
+      }
 
       ## Ask simulator for memory dump
       PutLine "ListMemory $MemoryViewer(AddressSpace) $address $length $wpl"
@@ -687,10 +687,10 @@ proc MemoryViewer:DumpMemoryRange {} {
       }
       puts $file ""
 
-      close $file 
+      close $file
     }
   }
-} 
+}
 
 ###############################################################################
 # Move the memory viewer's address up a line

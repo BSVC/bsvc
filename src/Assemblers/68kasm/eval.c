@@ -89,17 +89,17 @@ eval(char *p, int *valuePtr, char *refPtr, int *errorPtr)
 		p = evalNumber(p, &t, &backRef, &status);
 		NEWERROR(*errorPtr, status);
 		if (!backRef && (status > ERROR || status == INCOMPLETE)) {
-			// Stop evaluating the expression 
+			// Stop evaluating the expression
 			evaluate = FALSE;
 			*refPtr = FALSE;
 		} else if (*errorPtr > SEVERE)
-			// Pass any other error to the caller 
+			// Pass any other error to the caller
 			return NULL;
 		else {
-			// If OK or WARNING, push the value on the stack 
+			// If OK or WARNING, push the value on the stack
 			if (evaluate)
 				valStack[valPtr++] = t;
-			// Set *refPtr to reflect the symbol just parsed 
+			// Set *refPtr to reflect the symbol just parsed
 			*refPtr = *refPtr && backRef;
 		}
 
@@ -108,7 +108,7 @@ eval(char *p, int *valuePtr, char *refPtr, int *errorPtr)
 		 *		EXPECT AN OPERATOR		*
 		 *						*
 		 ************************************************/
-		// Handle the >> and << operators 
+		// Handle the >> and << operators
 		if (*p == '>' || *p == '<') {
 			p++;
 			if (*p != *(p - 1)) {
@@ -121,12 +121,12 @@ eval(char *p, int *valuePtr, char *refPtr, int *errorPtr)
 		// precedence than the operator just examined.
 		while (opPtr && evaluate
 		       && (prec <= precedence(opStack[opPtr - 1]))) {
-			// Pop operands and operator and do the operation 
+			// Pop operands and operator and do the operation
 			t = valStack[--valPtr];
 			i = valStack[--valPtr];
 			status = doOp(i, t, opStack[--opPtr], &t);
 			if (status != OK) {
-				// Report error from doOp 
+				// Report error from doOp
 				if (pass2) {
 					NEWERROR(*errorPtr, status);
 				} else
@@ -134,12 +134,12 @@ eval(char *p, int *valuePtr, char *refPtr, int *errorPtr)
 				evaluate = FALSE;
 				*refPtr = FALSE;
 			} else
-				// Otherwise push result on the stack 
+				// Otherwise push result on the stack
 				valStack[valPtr++] = t;
 		}
 		if (prec) {
 			if (evaluate)
-				// If operator is valid, push it on the stack 
+				// If operator is valid, push it on the stack
 				opStack[opPtr++] = *p;
 			p++;
 		} else if (*p == ',' || *p == '(' || *p == ')' || !(*p)
@@ -152,7 +152,7 @@ eval(char *p, int *valuePtr, char *refPtr, int *errorPtr)
 				*valuePtr = 0;
 			return p;
 		} else {
-			// Otherwise report the syntax error 
+			// Otherwise report the syntax error
 			NEWERROR(*errorPtr, SYNTAX);
 			return NULL;
 		}
@@ -172,17 +172,17 @@ evalNumber(char *p, int *numberPtr, char *refPtr, int *errorPtr)
 
 	*refPtr = TRUE;
 	if (*p == '-') {
-		// Evaluate unary minus operator recursively 
+		// Evaluate unary minus operator recursively
 		p = evalNumber(++p, &x, refPtr, errorPtr);
 		*numberPtr = -x;
 		return p;
 	} else if (*p == '~') {
-		// Evaluate one's complement operator recursively 
+		// Evaluate one's complement operator recursively
 		p = evalNumber(++p, &x, refPtr, errorPtr);
 		*numberPtr = ~x;
 		return p;
 	} else if (*p == '(') {
-		// Evaluate parenthesized expressions recursively 
+		// Evaluate parenthesized expressions recursively
 		p = eval(++p, &x, refPtr, errorPtr);
 		if (*errorPtr > SEVERE)
 			return NULL;
@@ -218,13 +218,13 @@ evalNumber(char *p, int *numberPtr, char *refPtr, int *errorPtr)
 			p++;
 		} else
 			base = 10;
-		// Check that at least one digit is present 
+		// Check that at least one digit is present
 		if (*p < '0' || *p >= '0' + base) {
 			NEWERROR(*errorPtr, SYNTAX);
 			return NULL;
 		}
 		x = 0;
-		// Convert the digits into an integer 
+		// Convert the digits into an integer
 		while (*p >= '0' && *p < '0' + base) {
 			if ((unsigned)x >
 			    (unsigned)(INTLIMIT - (*p - '0')) / base)
@@ -263,7 +263,7 @@ evalNumber(char *p, int *numberPtr, char *refPtr, int *errorPtr)
 		*numberPtr = x;
 		return p;
 	} else if (isalpha(*p) || *p == '.') {
-		// Determine the value of a symbol 
+		// Determine the value of a symbol
 		i = 0;
 		/* Collect characters of the symbol's name
 		   (only SIGCHARS characters are significant) */
@@ -278,7 +278,7 @@ evalNumber(char *p, int *numberPtr, char *refPtr, int *errorPtr)
 		   in a pointer to the symbol table entry */
 		status = OK;
 		symbol = lookup(name, FALSE, &status);
-// 		printf("EvalNumber: Status from lookup = %04X\n", status); 
+// 		printf("EvalNumber: Status from lookup = %04X\n", status);
 		if (status == OK)
 			/* If symbol was found, and it's not a register
 			   list symbol, then return its value */
@@ -290,11 +290,11 @@ evalNumber(char *p, int *numberPtr, char *refPtr, int *errorPtr)
 					*refPtr =
 					    (symbol->flags & BACKREF);
 			} else {
-				// If it is a register list symbol, return error 
+				// If it is a register list symbol, return error
 				*numberPtr = 0;
 				NEWERROR(*errorPtr, REG_LIST_SPEC);
 		} else {
-			// Otherwise return an error 
+			// Otherwise return an error
 			if (pass2) {
 				NEWERROR(*errorPtr, UNDEFINED);
 			} else
@@ -305,7 +305,7 @@ evalNumber(char *p, int *numberPtr, char *refPtr, int *errorPtr)
 			name, (*refPtr) ? "" : " not"); */
 		return p;
 	} else {
-		// Otherwise, the character was not a valid operand 
+		// Otherwise, the character was not a valid operand
 		NEWERROR(*errorPtr, SYNTAX);
 		return NULL;
 	}
