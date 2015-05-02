@@ -18,9 +18,7 @@ bool StatisticalInformationList::Element(unsigned int index,
   if (index >= NumberOfElements()) {
     return false;
   }
-  auto it = myList.begin();
-  std::advance(it, index);
-  auto *element = *it;
+  auto *element = myList[index];
   info.Set(element->Statistic());
   return true;
 }

@@ -7,7 +7,7 @@
 #define FRAMEWORK_STATINFO_HXX
 
 #include <string>
-#include <list>
+#include <vector>
 
 class BasicCPU;
 
@@ -42,7 +42,7 @@ public:
   bool Element(unsigned int index, StatisticInformation &info);
 
 private:
-  std::list<StatisticInformation *> myList;
+  std::vector<StatisticInformation *> myList;
 };
 
 #endif  // FRAMEWORK_STATINFO_HXX
