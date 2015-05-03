@@ -1,4 +1,3 @@
-
 Possible BSVC Projects
 ======================
 
@@ -8,7 +7,7 @@ on think about one of the following.  Some of these are very pratical while
 others are a little on the far side.
 
 
-1) It would be nice to have the following microprocessors simulated:
+1. It would be nice to have the following microprocessors simulated:
 
    * Intel 8051
    * Intel 8086
@@ -17,7 +16,7 @@ others are a little on the far side.
    * Power PC 601
    * MOS 6502   (I've got most of this written just haven't finished it :-)
 
-2) More devices for example:
+2. More devices for example:
 
    * Motorola 6850 UART    I've got part of this written but then I found
                            out that NCSU had started using the MC68681 :-)
@@ -43,7 +42,7 @@ others are a little on the far side.
 
    * Hard disk adapter     Uses a file as a hard disk image
 
-3) 68000 stuff
+3. 68000 stuff
 
    * See how hard it would be to build GNU C as a cross compiler for the
      M68000.  Then add a Loader to the Sim68000 to load the a.out file
@@ -51,7 +50,7 @@ others are a little on the far side.
 
    * If you get GNU C working then port XINU to the M68000.
 
-4) Cache simulations
+4. Cache simulations
 
    * Get GNU C to work as a cross compiler to one of the microprocessors
      supported by BSVC.  Add a Loader to the simulator to load the a.out
@@ -71,7 +70,7 @@ others are a little on the far side.
        This would be really neat if it worked but I would suggest more
        than one person on this project :-)
 
-5) BSVC Framework 
+5. BSVC Framework 
 
    * Modify the EventHandler to accept file descriptor events, and timed
      file descriptor events.  This would eliminate the polling done in the
@@ -79,13 +78,8 @@ others are a little on the far side.
 
    * Clean up the interface class and remove some of the C code in there
     
-6) Add new feature to the program listing utility
+6. Add new feature to the program listing utility
 
    * Highlight lines were breakpoints are set
 
    * Allow breakpoints to be set/unset
-
-There are many others, but it's getting late and I've got to go to work
-tomorrow :-)
-
-

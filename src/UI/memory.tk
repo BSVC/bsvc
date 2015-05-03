@@ -773,10 +773,10 @@ proc MemoryViewer:SetApplicationMode {mode} {
 
     .memoryViewer.text configure -state disabled
 
-    .memoryViewer.menubar.up configure -state normal
-    .memoryViewer.menubar.down configure -state normal
     .memoryViewer.menubar.pageUp configure -state normal
     .memoryViewer.menubar.pageDown configure -state normal
+    .memoryViewer.menubar.up configure -state normal
+    .memoryViewer.menubar.down configure -state normal
 
     bind .memoryViewer <Control-d> {MemoryViewer:DumpMemoryRange; break}
     bind .memoryViewer <Control-a> {MemoryViewer:ViewFromAddress; break}
@@ -813,10 +813,10 @@ proc MemoryViewer:SetApplicationMode {mode} {
         "Fill Memory Block...  " -state disabled
 
     .memoryViewer.text configure -state disabled
-    .memoryViewer.menubar.up configure -state disabled
-    .memoryViewer.menubar.down configure -state disabled
     .memoryViewer.menubar.pageUp configure -state disabled
     .memoryViewer.menubar.pageDown configure -state disabled
+    .memoryViewer.menubar.up configure -state disabled
+    .memoryViewer.menubar.down configure -state disabled
 
     bind .memoryViewer <Control-d> {break}
     bind .memoryViewer <Control-a> {break}
@@ -911,10 +911,10 @@ proc MemoryViewer:Open {} {
     pack .memoryViewer.menubar.file -side left
     pack .memoryViewer.menubar.edit -side left
     pack .memoryViewer.menubar.view -side left
-    pack .memoryViewer.menubar.pageDown -side right
-    pack .memoryViewer.menubar.pageUp -side right
     pack .memoryViewer.menubar.down -side right
     pack .memoryViewer.menubar.up -side right
+    pack .memoryViewer.menubar.pageDown -side right
+    pack .memoryViewer.menubar.pageUp -side right
 
   ## Create the text widget to display memory dump in
   text .memoryViewer.text -relief raised -borderwidth 2 \

@@ -2,13 +2,13 @@ PREFIX:=	/opt/local
 BINDIR:=	$(PREFIX)/bin
 LIBDIR:=	$(PREFIX)/lib/bsvc
 
-CC:=		egcc
-CXX:=		eg++
+CC?=		egcc
+CXX?=		eg++
+CFLAGS?=	-O -std=c11
+CXXFLAGS?=	-O -ansi -pedantic -Wall -Werror -std=c++11
 O:=		o
-CFLAGS:=	-O -std=c11
-CXXFLAGS:=	-O -ansi -pedantic -Wall -Werror -std=c++11
 
-WISH:=		wish8.5
+WISH?=		wish8.5
 AR:=		ar
 RANLIB:=	ranlib
 RM:=		rm
