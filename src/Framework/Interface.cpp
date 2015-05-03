@@ -108,7 +108,7 @@ void Interface::ClearStatistics(const std::string &) { myCPU.ClearStatistics(); 
 void Interface::ListStatistics(const std::string &) {
   StatisticalInformationList list(myCPU);
   for (size_t t = 0; t < list.NumberOfElements(); ++t) {
-    std::string info;
+    StatisticInformation info;
     list.Element(t, info);
     myOutputStream << info.Statistic() << std::endl;
   }
