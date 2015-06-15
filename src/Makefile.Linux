@@ -2,13 +2,13 @@ PREFIX:=	/usr/local
 BINDIR:=	$(PREFIX)/bin
 LIBDIR:=	$(PREFIX)/lib/bsvc
 
-CC:=		gcc
-CXX:=		g++
+CC?=		gcc
+CXX?=		g++
 O:=		o
-CFLAGS:=	-O -std=c11
-CXXFLAGS:=	-O -ansi -pedantic -Wall -Werror -std=c++11
+CFLAGS?=	-O -std=c11
+CXXFLAGS?=	-O -ansi -pedantic -Wall -Werror -std=c++11
 
-WISH:=		wish
+WISH?=		wish
 AR:=		ar
 RANLIB:=	ranlib
 RM:=		rm
