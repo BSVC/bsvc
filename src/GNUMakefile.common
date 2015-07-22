@@ -117,7 +117,7 @@ install:		all
 			$(MKDIR) -p $(LIBDIR)/UI
 			$(MKDIR) -p $(LIBDIR)/UI/bitmaps
 			$(MKDIR) -p $(LIBDIR)/UI/help
-			$(INSTALL) $(SUBDIR_UI)/*.tk $(SUBDIR_UI)*.ad $(LIBDIR)/UI
+			$(INSTALL) $(SUBDIR_UI)/*.tk $(SUBDIR_UI)/*.ad $(LIBDIR)/UI
 			$(INSTALL) $(SUBDIR_UI)/bitmaps/* $(LIBDIR)/UI/bitmaps
 			$(INSTALL) $(SUBDIR_UI)/help/* $(LIBDIR)/UI/help
 			$(INSTALL) $(BIN_BSVC) $(BINDIR)
