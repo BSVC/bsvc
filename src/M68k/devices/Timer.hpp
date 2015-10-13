@@ -1,7 +1,7 @@
 //
 // Simulates an ECB timer for the M68000 CPU. Thus giving
-// the Simulator the ablility to simulate a timmer intrurpt.
-// Programmers can impliment time slicing with this timmer.
+// the Simulator the ablility to simulate a timer interrupt.
+// Programmers can implement time slicing with this timer.
 //
 // Contains Register and Offsets for the ECB timer.
 //
@@ -20,12 +20,12 @@
 #define NULR 4
 #define CPRH 6
 #define CPRM 8
-#define CPRL 10 // 0xA  in Hex
-#define NULTR 12 // 0xC  in hex
+#define CPRL 10   // 0xA  in Hex
+#define NULTR 12  // 0xC  in hex
 #define CNTRH 14
 #define CNTRM 16
 #define CNTRL 18
-#define TSR 20 // 0x14 in hex
+#define TSR 20    // 0x14 in hex
 
 #define TIMER_EVENT 100
 

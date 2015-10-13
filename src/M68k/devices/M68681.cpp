@@ -14,6 +14,24 @@
 #include "Framework/BasicCPU.hpp"
 #include "M68k/devices/M68681.hpp"
 
+/*
+#include <stdio.h>
+#include <stdarg.h>
+namespace {
+void log(const char *fmt, ...)
+{
+  FILE *fp = fopen("/tmp/log.txt", "a");
+  if (fp != NULL) {
+    va_list ap;
+    va_start(ap, fmt);
+    vfprintf(fp, fmt, ap);
+    va_end(ap);
+    fclose(fp);
+  }
+}
+}
+*/
+
 // Callback types
 #define READ_A_CALLBACK 1
 #define WRITE_A_CALLBACK 2
@@ -537,7 +555,7 @@ void M68681::EventCallback(int type, void *) {
     // If receiver is disabled or full then just add event and return
     if ((receiver_a_state == INACTIVE) || (SRA & FFULL)) {
       // Reschedule another read callback to check for more characters
-      (myCPU.eventHandler())
+      myCPU.eventHandler()
           .Add(this, READ_A_CALLBACK, 0, DEFAULT_READ_CALLBACK_DURATION);
       return;
     }
@@ -579,14 +597,14 @@ void M68681::EventCallback(int type, void *) {
 
       // Reschedule another read callback to check for more characters
       if (ACR & 128)
-        (myCPU.eventHandler())
+        myCPU.eventHandler()
             .Add(this, READ_A_CALLBACK, 0, baudrate_table[(CSRA >> 4) + 16]);
       else
-        (myCPU.eventHandler())
+        myCPU.eventHandler()
             .Add(this, READ_A_CALLBACK, 0, baudrate_table[(CSRA >> 4)]);
     } else {
       // Reschedule another read callback to check for more characters
-      (myCPU.eventHandler())
+      myCPU.eventHandler()
           .Add(this, READ_A_CALLBACK, 0, DEFAULT_READ_CALLBACK_DURATION);
     }
   } else if (type == WRITE_B_CALLBACK) {

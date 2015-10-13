@@ -5,6 +5,7 @@
 #ifndef SIM68000_CPU_M68000_HPP_
 #define SIM68000_CPU_M68000_HPP_
 
+#include <queue>
 #include <string>
 
 class BasicDevice;
@@ -232,8 +233,24 @@ private:
 
   int ProcessException(int vector);
 
-  long my_interrupt;
-  BasicDevice *my_device;
+  struct PendingInterrupt {
+    PendingInterrupt(long l, BasicDevice *d) : level(l), device(d) { }
+    long level;
+    BasicDevice *device;
+    bool operator==(const PendingInterrupt &a) {
+      return level == a.level && device == a.device;
+    }
+    struct Compare {
+      bool operator()(const PendingInterrupt &a, const PendingInterrupt &b) {
+        return a.level > b.level;
+      }
+    };
+  };
+
+  std::priority_queue<
+      PendingInterrupt,
+      std::vector<PendingInterrupt>,
+      PendingInterrupt::Compare> pending_interrupts;
 };
 
 #endif  // SIM68000_CPU_M68000_HPP_

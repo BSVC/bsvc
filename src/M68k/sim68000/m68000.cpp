@@ -4,24 +4,6 @@
 #include "Framework/Tools.hpp"
 #include "M68k/sim68000/m68000.hpp"
 
-/*
-#include <stdio.h>
-#include <stdarg.h>
-namespace {
-void log(const char *fmt, ...)
-{
-  FILE *fp = fopen("/tmp/log.txt", "a");
-  if (fp != NULL) {
-    va_list ap;
-    va_start(ap, fmt);
-    vfprintf(fp, fmt, ap);
-    va_end(ap);
-    fclose(fp);
-  }
-}
-}
-*/
-
 // Array of information about each register
 m68000::RegisterData m68000::ourRegisterData[] = {
     {"D0", 0xffffffff, "Data Register 0"},
@@ -82,8 +64,6 @@ m68000::m68000()
 
   // Reset the system
   Reset();
-
-  my_interrupt = -1;
 }
 
 // The m68000 Class destructor
@@ -172,13 +152,12 @@ std::string m68000::ExecuteInstruction(std::string &traceRecord, bool tracing) {
 
   // Make sure the CPU hasn't been halted
   if (myState != HALT_STATE) {
-    bool serviceFlag;
-
     // Service any pending interrupts
+    bool serviceFlag;
     status = ServiceInterrupts(serviceFlag);
 
     // Only execute an instruction if we didn't service an interrupt
-    if ((!serviceFlag) && (status == EXECUTE_OK)) {
+    if (!serviceFlag && status == EXECUTE_OK) {
       // Make sure the CPU isn't stopped waiting for exceptions
       if (myState != STOP_STATE) {
         // Fetch the next instruction
@@ -245,73 +224,75 @@ void m68000::InterruptRequest(BasicDevice *device, int level) {
   else if (level < 1)
     level = 1;
 
-  // Get the interrupt mask
-  int interruptMask = (register_value[SR_INDEX] & 0x0700) >> 8;
-
-  if ((level > interruptMask) || (level == 7)) {
-    my_interrupt = level;
-    my_device = device;
-  } else {
-    device->InterruptAcknowledge(1);
-  }
+  pending_interrupts.push(PendingInterrupt(level, device));
 }
 
 // Service pending interrupts, serviceFlag set true iff something serviced
 int m68000::ServiceInterrupts(bool &serviceFlag) {
-  if (my_interrupt != -1) {
-    // Indicate that I had to service an interrupt
-    serviceFlag = true;
+  serviceFlag = false;
 
-    int level = my_interrupt;
-    int status;
-
-    my_interrupt = -1;
-
-    // Put the processor into normal state if it's stopped
-    if (myState == STOP_STATE)
-      myState = NORMAL_STATE;
-
-    // Copy the SR to a temp
-    Register tmp_sr = register_value[SR_INDEX];
-
-    // Set the Interrupt Mask in SR
-    register_value[SR_INDEX] &= 0x0000f8ff;
-    register_value[SR_INDEX] |= (level << 8);
-
-    // Change to Supervisor mode and clear the Trace mode
-    register_value[SR_INDEX] |= S_FLAG;
-    register_value[SR_INDEX] &= ~T_FLAG;
-
-    // Interrupt has occured so push the PC and the SR
-    SetRegister(SSP_INDEX, register_value[SSP_INDEX] - 4, LONG);
-    status = Poke(register_value[SSP_INDEX], register_value[PC_INDEX], LONG);
-    if (status != EXECUTE_OK)
-      return status;
-
-    SetRegister(SSP_INDEX, register_value[SSP_INDEX] - 2, LONG);
-    status = Poke(register_value[SSP_INDEX], tmp_sr, WORD);
-    if (status != EXECUTE_OK)
-      return status;
-
-    // Get the vector number
-    int vector = my_device->InterruptAcknowledge(level);
-    if (vector == AUTOVECTOR_INTERRUPT)
-      vector = 24 + level;
-    else if (vector == SPURIOUS_INTERRUPT)
-      vector = 24;
-
-    // Get the interrupt service routine's address
-    Address service_address;
-    status = Peek(vector * 4, service_address, LONG);
-    if (status != EXECUTE_OK)
-      return (status);
-
-    // Change the program counter to the service routine's address
-    SetRegister(PC_INDEX, service_address, LONG);
-  } else {
-    // Indicate that I didn't have to service an interrupt
-    serviceFlag = false;
+  // If there are no pending interupts, return normally.
+  if (pending_interrupts.empty()) {
+    return EXECUTE_OK;
   }
+
+  const PendingInterrupt &interrupt = pending_interrupts.top();
+
+  // Also return normally if any of the currently pending interrupts
+  // are masked.  Note that a check against the top of the queue is
+  // sufficient, as the top entry has the highest level.
+  const int interrupt_mask = (register_value[SR_INDEX] & 0x0700) >> 8;
+  if (interrupt.level < interrupt_mask && interrupt.level != 7) {
+    return EXECUTE_OK;
+  }
+
+  // Put the processor into normal state if it's stopped
+  if (myState == STOP_STATE)
+    myState = NORMAL_STATE;
+
+  // Save a copy of the current SR so it can be stacked for entry
+  // to the interrupt service subroutine
+  Register tmp_sr = register_value[SR_INDEX];
+
+  // Set the Interrupt Mask in SR
+  register_value[SR_INDEX] &= 0x0000f8ff;
+  register_value[SR_INDEX] |= (interrupt.level << 8);
+
+  // Change to Supervisor mode and clear the Trace mode
+  register_value[SR_INDEX] |= S_FLAG;
+  register_value[SR_INDEX] &= ~T_FLAG;
+
+  // Interrupt has occured so push the PC and the SR
+  SetRegister(SSP_INDEX, register_value[SSP_INDEX] - 4, LONG);
+  int status = Poke(register_value[SSP_INDEX], register_value[PC_INDEX], LONG);
+  if (status != EXECUTE_OK)
+    return status;
+
+  SetRegister(SSP_INDEX, register_value[SSP_INDEX] - 2, LONG);
+  status = Poke(register_value[SSP_INDEX], tmp_sr, WORD);
+  if (status != EXECUTE_OK)
+    return status;
+
+  // Get the vector number by acknowledging to the device
+  int vector = interrupt.device->InterruptAcknowledge(interrupt.level);
+  if (vector == AUTOVECTOR_INTERRUPT)
+    vector = 24 + interrupt.level;
+  else if (vector == SPURIOUS_INTERRUPT)
+    vector = 24;
+
+  // Get the interrupt service routine's address
+  Address service_address;
+  status = Peek(vector * 4, service_address, LONG);
+  if (status != EXECUTE_OK)
+    return status;
+
+  // Change the program counter to the service routine's address
+  SetRegister(PC_INDEX, service_address, LONG);
+
+  // Indicate that an interrupt was serviced and remove it from
+  // the queue of pending interrupts
+  serviceFlag = true;
+  pending_interrupts.pop();
 
   return EXECUTE_OK;
 }

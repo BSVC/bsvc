@@ -1,6 +1,7 @@
 #ifndef M68K_SIM68360_CPU32_HPP_
 #define M68K_SIM68360_CPU32_HPP_
 
+#include <queue>
 #include <string>
 
 #include "Framework/BasicCPU.hpp"
@@ -238,8 +239,24 @@ private:
 
   int ProcessException(int vector);
 
-  long my_interrupt;
-  BasicDevice *my_device;
+  struct PendingInterrupt {
+    PendingInterrupt(long l, BasicDevice *d) : level(l), device(d) { }
+    long level;
+    BasicDevice *device;
+    bool operator==(const PendingInterrupt &a) {
+      return level == a.level && device == a.device;
+    }
+    struct Compare {
+      bool operator()(const PendingInterrupt &a, const PendingInterrupt &b) {
+        return a.level > b.level;
+      }
+    };
+  };
+
+  std::priority_queue<
+      PendingInterrupt,
+      std::vector<PendingInterrupt>,
+      PendingInterrupt::Compare> pending_interrupts;
 };
 
 #endif  // M68K_SIM68360_CPU32_H_

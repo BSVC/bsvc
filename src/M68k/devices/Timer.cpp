@@ -1,7 +1,7 @@
 //
-// Simulates an timer for the M68000 CPU. Thus giving
-// the Simulator the ablility to simulate a timmer intrurpt.
-// Programmers can impliment time slicing with this timmer.
+// Simulates a timer for the M68000 CPU, giving the Simulator
+// the ablility to simulate a timer intrurpt.  Programmers can
+// use this to implement time slicing.
 //
 // Contains Register and Offsets for the timer.
 //
@@ -58,7 +58,7 @@ Timer::Timer(const std::string &args, BasicCPU &cpu)
   // enabled the timer it not nothing happens but if so. The
   // CPR  register is copied to the CNTR and is decremented for every
   // Cycle.
-  (myCPU.eventHandler()).Add(this, TIMER_EVENT, 0, TIMER_CPU_CYCLE);
+  myCPU.eventHandler().Add(this, TIMER_EVENT, 0, TIMER_CPU_CYCLE);
 
   Reset();
 }
@@ -84,35 +84,33 @@ void Timer::InterruptRequest(int level) {
 // NOTE: Vector codes 5 and 7 are the only masks that will make the timer
 // do somthing.  5 is a VECTOR and 7 is an AUTOVECTOR.  The code
 // can be found in any manual.
-int Timer::InterruptAcknowledge(int) {
+int Timer::InterruptAcknowledge(int mask) {
   Byte cTCR = timerValue[TCR];
 
-  if (myInterruptPending) {
-    switch (cTCR >> 5) {
-    case 5:
-      // By returning the address of the vector, the cpu will
-      // call the vector that is located in the right mem location.
-      myInterruptPending = false;
-      return timerValue[TIVR];
-      break;
+  // Interrupt was masked; keep pending.
+  if (mask > TIMER_IRQ)
+    return -1;
 
-    case 7:
-      myInterruptPending = false;
-      return AUTOVECTOR_INTERRUPT;
-      break;
-
-    default:
-      return SPURIOUS_INTERRUPT;
-    }
-  } else {
-    return (SPURIOUS_INTERRUPT);
+  if (!myInterruptPending) {
+    return SPURIOUS_INTERRUPT;
   }
+  switch (cTCR >> 5) {
+  case 5:
+    // By returning the address of the vector, the cpu will
+    // call the vector that is located in the right mem location.
+    myInterruptPending = false;
+    return timerValue[TIVR];
+  case 7:
+    myInterruptPending = false;
+    return AUTOVECTOR_INTERRUPT;
+  }
+
+  return SPURIOUS_INTERRUPT;
 }
 
 // Checks to see if address mapps to device.
 bool Timer::CheckMapped(Address address) const {
-  return ((address >= baseAddress) &&
-          (address <= baseAddress + (22 * sizeof(char))));
+  return (baseAddress <= address) && (address <= baseAddress + 22);
 }
 
 // Returns a byte from the device's address.
@@ -198,42 +196,42 @@ void Timer::EventCallback(int data, void *ptr) {
 
   // Test to see if timer is enabled, if False(0) do nothing.
   // but dispatch an event.
-  if ((cTCR & 1) == 1) {
-    // This test to see if the timer has not started a
-    // count down.  If it hasnt, copy the CPR register vaules
-    // to the CNTR registers.
-    if (firstTime == true) {
-      firstTime = false;
-      copyCPRtoCNTR();
-    }
-
-    // Decriments the CNTR if 0 then call interrupt.
-    // else dispatch an event.
-    if (decCNTR() != 0) {
-      (myCPU.eventHandler()).Add(this, TIMER_EVENT, 0, TIMER_CPU_CYCLE);
-      return;
-    }
-
-    // Since the timer is now done, set the first time to ture,
-    // so the next time the TCR is set to 1 it will copy the
-    // CPR Register to CNTR.
-    firstTime = true;
-
-    // Protocal says that the TCR should flip to 0. and that
-    // TSR bit switches to 1. That is done below.
-    timerValue[TCR] = (timerValue[TCR] & 0xfe);
-    timerValue[TSR] = (timerValue[TSR] | 0x01);
-
-    // Dispatch an IRQ only if user has set this in the
-    // TCR register. (5 and 7) are the only valid
-    // Interupts.
-    if (((cTCR >> 5) & 5) || ((cTCR >> 5) & 7)) {
-      InterruptRequest(TIMER_IRQ);
-    }
-    (myCPU.eventHandler()).Add(this, TIMER_EVENT, 0, TIMER_CPU_CYCLE);
-  } else {
-    (myCPU.eventHandler()).Add(this, TIMER_EVENT, 0, TIMER_CPU_CYCLE);
+  if ((cTCR & 1) == 0) {
+    myCPU.eventHandler().Add(this, TIMER_EVENT, 0, TIMER_CPU_CYCLE);
+    return;
   }
+
+  // This test determines if the timer has started a count down.
+  // If it hasn't, copy the CPR register values to the CNTR registers.
+  if (firstTime == true) {
+    firstTime = false;
+    copyCPRtoCNTR();
+  }
+
+  // Decrements the CNTR if 0 then call interrupt.
+  // else dispatch an event.
+  if (decCNTR() != 0) {
+    myCPU.eventHandler().Add(this, TIMER_EVENT, 0, TIMER_CPU_CYCLE);
+    return;
+  }
+
+  // Since the timer is now done, set the first time to true,
+  // so the next time the TCR is set to 1 it will copy the
+  // CPR Register to CNTR.
+  firstTime = true;
+
+  // Protocal says that the TCR should flip to 0 and that
+  // TSR bit switches to 1. That is done below.
+  timerValue[TCR] = (timerValue[TCR] & 0xfe);
+  timerValue[TSR] = (timerValue[TSR] | 0x01);
+
+  // Dispatch an IRQ only if user has set this in the
+  // TCR register. (5 and 7) are the only valid
+  // Interrupts.
+  if (((cTCR >> 5) & 5) || ((cTCR >> 5) & 7)) {
+    InterruptRequest(TIMER_IRQ);
+  }
+  myCPU.eventHandler().Add(this, TIMER_EVENT, 0, TIMER_CPU_CYCLE);
 }
 
 // Copies the register value of CPR to CNTR.  Used by EventCallback
@@ -246,23 +244,14 @@ void Timer::copyCPRtoCNTR() {
 // Decriments the counter and checks for CNTR==0
 // Retuns the value of CNTR.
 unsigned int Timer::decCNTR() {
-  int decValue;
-  int temp24;
-
   // Grab the values of the 24bit register to a value.
-  decValue = 0;
-  temp24 = (unsigned int)timerValue[CNTRH];
-  decValue = (decValue | (temp24 << 24));
-
-  temp24 = (unsigned int)timerValue[CNTRM];
-  decValue = (decValue | (temp24 << 16));
-
-  decValue = (decValue | timerValue[CNTRL]);
-
-  decValue -= 250;
-  if (decValue < 0) {
-    decValue = 0;
+  unsigned int decValue = (timerValue[CNTRH] << 24) |
+                          (timerValue[CNTRM] << 16) |
+                          (timerValue[CNTRL] <<  0);
+  if (decValue < 250) {
+    decValue = 250;
   }
+  decValue -= 250;
 
   // Put the value  back  the 24bit register to a value.
   // with the decremnt.
@@ -270,5 +259,5 @@ unsigned int Timer::decCNTR() {
   timerValue[CNTRM] = (Byte)(decValue >> 16);
   timerValue[CNTRL] = (Byte)(decValue);
 
-  return (unsigned int)decValue;
+  return decValue;
 }
