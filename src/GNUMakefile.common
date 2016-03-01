@@ -77,14 +77,14 @@ $(BIN_SIM68000):	$(OBJS_SIM68000) $(SIMLIBS)
 $(BIN_SIM68360):	$(OBJS_SIM68360) $(SIMLIBS)
 			$(CXX) -o $(BIN_SIM68360) $(OBJS_SIM68360) $(SIMLIBS)
 
-$(BIN_BSVC):		Makefile
+$(BIN_BSVC):		GNUMakefile.common
 			echo '#!/bin/sh' > $(BIN_BSVC)
 			echo 'ARGS="$$@"' >> $(BIN_BSVC)
 			echo 'export ARGS' >> $(BIN_BSVC)
 			echo 'exec $(WISH) -f $(LIBDIR)/UI/bsvc.tk' >> $(BIN_BSVC)
 			chmod +x $(BIN_BSVC)
 
-$(BSVC_TK):		Makefile
+$(BSVC_TK):		GNUMakefile.common
 			echo '#!$(WISH) -f' > $(BSVC_TK)
 			echo 'set Program(InstallDir) $(LIBDIR)' >> $(BSVC_TK)
 			echo 'set Program(BitmapDir) $$Program(InstallDir)/UI/bitmaps' >> $(BSVC_TK)
