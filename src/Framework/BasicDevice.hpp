@@ -52,7 +52,7 @@ public:
   virtual void InterruptRequest(int level);
 
   // Called by the CPU when it processes an interrupt.
-  virtual int InterruptAcknowledge(int level);
+  virtual int InterruptAcknowledge(unsigned int level);
 
 protected:
   // Reference to the CPU I belong to.

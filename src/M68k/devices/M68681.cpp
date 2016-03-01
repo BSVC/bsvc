@@ -759,7 +759,7 @@ void M68681::SetInterruptStatusRegister() {
 }
 
 // Acknowledege Interrupt - Called by CPU when it processes the interrupt
-int M68681::InterruptAcknowledge(int) {
+int M68681::InterruptAcknowledge(unsigned int) {
   if (!myInterruptPending) {
     return SPURIOUS_INTERRUPT;
   }

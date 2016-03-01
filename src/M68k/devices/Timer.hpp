@@ -35,40 +35,40 @@ public:
   ~Timer() { };
 
   // Returns true iff the address maps into the device.
-  bool CheckMapped(Address address) const;
+  bool CheckMapped(Address address) const override;
 
   // Returns the lowest address used by the device.
-  Address LowestAddress() const { return baseAddress; }
+  Address LowestAddress() const override { return baseAddress; }
 
   // Returns the highest address used by the device.
-  Address HighestAddress() const {
+  Address HighestAddress() const override {
     return (baseAddress + (15 * sizeof(char)));
   }
 
   // Gets a byte from the device.
-  Byte Peek(Address address);
+  Byte Peek(Address address) override;
 
   // Puts a byte into the device.
-  void Poke(Address address, Byte c);
+  void Poke(Address address, Byte c) override;
 
   // Resets the device.
-  void Reset();
+  void Reset() override;
 
   // Sends an interrupt request (IRQ) to the CPU.
-  void InterruptRequest(int level);
+  void InterruptRequest(int level) override;
 
   // Processes an interrupt when called by the CPU.
-  int InterruptAcknowledge(int level);
+  int InterruptAcknowledge(unsigned int level) override;
 
-  void EventCallback(int data, void *ptr);
+  void EventCallback(int data, void *ptr) override;
 
+protected:
   // Copies CPR register to CNTR.
   void copyCPRtoCNTR();
 
   // Decrements the CNTR and checks for 0.
   unsigned int decCNTR();
 
-protected:
   // Interrupt pending flag.
   bool myInterruptPending;
 

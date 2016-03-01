@@ -78,13 +78,13 @@ void Timer::InterruptRequest(int level) {
 // the interrupt or AUTOVECTOR_INTERRUPT if the device doesn't generate
 // vectors.  This default routine only does autovector interrupts.
 // This function is called by the CPU.  The return value is usally the
-// memory location of a exemption funcion.  How to handel these functions
-// one shold refer to a Motorla text book.
+// memory location of a exemption funcion. For more details on how to
+// handle these functions one shold refer to the Motorola documentation.
 //
 // NOTE: Vector codes 5 and 7 are the only masks that will make the timer
 // do somthing.  5 is a VECTOR and 7 is an AUTOVECTOR.  The code
 // can be found in any manual.
-int Timer::InterruptAcknowledge(int mask) {
+int Timer::InterruptAcknowledge(unsigned int mask) {
   Byte cTCR = timerValue[TCR];
 
   // Interrupt was masked; keep pending.

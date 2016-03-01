@@ -24,12 +24,12 @@ void BasicDevice::InterruptRequest(int level) {
 // It should return the vector number associated with the interrupt or
 // AUTOVECTOR_INTERRUPT if the device doesn't generate vectors.  This default
 // routine only does autovector interrupts.
-int BasicDevice::InterruptAcknowledge(int) {
+int BasicDevice::InterruptAcknowledge(unsigned int) {
   if (myInterruptPending) {
     myInterruptPending = false;
-    return (AUTOVECTOR_INTERRUPT);
+    return AUTOVECTOR_INTERRUPT;
   } else {
-    return (SPURIOUS_INTERRUPT);
+    return SPURIOUS_INTERRUPT;
   }
 }
 

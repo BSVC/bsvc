@@ -16,32 +16,32 @@ public:
   ~M68681();
 
   // Returns true iff the address maps into the device
-  bool CheckMapped(Address addr) const;
+  bool CheckMapped(Address addr) const override;
 
   // Returns the lowest address used by the device
-  Address LowestAddress() const { return base_address; }
+  Address LowestAddress() const override { return base_address; }
 
   // Returns the highest address used by the device
-  Address HighestAddress() const {
+  Address HighestAddress() const override {
     return base_address + offset_to_first_register +
            15 * offset_between_registers;
   }
 
   // Gets a byte from the device
-  Byte Peek(Address addr);
+  Byte Peek(Address addr) override;
 
   // Puts a byte into the device
-  void Poke(Address addr, Byte c);
+  void Poke(Address addr, Byte c) override;
 
   // Resets the DUART.
-  void Reset();
+  void Reset() override;
 
   // The BasicDevice's InterruptAcknowledge does not handle vectored
   // interrupts so we'll have to change it.
-  int InterruptAcknowledge(int level);
+  int InterruptAcknowledge(unsigned int level) override;
 
   // Handles the DUART's events.
-  void EventCallback(int type, void *pointer);
+  void EventCallback(int type, void *pointer) override;
 
 private:
   Byte MR1A; // Mode register 1 A
