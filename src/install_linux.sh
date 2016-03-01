@@ -5,28 +5,21 @@ DEFAULT_WISH=/usr/bin/wish
 
 LINUX_MAKEFILE=Makefile.Linux
 
-echo ""
 echo "Script to compile and install BSVC on Linux"
-echo "Please, input where bsvc will be installed (Default: $DEFAULT_PREFIX)"
-read console_prefix
-if [ -z $console_prefix ];
-    then
-        export PREFIX=$DEFAULT_PREFIX
-    else
-        export PREFIX=$console_prefix
-fi
+echo "BSVC will be installed on $DEFAULT_PREFIX)"
 
+export PREFIX=$DEFAULT_PREFIX
+
+# Test if WISH exists
 if [ -f $DEFAULT_WISH ];
     then
         echo "WISH is installed correctly on $DEFAULT_WISH"
         export WISH=$DEFAULT_WISH
     else
-        echo "WISH not found on $DEFAULT_WISH. Please, install it and enter new location:"
-        read console_wish
-        export WISH=$console_wish
+        echo "WISH not found on $DEFAULT_WISH. Please, install (if needed) and edit this script."
+        exit 3
 fi
-#echo $PREFIX
-#echo $WISH
+
 
 # Compile BSVC
 echo "\n\nCompile:"
