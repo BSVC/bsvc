@@ -84,7 +84,7 @@ $(BIN_BSVC): GNUMakefile.common
 			echo 'exec $(WISH) -f $(LIBDIR)/UI/bsvc.tk' >> $(BIN_BSVC)
 			chmod +x $(BIN_BSVC)
 
-$(BSVC_TK):	GNUMakefile.common		
+$(BSVC_TK):	GNUMakefile.common
 			echo '#!$(WISH) -f' > $(BSVC_TK)
 			echo 'set Program(InstallDir) $(LIBDIR)' >> $(BSVC_TK)
 			echo 'set Program(BitmapDir) $$Program(InstallDir)/UI/bitmaps' >> $(BSVC_TK)
