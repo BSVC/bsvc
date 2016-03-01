@@ -55,10 +55,10 @@ OBJS:=			$(OBJS_68KASM) $(OBJS_FRAMEWORK) $(OBJS_TOOLS) \
 DEPENDS:=		$(OBJS:.o=.d)
 
 TARGETS:=		$(BIN_68KASM) $(BIN_TOOLS) $(BIN_SIM68000) $(BIN_SIM68360) \
-			$(BIN_BSVC)
+			$(BSVC_BIN)
 SIMLIBS:=		$(LIB_M68KDEVICES) $(LIB_M68KLOADER) $(LIB_FRAMEWORK)
 LIBS:=			$(SIMLIBS)
-UI:=			$(BSVC_TK)
+UI:=			$(BSVCTK)
 
 all:			$(TARGETS) $(UI)
 
@@ -77,14 +77,14 @@ $(BIN_SIM68000):	$(OBJS_SIM68000) $(SIMLIBS)
 $(BIN_SIM68360):	$(OBJS_SIM68360) $(SIMLIBS)
 			$(CXX) -o $(BIN_SIM68360) $(OBJS_SIM68360) $(SIMLIBS)
 
-$(BIN_BSVC):		Makefile
+$(BSVC_BIN):		
 			echo '#!/bin/sh' > $(BIN_BSVC)
 			echo 'ARGS="$$@"' >> $(BIN_BSVC)
 			echo 'export ARGS' >> $(BIN_BSVC)
 			echo 'exec $(WISH) -f $(LIBDIR)/UI/bsvc.tk' >> $(BIN_BSVC)
 			chmod +x $(BIN_BSVC)
 
-$(BSVC_TK):		Makefile
+$(BSVCTK):		
 			echo '#!$(WISH) -f' > $(BSVC_TK)
 			echo 'set Program(InstallDir) $(LIBDIR)' >> $(BSVC_TK)
 			echo 'set Program(BitmapDir) $$Program(InstallDir)/UI/bitmaps' >> $(BSVC_TK)
