@@ -66,8 +66,7 @@ void
 processFile(void)
 {
 	char capLine[256];
-	int error;
-	char pass;
+	int error, pass;
 
 	pass2 = FALSE;
 	for (pass = 0; pass < 2; pass++) {
@@ -97,9 +96,6 @@ processFile(void)
 		}
 		if (!pass2) {
 			pass2 = TRUE;
-/*			puts("************************************************************");
-			puts("********************  STARTING PASS 2  *********************");
-			puts("************************************************************"); */
 		}
 		rewind(inFile);
 	}
@@ -108,13 +104,11 @@ processFile(void)
 void
 assemble(char *line, int *errorPtr)
 {
-	symbolDef *define();
 	instruction *tablePtr;
 	flavor *flavorPtr;
 	opDescriptor source, dest;
-	char *p, *start, label[SIGCHARS + 1], size, f, sourceParsed,
-	    destParsed;
-	char *skipSpace(), *instLookup(), *opParse();
+	char *p, *start, label[SIGCHARS + 1], size, f;
+	int sourceParsed, destParsed;
 	unsigned short mask, i;
 
 	p = start = skipSpace(line);
@@ -124,8 +118,7 @@ assemble(char *line, int *errorPtr)
 			if (i < SIGCHARS)
 				label[i++] = *p;
 			p++;
-		} while (isalnum(*p) || *p == '.' || *p == '_'
-			 || *p == '$');
+		} while (isalnum(*p) || *p == '.' || *p == '_' || *p == '$');
 		label[i] = '\0';
 		if ((isspace(*p) && start == line) || *p == ':') {
 			if (*p == ':')
@@ -143,80 +136,68 @@ assemble(char *line, int *errorPtr)
 		if (*errorPtr > SEVERE)
 			return;
 		p = skipSpace(p);
-		if (tablePtr->parseFlag) {
-			/* Move location counter to a word boundary and fix
-			   the listing before assembling an instruction */
-			if (loc & 1) {
-				loc++;
-				listLoc();
-			}
-			if (*label)
-				define(label, loc, pass2, errorPtr);
-			if (*errorPtr > SEVERE)
-				return;
-			sourceParsed = destParsed = FALSE;
-			flavorPtr = tablePtr->flavorPtr;
-			for (f = 0; f < tablePtr->flavorCount;
-			     f++, flavorPtr++) {
-				if (!sourceParsed && flavorPtr->source) {
-					p = opParse(p, &source, errorPtr);
-					if (*errorPtr > SEVERE)
-						return;
-					sourceParsed = TRUE;
-				}
-				if (!destParsed && flavorPtr->dest) {
-					if (*p != ',') {
-						NEWERROR(*errorPtr,
-							 SYNTAX);
-						return;
-					}
-					p = opParse(p + 1, &dest,
-						    errorPtr);
-					if (*errorPtr > SEVERE)
-						return;
-					if (!isspace(*p) && *p) {
-						NEWERROR(*errorPtr,
-							 SYNTAX);
-						return;
-					}
-					destParsed = TRUE;
-				}
-				if (!flavorPtr->source) {
-					mask = pickMask(size, flavorPtr,
-						     errorPtr);
-					(*flavorPtr->exec)(mask, errorPtr);
-					return;
-				} else
-				    if ((source.mode & flavorPtr->source)
-					&& !flavorPtr->dest) {
-					if (!isspace(*p) && *p) {
-						NEWERROR(*errorPtr,
-							 SYNTAX);
-						return;
-					}
-					mask = pickMask(size, flavorPtr,
-						        errorPtr);
-					(*flavorPtr->exec)(mask, size,
-							   &source, &dest,
-							   errorPtr);
-					return;
-				} else if (source.mode & flavorPtr->source
-					   && dest.mode & flavorPtr->
-					   dest) {
-					mask =
-					    pickMask(size, flavorPtr,
-						     errorPtr);
-					(*flavorPtr->exec) (mask, size,
-							    &source, &dest,
-							    errorPtr);
-					return;
-				}
-			}
-			NEWERROR(*errorPtr, INV_ADDR_MODE);
-		} else {
+		if (!tablePtr->parseFlag) {
 			(*tablePtr->exec) (size, label, p, errorPtr);
 			return;
 		}
+		// Move location counter to a word boundary and fix
+		// the listing before assembling an instruction
+		if (loc & 1) {
+			loc++;
+			listLoc();
+		}
+		if (*label)
+			define(label, loc, pass2, errorPtr);
+		if (*errorPtr > SEVERE)
+			return;
+		sourceParsed = destParsed = FALSE;
+		flavorPtr = tablePtr->flavorPtr;
+		for (f = 0; f < tablePtr->flavorCount; f++, flavorPtr++) {
+			if (!sourceParsed && flavorPtr->source) {
+				p = opParse(p, &source, errorPtr);
+				if (*errorPtr > SEVERE)
+					return;
+				sourceParsed = TRUE;
+			}
+			if (!destParsed && flavorPtr->dest) {
+				if (*p != ',') {
+					NEWERROR(*errorPtr, SYNTAX);
+					return;
+				}
+				p = opParse(p + 1, &dest, errorPtr);
+				if (*errorPtr > SEVERE)
+					return;
+				if (!isspace(*p) && *p) {
+					NEWERROR(*errorPtr, SYNTAX);
+					return;
+				}
+				destParsed = TRUE;
+			}
+			if (!flavorPtr->source) {
+				mask = pickMask(size, flavorPtr, errorPtr);
+				(*flavorPtr->exec)(mask, errorPtr);
+				return;
+			} else if ((source.mode & flavorPtr->source) &&
+				   !flavorPtr->dest) {
+				if (!isspace(*p) && *p) {
+					NEWERROR(*errorPtr, SYNTAX);
+					return;
+				}
+				mask = pickMask(size, flavorPtr, errorPtr);
+				(*flavorPtr->exec)(mask, size,
+						   &source, &dest,
+						   errorPtr);
+				return;
+			} else if (source.mode & flavorPtr->source
+				   && dest.mode & flavorPtr->dest) {
+				mask = pickMask(size, flavorPtr, errorPtr);
+				(*flavorPtr->exec)(mask, size,
+						   &source, &dest,
+						   errorPtr);
+				return;
+			}
+		}
+		NEWERROR(*errorPtr, INV_ADDR_MODE);
 	}
 }
 

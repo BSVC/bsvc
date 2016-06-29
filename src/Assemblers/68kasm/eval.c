@@ -63,7 +63,6 @@ extern int loc;
 char *
 eval(char *p, int *valuePtr, int *refPtr, int *errorPtr)
 {
-	char *evalNumber();
 	int valStack[STACKMAX], opStack[STACKMAX - 1];
 	int valPtr = 0, opPtr = 0;
 	int t, prec;
@@ -165,7 +164,7 @@ evalNumber(char *p, int *numberPtr, int *refPtr, int *errorPtr)
 {
 	int status, x, base;
 	char name[SIGCHARS + 1];
-	symbolDef *symbol, *lookup();
+	symbolDef *symbol;
 	int i;
 	char endFlag;
 
@@ -277,17 +276,16 @@ evalNumber(char *p, int *numberPtr, int *refPtr, int *errorPtr)
 		   in a pointer to the symbol table entry */
 		status = OK;
 		symbol = lookup(name, FALSE, &status);
-// 		printf("EvalNumber: Status from lookup = %04X\n", status);
+ 		// printf("EvalNumber: Status from lookup = %04X\n", status);
 		if (status == OK)
 			/* If symbol was found, and it's not a register
 			   list symbol, then return its value */
 			if (!(symbol->flags & REG_LIST_SYM)) {
 				*numberPtr = symbol->value;
-/*				printf("The value of the symbol \"%s\" is %08X\n",
-					name, *numberPtr); */
+				// printf("The value of the symbol \"%s\" is %08X\n",
+				// 	name, *numberPtr);
 				if (pass2)
-					*refPtr =
-					    (symbol->flags & BACKREF);
+					*refPtr = (symbol->flags & BACKREF);
 			} else {
 				// If it is a register list symbol, return error
 				*numberPtr = 0;
@@ -300,8 +298,8 @@ evalNumber(char *p, int *numberPtr, int *refPtr, int *errorPtr)
 				NEWERROR(*errorPtr, INCOMPLETE);
 			*refPtr = FALSE;
 		}
-/*		printf("The symbol \"%s\" is%s a backwards reference\n",
-			name, (*refPtr) ? "" : " not"); */
+		// printf("The symbol \"%s\" is%s a backwards reference\n",
+		// 	name, (*refPtr) ? "" : " not");
 		return p;
 	} else {
 		// Otherwise, the character was not a valid operand
@@ -310,13 +308,13 @@ evalNumber(char *p, int *numberPtr, int *refPtr, int *errorPtr)
 	}
 }
 
+// Compute the precedence of an operator. Higher numbers indicate
+// higher precedence, e.g., precedence('*') > precedence('+').
+// Any character which is not a binary operator will be assigned
+// a precedence of zero.
 int
 precedence(int op)
 {
-	/* Compute the precedence of an operator. Higher numbers indicate
-	   higher precedence, e.g., precedence('*') > precedence('+').
-	   Any character which is not a binary operator will be assigned
-	   a precedence of zero. */
 	switch (op) {
 	case '+':
 	case '-':
@@ -337,11 +335,11 @@ precedence(int op)
 }
 
 
+// Performs the operation of the operator on the two operands.
+// Returns OK or DIV_BY_ZERO.
 int
 doOp(int val1, int val2, int op, int *result)
 {
-	// Performs the operation of the operator on the two operands.
-	// Returns OK or DIV_BY_ZERO.
 	switch (op) {
 	case '+':
 		*result = val1 + val2;

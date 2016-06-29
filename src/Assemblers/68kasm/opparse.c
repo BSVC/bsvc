@@ -65,8 +65,6 @@ extern unsigned char absLongFlag;
 char *
 opParse(char *p, opDescriptor * d, int *errorPtr)
 {
-	char *eval();
-
 	/* Check for immediate mode */
 	if (p[0] == '#') {
 		p = eval(++p, &(d->data), &(d->backRef), errorPtr);

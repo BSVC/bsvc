@@ -54,21 +54,17 @@
 #define DestModes   (ControlAlt | AnIndPre)
 #define SourceModes (ControlAlt | AnIndPost | PCDisp | PCIndex)
 
-
 extern int loc;
 extern char pass2;
-char *evalList();
-
 
 void
 movem(int size, char *label, char *op, int *errorPtr)
 {
-	char *p, *opParse();
+	char *p;
 	int status;
 	unsigned short regList, temp, instMask;
 	int i;
 	opDescriptor memOp;
-	symbolDef *define();
 
 	/* Pick mask according to size code (only .W and .L are valid) */
 	if (size == WORD)
@@ -165,7 +161,7 @@ movem(int size, char *label, char *op, int *errorPtr)
 void
 reg(int size, char *label, char *op, int *errorPtr)
 {
-	symbolDef *symbol, *define();
+	symbolDef *symbol;
 	unsigned short regList;
 
 	if (size)
@@ -194,7 +190,6 @@ reg(int size, char *label, char *op, int *errorPtr)
 #define isTerm(c)   (c == ',' || c == '/' || c == '-' || isspace(c) || !c)
 #define isRegNum(c) ((c >= '0') && (c <= '7'))
 
-
 char *
 evalList(char *p, unsigned short *listPtr, int *errorPtr)
 {
@@ -202,7 +197,7 @@ evalList(char *p, unsigned short *listPtr, int *errorPtr)
 	unsigned short regList;
 	char symName[SIGCHARS + 1];
 	int i;
-	symbolDef *symbol, *lookup();
+	symbolDef *symbol;
 	int status;
 
 	regList = 0;
