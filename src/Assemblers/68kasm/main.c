@@ -29,9 +29,6 @@
 
 #include "asm.h"
 
-char *buildCompleteSourceFile(FILE * currentFile, char *currentFileName,
-			      FILE * completeFile, int level);
-
 extern FILE *inFile;		/* Input file */
 extern FILE *listFile;		/* Listing file */
 extern FILE *objFile;		/* Object file */

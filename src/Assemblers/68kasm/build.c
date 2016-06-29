@@ -405,7 +405,7 @@ branch(int mask, int size, opDescriptor *source, opDescriptor *dest, int *errorP
 	     disp != 0)) {
 		shortDisp = TRUE;
 	}
-	if (pass2) {
+	if (!pass2) {
 		loc += (shortDisp) ? 2 : 4;
 		return;
 	}
