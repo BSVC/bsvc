@@ -76,9 +76,6 @@ cpu32::~cpu32() {
 
   // Free the address space object
   delete myAddressSpaces[0];
-
-  // Free the address space vector
-  delete &myAddressSpaces;
 }
 
 void cpu32::Reset() {

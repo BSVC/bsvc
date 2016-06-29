@@ -52,8 +52,7 @@ void
 moveq(int mask, int size, opDescriptor *source, opDescriptor *dest, int *errorPtr)
 {
 	if (pass2) {
-		output(mask | (dest->reg << 9) | (source->data & 0xFF),
-		       WORD);
+		output(mask | (dest->reg << 9) | (source->data & 0xFF), WORD);
 		if (source->data < -128 || source->data > 127)
 			NEWERROR(*errorPtr, INV_QUICK_CONST);
 	}
@@ -68,9 +67,12 @@ move(int mask, int size, opDescriptor * source, opDescriptor * dest, int *errorP
 	char destCode;
 
 	// Check whether the instruction can be assembled as MOVEQ
-	if (source->mode == Immediate && source->backRef
-	    && size == LONG && dest->mode == DnDirect
-	    && source->data >= -128 && source->data <= 127) {
+	if (source->mode == Immediate &&
+	    source->backRef &&
+	    size == LONG &&
+	    dest->mode == DnDirect &&
+	    source->data >= -128 &&
+	    source->data <= 127) {
 		moveq(0x7000, size, source, dest, errorPtr);
 		return;
 	}
@@ -175,13 +177,10 @@ arithAddr(int mask, int size, opDescriptor *source, opDescriptor *dest, int *err
 //	 ADDQ
 //	 SUBQ
 void
-quickMath(int mask, int size, opDescriptor * source, opDescriptor * dest,
-	  int *errorPtr)
+quickMath(int mask, int size, opDescriptor * source, opDescriptor *dest, int *errorPtr)
 {
-
 	if (pass2) {
-		output(mask | effAddr(dest) | ((source->data & 7) << 9),
-		       WORD);
+		output(mask | effAddr(dest) | ((source->data & 7) << 9), WORD);
 		if (source->data < 1 || source->data > 8)
 			NEWERROR(*errorPtr, INV_QUICK_CONST);
 	}
@@ -372,8 +371,7 @@ movec(int mask, int size, opDescriptor *source, opDescriptor *dest, int *errorPt
 
 // Builds the TRAP instruction.
 void
-trap(int mask, int size, opDescriptor * source, opDescriptor * dest,
-     int *errorPtr)
+trap(int mask, int size, opDescriptor *source, opDescriptor *dest, int *errorPtr)
 {
 	if (pass2) {
 		output(mask | (source->data & 0xF), WORD);

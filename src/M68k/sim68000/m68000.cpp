@@ -73,9 +73,6 @@ m68000::~m68000() {
 
   // Free the address space object
   delete myAddressSpaces[0];
-
-  // Free the address space vector
-  delete &myAddressSpaces;
 }
 
 // Preform a system reset

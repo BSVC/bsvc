@@ -200,7 +200,7 @@ dc(int size, char *label, char *op, int *errorPtr)
 {
 	int outVal;
 	int backRef;
-	char string[260], *p, *collect();
+	char string[260], *p;
 
 	if (size == SHORT) {
 		NEWERROR(*errorPtr, INV_SIZE_CODE);

@@ -51,10 +51,8 @@ through a pointer in the flavor list for that flavor.
 
 ******************************************************************************/
 
-
 #include <stdio.h>
 #include "asm.h"
-
 
 /* Definitions of addressing mode masks for various classes of references */
 #define Data	(DnDirect | AnInd | AnIndPost | AnIndPre | AnIndDisp \

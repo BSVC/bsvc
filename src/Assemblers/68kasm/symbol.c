@@ -65,15 +65,12 @@
 
 static symbolDef *htable[MAXHASH + 1];
 
-
 symbolDef *
-lookup(sym, create, errorPtr)
-char *sym;
-int create, *errorPtr;
+lookup(char *sym, int create, int *errorPtr)
 {
 	int h, cmp;
 	symbolDef *s, *last, *t;
-	static char initialized = FALSE;
+	static int initialized = FALSE;
 
 	if (!initialized) {
 		for (h = 0; h <= MAXHASH; h++)
@@ -129,14 +126,14 @@ int create, *errorPtr;
 int
 hash(char *symbol)
 {
-	int sum;
+	unsigned int sum;
 
 	sum = 0;
 	while (*symbol) {
-		sum += (isupper(*symbol)) ? (*symbol - 'A') : 26;
+		sum = sum*31 + *symbol;
 		symbol++;
 	}
-	return (sum % 27);
+	return sum % 27;
 }
 
 

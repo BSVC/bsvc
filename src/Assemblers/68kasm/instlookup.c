@@ -46,8 +46,7 @@ extern instruction instTable[];
 extern int tableSize;
 
 char *
-instLookup(char *p, instruction * (*instPtrPtr), char *sizePtr,
-	   int *errorPtr)
+instLookup(char *p, instruction * (*instPtrPtr), char *sizePtr, int *errorPtr)
 {
 	char opcode[8];
 	int i, hi, lo, mid, cmp;
