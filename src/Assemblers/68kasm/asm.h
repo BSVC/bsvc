@@ -11,7 +11,7 @@
 //  a severity code in the upper 4 bits
 #define OK 		0x00
 #define FALSE 		0x00
-#define TRUE		0xFF
+#define TRUE		0x01
 
 // Severe errors
 #define SEVERE		0x400
@@ -84,19 +84,19 @@ typedef struct symbolEntry {
 typedef struct {
 	int source;		// Bit masks for the legal source...
 	int dest;		// and destination addressing modes
-	char sizes;		// Bit mask for the legal sizes
+	int sizes;		// Bit mask for the legal sizes
 	void (*exec)();		// Pointer to routine to build the instruction
-	short int bytemask;	// Skeleton instruction masks for byte size...
-	short int wordmask;	// word size, ...
-	short int longmask;	// and long sizes of the instruction
+	int bytemask;		// Skeleton instruction masks for byte size...
+	int wordmask;		// word size, ...
+	int longmask;		// and long sizes of the instruction
 } flavor;
 
 // Structure for the instruction table
 typedef struct {
 	char *mnemonic;		// Mnemonic
 	flavor *flavorPtr;	// Pointer to flavor list
-	char flavorCount;	// Number of flavors in flavor list
-	char parseFlag;		// Should assemble() parse the operands?
+	int flavorCount;	// Number of flavors in flavor list
+	int parseFlag;		// Should assemble() parse the operands?
 	void (*exec)();		// Routine to be called if parseFlag is FALSE
 } instruction;
 
@@ -104,10 +104,10 @@ typedef struct {
 typedef struct {
 	int mode;	// Mode number (see below)
 	int data;	// Immediate value, displacement, or absolute address
-	char reg;	// Principal register number (0-7)
-	char index;	// Index register number (0-7 = D0-D7, 8-15 = A0-A7)
-	char size;	// Size of index register (WORD or LONG, see below)
-	char backRef;	// True if data field is known on first pass
+	int reg;	// Principal register number (0-7)
+	int index;	// Index register number (0-7 = D0-D7, 8-15 = A0-A7)
+	int size;	// Size of index register (WORD or LONG, see below)
+	int backRef;	// True if data field is known on first pass
 } opDescriptor;
 
 // Addressing mode codes/bitmasks
@@ -177,8 +177,8 @@ char *collect(char *s, char *d);
 void dcb(int size, char *label, char *op, int *errorPtr);
 void ds(int size, char *label, char *op, int *errorPtr);
 void printError(FILE *outFile, int errorCode, int lineNum);
-char *eval(char *p, int *valuePtr, char *refPtr, int *errorPtr);
-char *evalNumber(char *p, int *numberPtr, char *refPtr, int *errorPtr);
+char *eval(char *p, int *valuePtr, int *refPtr, int *errorPtr);
+char *evalNumber(char *p, int *numberPtr, int *refPtr, int *errorPtr);
 int precedence(int op);
 int doOp(int val1, int val2, int op, int *result);
 char *buildCompleteSourceFile(FILE *currentFile, char *currentFileName, FILE *completeFile, int level);

@@ -61,15 +61,14 @@ extern int loc;
 #define STACKMAX 5
 
 char *
-eval(char *p, int *valuePtr, char *refPtr, int *errorPtr)
+eval(char *p, int *valuePtr, int *refPtr, int *errorPtr)
 {
 	char *evalNumber();
 	int valStack[STACKMAX], opStack[STACKMAX - 1];
 	int valPtr = 0, opPtr = 0;
-	int op;
 	int t, prec;
 	int i;
-	char evaluate, backRef;
+	int evaluate, backRef;
 	int status;
 
 	// Assume that the expression is to be evaluated,
@@ -162,7 +161,7 @@ eval(char *p, int *valuePtr, char *refPtr, int *errorPtr)
 }
 
 char *
-evalNumber(char *p, int *numberPtr, char *refPtr, int *errorPtr)
+evalNumber(char *p, int *numberPtr, int *refPtr, int *errorPtr)
 {
 	int status, x, base;
 	char name[SIGCHARS + 1];

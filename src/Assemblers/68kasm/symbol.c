@@ -81,6 +81,7 @@ int create, *errorPtr;
 		initialized = TRUE;
 	}
 
+	t = NULL;
 	h = hash(sym);
 	s = htable[h];
 	if (s != NULL) {

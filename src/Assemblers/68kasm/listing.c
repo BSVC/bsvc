@@ -76,7 +76,6 @@ extern char *listPtr;		// Pointer to above buffer (this pointer is
 void
 initList(char *name)
 {
-	short i;
 
 	listFile = fopen(name, "w");
 	if (!listFile) {

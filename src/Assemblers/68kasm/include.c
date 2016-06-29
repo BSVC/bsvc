@@ -20,8 +20,8 @@ buildCompleteSourceFile(FILE * currentFile, char *currentFileName,
 		return ("Too many nested INCLUDEs\n");
 
 	for (;;) {
-		fgets(buffer, sizeof(buffer), currentFile);
-		if (feof(currentFile))
+		if (fgets(buffer, sizeof(buffer), currentFile) == NULL ||
+		    feof(currentFile))
 			break;
 
 		if (sscanf(buffer, "%s %s", directive, operand) != 2) {

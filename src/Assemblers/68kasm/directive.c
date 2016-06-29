@@ -55,8 +55,7 @@ void
 org(int size, char *label, char *op, int *errorPtr)
 {
 	int newLoc;
-	char backRef;
-	char *eval();
+	int backRef;
 
 	if (size)
 		NEWERROR(*errorPtr, INV_SIZE_CODE);
@@ -111,8 +110,7 @@ void
 equ(int size, char *label, char *op, int *errorPtr)
 {
 	int value;
-	char backRef;
-	char *eval();
+	int backRef;
 
 	if (size)
 		NEWERROR(*errorPtr, INV_SIZE_CODE);
@@ -149,9 +147,8 @@ void
 set(int size, char *label, char *op, int *errorPtr)
 {
 	int value, error;
-	char backRef;
+	int backRef;
 	symbolDef *symbol;
-	char *eval();
 
 	if (size)
 		NEWERROR(*errorPtr, INV_SIZE_CODE);
@@ -202,8 +199,8 @@ void
 dc(int size, char *label, char *op, int *errorPtr)
 {
 	int outVal;
-	char backRef;
-	char string[260], *p, *collect(), *eval();
+	int backRef;
+	char string[260], *p, *collect();
 
 	if (size == SHORT) {
 		NEWERROR(*errorPtr, INV_SIZE_CODE);
@@ -307,8 +304,7 @@ void
 dcb(int size, char *label, char *op, int *errorPtr)
 {
 	int blockSize, blockVal, i;
-	char *eval();
-	char backRef;
+	int backRef;
 
 	if (size == SHORT) {
 		NEWERROR(*errorPtr, INV_SIZE_CODE);
@@ -369,8 +365,7 @@ void
 ds(int size, char *label, char *op, int *errorPtr)
 {
 	int blockSize;
-	char backRef;
-	char *eval();
+	int backRef;
 
 	if (size == SHORT) {
 		NEWERROR(*errorPtr, INV_SIZE_CODE);

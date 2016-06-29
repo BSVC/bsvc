@@ -178,7 +178,6 @@ void
 quickMath(int mask, int size, opDescriptor * source, opDescriptor * dest,
 	  int *errorPtr)
 {
-	int status;
 
 	if (pass2) {
 		output(mask | effAddr(dest) | ((source->data & 7) << 9),

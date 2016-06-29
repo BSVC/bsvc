@@ -66,7 +66,7 @@ movem(int size, char *label, char *op, int *errorPtr)
 	char *p, *opParse();
 	int status;
 	unsigned short regList, temp, instMask;
-	char i;
+	int i;
 	opDescriptor memOp;
 	symbolDef *define();
 
@@ -165,7 +165,6 @@ movem(int size, char *label, char *op, int *errorPtr)
 void
 reg(int size, char *label, char *op, int *errorPtr)
 {
-	int value, backRef, status;
 	symbolDef *symbol, *define();
 	unsigned short regList;
 
@@ -180,7 +179,7 @@ reg(int size, char *label, char *op, int *errorPtr)
 		if (!*label) {
 			NEWERROR(*errorPtr, LABEL_REQUIRED);
 		} else {
-			status = OK;
+			int status = OK;
 			symbol = define(label, regList, pass2, &status);
 			NEWERROR(*errorPtr, status);
 			if (status < ERROR)
@@ -202,7 +201,7 @@ evalList(char *p, unsigned short *listPtr, int *errorPtr)
 	char reg1, reg2, r;
 	unsigned short regList;
 	char symName[SIGCHARS + 1];
-	char i;
+	int i;
 	symbolDef *symbol, *lookup();
 	int status;
 

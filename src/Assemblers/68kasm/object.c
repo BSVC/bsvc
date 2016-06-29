@@ -72,7 +72,6 @@ static char objErrorMsg[] = "Error writing to object file\n";
 void
 initObj(char *name)
 {
-	short i;
 
 	objFile = fopen(name, "w");
 	if (!objFile) {
