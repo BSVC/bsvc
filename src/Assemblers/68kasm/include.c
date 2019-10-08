@@ -27,11 +27,15 @@ buildCompleteSourceFile(FILE *currentFile, char *currentFileName,
 		if (strcmp(directive, "include") == 0) {
 			FILE *includeFile = fopen(operand, "r");
 			if (!includeFile) {
-				char *tmp = (char *)malloc(256);
-				snprintf(tmp, 256,
-					 "Could not find INCLUDE file: %s\n"
-				         "  for file: %s\n",
-					 operand, currentFileName);
+				const char *fmt =
+				    "Could not find INCLUDE file: %s\n"
+				    "  for file: %s\n";
+				size_t len = strlen(operand) +
+				    strlen(currentFileName) +
+				    strlen(fmt) + 1;
+				char *tmp = malloc(len);
+				snprintf(tmp, len, fmt,
+				         operand, currentFileName);
 				return tmp;
 			}
 			error = buildCompleteSourceFile(includeFile,
