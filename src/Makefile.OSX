@@ -1,4 +1,4 @@
-PREFIX:=	/Users/cross/unix/project/bsvc
+PREFIX?=	/usr/local
 BINDIR:=	$(PREFIX)/bin
 LIBDIR:=	$(PREFIX)/lib/bsvc
 
