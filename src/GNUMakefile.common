@@ -112,15 +112,15 @@ $(DECODE_TABLE_SIM68360):	$(INSTRUCTION) $(SUBDIR_SIM68360)/instruction.list
 			$(INSTRUCTION) $(SUBDIR_SIM68360)/instruction.list $@ cpu32
 
 install:		all
-			$(MKDIR) -p $(BINDIR) $(LIBDIR)
-			$(INSTALL) -c $(TARGETS) $(BINDIR)
-			$(MKDIR) -p $(LIBDIR)/UI
-			$(MKDIR) -p $(LIBDIR)/UI/bitmaps
-			$(MKDIR) -p $(LIBDIR)/UI/help
-			$(INSTALL) -m 644 $(SUBDIR_UI)/*.tk $(SUBDIR_UI)/*.ad $(LIBDIR)/UI
-			$(INSTALL) -m 644 $(SUBDIR_UI)/bitmaps/* $(LIBDIR)/UI/bitmaps
-			$(INSTALL) -m 644 $(SUBDIR_UI)/help/* $(LIBDIR)/UI/help
-			$(INSTALL) $(BIN_BSVC) $(BINDIR)
+			$(MKDIR) -p $(DESTDIR)$(BINDIR) $(DESTDIR)/$(LIBDIR)
+			$(INSTALL) -c $(TARGETS) $(DESTDIR)/$(BINDIR)
+			$(MKDIR) -p $(DESTDIR)$(LIBDIR)/UI
+			$(MKDIR) -p $(DESTDIR)$(LIBDIR)/UI/bitmaps
+			$(MKDIR) -p $(DESTDIR)$(LIBDIR)/UI/help
+			$(INSTALL) -m 644 $(SUBDIR_UI)/*.tk $(SUBDIR_UI)/*.ad $(DESTDIR)$(LIBDIR)/UI
+			$(INSTALL) -m 644 $(SUBDIR_UI)/bitmaps/* $(DESTDIR)$(LIBDIR)/UI/bitmaps
+			$(INSTALL) -m 644 $(SUBDIR_UI)/help/* $(DESTDIR)$(LIBDIR)/UI/help
+			$(INSTALL) $(BIN_BSVC) $(DESTDIR)$(BINDIR)
 
 clean:
 			$(RM) -f $(TARGETS) $(UI) $(LIBS) $(OBJS) $(DEPENDS) \
