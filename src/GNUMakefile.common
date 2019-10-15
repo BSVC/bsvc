@@ -112,8 +112,8 @@ $(DECODE_TABLE_SIM68360):	$(INSTRUCTION) $(SUBDIR_SIM68360)/instruction.list
 			$(INSTRUCTION) $(SUBDIR_SIM68360)/instruction.list $@ cpu32
 
 install:		all
-			$(MKDIR) -p $(DESTDIR)$(BINDIR) $(DESTDIR)/$(LIBDIR)
-			$(INSTALL) -c $(TARGETS) $(DESTDIR)/$(BINDIR)
+			$(MKDIR) -p $(DESTDIR)$(BINDIR) $(DESTDIR)$(LIBDIR)
+			$(INSTALL) -c $(TARGETS) $(DESTDIR)$(BINDIR)
 			$(MKDIR) -p $(DESTDIR)$(LIBDIR)/UI
 			$(MKDIR) -p $(DESTDIR)$(LIBDIR)/UI/bitmaps
 			$(MKDIR) -p $(DESTDIR)$(LIBDIR)/UI/help
