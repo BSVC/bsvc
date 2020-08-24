@@ -158,6 +158,7 @@ set(int size, char *label, char *op, int *errorPtr)
 	}
 	error = OK;
 	op = eval(op, &value, &backRef, errorPtr);
+	if (op == NULL) return;
 	if (*errorPtr < SEVERE && !backRef) {
 		NEWERROR(*errorPtr, INV_FORWARD_REF);
 	}
